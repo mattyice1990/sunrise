@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Thank You! | Sunrise Roofers</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Diagonal Slash Design Elements */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.08) 0%, transparent 50%);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 35%;
+            height: 200%;
+            background: linear-gradient(135deg, transparent 50%, rgba(245, 166, 35, 0.05) 100%);
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+        
+        .thank-you-container {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #d4edda;
+            border: 4px solid #28a745;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: checkmarkPop 0.6s ease-out 0.3s both;
+        }
+        
+        @keyframes checkmarkPop {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .checkmark svg {
+            width: 50px;
+            height: 50px;
+            stroke: #28a745;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawCheck 0.5s ease-out 0.6s forwards;
+        }
+        
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: #F5A623;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #4A4A4A;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-box {
+            background: #fef3e2;
+            border-left: 4px solid #F5A623;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .highlight-box h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        
+        .highlight-box a {
+            color: #F5A623;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        
+        .highlight-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #F5A623;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #E89510;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #1A1A1A;
+            border: 2px solid #1A1A1A;
+        }
+        
+        .btn-secondary:hover {
+            background: #1A1A1A;
+            color: white;
+        }
+        
+        .emergency-note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        
+        .emergency-note p {
+            font-size: 14px;
+            color: #856404;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="checkmark">
+            <svg viewBox="0 0 52 52">
+                <path d="M14 27l8 8 16-16"/>
+            </svg>
+        </div>
+        
+        <h1>Thank You!</h1>
+        <h2>Your Request Has Been Received</h2>
+        
+        <p>We appreciate you reaching out to Sunrise Roofers! Your estimate request has been successfully submitted, and our team is reviewing the details.</p>
+        
+        <div class="highlight-box">
+            <h3>What Happens Next?</h3>
+            <p>✓ We'll review your information within the next few hours</p>
+            <p>✓ A roofing specialist will contact you within <strong>24 hours</strong></p>
+            <p>✓ We'll schedule a free, no-obligation inspection at your convenience</p>
+            <p>✓ You'll receive a detailed estimate for your project</p>
+        </div>
+        
+        <p style="margin-top: 20px;"><strong>Need immediate assistance?</strong></p>
+        <p>Call us directly at <a href="tel:520-668-6638" style="color: #F5A623; font-weight: 600; text-decoration: none; font-size: 24px;">520-668-6638</a></p>
+        <p style="font-size: 14px; color: #666;">Monday-Friday: 7:00 AM - 6:00 PM | Saturday: 8:00 AM - 4:00 PM</p>
+        
+        <div class="button-group">
+            <a href="index.html" class="btn btn-primary">Return to Home</a>
+            <a href="services.html" class="btn btn-secondary">View Our Services</a>
+        </div>
+        
+        <div class="emergency-note">
+            <p><strong>Emergency Roof Repair?</strong> If you have an urgent roofing issue like a leak or storm damage, please call us immediately at 520-668-6638. We provide 24/7 emergency service!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-scroll to top on load
+        window.scrollTo(0, 0);
+        
+        // Optional: Auto-redirect after 30 seconds
+        // setTimeout(function() {
+        //     window.location.href = 'index.html';
+        // }, 30000);
+    </script>
+</body>
+</html>
+

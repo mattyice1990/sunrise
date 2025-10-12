@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Contact Sunrise Roofers | Get Free Estimate | Call 520-668-6638</title>
     <meta name="description" content="Contact Sunrise Roofers for expert roofing services in Tucson. Call 520-668-6638 or email sunriseroofer@outlook.com for a free estimate. Licensed ROC #358079.">
     
@@ -91,6 +92,18 @@
         .form-group textarea {min-height: 120px; resize: vertical;}
         .submit-btn {font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: #FFFFFF; padding: 16px 40px; border: none; border-radius: 0; cursor: pointer; transition: all 0.3s ease;}
         .submit-btn:hover {background: #E89510; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
+        .submit-btn:disabled {background: #ccc; cursor: not-allowed; transform: none;}
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
         /* Emergency Alert */
         .emergency-alert {background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin: 40px auto; max-width: 1100px; border-radius: 5px;}
@@ -249,7 +262,39 @@
             
             <div class="contact-form">
                 <h2>Request Free Estimate</h2>
-                <form action="#" method="post">
+                
+                <!-- Success Message (Hidden by default) -->
+                <div id="success-message" style="display: none; background: #d4edda; border: 3px solid #28a745; color: #155724; padding: 30px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(40, 167, 69, 0.3); animation: slideDown 0.5s ease-out;">
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height: 60px; background: #28a745; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <span style="color: white; font-size: 32px; font-weight: bold;">✓</span>
+                        </div>
+                        <h3 style="margin: 0 0 15px 0; font-size: 28px; font-family: 'Bebas Neue', sans-serif; color: #28a745;">Message Sent Successfully!</h3>
+                        <p style="margin: 0 0 10px 0; font-size: 18px;"><strong>Thank you for contacting Sunrise Roofers!</strong></p>
+                        <p style="margin: 0; font-size: 16px;">We've received your request and a roofing specialist will contact you within <strong>24 hours</strong>.</p>
+                        <p style="margin: 15px 0 0 0; font-size: 14px; color: #666;">Need immediate assistance? Call us at <a href="tel:520-668-6638" style="color: #28a745; font-weight: bold; text-decoration: none;">520-668-6638</a></p>
+                    </div>
+                </div>
+                
+                <!-- Error Message (Hidden by default) -->
+                <div id="error-message" style="display: none; background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+                    <h3 style="margin: 0 0 10px 0; font-size: 20px;">✗ Something Went Wrong</h3>
+                    <p style="margin: 0;">Please try again or call us directly at <a href="tel:520-668-6638" style="color: #721c24; font-weight: bold;">520-668-6638</a></p>
+                </div>
+                
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="bb31a1fd-2cf0-4ea5-8920-18cad8059ed4">
+                    
+                    <!-- Additional hidden fields for better emails -->
+                    <input type="hidden" name="subject" value="New Roofing Estimate Request - Sunrise Roofers">
+                    <input type="hidden" name="from_name" value="Sunrise Roofers Website">
+                    <!-- Return JSON response instead of redirecting -->
+                    <input type="hidden" name="redirect" value="false">
+                    
+                    <!-- Honeypot Spam Protection (hidden from users) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -290,7 +335,7 @@
                         <textarea id="message" name="message" placeholder="Tell us about your roofing needs..."></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Get Free Estimate</button>
+                    <button type="submit" class="submit-btn" id="submit-btn">Get Free Estimate</button>
                     
                     <p style="font-size: 14px; color: #666; margin-top: 15px;">* Required fields. We respect your privacy and will never share your information.</p>
                 </form>
@@ -407,6 +452,76 @@
             const mobileToggle = document.querySelector('.mobile-menu-toggle'); const navLinks = document.querySelector('.nav-links');
             if (mobileToggle) { mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); }); }
             document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', function() { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
+            
+            // Contact Form Handling
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    // Check if we're on localhost - if so, let form submit naturally to avoid CORS
+                    const isLocalhost = window.location.hostname === 'localhost' || 
+                                       window.location.hostname === '127.0.0.1' || 
+                                       window.location.protocol === 'file:';
+                    
+                    if (isLocalhost) {
+                        // On localhost: submit naturally, will redirect to Web3Forms success page
+                        submitBtn.textContent = 'Sending...';
+                        submitBtn.disabled = true;
+                        // Let form submit naturally (no preventDefault)
+                        return;
+                    }
+                    
+                    // On production domain: use AJAX for smooth on-page success message
+                    e.preventDefault();
+                    
+                    // Hide any previous messages
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                    
+                    // Change button text and disable it
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            // Show success message
+                            successMessage.style.display = 'block';
+                            
+                            // Scroll to success message smoothly
+                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            
+                            // Hide the form
+                            contactForm.style.display = 'none';
+                            
+                            // Reset form for future use
+                            contactForm.reset();
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        // Show error message
+                        errorMessage.style.display = 'block';
+                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Re-enable button
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
         });
     </script>
 </body>
