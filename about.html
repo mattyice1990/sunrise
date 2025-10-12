@@ -64,72 +64,12 @@
         .mobile-menu-toggle {display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 5px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1001;}
         .mobile-menu-toggle span {width: 25px; height: 3px; background: #1A1A1A; transition: all 0.3s; border-radius: 2px;}
         
-        /* Hero with Parallax */
-        .hero {
-            position: relative; 
-            padding: 180px 40px; 
-            text-align: center; 
-            color: #FFFFFF; 
-            overflow: hidden;
-            background-image: url('./images/Tucson Roof Replacement.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: inherit;
-            background-attachment: scroll;
-            will-change: transform;
-            z-index: 0;
-        }
-        .hero::before {
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0; 
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(245, 166, 35, 0.3) 50%, rgba(26, 26, 26, 0.85) 100%);
-            z-index: 1;
-        }
-        .hero::after {
-            content: ''; 
-            position: absolute; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            height: 100px; 
-            background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.9));
-            z-index: 1;
-        }
-        .hero h1 {
-            font-family: 'Bebas Neue', sans-serif; 
-            font-size: 72px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 4px; 
-            line-height: 1.1; 
-            margin-bottom: 24px; 
-            color: #F5A623; 
-            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); 
-            position: relative; 
-            z-index: 2;
-        }
-        .hero p {
-            font-family: 'Roboto', sans-serif; 
-            font-size: 26px; 
-            font-weight: 500; 
-            line-height: 1.6; 
-            color: #FFFFFF; 
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-            position: relative; 
-            z-index: 2;
-        }
+        /* Hero */
+        .hero {background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%); padding: 120px 40px; text-align: center; color: #FFFFFF; position: relative; overflow: hidden;}
+        .hero::before {content: ''; position: absolute; top: -50%; right: -10%; width: 40%; height: 200%; background: linear-gradient(135deg, rgba(245, 166, 35, 0.08) 0%, transparent 50%); transform: rotate(15deg); pointer-events: none;}
+        .hero::after {content: ''; position: absolute; bottom: -50%; left: -10%; width: 35%; height: 200%; background: linear-gradient(135deg, transparent 50%, rgba(245, 166, 35, 0.05) 100%); transform: rotate(-15deg); pointer-events: none;}
+        .hero h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px; color: #F5A623; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); position: relative; z-index: 1;}
+        .hero p {font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 400; line-height: 1.6; color: #FFFFFF; position: relative; z-index: 1;}
         
         /* Content */
         section {padding: 80px 40px;}
@@ -371,11 +311,8 @@
             h4 {font-size: 20px;}
             p {font-size: 16px;}
             .about-bg {background-attachment: scroll;}
-            .hero {
-                padding: 100px 20px;
-                background-attachment: scroll;
-            }
-            .hero h1 {font-size: 40px; letter-spacing: 2px;}
+            .hero {padding: 80px 20px;}
+            .hero h1 {font-size: 40px;}
             .hero p {font-size: 18px;}
             section {padding: 60px 20px;}
             .cta-section {padding: 60px 20px;}
@@ -750,31 +687,6 @@
             });
 
             // ============================================
-            // PARALLAX EFFECT - Hero Background
-            // ============================================
-            
-            let ticking = false;
-            
-            function updateParallax() {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-                
-                if (hero && window.innerWidth > 768) {
-                    // Parallax effect - slower movement creates depth
-                    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
-                }
-                
-                ticking = false;
-            }
-
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateParallax);
-                    ticking = true;
-                }
-            });
-
-            // ============================================
             // SMOOTH SCROLL ENHANCEMENT
             // ============================================
             
@@ -814,15 +726,6 @@
             document.querySelectorAll('img[data-src]').forEach(img => {
                 imageObserver.observe(img);
             });
-
-            // ============================================
-            // PERFORMANCE: Reduce animations on mobile
-            // ============================================
-            
-            if (window.innerWidth <= 768) {
-                // Disable parallax on mobile for better performance
-                window.addEventListener('scroll', function() {}, { passive: true });
-            }
         });
     </script>
 </body>
