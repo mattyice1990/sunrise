@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>About Sunrise Roofers | Licensed Tucson Roofing Contractors</title>
-    <meta name="description" content="Learn about Sunrise Roofers LLC. Licensed, family-owned roofing company serving Tucson since 2004. Expert team with 20+ years experience. ROC #358079.">
+    <meta name="description" content="Learn about Sunrise Roofers LLC. Licensed, family-owned roofing company serving Tucson since 2025. Expert team with 20+ years experience. ROC #358079.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,14 +13,15 @@
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box;}
         body {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.6; color: #1A1A1A;}
+        html {scroll-behavior: smooth;}
         .container {max-width: 1200px; margin: 0 auto; padding: 0 20px;}
         
         h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px;}
-        h2 {font-family: 'Bebas Neue', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2; margin-bottom: 20px; color: #F5A623;}
+        h2 {font-family: 'Bebas Neue', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.2; margin-bottom: 20px; color: #F5A623;}
         h3 {font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 600; line-height: 1.3; margin-bottom: 16px; color: #1A1A1A;}
         h4 {font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: #4A4A4A;}
-        p {font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; margin-bottom: 16px; color: #1A1A1A;}
-        ul {color: #1A1A1A; line-height: 1.6;}
+        p {font-family: 'Roboto', sans-serif; font-size: 18px; line-height: 1.8; margin-bottom: 20px; color: #1A1A1A;}
+        ul {color: #1A1A1A; line-height: 1.8;}
         
         /* Sticky Header */
         .site-header {position: sticky; top: 0; z-index: 1000;}
@@ -63,42 +64,262 @@
         .mobile-menu-toggle {display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 5px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1001;}
         .mobile-menu-toggle span {width: 25px; height: 3px; background: #1A1A1A; transition: all 0.3s; border-radius: 2px;}
         
-        /* Hero */
-        .hero {background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%); padding: 120px 40px; text-align: center; color: #FFFFFF; position: relative; overflow: hidden;}
-        .hero::before {content: ''; position: absolute; top: -50%; right: -10%; width: 40%; height: 200%; background: linear-gradient(135deg, rgba(245, 166, 35, 0.08) 0%, transparent 50%); transform: rotate(15deg); pointer-events: none;}
-        .hero::after {content: ''; position: absolute; bottom: -50%; left: -10%; width: 35%; height: 200%; background: linear-gradient(135deg, transparent 50%, rgba(245, 166, 35, 0.05) 100%); transform: rotate(-15deg); pointer-events: none;}
-        .hero h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px; color: #F5A623; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); position: relative; z-index: 1;}
-        .hero p {font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 400; line-height: 1.6; color: #FFFFFF; position: relative; z-index: 1;}
+        /* Hero with Parallax */
+        .hero {
+            position: relative; 
+            padding: 180px 40px; 
+            text-align: center; 
+            color: #FFFFFF; 
+            overflow: hidden;
+            background-image: url('./images/Tucson Roof Replacement.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            background-attachment: scroll;
+            will-change: transform;
+            z-index: 0;
+        }
+        .hero::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(245, 166, 35, 0.3) 50%, rgba(26, 26, 26, 0.85) 100%);
+            z-index: 1;
+        }
+        .hero::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            height: 100px; 
+            background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.9));
+            z-index: 1;
+        }
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 72px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            line-height: 1.1; 
+            margin-bottom: 24px; 
+            color: #F5A623; 
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); 
+            position: relative; 
+            z-index: 2;
+        }
+        .hero p {
+            font-family: 'Roboto', sans-serif; 
+            font-size: 26px; 
+            font-weight: 500; 
+            line-height: 1.6; 
+            color: #FFFFFF; 
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            position: relative; 
+            z-index: 2;
+        }
         
         /* Content */
         section {padding: 80px 40px;}
         .bg-light {background: #F5F5F5; padding: 80px 40px;}
         
-        /* Features Grid */
-        .features-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;}
+        /* Two Column Layout for Our Story */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .story-image {
+            position: relative;
+        }
+        .image-placeholder {
+            background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 18px;
+            font-style: italic;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Features Grid with Animation */
+        .features-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+            margin-top: 40px;
+        }
         .feature {
             text-align: center;
-            background: white;
-            border: 2px solid #E0E0E0;
-            border-radius: 8px;
-            padding: 30px 20px;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(245, 166, 35, 0.3);
+            border-radius: 12px;
+            padding: 40px 20px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .feature.animate-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         .feature:hover {
             border-color: #F5A623;
-            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.15);
-            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(245, 166, 35, 0.25);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 1);
         }
-        .feature-icon {font-size: 50px; margin-bottom: 15px; color: #F5A623;}
-        .feature h3 {font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.4; color: #1A1A1A; margin-bottom: 10px;}
-        .feature p {font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; color: #6B6B6B;}
+        .feature-icon {
+            font-size: 64px; 
+            margin-bottom: 20px; 
+            color: #F5A623;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+        }
+        .feature-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .feature h3 {
+            font-family: 'Oswald', sans-serif; 
+            font-size: 26px; 
+            font-weight: 600; 
+            line-height: 1.4; 
+            color: #1A1A1A; 
+            margin-bottom: 15px;
+        }
+        .feature p {
+            font-family: 'Roboto', sans-serif; 
+            font-size: 16px; 
+            line-height: 1.6; 
+            color: #4A4A4A;
+        }
         
         /* CTA Section */
         .cta-section {background: #1A1A1A; padding: 80px 40px; text-align: center; color: #FFFFFF;}
         .cta-section h2 {font-family: 'Bebas Neue', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5A623; margin-bottom: 20px;}
         .cta-section p {font-family: 'Roboto', sans-serif; font-size: 20px; line-height: 1.7; color: #E8E8E8; margin-bottom: 30px;}
         .cta-section a {font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: #FFFFFF; padding: 16px 40px; border-radius: 0; border: none; text-decoration: none; display: inline-block; transition: all 0.3s ease;}
-        .cta-section a:hover {background: #E89510; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
+        .cta-section a:hover {background: #E89510; transform: scale(1.05); box-shadow: 0 8px 20px rgba(245, 166, 35, 0.5);}
+        
+        /* Fade-in Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Commitment Section with Enhanced Background */
+        .commitment-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+        .commitment-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .commitment-list li.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .commitment-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F5A623;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+        .cert-item {
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .cert-item.animate-in {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .cert-logo {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(245, 166, 35, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .cert-logo:hover {
+            border-color: #F5A623;
+            box-shadow: 0 8px 25px rgba(245, 166, 35, 0.3);
+            transform: translateY(-5px);
+        }
+        .cert-logo img {
+            max-width: 150px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+        
+        /* Section Dividers */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(to right, transparent, #F5A623, transparent);
+            margin: 60px auto;
+            max-width: 200px;
+            border-radius: 2px;
+        }
         
         /* Footer */
         footer {background: #3D3D3D; color: #D0D0D0; padding: 60px 20px 20px;}
@@ -106,7 +327,7 @@
         .footer-section h3 {font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; color: #F5A623; margin-bottom: 20px;}
         .footer-section p {font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; color: #E8E8E8;}
         .footer-section ul {list-style: none;}
-        .footer-section ul li {margin-bottom: 10px;}
+        .footer-section ul li {margin-bottom: 10px; color: #D0D0D0;}
         .footer-section a {color: #D0D0D0; text-decoration: none; transition: color 0.3s;}
         .footer-section a:hover {color: #F5A623;}
         .footer-bottom {text-align: center; padding-top: 30px; border-top: 1px solid #4A4A4A;}
@@ -124,12 +345,12 @@
             overflow: hidden;
             padding: 80px 20px;
         }
-        .about-bg::before {content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(245, 245, 245, 0.88) 0%, rgba(150, 150, 150, 0.85) 100%); z-index: 1;}
+        .about-bg::before {content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26, 26, 26, 0.92) 0%, rgba(74, 74, 74, 0.88) 100%); z-index: 1;}
         .about-bg .container {position: relative; z-index: 2;}
-        .about-bg h2 {color: #000000; text-shadow: 1px 1px 2px rgba(245, 166, 35, 0.4);}
-        .about-bg p, .about-bg ul {color: #000000; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);}
+        .about-bg h2 {color: #FFFFFF; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);}
+        .about-bg p, .about-bg ul {color: #FFFFFF; font-weight: 400; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);}
         .about-bg .feature {background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);}
-        .about-bg strong {color: #000000; text-shadow: 1px 1px 2px rgba(245, 166, 35, 0.3);}
+        .about-bg strong {color: #F5A623; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);}
         
         /* Tablet Responsive */
         @media (max-width: 1024px) {
@@ -148,12 +369,37 @@
             h2 {font-size: 32px;}
             h3 {font-size: 24px;}
             h4 {font-size: 20px;}
+            p {font-size: 16px;}
             .about-bg {background-attachment: scroll;}
-            .hero {padding: 80px 20px;}
-            .hero h1 {font-size: 40px;}
+            .hero {
+                padding: 100px 20px;
+                background-attachment: scroll;
+            }
+            .hero h1 {font-size: 40px; letter-spacing: 2px;}
             .hero p {font-size: 18px;}
             section {padding: 60px 20px;}
             .cta-section {padding: 60px 20px;}
+            
+            /* Mobile two-column stack */
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .image-placeholder {
+                min-height: 300px;
+            }
+            
+            /* Mobile features grid */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            /* Mobile certifications */
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
             .top-bar-container {justify-content: center; gap: 15px; font-size: 12px;}
             .logo img {height: 60px;}
             .mobile-menu-toggle {display: flex;}
@@ -233,55 +479,106 @@
     
     <section class="hero">
         <h1>About Sunrise Roofers LLC</h1>
-        <p>Tucson's trusted roofing contractor since 2004</p>
+        <p>Tucson's trusted roofing contractor since 2025</p>
     </section>
     
     <section class="about-bg">
         <div class="container">
-            <h2>Our Story</h2>
-            <p>Founded in 2004, Sunrise Roofers LLC has been serving the Tucson and Phoenix communities for over 20 years. We started as a small family business with a commitment to quality and customer satisfaction. Today, we're proud to be one of Arizona's most trusted roofing contractors, with hundreds of successful projects and satisfied customers.</p>
+            <h2 class="fade-in-section">Our Story</h2>
+            <div class="two-column fade-in-section">
+                <div class="story-content">
+                    <p>Founded in 2025, Sunrise Roofers LLC is dedicated to serving the Tucson and Phoenix communities. We started as a small family business with a commitment to quality and customer satisfaction, led by a team with over 20 years of roofing experience. Today, we're proud to be one of Arizona's most trusted roofing contractors, with hundreds of successful projects and satisfied customers.</p>
+                    
+                    <p>Our team of licensed professionals brings decades of combined experience to every project, ensuring your roof is built to withstand Arizona's harsh desert climate. We take pride in our work and are committed to providing honest, reliable service to every customer.</p>
+                </div>
+                <div class="story-image">
+                    <div class="image-placeholder">
+                        <img src="./images/SunriseRoofersTucson.png" alt="Sunrise Roofers Team - Professional roofing contractors in Tucson">
+                    </div>
+                </div>
+            </div>
             
-            <p>Our team of licensed professionals brings decades of combined experience to every project, ensuring your roof is built to withstand Arizona's harsh desert climate. We take pride in our work and are committed to providing honest, reliable service to every customer.</p>
+            <div class="section-divider"></div>
             
-            <h2 style="margin-top: 50px;">Why Choose Us</h2>
+            <h2 style="margin-top: 50px;" class="fade-in-section">Why Choose Us</h2>
             
             <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon"></div>
+                <div class="feature" style="animation-delay: 0.1s;">
+                    <div class="feature-icon">🛡️</div>
                     <h3>Licensed & Insured</h3>
                     <p>ROC #358079<br>Fully bonded and insured</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">‍‍‍</div>
+                <div class="feature" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
                     <h3>Family Owned</h3>
-                    <p>Local, family-operated<br>business since 2004</p>
+                    <p>Local, family-operated<br>business since 2025</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon"></div>
+                <div class="feature" style="animation-delay: 0.3s;">
+                    <div class="feature-icon">
+                        <img src="./images/BBB.png" alt="BBB A+ Rating">
+                    </div>
                     <h3>A+ BBB Rating</h3>
                     <p>Accredited business<br>Excellent customer reviews</p>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon"></div>
+                <div class="feature" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">🏆</div>
                     <h3>Award Winning</h3>
                     <p>Best of Tucson<br>Multiple years</p>
                 </div>
             </div>
             
-            <h2 style="margin-top: 50px;">Our Commitment</h2>
-            <ul>
-                <li><strong>Quality Workmanship:</strong> Expert installation using premium materials</li>
-                <li><strong>Honest Communication:</strong> No commissioned sales, transparent pricing</li>
-                <li><strong>Customer Satisfaction:</strong> 100% satisfaction guarantee on all work</li>
-                <li><strong>Timely Service:</strong> Respect your time and complete projects on schedule</li>
-                <li><strong>Local Expertise:</strong> Deep understanding of Arizona's unique roofing needs</li>
+            <div class="section-divider"></div>
+            
+            <h2 style="margin-top: 50px;" class="fade-in-section">Our Commitment</h2>
+            <ul class="commitment-list">
+                <li style="transition-delay: 0.1s;"><strong>Quality Workmanship:</strong> Expert installation using premium materials</li>
+                <li style="transition-delay: 0.2s;"><strong>Honest Communication:</strong> No commissioned sales, transparent pricing</li>
+                <li style="transition-delay: 0.3s;"><strong>Customer Satisfaction:</strong> 100% satisfaction guarantee on all work</li>
+                <li style="transition-delay: 0.4s;"><strong>Timely Service:</strong> Respect your time and complete projects on schedule</li>
+                <li style="transition-delay: 0.5s;"><strong>Local Expertise:</strong> Deep understanding of Arizona's unique roofing needs</li>
             </ul>
             
-            <h2 style="margin-top: 50px;">Certifications & Licenses</h2>
-            <p><strong>Arizona ROC License:</strong> #358079<br>
-            <strong>Insurance:</strong> Fully insured for your protection<br>
-            <strong>Certifications:</strong> Certified installers for GAF, Owens Corning, CertainTeed<br>
-            <strong>BBB Rating:</strong> A+ Accredited Business</p>
+            <div class="section-divider"></div>
+            
+            <h2 style="margin-top: 50px;" class="fade-in-section">Certifications & Licenses</h2>
+            <p class="fade-in-section" style="text-align: center; max-width: 800px; margin: 20px auto 40px;">
+                We are proud to hold the highest certifications and licenses in the roofing industry. Our team is certified with leading manufacturers and maintains an A+ BBB rating.
+            </p>
+            
+            <div class="certifications-grid">
+                <div class="cert-item" style="transition-delay: 0.1s;">
+                    <div class="cert-logo">
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; color: #F5A623; margin-bottom: 10px;">📜</div>
+                            <strong style="color: #1A1A1A;">Arizona ROC</strong><br>
+                            <span style="color: #6B6B6B;">#358079</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-item" style="transition-delay: 0.2s;">
+                    <div class="cert-logo">
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; color: #F5A623; margin-bottom: 10px;">🛡️</div>
+                            <strong style="color: #1A1A1A;">GAF Certified</strong><br>
+                            <span style="color: #6B6B6B;">Master Elite™</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-item" style="transition-delay: 0.3s;">
+                    <div class="cert-logo">
+                        <div style="text-align: center;">
+                            <div style="font-size: 48px; color: #F5A623; margin-bottom: 10px;">✓</div>
+                            <strong style="color: #1A1A1A;">Owens Corning</strong><br>
+                            <span style="color: #6B6B6B;">Preferred Contractor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-item" style="transition-delay: 0.4s;">
+                    <div class="cert-logo">
+                        <img src="./images/BBB.png" alt="BBB A+ Accredited Business" style="max-width: 120px;">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -305,7 +602,8 @@
                     <li><a href="concrete-tile-roof-replacement.html">Tile Roofing</a></li>
                     <li><a href="metal-roofing-tucson.html">Metal Roofing</a></li>
                     <li><a href="roof-repair-tucson.html">Roof Repair</a></li>
-                    <li><a href="roof-inspection.html">Roof Inspection</a></li>
+                    <li><a href="tucson-roofing-services.html">Tucson Roofing</a></li>
+                    <li><a href="green-valley-roofing.html">Green Valley Roofing</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -339,6 +637,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown Menu Functionality
             const dropdowns = document.querySelectorAll('.dropdown');
             let closeTimeout;
             
@@ -396,9 +695,134 @@
                     dropdowns.forEach(d => d.classList.remove('active'));
                 }
             });
-            const mobileToggle = document.querySelector('.mobile-menu-toggle'); const navLinks = document.querySelector('.nav-links');
-            if (mobileToggle) { mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); }); }
-            document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', function() { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
+            
+            // Mobile Menu
+            const mobileToggle = document.querySelector('.mobile-menu-toggle'); 
+            const navLinks = document.querySelector('.nav-links');
+            if (mobileToggle) { 
+                mobileToggle.addEventListener('click', function() { 
+                    navLinks.classList.toggle('active'); 
+                    this.classList.toggle('active'); 
+                }); 
+            }
+            document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { 
+                link.addEventListener('click', function() { 
+                    navLinks.classList.remove('active'); 
+                    if (mobileToggle) mobileToggle.classList.remove('active'); 
+                }); 
+            });
+
+            // ============================================
+            // SCROLL ANIMATIONS - Intersection Observer
+            // ============================================
+            
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in sections
+            document.querySelectorAll('.fade-in-section').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Observe all feature cards
+            document.querySelectorAll('.feature').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Observe commitment list items
+            document.querySelectorAll('.commitment-list li').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Observe certification items
+            document.querySelectorAll('.cert-item').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // ============================================
+            // PARALLAX EFFECT - Hero Background
+            // ============================================
+            
+            let ticking = false;
+            
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                
+                if (hero && window.innerWidth > 768) {
+                    // Parallax effect - slower movement creates depth
+                    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+                }
+                
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            });
+
+            // ============================================
+            // SMOOTH SCROLL ENHANCEMENT
+            // ============================================
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '#estimate') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // ============================================
+            // IMAGE LAZY LOAD OBSERVER
+            // ============================================
+            
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            // ============================================
+            // PERFORMANCE: Reduce animations on mobile
+            // ============================================
+            
+            if (window.innerWidth <= 768) {
+                // Disable parallax on mobile for better performance
+                window.addEventListener('scroll', function() {}, { passive: true });
+            }
         });
     </script>
 </body>
