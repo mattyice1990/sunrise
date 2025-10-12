@@ -1955,23 +1955,23 @@
             
             .nav-links {
                 position: fixed;
-                top: -100vh;
+                top: 122px;
                 left: 0;
                 width: 100%;
-                max-height: calc(100vh - 122px);
+                max-height: 0;
                 background: white;
                 flex-direction: column;
                 gap: 0;
                 padding: 0;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-                transition: top 0.3s ease;
-                overflow-y: auto;
-                overflow-x: hidden;
+                transition: max-height 0.3s ease;
+                overflow: hidden;
                 z-index: 999;
             }
             
             .nav-links.active {
-                top: 122px;
+                max-height: calc(100vh - 122px);
+                overflow-y: auto;
             }
             
             .nav-links > li {
