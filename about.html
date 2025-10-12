@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Sunrise Roofers | Licensed Tucson Roofing Contractors</title>
+    <meta name="description" content="Learn about Sunrise Roofers LLC. Licensed, family-owned roofing company serving Tucson since 2004. Expert team with 20+ years experience. ROC #358079.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.6; color: #1A1A1A;}
+        .container {max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+        
+        h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px;}
+        h2 {font-family: 'Bebas Neue', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2; margin-bottom: 20px; color: #F5A623;}
+        h3 {font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 600; line-height: 1.3; margin-bottom: 16px; color: #1A1A1A;}
+        h4 {font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: #4A4A4A;}
+        p {font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; margin-bottom: 16px; color: #1A1A1A;}
+        ul {color: #1A1A1A; line-height: 1.6;}
+        
+        /* Sticky Header */
+        .site-header {position: sticky; top: 0; z-index: 1000;}
+        
+        /* Top Bar */
+        .top-bar {background: #F5F5F5; padding: 10px 0; font-size: 14px; border-bottom: 1px solid #E0E0E0;}
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .top-contact, .top-hours {color: #1A1A1A; text-decoration: none; transition: color 0.3s; font-weight: 700;}
+        .top-contact:hover {color: #F5A623;}
+        
+        /* Navigation */
+        .main-nav {background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+        .nav-container {max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: relative;}
+        .logo {display: flex; align-items: center; text-decoration: none; margin-right: auto;}
+        .logo img {height: 80px; width: auto; display: block;}
+        .logo-sunrise {color: #1A1A1A;} .logo-roofers {color: #F5A623;}
+        .nav-links {display: flex; gap: 25px; list-style: none; align-items: center; margin: 0; padding: 0;}
+        .nav-links > li > a {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; color: #1A1A1A; transition: color 0.3s ease; padding: 10px 5px; display: block;}
+        .nav-links > li > a:hover {color: #F5A623;}
+        .dropdown {position: relative;}
+        .dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: none; border: none; color: #1A1A1A; cursor: pointer; padding: 10px 5px; display: flex; align-items: center; gap: 5px; transition: color 0.3s ease;}
+        .dropdown-toggle:hover {color: #F5A623;}
+        .dropdown-arrow {font-size: 10px; transition: transform 0.3s;}
+        .dropdown.active .dropdown-arrow {transform: rotate(180deg);}
+        .dropdown-content {position: absolute; top: calc(100% + 2px); left: 0; background: white; min-width: 240px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 6px; padding: 12px 0; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000;}
+        .dropdown-content::before {content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; background: transparent;}
+        .dropdown.active .dropdown-content {opacity: 1; visibility: visible; transform: translateY(0);}
+        .dropdown-content a {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; display: block; padding: 12px 20px; color: #1A1A1A; text-decoration: none; transition: all 0.2s;}
+        .dropdown-content a:hover {background: #fef3e2; color: #F5A623; padding-left: 25px;}
+        .cta-button {font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623 !important; color: #FFFFFF !important; padding: 12px 24px !important; border-radius: 0; border: none; transition: all 0.3s ease;}
+        .cta-button:hover {background: #E89510 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
+        .mobile-menu-toggle {display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 5px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1001;}
+        .mobile-menu-toggle span {width: 25px; height: 3px; background: #1A1A1A; transition: all 0.3s; border-radius: 2px;}
+        
+        /* Hero */
+        .hero {background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%); padding: 120px 40px; text-align: center; color: #FFFFFF; position: relative; overflow: hidden;}
+        .hero::before {content: ''; position: absolute; top: -50%; right: -10%; width: 40%; height: 200%; background: linear-gradient(135deg, rgba(245, 166, 35, 0.08) 0%, transparent 50%); transform: rotate(15deg); pointer-events: none;}
+        .hero::after {content: ''; position: absolute; bottom: -50%; left: -10%; width: 35%; height: 200%; background: linear-gradient(135deg, transparent 50%, rgba(245, 166, 35, 0.05) 100%); transform: rotate(-15deg); pointer-events: none;}
+        .hero h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px; color: #F5A623; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); position: relative; z-index: 1;}
+        .hero p {font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 400; line-height: 1.6; color: #FFFFFF; position: relative; z-index: 1;}
+        
+        /* Content */
+        section {padding: 80px 40px;}
+        .bg-light {background: #F5F5F5; padding: 80px 40px;}
+        
+        /* Features Grid */
+        .features-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;}
+        .feature {
+            text-align: center;
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
+        }
+        .feature:hover {
+            border-color: #F5A623;
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.15);
+            transform: translateY(-5px);
+        }
+        .feature-icon {font-size: 50px; margin-bottom: 15px; color: #F5A623;}
+        .feature h3 {font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.4; color: #1A1A1A; margin-bottom: 10px;}
+        .feature p {font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; color: #6B6B6B;}
+        
+        /* CTA Section */
+        .cta-section {background: #1A1A1A; padding: 80px 40px; text-align: center; color: #FFFFFF;}
+        .cta-section h2 {font-family: 'Bebas Neue', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5A623; margin-bottom: 20px;}
+        .cta-section p {font-family: 'Roboto', sans-serif; font-size: 20px; line-height: 1.7; color: #E8E8E8; margin-bottom: 30px;}
+        .cta-section a {font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: #FFFFFF; padding: 16px 40px; border-radius: 0; border: none; text-decoration: none; display: inline-block; transition: all 0.3s ease;}
+        .cta-section a:hover {background: #E89510; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
+        
+        /* Footer */
+        footer {background: #3D3D3D; color: #D0D0D0; padding: 60px 20px 20px;}
+        .footer-content {max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;}
+        .footer-section h3 {font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; color: #F5A623; margin-bottom: 20px;}
+        .footer-section p {font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.6; color: #E8E8E8;}
+        .footer-section ul {list-style: none;}
+        .footer-section ul li {margin-bottom: 10px;}
+        .footer-section a {color: #D0D0D0; text-decoration: none; transition: color 0.3s;}
+        .footer-section a:hover {color: #F5A623;}
+        .footer-bottom {text-align: center; padding-top: 30px; border-top: 1px solid #4A4A4A;}
+        .footer-bottom p {color: #D0D0D0;}
+        .footer-bottom a {color: #D0D0D0;}
+        
+        /* Background Image Section - About */
+        .about-bg {
+            background-image: url('./images/GAF Conference.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+            background-repeat: no-repeat !important;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+        .about-bg::before {content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(245, 245, 245, 0.88) 0%, rgba(150, 150, 150, 0.85) 100%); z-index: 1;}
+        .about-bg .container {position: relative; z-index: 2;}
+        .about-bg h2 {color: #000000; text-shadow: 1px 1px 2px rgba(245, 166, 35, 0.4);}
+        .about-bg p, .about-bg ul {color: #000000; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);}
+        .about-bg .feature {background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);}
+        .about-bg strong {color: #000000; text-shadow: 1px 1px 2px rgba(245, 166, 35, 0.3);}
+        
+        /* Tablet Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links > li > a,
+            .dropdown-toggle {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {font-size: 40px;}
+            h2 {font-size: 32px;}
+            h3 {font-size: 24px;}
+            h4 {font-size: 20px;}
+            .about-bg {background-attachment: scroll;}
+            .hero {padding: 80px 20px;}
+            .hero h1 {font-size: 40px;}
+            .hero p {font-size: 18px;}
+            section {padding: 60px 20px;}
+            .cta-section {padding: 60px 20px;}
+            .top-bar-container {justify-content: center; gap: 15px; font-size: 12px;}
+            .logo img {height: 60px;}
+            .mobile-menu-toggle {display: flex;}
+            .nav-links {position: fixed; top: -100vh; left: 0; width: 100%; max-height: calc(100vh - 95px); background: white; flex-direction: column; gap: 0; padding: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: top 0.3s ease; overflow-y: auto; overflow-x: hidden; z-index: 999;}
+            .nav-links.active {top: 95px;}
+            .nav-links > li {width: 100%; border-bottom: 1px solid #E0E0E0;}
+            .nav-links > li > a, .dropdown-toggle {padding: 15px 20px; width: 100%; text-align: left; justify-content: space-between; box-sizing: border-box;}
+            .dropdown-content {position: static; box-shadow: none; padding: 0; opacity: 1; visibility: visible; transform: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #F5F5F5; width: 100%;}
+            .dropdown.active .dropdown-content {max-height: 500px; border-top: 1px solid #E0E0E0;}
+            .dropdown-content a {padding: 12px 20px 12px 40px; box-sizing: border-box; word-wrap: break-word; overflow-wrap: break-word;}
+            .cta-button {margin: 10px 20px; text-align: center;}
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <a href="tel:520-668-6638" class="top-contact">520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">sunriseroofer@outlook.com</a>
+                <span class="top-hours">Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="SunriseLogo.jpeg" alt="Sunrise Roofers LLC">
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <button class="dropdown-toggle">About <span class="dropdown-arrow">▼</span></button>
+                        <div class="dropdown-content">
+                            <a href="about.html">About Us</a>
+                            <a href="gallery.html">Project Gallery</a>
+                            <a href="why-choose-sunrise-roofers.html">Why Choose Us</a>
+                            <a href="index.html#testimonials">Customer Reviews</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-toggle">Services <span class="dropdown-arrow">▼</span></button>
+                        <div class="dropdown-content">
+                            <a href="services.html">All Services</a>
+                            <a href="arizona-roof-replacement.html">Roof Replacement</a>
+                            <a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a>
+                            <a href="concrete-tile-roof-replacement.html">Tile Roofing</a>
+                            <a href="metal-roofing-tucson.html">Metal Roofing</a>
+                            <a href="roof-repair-tucson.html">Roof Repair</a>
+                            <a href="roof-inspection.html">Roof Inspection</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropdown-toggle">Service Areas <span class="dropdown-arrow">▼</span></button>
+                        <div class="dropdown-content">
+                            <a href="tucson-roofing-services.html">Tucson</a>
+                            <a href="marana-roofing.html">Marana</a>
+                            <a href="oro-valley-roofing.html">Oro Valley</a>
+                            <a href="catalina-foothills-roofing.html">Catalina Foothills</a>
+                            <a href="sahuarita-roofing.html">Sahuarita</a>
+                            <a href="green-valley-roofing.html">Green Valley</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html#estimate" class="cta-button">Free Estimate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>About Sunrise Roofers LLC</h1>
+        <p>Tucson's trusted roofing contractor since 2004</p>
+    </section>
+    
+    <section class="about-bg">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>Founded in 2004, Sunrise Roofers LLC has been serving the Tucson and Phoenix communities for over 20 years. We started as a small family business with a commitment to quality and customer satisfaction. Today, we're proud to be one of Arizona's most trusted roofing contractors, with hundreds of successful projects and satisfied customers.</p>
+            
+            <p>Our team of licensed professionals brings decades of combined experience to every project, ensuring your roof is built to withstand Arizona's harsh desert climate. We take pride in our work and are committed to providing honest, reliable service to every customer.</p>
+            
+            <h2 style="margin-top: 50px;">Why Choose Us</h2>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Licensed & Insured</h3>
+                    <p>ROC #358079<br>Fully bonded and insured</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">‍‍‍</div>
+                    <h3>Family Owned</h3>
+                    <p>Local, family-operated<br>business since 2004</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>A+ BBB Rating</h3>
+                    <p>Accredited business<br>Excellent customer reviews</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Award Winning</h3>
+                    <p>Best of Tucson<br>Multiple years</p>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 50px;">Our Commitment</h2>
+            <ul>
+                <li><strong>Quality Workmanship:</strong> Expert installation using premium materials</li>
+                <li><strong>Honest Communication:</strong> No commissioned sales, transparent pricing</li>
+                <li><strong>Customer Satisfaction:</strong> 100% satisfaction guarantee on all work</li>
+                <li><strong>Timely Service:</strong> Respect your time and complete projects on schedule</li>
+                <li><strong>Local Expertise:</strong> Deep understanding of Arizona's unique roofing needs</li>
+            </ul>
+            
+            <h2 style="margin-top: 50px;">Certifications & Licenses</h2>
+            <p><strong>Arizona ROC License:</strong> #358079<br>
+            <strong>Insurance:</strong> Fully insured for your protection<br>
+            <strong>Certifications:</strong> Certified installers for GAF, Owens Corning, CertainTeed<br>
+            <strong>BBB Rating:</strong> A+ Accredited Business</p>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>Ready to Work with Tucson's Best?</h2>
+        <a href="contact.html">Contact Us Today</a>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sunrise Roofers LLC</h3>
+                <p>Professional roofing services in Tucson and Phoenix, Arizona. Licensed, bonded, and insured. Your trusted roofing contractor for all residential and commercial needs.</p>
+                <p style="margin-top: 15px;">ROC #358079</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="arizona-roof-replacement.html">Roof Replacement</a></li>
+                    <li><a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a></li>
+                    <li><a href="concrete-tile-roof-replacement.html">Tile Roofing</a></li>
+                    <li><a href="metal-roofing-tucson.html">Metal Roofing</a></li>
+                    <li><a href="roof-repair-tucson.html">Roof Repair</a></li>
+                    <li><a href="roof-inspection.html">Roof Inspection</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Service Areas</h3>
+                <ul>
+                    <li>Tucson, AZ</li>
+                    <li>Oro Valley, AZ</li>
+                    <li>Catalina Foothills, AZ</li>
+                    <li>Vail, AZ</li>
+                    <li>Sahuarita, AZ</li>
+                    <li>Green Valley, AZ</li>
+                    <li>All of Southern Arizona</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:520-668-6638">520-668-6638</a></li>
+                    <li><a href="mailto:sunriseroofer@outlook.com">sunriseroofer@outlook.com</a></li>
+                    <li>Tucson, AZ 85712</li>
+                    <li>Mon-Fri: 7AM-6PM</li>
+                    <li>Sat: 8AM-4PM</li>
+                    <li>Emergency Service Available</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="index.html" style="color: #D0D0D0;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #F5A623; text-decoration: none;">Pursuit Analytics</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            let closeTimeout;
+            
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                const arrow = toggle ? toggle.querySelector('.dropdown-arrow') : null;
+                
+                dropdown.addEventListener('mouseenter', function() {
+                    clearTimeout(closeTimeout);
+                    if (window.innerWidth > 768) {
+                        dropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                        dropdown.classList.add('active');
+                    }
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    if (window.innerWidth > 768) {
+                        closeTimeout = setTimeout(() => {
+                            dropdown.classList.remove('active');
+                        }, 200);
+                    }
+                });
+                
+                if (arrow) {
+                    arrow.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (window.innerWidth <= 768) {
+                            dropdowns.forEach(other => {
+                                if (other !== dropdown) other.classList.remove('active');
+                            });
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
+                
+                if (toggle) {
+                    toggle.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            dropdowns.forEach(other => {
+                                if (other !== dropdown) other.classList.remove('active');
+                            });
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    dropdowns.forEach(d => d.classList.remove('active'));
+                }
+            });
+            const mobileToggle = document.querySelector('.mobile-menu-toggle'); const navLinks = document.querySelector('.nav-links');
+            if (mobileToggle) { mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); }); }
+            document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', function() { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
+        });
+    </script>
+</body>
+</html>
+
