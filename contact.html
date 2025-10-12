@@ -289,8 +289,8 @@
                     <!-- Additional hidden fields for better emails -->
                     <input type="hidden" name="subject" value="New Roofing Estimate Request - Sunrise Roofers">
                     <input type="hidden" name="from_name" value="Sunrise Roofers Website">
-                    <!-- Return JSON response instead of redirecting -->
-                    <input type="hidden" name="redirect" value="false">
+                    <!-- Redirect to custom thank you page after submission -->
+                    <input type="hidden" name="redirect" value="https://sunrise-ashy.vercel.app/thank-you.html">
                     
                     <!-- Honeypot Spam Protection (hidden from users) -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -453,73 +453,16 @@
             if (mobileToggle) { mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); }); }
             document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', function() { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
             
-            // Contact Form Handling
+            // Contact Form Handling - Simple natural submission (no AJAX to avoid CORS)
             const contactForm = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
             
             if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) {
-                    // Check if we're on localhost - if so, let form submit naturally to avoid CORS
-                    const isLocalhost = window.location.hostname === 'localhost' || 
-                                       window.location.hostname === '127.0.0.1' || 
-                                       window.location.protocol === 'file:';
-                    
-                    if (isLocalhost) {
-                        // On localhost: submit naturally, will redirect to Web3Forms success page
-                        submitBtn.textContent = 'Sending...';
-                        submitBtn.disabled = true;
-                        // Let form submit naturally (no preventDefault)
-                        return;
-                    }
-                    
-                    // On production domain: use AJAX for smooth on-page success message
-                    e.preventDefault();
-                    
-                    // Hide any previous messages
-                    successMessage.style.display = 'none';
-                    errorMessage.style.display = 'none';
-                    
-                    // Change button text and disable it
-                    const originalText = submitBtn.textContent;
+                contactForm.addEventListener('submit', function(e) {
+                    // Let form submit naturally - will redirect to thank-you.html
                     submitBtn.textContent = 'Sending...';
                     submitBtn.disabled = true;
-                    
-                    try {
-                        const formData = new FormData(contactForm);
-                        const response = await fetch('https://api.web3forms.com/submit', {
-                            method: 'POST',
-                            body: formData
-                        });
-                        
-                        const data = await response.json();
-                        
-                        if (data.success) {
-                            // Show success message
-                            successMessage.style.display = 'block';
-                            
-                            // Scroll to success message smoothly
-                            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            
-                            // Hide the form
-                            contactForm.style.display = 'none';
-                            
-                            // Reset form for future use
-                            contactForm.reset();
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
-                    } catch (error) {
-                        console.error('Form submission error:', error);
-                        // Show error message
-                        errorMessage.style.display = 'block';
-                        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        
-                        // Re-enable button
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }
+                    // Form submits normally (no preventDefault) - no CORS issues!
                 });
             }
         });
