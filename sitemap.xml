@@ -3,7 +3,7 @@
   
   <!-- Home Page - Highest Priority -->
   <url>
-    <loc>https://roofwithsunrise.com/index.html</loc>
+    <loc>https://roofwithsunrise.com/</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,14 +11,14 @@
   
   <!-- Main Service Pages - High Priority -->
   <url>
-    <loc>https://roofwithsunrise.com/services.html</loc>
+    <loc>https://roofwithsunrise.com/services</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/tucson-roofing-services.html</loc>
+    <loc>https://roofwithsunrise.com/tucson-roofing-services</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -26,21 +26,21 @@
   
   <!-- Core Service Pages - High Priority -->
   <url>
-    <loc>https://roofwithsunrise.com/roof-repair-tucson.html</loc>
+    <loc>https://roofwithsunrise.com/roof-repair-tucson</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/roof-inspection.html</loc>
+    <loc>https://roofwithsunrise.com/roof-inspection</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/arizona-roof-replacement.html</loc>
+    <loc>https://roofwithsunrise.com/arizona-roof-replacement</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -48,21 +48,21 @@
   
   <!-- Specific Roofing Type Pages -->
   <url>
-    <loc>https://roofwithsunrise.com/shingle-roof-replacement-tucson.html</loc>
+    <loc>https://roofwithsunrise.com/shingle-roof-replacement-tucson</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/concrete-tile-roof-replacement.html</loc>
+    <loc>https://roofwithsunrise.com/concrete-tile-roof-replacement</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/metal-roofing-tucson.html</loc>
+    <loc>https://roofwithsunrise.com/metal-roofing-tucson</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -70,35 +70,35 @@
   
   <!-- Location-Specific Pages - Important for Local SEO -->
   <url>
-    <loc>https://roofwithsunrise.com/catalina-foothills-roofing.html</loc>
+    <loc>https://roofwithsunrise.com/catalina-foothills-roofing</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/oro-valley-roofing.html</loc>
+    <loc>https://roofwithsunrise.com/oro-valley-roofing</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/marana-roofing.html</loc>
+    <loc>https://roofwithsunrise.com/marana-roofing</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/sahuarita-roofing.html</loc>
+    <loc>https://roofwithsunrise.com/sahuarita-roofing</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/green-valley-roofing.html</loc>
+    <loc>https://roofwithsunrise.com/green-valley-roofing</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -106,21 +106,21 @@
   
   <!-- About & Contact Pages -->
   <url>
-    <loc>https://roofwithsunrise.com/about.html</loc>
+    <loc>https://roofwithsunrise.com/about</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/why-choose-sunrise-roofers.html</loc>
+    <loc>https://roofwithsunrise.com/why-choose-sunrise-roofers</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://roofwithsunrise.com/contact.html</loc>
+    <loc>https://roofwithsunrise.com/contact</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -128,7 +128,7 @@
   
   <!-- Gallery Page -->
   <url>
-    <loc>https://roofwithsunrise.com/gallery.html</loc>
+    <loc>https://roofwithsunrise.com/gallery</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -136,7 +136,7 @@
   
   <!-- Thank You Page - Lower Priority -->
   <url>
-    <loc>https://roofwithsunrise.com/thank-you.html</loc>
+    <loc>https://roofwithsunrise.com/thank-you</loc>
     <lastmod>2025-10-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
