@@ -207,12 +207,136 @@
         .feature-card:hover {transform: translateY(-5px);}
         .feature-card h3 {color: #F5A623; margin-bottom: 15px;}
         
+        /* FAQ Feature Cards - Glassmorphic */
+        .faq-feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .faq-feature-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(245, 166, 35, 0.4);
+            box-shadow: 0 12px 40px rgba(245, 166, 35, 0.2);
+        }
+        .faq-feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            cursor: pointer;
+        }
+        .faq-feature-card h3 {
+            color: #FFFFFF;
+            margin: 0;
+            font-size: 22px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .faq-feature-toggle {
+            color: #F5A623;
+            font-size: 28px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            min-width: 28px;
+            text-align: center;
+        }
+        .faq-feature-card.active .faq-feature-toggle {
+            transform: rotate(45deg);
+        }
+        .faq-feature-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-feature-card.active .faq-feature-content {
+            max-height: 500px;
+            padding: 0 30px 25px 30px;
+        }
+        .faq-feature-content p {
+            color: #E8E8E8;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
         /* Stats Section */
         .stats-section {background: linear-gradient(135deg, rgba(245, 166, 35, 0.88) 0%, rgba(26, 26, 26, 0.92) 100%); color: white; text-align: center;}
         .stats-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin: 40px 0;}
-        .stat-item {padding: 20px;}
-        .stat-number {font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: #F5A623; display: block; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}
+        .stat-item {
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: all 0.8s ease;
+        }
+        .stat-item.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .stat-item:nth-child(1) { transition-delay: 0.1s; }
+        .stat-item:nth-child(2) { transition-delay: 0.3s; }
+        .stat-item:nth-child(3) { transition-delay: 0.5s; }
+        .stat-item:nth-child(4) { transition-delay: 0.7s; }
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 64px; 
+            color: #F5A623; 
+            display: block; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+        }
         .stat-label {font-size: 18px; text-transform: uppercase; letter-spacing: 1px;}
+        
+        /* Process Cards - Glassmorphic */
+        .process-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+        }
+        .process-card.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .process-card[data-step="1"].animate { transition-delay: 0.1s; }
+        .process-card[data-step="2"].animate { transition-delay: 0.2s; }
+        .process-card[data-step="3"].animate { transition-delay: 0.3s; }
+        .process-card[data-step="4"].animate { transition-delay: 0.4s; }
+        .process-card[data-step="5"].animate { transition-delay: 0.5s; }
+        .process-card[data-step="6"].animate { transition-delay: 0.6s; }
+        .process-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(245, 166, 35, 0.4);
+            box-shadow: 0 15px 40px rgba(245, 166, 35, 0.3);
+            transform: translateY(-8px) scale(1.02);
+        }
+        .process-number-badge {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #F5A623, #E89510);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.5);
+        }
         
         /* Comparison Section */
         .comparison-grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin: 40px 0;}
@@ -329,6 +453,39 @@
             h2 {font-size: 36px;}
             .comparison-grid {grid-template-columns: 1fr;}
             .stats-grid {grid-template-columns: repeat(2, 1fr);}
+            
+            /* Stack photo sections on mobile */
+            section > div > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+            
+            section > div > div[style*="grid-template-columns: 1fr 1.2fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+            
+            section h2[style*="font-size: 48px"] {
+                font-size: 32px !important;
+            }
+            
+            section h2[style*="font-size: 72px"] {
+                font-size: 42px !important;
+            }
+            
+            section h2[style*="font-size: 64px"] {
+                font-size: 38px !important;
+            }
+            
+            section p[style*="font-size: 22px"] {
+                font-size: 18px !important;
+            }
+            
+            /* Stack process cards on mobile */
+            section > div > div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
         }
     </style>
 </head>
@@ -418,75 +575,141 @@
             <h2 style="color: white;">Our Track Record Speaks for Itself</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">20+</span>
+                    <span class="stat-number" data-target="20" data-suffix="+">0</span>
                     <span class="stat-label">Years in Business</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">5,000+</span>
+                    <span class="stat-number" data-target="5000" data-suffix="+" data-separator=",">0</span>
                     <span class="stat-label">Completed Projects</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">A+</span>
+                    <span class="stat-number" data-text="A+">A+</span>
                     <span class="stat-label">BBB Rating</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">100%</span>
+                    <span class="stat-number" data-target="100" data-suffix="%">0</span>
                     <span class="stat-label">Licensed & Insured</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Image Section with Dark Background -->
+    <section style="background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); position: relative; padding: 80px 20px; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('./images/Roofing In The Desert.jpg'); background-size: cover; background-position: center; background-attachment: fixed; opacity: 0.15; z-index: 0;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <h2 style="color: #F5A623; font-size: 48px; margin-bottom: 30px;">Expert Craftsmanship You Can Trust</h2>
+                    <p style="color: #FFFFFF; font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+                        With over 20 years of combined roofing experience, our team brings unmatched expertise to every project. We're not just installing roofs—we're protecting your most valuable investment with precision and care.
+                    </p>
+                    <p style="color: #E8E8E8; font-size: 18px; line-height: 1.8;">
+                        From the initial inspection to the final cleanup, we maintain the highest standards of workmanship. Our licensed professionals understand Arizona's unique climate challenges and use proven techniques that ensure your roof will stand the test of time.
+                    </p>
+                </div>
+                <div>
+                    <img src="./images/Roof Installation_edited.jpg" alt="Sunrise Roofers Team at Work" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Key Differentiators -->
-    <section class="bg-light">
+    <section style="background: #2D2D2D; padding: 80px 20px;">
         <div class="container">
-            <h2>What Sets Sunrise Roofers Apart</h2>
-            <p style="font-size: 18px; margin-bottom: 40px;">We're not just another roofing company. Here's why Arizona homeowners consistently choose Sunrise Roofers for their roofing needs:</p>
+            <h2 style="color: #F5A623;">What Sets Sunrise Roofers Apart</h2>
+            <p style="font-size: 18px; margin-bottom: 40px; color: #E8E8E8;">We're not just another roofing company. Here's why Arizona homeowners consistently choose Sunrise Roofers for their roofing needs:</p>
             
             <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🏆 Arizona Roofing Specialists</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Arizona Roofing Specialists</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>We exclusively serve Arizona, giving us unparalleled expertise in handling the unique challenges of desert climate roofing. From intense UV exposure to monsoon season preparation, we understand exactly what your roof needs to last.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>👨‍👩‍👧‍👦 Family-Owned & Locally Operated</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Family-Owned & Locally Operated</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>As a family-owned business, we treat every customer like a neighbor. Our reputation is built on personal relationships and word-of-mouth referrals, not corporate quotas. When you call, you speak with people who genuinely care about your satisfaction.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>💼 Fully Licensed, Bonded & Insured</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Fully Licensed, Bonded & Insured</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>We maintain all required Arizona contractor licenses, comprehensive liability insurance, and workers' compensation coverage. This protects you from any liability and ensures you're working with a legitimate, professional operation.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>🔍 Transparent, No-Pressure Estimates</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Transparent, No-Pressure Estimates</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>Our free estimates are detailed, easy to understand, and come with zero pressure. We provide honest assessments of what your roof needs—not what makes us the most money. Many customers appreciate our straightforward approach that respects their intelligence and budget.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>📸 Daily Progress Updates</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Daily Progress Updates</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>Unlike contractors who disappear for days, we provide daily photo updates and progress reports. You'll always know exactly what's happening with your project, even when you're at work or away from home.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>⚡ Fast Response Times</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Fast Response Times</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>Roofing emergencies don't wait for business hours. We pride ourselves on rapid response to leak calls and urgent repairs. Most customers report hearing back from us within hours, not days.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>🛡️ Comprehensive Warranties</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Comprehensive Warranties</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>We back our work with industry-leading warranties covering both materials and workmanship. Our warranties are clear, transferable, and honored without hassle—because we'll still be here when you need us.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>🧹 Immaculate Job Sites</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Immaculate Job Sites</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>Your property is treated with respect. We use tarps to protect landscaping, sweep with magnets to collect nails, and leave your property cleaner than we found it. Many homeowners comment they can barely tell we were there—except for the beautiful new roof.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>💰 Competitive, Fair Pricing</h3>
+                <div class="faq-feature-card">
+                    <div class="faq-feature-header">
+                        <h3>Competitive, Fair Pricing</h3>
+                        <span class="faq-feature-toggle">+</span>
+                    </div>
+                    <div class="faq-feature-content">
                     <p>We're not the cheapest—and we're not the most expensive. We're priced fairly for the quality of work we deliver. We offer financing options and work within budgets while never compromising on quality or safety.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -498,7 +721,7 @@
             <h2 style="text-align: center; margin-bottom: 40px;">Sunrise Roofers vs. Other Contractors</h2>
             <div class="comparison-grid">
                 <div class="comparison-card comparison-us">
-                    <h3 style="color: #F5A623;">✓ Sunrise Roofers</h3>
+                    <h3 style="color: #F5A623;">Sunrise Roofers</h3>
                     <div class="comparison-item">
                         <span class="check">✓</span>
                         <p><strong>20+ years Arizona experience</strong> - Deep understanding of local climate challenges</p>
@@ -534,7 +757,7 @@
                 </div>
                 
                 <div class="comparison-card comparison-others">
-                    <h3>✗ Many Other Contractors</h3>
+                    <h3>Many Other Contractors</h3>
                     <div class="comparison-item">
                         <span class="cross">✗</span>
                         <p><strong>Limited local experience</strong> - May not understand Arizona's unique needs</p>
@@ -572,78 +795,174 @@
         </div>
     </section>
 
+    <!-- Image Section: Quality Work -->
+    <section style="position: relative; padding: 80px 20px; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('./images/Concrete Tile Install Tucson AZ.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; z-index: 0;"></div>
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(245, 166, 35, 0.88) 0%, rgba(74, 74, 74, 0.92) 100%); z-index: 1;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <img src="./images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Quality Roof Installation Tucson" style="width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);">
+                </div>
+                <div>
+                    <h2 style="color: #F5A623; font-size: 48px; margin-bottom: 30px;">Quality That Speaks for Itself</h2>
+                    <p style="color: #FFFFFF; font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+                        Every project we complete is a testament to our commitment to excellence. We don't cut corners, rush work, or compromise on quality—ever. Your home deserves the best, and that's exactly what we deliver.
+                    </p>
+                    <p style="color: #E8E8E8; font-size: 18px; line-height: 1.8;">
+                        Whether it's a complex tile roof replacement or a straightforward shingle installation, we approach every project with the same level of professionalism and attention to detail. That's why our customers consistently give us 5-star reviews.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Our Process -->
-    <section class="bg-light">
+    <section style="background: #2D2D2D; padding: 80px 20px;">
         <div class="container">
-            <h2>Our Proven Process</h2>
-            <p style="font-size: 18px; margin-bottom: 40px;">From first contact to final inspection, we've refined our process to ensure a stress-free experience:</p>
+            <h2 style="color: #F5A623; text-align: center;">Our Proven Process</h2>
+            <p style="font-size: 18px; margin-bottom: 60px; color: #E8E8E8; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">From first contact to final inspection, we've refined our process to ensure a stress-free experience:</p>
             
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>1. Free Consultation & Inspection</h3>
-                    <p>We start with a thorough roof inspection, identifying issues and discussing your needs and budget. No obligation, no pressure—just honest professional advice.</p>
+            <!-- Row 1: Steps 1-3 -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 30px;">
+                <div class="process-card" data-step="1">
+                    <div class="process-number-badge">1</div>
+                    <h3 style="color: #F5A623; margin-bottom: 15px; font-size: 22px;">Free Consultation & Inspection</h3>
+                    <p style="color: #E8E8E8; line-height: 1.7;">We start with a thorough roof inspection, identifying issues and discussing your needs and budget. No obligation, no pressure—just honest professional advice.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>2. Detailed Written Estimate</h3>
-                    <p>You receive a comprehensive estimate breaking down all costs, materials, timeline, and warranty information. Everything in writing, everything transparent.</p>
+                <div class="process-card" data-step="2">
+                    <div class="process-number-badge">2</div>
+                    <h3 style="color: #F5A623; margin-bottom: 15px; font-size: 22px;">Detailed Written Estimate</h3>
+                    <p style="color: #E8E8E8; line-height: 1.7;">You receive a comprehensive estimate breaking down all costs, materials, timeline, and warranty information. Everything in writing, everything transparent.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>3. Material Selection Guidance</h3>
-                    <p>We help you choose the right materials for Arizona's climate and your budget, explaining pros and cons of each option without pushing premium products.</p>
+                <div class="process-card" data-step="3">
+                    <div class="process-number-badge">3</div>
+                    <h3 style="color: #F5A623; margin-bottom: 15px; font-size: 22px;">Material Selection Guidance</h3>
+                    <p style="color: #E8E8E8; line-height: 1.7;">We help you choose the right materials for Arizona's climate and your budget, explaining pros and cons of each option without pushing premium products.</p>
+                </div>
+            </div>
+            
+            <!-- Row 2: Steps 4-6 -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div class="process-card" data-step="4">
+                    <div class="process-number-badge">4</div>
+                    <h3 style="color: #F5A623; margin-bottom: 15px; font-size: 22px;">Scheduled Installation</h3>
+                    <p style="color: #E8E8E8; line-height: 1.7;">Work begins on the agreed date with our experienced crews. We protect your property, work efficiently, and maintain clear communication throughout.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>4. Scheduled Installation</h3>
-                    <p>Work begins on the agreed date with our experienced crews. We protect your property, work efficiently, and maintain clear communication throughout.</p>
+                <div class="process-card" data-step="5">
+                    <div class="process-number-badge">5</div>
+                    <h3 style="color: #F5A623; margin-bottom: 15px; font-size: 22px;">Quality Control & Inspection</h3>
+                    <p style="color: #E8E8E8; line-height: 1.7;">Our team lead inspects every completed roof before considering the job done. We catch and correct any issues before you even see them.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <h3>5. Quality Control & Inspection</h3>
-                    <p>Our team lead inspects every completed roof before considering the job done. We catch and correct any issues before you even see them.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>6. Final Walkthrough & Warranty</h3>
-                    <p>We walk you through the completed work, answer questions, provide all warranty documentation, and ensure you're 100% satisfied before final payment.</p>
+                <div class="process-card" data-step="6">
+                    <div class="process-number-badge">6</div>
+                    <h3 style="color: #F5A623; margin-bottom: 15px; font-size: 22px;">Final Walkthrough & Warranty</h3>
+                    <p style="color: #E8E8E8; line-height: 1.7;">We walk you through the completed work, answer questions, provide all warranty documentation, and ensure you're 100% satisfied before final payment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Preview -->
-    <section>
-        <div class="container">
-            <h2>What Our Customers Say</h2>
-            <p style="font-size: 18px; margin-bottom: 30px;">Don't just take our word for it. Here's what Arizona homeowners say about working with Sunrise Roofers:</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <p style="font-style: italic; font-size: 18px; color: #666; margin-bottom: 15px;">"Outstanding work from start to finish. They re-roofed our entire home in two days, communicated every step, and left zero mess. Five stars!"</p>
-                    <p><strong>- Michael R., Tucson</strong></p>
+    <!-- Experience the Sunrise Roofers Difference -->
+    <section style="position: relative; padding: 100px 20px; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('./images/Roofing In The Desert.jpg'); background-size: cover; background-position: center; z-index: 0;"></div>
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26, 26, 26, 0.92) 0%, rgba(45, 45, 45, 0.88) 100%); z-index: 1;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; max-width: 1300px; margin: 0 auto;">
+                <!-- Left Side: Big Header -->
+                <div>
+                    <h2 style="font-size: 72px; line-height: 1.1; color: #F5A623; margin-bottom: 30px; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);">
+                        EXPERIENCE THE SUNRISE ROOFERS DIFFERENCE
+                    </h2>
+                    <p style="font-size: 20px; color: #E8E8E8; line-height: 1.6;">
+                        Join thousands of satisfied Arizona homeowners who chose quality, transparency, and professional service.
+                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <p style="font-style: italic; font-size: 18px; color: #666; margin-bottom: 15px;">"After getting three estimates, Sunrise was the only company that took time to explain everything in detail. No pressure, just professional advice. Highly recommend."</p>
-                    <p><strong>- Jennifer S., Oro Valley</strong></p>
-                </div>
-                
-                <div class="feature-card">
-                    <p style="font-style: italic; font-size: 18px; color: #666; margin-bottom: 15px;">"Emergency roof repair during monsoon season. They responded within hours and had us protected same day. Grateful for their quick, professional service."</p>
-                    <p><strong>- David L., Marana</strong></p>
+                <!-- Right Side: Glassmorphic Checklist -->
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 50px 40px; box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);">
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; gap: 15px; align-items: flex-start; margin-bottom: 25px;">
+                            <div style="min-width: 30px; height: 30px; background: #F5A623; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 3px;">
+                                <span style="color: white; font-size: 20px; font-weight: bold;">✓</span>
+                            </div>
+                            <p style="color: #FFFFFF; font-size: 17px; line-height: 1.6; margin: 0;">
+                                Because we take on a high volume of roof replacements in Southern Arizona, we are able to keep our costs more affordable.
+                            </p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; align-items: flex-start; margin-bottom: 25px;">
+                            <div style="min-width: 30px; height: 30px; background: #F5A623; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 3px;">
+                                <span style="color: white; font-size: 20px; font-weight: bold;">✓</span>
+                            </div>
+                            <p style="color: #FFFFFF; font-size: 17px; line-height: 1.6; margin: 0;">
+                                We are highly responsive and have immediate scheduling available.
+                            </p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; align-items: flex-start; margin-bottom: 25px;">
+                            <div style="min-width: 30px; height: 30px; background: #F5A623; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 3px;">
+                                <span style="color: white; font-size: 20px; font-weight: bold;">✓</span>
+                            </div>
+                            <p style="color: #FFFFFF; font-size: 17px; line-height: 1.6; margin: 0;">
+                                We will take every possible step to ensure that every client is 100% satisfied. If you're not happy with our work for any reason, we'll work to make things right.
+                            </p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; align-items: flex-start; margin-bottom: 35px;">
+                            <div style="min-width: 30px; height: 30px; background: #F5A623; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 3px;">
+                                <span style="color: white; font-size: 20px; font-weight: bold;">✓</span>
+                            </div>
+                            <p style="color: #FFFFFF; font-size: 17px; line-height: 1.6; margin: 0;">
+                                We only use the highest quality materials manufactured in the USA and with the best warranties on the market.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certifications -->
+                    <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 30px; text-align: center;">
+                        <p style="color: #F5A623; font-size: 18px; font-weight: 600; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Certified Contractors</p>
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
+                            <div style="text-align: center;">
+                                <img src="./images/GAF_CERTIFIED_LOGO.png" alt="GAF Certified Contractor" style="max-width: 120px; height: auto; margin-bottom: 8px;">
+                                <p style="color: #FFFFFF; font-size: 14px; margin: 0;">GAF Certified</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="./images/certa1.jpg" alt="PolyGlass Certified" style="max-width: 120px; height: auto; margin-bottom: 8px;">
+                                <p style="color: #FFFFFF; font-size: 14px; margin: 0;">PolyGlass Certified</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Experience the Sunrise Roofers Difference</h2>
-            <p style="font-size: 20px;">Join thousands of satisfied Arizona homeowners who chose quality, transparency, and professional service.</p>
-            <a href="contact.html" class="btn-primary">Get Your Free Estimate →</a>
-            <p style="margin-top: 20px; font-size: 16px;">Or call us now: <a href="tel:520-668-6638" style="color: #F5A623; font-weight: bold;">520-668-6638</a></p>
+    <!-- Final CTA Section: Schedule Inspection -->
+    <section style="position: relative; padding: 120px 20px; overflow: hidden;">
+        <!-- Background Image -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('./images/Tile Roof Replacement in Marana.jpg'); background-size: cover; background-position: center; z-index: 0;"></div>
+        
+        <!-- Orange Overlay -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(245, 166, 35, 0.85) 0%, rgba(232, 149, 16, 0.9) 100%); z-index: 1;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: 64px; color: #FFFFFF; margin-bottom: 25px; text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);">
+                Schedule Your Free Roof Inspection Today
+            </h2>
+            <p style="font-size: 22px; color: #FFFFFF; line-height: 1.7; margin-bottom: 40px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);">
+                Ready to protect your home with a quality roof? Share a few details about your roofing project, and our expert team will contact you promptly to schedule your complimentary roof inspection. No obligations, no pressure—just honest advice from Arizona's trusted roofing professionals.
+            </p>
+            <a href="contact.html" class="btn-primary" style="display: inline-block; background: #1A1A1A; color: #FFFFFF; padding: 20px 50px; font-size: 22px; font-weight: 600; border-radius: 8px; text-decoration: none; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); transition: all 0.3s ease; border: 2px solid #FFFFFF;">
+                Get Your Free Inspection →
+            </a>
+            <p style="margin-top: 30px; font-size: 18px; color: #FFFFFF; font-weight: 500;">
+                Or call us directly: <a href="tel:520-668-6638" style="color: #1A1A1A; font-weight: bold; text-decoration: none; background: #FFFFFF; padding: 8px 20px; border-radius: 5px; display: inline-block; margin-top: 10px;">520-668-6638</a>
+            </p>
         </div>
     </section>
 
@@ -779,6 +1098,103 @@
                     }
                 });
             });
+            
+            // FAQ Feature Cards Expand/Collapse
+            const faqCards = document.querySelectorAll('.faq-feature-card');
+            
+            faqCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Close other cards
+                    faqCards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current card
+                    this.classList.toggle('active');
+                });
+            });
+            
+            // Stats Animation on Scroll with Counter
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px'
+            };
+            
+            function animateCounter(element, target, duration = 2000) {
+                const separator = element.getAttribute('data-separator');
+                const suffix = element.getAttribute('data-suffix') || '';
+                const start = 0;
+                const increment = target / (duration / 16); // 60fps
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    let displayValue = Math.floor(current);
+                    if (separator === ',') {
+                        displayValue = displayValue.toLocaleString();
+                    }
+                    element.textContent = displayValue + suffix;
+                }, 16);
+            }
+            
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statItems = entry.target.querySelectorAll('.stat-item');
+                        statItems.forEach(item => {
+                            item.classList.add('animate');
+                        });
+                        
+                        // Animate counters
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        statNumbers.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-target'));
+                            const textOnly = stat.getAttribute('data-text');
+                            
+                            if (textOnly) {
+                                // For text-only stats like "A+", just keep it as is
+                                return;
+                            }
+                            
+                            if (target) {
+                                animateCounter(stat, target);
+                            }
+                        });
+                        
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+            
+            // Process Cards Animation on Scroll
+            const processObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const processCards = document.querySelectorAll('.process-card');
+                        processCards.forEach(card => {
+                            card.classList.add('animate');
+                        });
+                        processObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            const processSection = document.querySelector('.process-card');
+            if (processSection && processSection.parentElement) {
+                processObserver.observe(processSection.parentElement.parentElement);
+            }
         });
     </script>
 </body>

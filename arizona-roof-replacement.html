@@ -249,7 +249,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.92) 0%, rgba(74, 74, 74, 0.88) 100%);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.93) 0%, rgba(30, 58, 138, 0.85) 50%, rgba(26, 26, 26, 0.93) 100%);
             z-index: 1;
         }
         .arizona-replacement-bg .container {
@@ -264,8 +264,7 @@
             color: #FFFFFF;
         }
         .arizona-replacement-bg .process-step {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: transparent;
         }
         .arizona-replacement-bg strong {
             color: #F5A623;
@@ -704,36 +703,42 @@
         }
 
         .process-number {
-            min-width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #1A1A1A, #4A4A4A);
+            min-width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #F5A623, #E89510);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 20px;
-            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.3);
+            font-size: 24px;
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
             flex-shrink: 0;
         }
 
         .process-content {
             flex: 1;
-            background: white;
-            border: 1px solid #E0E0E0;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
             overflow: hidden;
-            transition: box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
         }
 
         .process-content:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 40px rgba(245, 166, 35, 0.25);
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(245, 166, 35, 0.3);
         }
 
         .process-header {
-            padding: 15px 20px;
-            background: #F5F5F5;
+            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -741,8 +746,9 @@
 
         .process-title {
             font-weight: 600;
-            color: #1A1A1A;
-            font-size: 18px;
+            color: #FFFFFF;
+            font-size: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .process-toggle {
@@ -768,9 +774,10 @@
         }
 
         .process-details p {
-            color: #6B6B6B;
-            line-height: 1.7;
+            color: #FFFFFF;
+            line-height: 1.8;
             margin-bottom: 12px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         .process-details p:last-child {
@@ -1400,10 +1407,10 @@
             
             <div class="material-cards">
                 <div class="material-card">
-                    <h3> Tile Roofing (Concrete, Cement & Clay)</h3>
-                    <p>Tile roofs are the most popular choice for roofing in az due to their exceptional durability and heat resistance. Perfect for Arizona's climate, tile roofs can last 50+ years with minimal maintenance.</p>
+                    <h3>Tile Roofing (Concrete & Clay)</h3>
+                    <p>Tile roofs are the most popular choice for roofing in az due to their exceptional durability and heat resistance. Perfect for Arizona's climate, tile roofs can last 30+ years with minimal maintenance.</p>
                     <ul>
-                        <li><strong>Lifespan:</strong> 50-100 years</li>
+                        <li><strong>Lifespan:</strong> 20-40 years</li>
                         <li><strong>Energy Efficiency:</strong> Excellent thermal properties</li>
                         <li><strong>Durability:</strong> Resists extreme heat and UV rays</li>
                         <li><strong>Styles:</strong> Spanish, flat, and interlocking profiles</li>
@@ -1413,10 +1420,10 @@
                 </div>
                 
                 <div class="material-card">
-                    <h3> Asphalt Shingle Roofing</h3>
+                    <h3>Asphalt Shingle Roofing</h3>
                     <p>The most affordable option for az roof replacement, modern architectural shingles offer good performance and come in many colors and styles to match your home's aesthetic.</p>
                     <ul>
-                        <li><strong>Lifespan:</strong> 20-30 years in Arizona</li>
+                        <li><strong>Lifespan:</strong> 30-50 years in Arizona</li>
                         <li><strong>Cost:</strong> Most budget-friendly option</li>
                         <li><strong>Variety:</strong> Wide range of colors and styles</li>
                         <li><strong>Installation:</strong> Faster installation than tile</li>
@@ -1469,7 +1476,7 @@
                 <div class="feature">
                     <div class="feature-icon"></div>
                     <h3>Fast Completion</h3>
-                    <p>Most residential roofing projects completed in 1-3 days with minimal disruption to your daily routine.</p>
+                    <p>Most residential roofing projects completed in 4-6 days with minimal disruption to your daily routine.</p>
                 </div>
                 
                 <div class="feature">
@@ -1651,7 +1658,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Most residential az roof replacement projects are completed in 1-3 days, depending on roof size and complexity. Tile roofs typically take longer than shingle roofs due to material weight and installation requirements. Weather can affect timing—we avoid working during monsoon storms. Commercial roofing in az may take longer depending on building size.</p>
+                        <p>Most residential az roof replacement projects are completed in 4-6 days, depending on roof size and complexity. Tile roofs typically take longer than shingle roofs due to material weight and installation requirements. Weather can affect timing—we avoid working during monsoon storms. Commercial roofing in az may take longer depending on building size.</p>
                     </div>
                 </div>
                 
@@ -1661,17 +1668,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Tile roofing (concrete, cement, or clay) is generally considered the best option for Arizona's extreme climate. Tiles reflect heat, last 50+ years, and resist UV damage exceptionally well. However, architectural shingles with enhanced UV protection are also popular and more affordable. The best choice depends on your budget, home style, and long-term plans. Our roofers az team can help you evaluate all options.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do I need a permit for roof replacement in Arizona?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, roof replacement in most Arizona cities requires building permits. Permits ensure work meets local building codes and safety standards. At Sunrise Roofers, we handle all permit applications and inspections as part of our az roof replacement service, so you don't have to worry about paperwork or compliance issues.</p>
+                        <p>Tile roofing (concrete or clay) is generally considered the best option for Arizona's extreme climate. Tiles reflect heat, last 30+ years, and resist UV damage exceptionally well. However, architectural shingles with enhanced UV protection are also popular and more affordable. The best choice depends on your budget, home style, and long-term plans. Our roofers az team can help you evaluate all options.</p>
                     </div>
                 </div>
                 
