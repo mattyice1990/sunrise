@@ -713,21 +713,6 @@
                     if (!wasActive) faqItem.classList.add('active');
                 });
             });
-            
-            // Footer Dropdown Navigation
-            const footerDropdowns = document.querySelectorAll('.footer-dropdown');
-            footerDropdowns.forEach(dropdown => {
-                const toggle = dropdown.querySelector('.footer-dropdown-toggle');
-                if (toggle) {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        dropdown.classList.toggle('active');
-                        footerDropdowns.forEach(other => {
-                            if (other !== dropdown) other.classList.remove('active');
-                        });
-                    });
-                }
-            });
         });
     </script>
 </body>
