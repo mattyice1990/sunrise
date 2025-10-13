@@ -65,10 +65,12 @@
         .hero::after {content: ''; position: absolute; bottom: -50%; left: -10%; width: 35%; height: 200%; background: linear-gradient(135deg, transparent 50%, rgba(245, 166, 35, 0.05) 100%); transform: rotate(-15deg); pointer-events: none;}
         .hero h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px; color: #F5A623; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); position: relative; z-index: 1;}
         .hero p {font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 400; line-height: 1.6; margin-bottom: 30px; color: #FFFFFF; position: relative; z-index: 1;}
-        .hero .cta-buttons {display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;}
-        .hero .cta-buttons a {padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: transform 0.3s;}
-        .btn-primary {background: #F5A623; color: white;}
-        .btn-secondary {background: white; color: #1A1A1A;}
+        .hero .cta-buttons {display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; position: relative; z-index: 1;}
+        .btn {font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; padding: 16px 40px; border: none; border-radius: 0; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s ease;}
+        .btn-primary {background: #F5A623; color: #FFFFFF;}
+        .btn-primary:hover {background: #E89510; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
+        .btn-secondary {background: transparent; color: #FFFFFF; border: 2px solid #FFFFFF;}
+        .btn-secondary:hover {background: #FFFFFF; color: #1A1A1A;}
         
         /* Sections */
         section {padding: 80px 40px;}
@@ -284,8 +286,8 @@
             <h1>Catalina Foothills Roofing Contractors</h1>
             <p>Premium roofing services for Catalina Foothills luxury homes. Expert craftsmanship since 2004.</p>
             <div class="cta-buttons">
-                <a href="tel:520-668-6638" class="btn-primary">Call 520-668-6638</a>
-                <a href="contact.html" class="btn-secondary">Free Estimate</a>
+                <a href="tel:520-668-6638" class="btn btn-primary">Get Free Estimate</a>
+                <a href="tel:520-668-6638" class="btn btn-secondary">Call (520) 668-6638</a>
             </div>
         </div>
     </section>
