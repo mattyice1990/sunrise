@@ -155,6 +155,22 @@
         .footer-bottom p {color: #D0D0D0;}
         .footer-bottom a {color: #D0D0D0;}
         
+        /* Footer Navigation Dropdowns */
+        .footer-nav {list-style: none; padding: 0; margin: 0;}
+        .footer-nav > li {margin-bottom: 8px;}
+        .footer-nav > li > a {display: block; padding: 8px 0; color: #D0D0D0; text-decoration: none; transition: color 0.3s;}
+        .footer-nav > li > a:hover {color: #F5A623;}
+        .footer-dropdown {position: relative;}
+        .footer-dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; background: none; border: none; color: #D0D0D0; cursor: pointer; padding: 8px 0; display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; transition: color 0.3s;}
+        .footer-dropdown-toggle:hover {color: #F5A623;}
+        .footer-arrow {font-size: 10px; transition: transform 0.3s;}
+        .footer-dropdown.active .footer-arrow {transform: rotate(180deg);}
+        .footer-dropdown-content {list-style: none; padding: 0; margin: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;}
+        .footer-dropdown.active .footer-dropdown-content {max-height: 500px; padding-left: 15px; padding-top: 5px;}
+        .footer-dropdown-content li {margin-bottom: 8px;}
+        .footer-dropdown-content a {display: block; padding: 6px 0; color: #B0B0B0; text-decoration: none; transition: all 0.2s; font-size: 15px;}
+        .footer-dropdown-content a:hover {color: #F5A623; padding-left: 5px;}
+        
         /* Tablet Responsive */
         @media (max-width: 1024px) {
             .nav-links {
@@ -259,7 +275,7 @@
     <section>
         <div class="container">
             <h2>What's Included in Our Roof Inspection</h2>
-            <p>Our comprehensive roof inspection covers every aspect of your roofing system. Unlike quick visual checks, we thoroughly evaluate your entire roof to identify potential issues before they become expensive problems.</p>
+            <p>Our comprehensive roof inspection covers every aspect of your roofing system, identifying potential issues before they become expensive problems.</p>
             
             <div class="features-grid">
                 <div class="feature">
@@ -304,7 +320,6 @@
     <section class="bg-light inspection-process-bg">
         <div class="container">
             <h2>Our Inspection Process</h2>
-            <p>When you schedule a free roof inspection with Sunrise Roofers, here's what to expect:</p>
             
             <div class="process-steps">
                 <div class="step">
@@ -445,19 +460,46 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sunrise Roofers LLC</h3>
-                <p>Professional roofing services in Tucson and Phoenix, Arizona. Licensed, bonded, and insured. Your trusted roofing contractor for all residential and commercial needs.</p>
+                <p>Licensed, bonded, and insured roofing contractor serving Tucson and Phoenix, Arizona.</p>
                 <p style="margin-top: 15px;">ROC #358079</p>
             </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="arizona-roof-replacement.html">Roof Replacement</a></li>
-                    <li><a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a></li>
-                    <li><a href="concrete-tile-roof-replacement.html">Tile Roofing</a></li>
-                    <li><a href="metal-roofing-tucson.html">Metal Roofing</a></li>
-                    <li><a href="roof-repair-tucson.html">Roof Repair</a></li>
-                    <li><a href="tucson-roofing-services.html">Tucson Roofing</a></li>
-                    <li><a href="green-valley-roofing.html">Green Valley Roofing</a></li>
+            <div class="footer-section footer-nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="footer-dropdown">
+                        <button class="footer-dropdown-toggle">About <span class="footer-arrow">▼</span></button>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="gallery.html">Project Gallery</a></li>
+                            <li><a href="why-choose-sunrise-roofers.html">Why Choose Us</a></li>
+                            <li><a href="index.html#testimonials">Customer Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <button class="footer-dropdown-toggle">Services <span class="footer-arrow">▼</span></button>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="services.html">All Services</a></li>
+                            <li><a href="arizona-roof-replacement.html">Roof Replacement</a></li>
+                            <li><a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a></li>
+                            <li><a href="concrete-tile-roof-replacement.html">Tile Roofing</a></li>
+                            <li><a href="metal-roofing-tucson.html">Metal Roofing</a></li>
+                            <li><a href="roof-repair-tucson.html">Roof Repair</a></li>
+                            <li><a href="roof-inspection.html">Roof Inspection</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <button class="footer-dropdown-toggle">Service Areas <span class="footer-arrow">▼</span></button>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="tucson-roofing-services.html">Tucson</a></li>
+                            <li><a href="marana-roofing.html">Marana</a></li>
+                            <li><a href="oro-valley-roofing.html">Oro Valley</a></li>
+                            <li><a href="catalina-foothills-roofing.html">Catalina Foothills</a></li>
+                            <li><a href="sahuarita-roofing.html">Sahuarita</a></li>
+                            <li><a href="green-valley-roofing.html">Green Valley</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -469,7 +511,6 @@
                     <li>Vail, AZ</li>
                     <li>Sahuarita, AZ</li>
                     <li>Green Valley, AZ</li>
-                    <li>All of Southern Arizona</li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -578,6 +619,21 @@
                     document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
                     if (!wasActive) faqItem.classList.add('active');
                 });
+            });
+            
+            // Footer Dropdown Navigation
+            const footerDropdowns = document.querySelectorAll('.footer-dropdown');
+            footerDropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.footer-dropdown-toggle');
+                if (toggle) {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                        footerDropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                    });
+                }
             });
         });
     </script>

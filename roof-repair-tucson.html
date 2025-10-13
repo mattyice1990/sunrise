@@ -565,6 +565,22 @@
         .footer-bottom p {color: #D0D0D0;}
         .footer-bottom a {color: #D0D0D0;}
         
+        /* Footer Navigation Dropdowns */
+        .footer-nav {list-style: none; padding: 0; margin: 0;}
+        .footer-nav > li {margin-bottom: 8px;}
+        .footer-nav > li > a {display: block; padding: 8px 0; color: #D0D0D0; text-decoration: none; transition: color 0.3s;}
+        .footer-nav > li > a:hover {color: #F5A623;}
+        .footer-dropdown {position: relative;}
+        .footer-dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; background: none; border: none; color: #D0D0D0; cursor: pointer; padding: 8px 0; display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; transition: color 0.3s;}
+        .footer-dropdown-toggle:hover {color: #F5A623;}
+        .footer-arrow {font-size: 10px; transition: transform 0.3s;}
+        .footer-dropdown.active .footer-arrow {transform: rotate(180deg);}
+        .footer-dropdown-content {list-style: none; padding: 0; margin: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;}
+        .footer-dropdown.active .footer-dropdown-content {max-height: 500px; padding-left: 15px; padding-top: 5px;}
+        .footer-dropdown-content li {margin-bottom: 8px;}
+        .footer-dropdown-content a {display: block; padding: 6px 0; color: #B0B0B0; text-decoration: none; transition: all 0.2s; font-size: 15px;}
+        .footer-dropdown-content a:hover {color: #F5A623; padding-left: 5px;}
+        
         /* Responsive */
         @media (max-width: 768px) {
             .repair-services-bg {background-attachment: scroll;}
@@ -867,7 +883,7 @@
             <div class="emergency-banner">
                  Emergency Service Available | Same-Day Repairs
             </div>
-            <p>When you need fast, reliable roof repair in Tucson, <a href="index.html" style="color: white; text-decoration: underline;">Sunrise Roofers LLC</a> responds quickly. Our licensed roofers provide emergency leak repair, storm damage restoration, and all types of roof repair in Tucson AZ. Available 24/7 for urgent situations.</p>
+            <p>When you need fast, reliable roof repair in Tucson, <a href="index.html" style="color: white; text-decoration: underline;">Sunrise Roofers LLC</a> responds quickly. Our licensed roofers provide emergency leak repair, storm damage restoration, and comprehensive roof repair services. Available 24/7 for urgent situations.</p>
             
             <div class="trust-signals">
                 <div class="trust-signal">
@@ -914,12 +930,12 @@
     <section>
         <div class="container">
             <h2 id="emergency-repair">24/7 Emergency Roof Repair in Tucson</h2>
-            <p>Roofing emergencies don't wait for business hours. When you have a major leak, storm damage, or urgent roofing issue, our emergency roof repair team responds immediately throughout Tucson and Southern Arizona.</p>
+            <p>Roofing emergencies don't wait for business hours. Our emergency roof repair team responds immediately throughout Tucson and Southern Arizona.</p>
             
             <div class="emergency-alert">
                 <h3> Need Emergency Roof Repair?</h3>
                 <p style="font-size: 20px; margin-bottom: 20px;">Call (520) 668-6638 Immediately</p>
-                <p>We respond to emergencies within hours, not days. Our licensed roofers provide temporary repairs to protect your home, then schedule permanent solutions. Available nights, weekends, and holidays for urgent Tucson roof repair.</p>
+                <p>We respond to emergencies within hours, not days. Our licensed roofers provide temporary repairs to protect your home, then schedule permanent solutions.</p>
             </div>
             
             <h3>Emergency Roof Repair Services We Provide:</h3>
@@ -940,7 +956,7 @@
     <section class="bg-light repair-services-bg">
         <div class="container">
             <h2 id="repair-services">Roof Repair Services Throughout Tucson</h2>
-            <p>Beyond emergencies, we handle all types of routine and specialized roof repair in Tucson AZ. Our experienced roofers have seen and fixed every roofing problem Arizona weather can create:</p>
+            <p>Beyond emergencies, we handle all types of routine and specialized roof repairs:</p>
             
             <div class="services-grid">
                 <div class="service-card">
@@ -1010,7 +1026,7 @@
     <section>
         <div class="container">
             <h2 id="when-to-call">When to Call for Roof Repair in Tucson</h2>
-            <p>Don't ignore these warning signs that indicate you need professional roof repair in Tucson AZ. Catching problems early prevents expensive damage. Click each sign to learn more:</p>
+            <p>Don't ignore these warning signs. Catching problems early prevents expensive damage. Click each sign to learn more:</p>
             
             <div class="collapsible-container">
                 <div class="collapsible-item">
@@ -1019,7 +1035,7 @@
                         <div class="collapsible-title">Water Stains on Ceilings or Walls</div>
                     </div>
                     <div class="collapsible-content">
-                        <p>Interior water stains are clear signs of roof leaks. Even small stains indicate active leaks requiring immediate roof repair in Tucson. Don't ignore these signs—water damage spreads quickly and can lead to mold, structural damage, and costly repairs.</p>
+                        <p>Interior water stains are clear signs of roof leaks. Don't ignore these signs—water damage spreads quickly and can lead to mold, structural damage, and costly repairs.</p>
                     </div>
                 </div>
 
@@ -1029,7 +1045,7 @@
                         <div class="collapsible-title">Missing or Damaged Shingles/Tiles</div>
                     </div>
                     <div class="collapsible-content">
-                        <p>After monsoon storms, check for missing, cracked, or displaced roofing materials. Call for prompt roof repair to prevent water intrusion. Even a few missing shingles or tiles can expose your roof deck to Arizona's intense sun and future storms.</p>
+                        <p>After monsoon storms, check for missing, cracked, or displaced roofing materials. Even a few missing shingles or tiles can expose your roof deck to Arizona's intense sun and future storms.</p>
                     </div>
                 </div>
 
@@ -1049,7 +1065,7 @@
                         <div class="collapsible-title">Daylight Through Roof Boards</div>
                     </div>
                     <div class="collapsible-content">
-                        <p>If you can see sunlight through your roof from the attic, you have serious gaps requiring immediate Tucson roof repair. This indicates both roofing material failure and potentially damaged decking that needs urgent attention to prevent further water damage.</p>
+                        <p>If you can see sunlight through your roof from the attic, you have serious gaps requiring immediate attention. This indicates roofing material failure and potentially damaged decking.</p>
                     </div>
                 </div>
 
@@ -1079,7 +1095,7 @@
                         <div class="collapsible-title">Algae or Moss Growth</div>
                     </div>
                     <div class="collapsible-content">
-                        <p>While often cosmetic, extensive growth can indicate moisture retention. Professional roof repair in Tucson prevents deterioration. In Arizona's dry climate, significant growth suggests drainage or ventilation problems that need addressing before they cause serious damage.</p>
+                        <p>While often cosmetic, extensive growth can indicate moisture retention. In Arizona's dry climate, significant growth suggests drainage or ventilation problems that need addressing.</p>
                     </div>
                 </div>
 
@@ -1099,7 +1115,7 @@
                         <div class="collapsible-title">Recent Storm Damage</div>
                     </div>
                     <div class="collapsible-content">
-                        <p>After severe monsoon storms, hail, or high winds, schedule a free inspection. Storm damage often isn't visible from the ground. Our professional assessment can identify hidden damage that might be covered by insurance, protecting your investment.</p>
+                        <p>After severe monsoon storms, hail, or high winds, schedule a free inspection. Storm damage often isn't visible from the ground, but may be covered by insurance.</p>
                     </div>
                 </div>
 
@@ -1109,12 +1125,12 @@
                         <div class="collapsible-title">Age-Related Wear (15+ Years)</div>
                     </div>
                     <div class="collapsible-content">
-                        <p>If your roof is 15+ years old and showing multiple issues, you may need more than simple repairs. We provide honest assessments about repair vs. replacement. Our team will never recommend unnecessary replacement but will give you the facts you need to make an informed decision.</p>
+                        <p>If your roof is 15+ years old and showing multiple issues, you may need more than simple repairs. We provide honest assessments about repair vs. replacement.</p>
                     </div>
                 </div>
             </div>
             
-            <p style="margin-top: 30px; font-weight: 600; font-size: 18px;">Don't wait—small problems become expensive disasters. Get a free inspection today from experienced roofers who provide honest recommendations about needed roof repair in Tucson.</p>
+            <p style="margin-top: 30px; font-weight: 600; font-size: 18px;">Don't wait—small problems become expensive disasters. Get a free inspection today.</p>
             
             <div class="cta-buttons">
                 <a href="tel:520-668-6638" class="btn btn-primary">Schedule Free Inspection</a>
@@ -1126,7 +1142,7 @@
     <section class="bg-light">
         <div class="container">
             <h2 id="monsoon-repairs">Monsoon Season Roof Repairs in Tucson</h2>
-            <p>Tucson's monsoon season (July through September) brings unique challenges requiring specialized roof repair services. Our experienced roofers understand monsoon damage:</p>
+            <p>Tucson's monsoon season (July through September) brings unique challenges:</p>
             
             <h3>Monsoon Season Impact on Tucson Roofs</h3>
             <p>Monsoon storms feature high winds (60+ mph), intense rainfall (1-2 inches in an hour), flying debris, and sudden temperature changes. These conditions cause widespread roof damage throughout Tucson requiring emergency repairs.</p>
@@ -1140,7 +1156,7 @@
             </ul>
             
             <h3>Our Monsoon Damage Response:</h3>
-            <p>We provide priority emergency service during and after monsoon storms. Our roof repair in Tucson AZ includes post-storm inspections, emergency temporary repairs, insurance documentation, and permanent restoration. We're available 24/7 throughout monsoon season.</p>
+            <p>We provide priority emergency service during and after monsoon storms, including post-storm inspections, emergency temporary repairs, insurance documentation, and permanent restoration. Available 24/7 throughout monsoon season.</p>
             
             <p style="margin-top: 30px; font-weight: 600;">Just experienced monsoon damage? Get a free inspection immediately. Quick response prevents additional damage and protects your insurance claim. Call <a href="tel:520-668-6638" style="color: #1A1A1A;">(520) 668-6638</a> now.</p>
         </div>
@@ -1150,31 +1166,30 @@
     <section>
         <div class="container">
             <h2 id="repair-process">How Our Tucson Roof Repair Process Works</h2>
-            <p>When you call us for roof repair in Tucson, here's what to expect from our professional service:</p>
             
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Inspection</h3>
-                    <p>We conduct a thorough damage assessment, documenting all problems with photos. Our experienced roofers identify not just obvious damage but underlying issues. This comprehensive evaluation is free for roof repair in Tucson homeowners.</p>
+                    <p>We conduct a thorough damage assessment, documenting all problems with photos. Our experienced roofers identify obvious damage and underlying issues. Free evaluation.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Estimate</h3>
-                    <p>You receive a detailed repair quote with transparent pricing. We explain what needs fixing, why it's necessary, and what it costs. No hidden fees—just honest pricing for quality Tucson roof repair.</p>
+                    <p>You receive a detailed repair quote with transparent pricing. We explain what needs fixing, why it's necessary, and what it costs. No hidden fees.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Repair</h3>
-                    <p>Our skilled roofers perform quality workmanship using premium materials. We fix problems correctly the first time, not just patch symptoms. All roof repair in Tucson AZ includes proper techniques and durable materials.</p>
+                    <p>Our skilled roofers perform quality workmanship using premium materials. We fix problems correctly the first time using proper techniques and durable materials.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Warranty</h3>
-                    <p>All repairs are warranty-backed for your protection. We stand behind our work and remain available if any issues arise. You're getting reliable Tucson roof repair, not temporary fixes.</p>
+                    <p>All repairs are warranty-backed. We stand behind our work and remain available if any issues arise.</p>
                 </div>
             </div>
             
@@ -1191,55 +1206,54 @@
     <section class="bg-light">
         <div class="container">
             <h2 id="why-trust-us">Tucson's Trusted Roof Repair Experts</h2>
-            <p>Why homeowners throughout Tucson choose us for roof repair:</p>
             
             <div class="benefits-grid">
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Fast Response</h3>
-                    <p>Emergency availability with same-day service for urgent roof repair in Tucson. We understand you need quick solutions.</p>
+                    <p>Emergency availability with same-day service for urgent situations.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Licensed & Insured</h3>
-                    <p>Fully licensed Arizona contractors (ROC #358079) with comprehensive insurance protecting you during all Tucson roof repair projects.</p>
+                    <p>Fully licensed Arizona contractors (ROC #358079) with comprehensive insurance.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Honest Assessments</h3>
-                    <p>We provide truthful recommendations. If repair will work, we won't pressure you to replace. Our reputation is built on honesty.</p>
+                    <p>We provide truthful recommendations. If repair will work, we won't pressure you to replace.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Quality Repairs</h3>
-                    <p>We fix problems correctly using proper techniques and quality materials. Our roof repair in Tucson AZ lasts, not temporary patches.</p>
+                    <p>We fix problems correctly using proper techniques and quality materials—lasting repairs, not temporary patches.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Competitive Pricing</h3>
-                    <p>Fair, transparent pricing for all Tucson roof repair. We offer financing to make necessary repairs affordable for homeowners.</p>
+                    <p>Fair, transparent pricing. Financing available to make necessary repairs affordable.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Warranty on Work</h3>
-                    <p>All roof repair services include our workmanship warranty. We stand behind every repair we perform throughout Tucson.</p>
+                    <p>All roof repair services include our workmanship warranty.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Insurance Help</h3>
-                    <p>We work with insurance companies, document damage properly, and help maximize your storm damage claims for roof repair.</p>
+                    <p>We work with insurance companies, document damage properly, and help maximize your storm damage claims.</p>
                 </div>
                 
                 <div class="benefit">
                     <div class="benefit-icon"></div>
                     <h3>Local Company</h3>
-                    <p>Family-owned Tucson business. We're your neighbors, and we'll be here when you need us for future roof repair in Tucson.</p>
+                    <p>Family-owned Tucson business. We're your neighbors, and we'll be here when you need us.</p>
                 </div>
             </div>
         </div>
@@ -1249,11 +1263,11 @@
     <section>
         <div class="container">
             <h2 id="repair-vs-replace">Should You Repair or Replace Your Roof?</h2>
-            <p>Not every roofing problem requires full replacement. Here's how we help you decide between roof repair in Tucson versus complete replacement:</p>
+            <p>Not every roofing problem requires full replacement. Here's how we help you decide:</p>
             
             <h3>REPAIR When:</h3>
             <ul>
-                <li><strong>Damage is Localized:</strong> If problems are confined to specific areas, roof repair in Tucson makes financial sense</li>
+                <li><strong>Damage is Localized:</strong> If problems are confined to specific areas, repair makes financial sense</li>
                 <li><strong>Roof is Relatively New:</strong> Roofs under 15 years old with isolated damage are excellent repair candidates</li>
                 <li><strong>Budget Constraints:</strong> Repair provides immediate protection while you save for eventual replacement</li>
                 <li><strong>Quick Fix Needed:</strong> Emergency situations often require temporary or permanent repairs before considering replacement</li>
@@ -1263,11 +1277,11 @@
             <ul>
                 <li><strong>Extensive Damage:</strong> If damage is widespread across your roof, replacement is more cost-effective than multiple repairs</li>
                 <li><strong>Roof is 20+ Years Old:</strong> Older roofs nearing end of lifespan warrant replacement rather than continued repairs</li>
-                <li><strong>Multiple Problem Areas:</strong> If you're calling for roof repair in Tucson frequently, it's time to replace</li>
+                <li><strong>Multiple Problem Areas:</strong> If you're calling for repairs frequently, it's time to replace</li>
                 <li><strong>Repeated Repairs Needed:</strong> When you're spending money on repairs constantly, replacement provides better value</li>
             </ul>
             
-            <p style="margin-top: 30px; font-weight: 600; font-size: 18px;">We provide honest recommendations—never pressure to replace when repair will work. Our reputation as trusted Tucson roofers is built on putting your interests first. If repair is the right solution, that's what we'll recommend.</p>
+            <p style="margin-top: 30px; font-weight: 600; font-size: 18px;">We provide honest recommendations—never pressure to replace when repair will work. If repair is the right solution, that's what we'll recommend.</p>
             
             <p>Considering replacement? Learn about our comprehensive <a href="arizona-roof-replacement.html" style="color: #1A1A1A; font-weight: 600;">Arizona roof replacement services →</a></p>
         </div>
@@ -1277,7 +1291,6 @@
     <section class="bg-light">
         <div class="container">
             <h2 id="service-areas">Roof Repair Throughout Greater Tucson</h2>
-            <p>We provide fast, reliable roof repair services throughout Southern Arizona:</p>
             
             <div class="service-areas">
                 <span class="area-tag">Tucson</span>
@@ -1291,7 +1304,7 @@
                 <span class="area-tag">Rita Ranch</span>
             </div>
             
-            <p style="margin-top: 30px;">No matter where you're located in the greater Tucson area, our emergency and routine roof repair services are available. We respond quickly throughout Southern Arizona and Pima County.</p>
+            <p style="margin-top: 30px;">We respond quickly throughout Southern Arizona and Pima County.</p>
         </div>
     </section>
 
@@ -1299,7 +1312,7 @@
     <section>
         <div class="container">
             <h2 id="repair-cost">Roof Repair Cost in Tucson</h2>
-            <p>Understanding roof repair pricing helps you budget appropriately. Costs vary based on several factors:</p>
+            <p>Costs vary based on several factors:</p>
             
             <h3>Factors Affecting Roof Repair Cost:</h3>
             <ul>
@@ -1317,7 +1330,7 @@
                 <li><strong>Major Repairs:</strong> Extensive damage, structural issues - comprehensive restoration</li>
             </ul>
             
-            <p><strong>Free estimates always.</strong> We provide detailed, transparent pricing for all roof repair in Tucson based on your specific situation. No hidden fees or surprise charges. Financing available to make necessary repairs affordable.</p>
+            <p><strong>Free estimates always.</strong> We provide detailed, transparent pricing based on your specific situation. No hidden fees or surprise charges. Financing available.</p>
         </div>
     </section>
 
@@ -1333,7 +1346,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>We offer same-day and next-day service for most roof repair in Tucson. Emergency repairs are available within hours. Minor repairs typically take 2-4 hours, while more extensive roof repair in Tucson AZ may require 1-2 days. We prioritize quick response to prevent additional damage to your home.</p>
+                <p>We offer same-day and next-day service for most repairs. Emergency repairs are available within hours. Minor repairs typically take 2-4 hours, while extensive repairs may require 1-2 days.</p>
                     </div>
             </div>
             
@@ -1343,7 +1356,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>Yes! We provide 24/7 emergency roof repair services throughout Tucson. If you have a major leak, storm damage, or urgent roofing issue, call <a href="tel:520-668-6638" style="color: #1A1A1A; font-weight: 600;">(520) 668-6638</a> immediately. We respond to emergencies within hours, not days, and provide temporary protection until permanent repairs can be completed.</p>
+                <p>Yes! We provide 24/7 emergency roof repair services throughout Tucson. If you have a major leak, storm damage, or urgent roofing issue, call <a href="tel:520-668-6638" style="color: #1A1A1A; font-weight: 600;">(520) 668-6638</a> immediately.</p>
                     </div>
             </div>
             
@@ -1353,7 +1366,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>Roof repair costs vary significantly based on damage extent, repair type, and materials needed. Every roof repair situation is unique, which is why we provide free detailed estimates with transparent pricing. Contact us for an accurate quote based on your specific needs—we'll assess the damage and provide honest pricing with no hidden fees.</p>
+                <p>Costs vary significantly based on damage extent, repair type, and materials needed. We provide free detailed estimates with transparent pricing and no hidden fees.</p>
                     </div>
             </div>
             
@@ -1363,7 +1376,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>Yes, we work directly with insurance companies on storm damage and emergency roof repair claims. We provide detailed documentation, meet with adjusters, and help ensure fair claim settlements. Our experience with Tucson roof repair insurance claims helps maximize your coverage and simplify the process.</p>
+                <p>Yes, we work directly with insurance companies on storm damage and emergency repair claims. We provide detailed documentation, meet with adjusters, and help ensure fair claim settlements.</p>
                     </div>
             </div>
             
@@ -1373,7 +1386,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>Absolutely. All roof repair in Tucson includes our workmanship warranty. We stand behind our repairs and remain available if any issues arise. The warranty length varies based on repair type, but we guarantee quality on every job we perform throughout Tucson AZ.</p>
+                <p>Absolutely. All repairs include our workmanship warranty. We stand behind our repairs and remain available if any issues arise.</p>
                     </div>
             </div>
             
@@ -1393,7 +1406,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>Minor roof repair in Tucson typically takes 2-4 hours. Moderate repairs requiring more materials or multiple areas take 1 day. Extensive repairs may require 2-3 days. Emergency repairs are prioritized and completed as quickly as safely possible. We provide time estimates during your free inspection.</p>
+                <p>Minor repairs typically take 2-4 hours. Moderate repairs requiring more materials or multiple areas take 1 day. Extensive repairs may require 2-3 days. We provide time estimates during your free inspection.</p>
                     </div>
             </div>
             
@@ -1403,7 +1416,7 @@
                         <span class="faq-arrow">▼</span>
                     </div>
                     <div class="faq-answer">
-                <p>We accept cash, checks, all major credit cards, and offer financing options for roof repair in Tucson AZ. Payment is typically due upon completion, though we can discuss payment arrangements for larger repair projects. We also work with insurance companies when repairs are covered claims.</p>
+                <p>We accept cash, checks, all major credit cards, and offer financing options. Payment is typically due upon completion. We also work with insurance companies when repairs are covered claims.</p>
                     </div>
                 </div>
             </div>
@@ -1414,7 +1427,7 @@
     <section class="cta-section" id="contact">
         <div class="container">
             <h2>Need Roof Repair in Tucson? Call Now!</h2>
-            <p>Don't let roofing problems get worse. Whether you need emergency repairs or routine maintenance, our experienced roofers are ready to help. Fast service, quality workmanship, and fair pricing for all roof repair in Tucson and Southern Arizona.</p>
+            <p>Don't let roofing problems get worse. Whether you need emergency repairs or routine maintenance, our experienced roofers are ready to help.</p>
             <div class="cta-buttons">
                 <a href="tel:520-668-6638" class="btn btn-urgent">CALL NOW: (520) 668-6638</a>
             </div>
@@ -1428,19 +1441,46 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sunrise Roofers LLC</h3>
-                <p>Professional roofing services in Tucson and Phoenix, Arizona. Licensed, bonded, and insured. Your trusted roofing contractor for all residential and commercial needs.</p>
+                <p>Licensed, bonded, and insured roofing contractor serving Tucson and Phoenix, Arizona.</p>
                 <p style="margin-top: 15px;">ROC #358079</p>
             </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="arizona-roof-replacement.html">Roof Replacement</a></li>
-                    <li><a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a></li>
-                    <li><a href="concrete-tile-roof-replacement.html">Tile Roofing</a></li>
-                    <li><a href="metal-roofing-tucson.html">Metal Roofing</a></li>
-                    <li><a href="roof-repair-tucson.html">Roof Repair</a></li>
-                    <li><a href="tucson-roofing-services.html">Tucson Roofing</a></li>
-                    <li><a href="green-valley-roofing.html">Green Valley Roofing</a></li>
+            <div class="footer-section footer-nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="footer-dropdown">
+                        <button class="footer-dropdown-toggle">About <span class="footer-arrow">▼</span></button>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="gallery.html">Project Gallery</a></li>
+                            <li><a href="why-choose-sunrise-roofers.html">Why Choose Us</a></li>
+                            <li><a href="index.html#testimonials">Customer Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <button class="footer-dropdown-toggle">Services <span class="footer-arrow">▼</span></button>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="services.html">All Services</a></li>
+                            <li><a href="arizona-roof-replacement.html">Roof Replacement</a></li>
+                            <li><a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a></li>
+                            <li><a href="concrete-tile-roof-replacement.html">Tile Roofing</a></li>
+                            <li><a href="metal-roofing-tucson.html">Metal Roofing</a></li>
+                            <li><a href="roof-repair-tucson.html">Roof Repair</a></li>
+                            <li><a href="roof-inspection.html">Roof Inspection</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <button class="footer-dropdown-toggle">Service Areas <span class="footer-arrow">▼</span></button>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="tucson-roofing-services.html">Tucson</a></li>
+                            <li><a href="marana-roofing.html">Marana</a></li>
+                            <li><a href="oro-valley-roofing.html">Oro Valley</a></li>
+                            <li><a href="catalina-foothills-roofing.html">Catalina Foothills</a></li>
+                            <li><a href="sahuarita-roofing.html">Sahuarita</a></li>
+                            <li><a href="green-valley-roofing.html">Green Valley</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1452,7 +1492,6 @@
                     <li>Vail, AZ</li>
                     <li>Sahuarita, AZ</li>
                     <li>Green Valley, AZ</li>
-                    <li>All of Southern Arizona</li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1561,6 +1600,25 @@
         const mobileToggle = document.querySelector('.mobile-menu-toggle'), navLinks = document.querySelector('.nav-links');
         if (mobileToggle) mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); });
         document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => link.addEventListener('click', () => { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }));
+        
+        // Footer dropdown functionality
+        document.querySelectorAll('.footer-dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parentDropdown = this.parentElement;
+                const isActive = parentDropdown.classList.contains('active');
+                
+                // Close all dropdowns
+                document.querySelectorAll('.footer-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+                
+                // Open clicked dropdown if it wasn't active
+                if (!isActive) {
+                    parentDropdown.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
