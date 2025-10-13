@@ -49,8 +49,13 @@
         .nav-links {display: flex; gap: 25px; list-style: none; align-items: center; margin: 0; padding: 0;}
         .nav-links > li > a {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; color: #1A1A1A; transition: color 0.3s ease; padding: 10px 5px; display: block;}
         .nav-links > li > a:hover {color: #F5A623;}
-        .dropdown {position: relative;}
-        .dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: none; border: none; color: #1A1A1A; cursor: pointer; padding: 10px 5px; display: flex; align-items: center; gap: 5px; transition: color 0.3s ease;}
+        .dropdown {position: relative; display: flex; align-items: center; gap: 2px;}
+        .dropdown-header {display: flex; align-items: center; gap: 2px; flex: 1;}
+        .dropdown-label {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: #1A1A1A; padding: 10px 5px; cursor: pointer; transition: color 0.3s ease;}
+        .dropdown-label:hover {color: #F5A623;}
+        .dropdown-link {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: #1A1A1A; text-decoration: none; padding: 10px 5px; transition: color 0.3s ease;}
+        .dropdown-link:hover {color: #F5A623;}
+        .dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: none; border: none; color: #1A1A1A; cursor: pointer; padding: 10px 5px; display: flex; align-items: center; transition: color 0.3s ease;}
         .dropdown-toggle:hover {color: #F5A623;}
         .dropdown-arrow {font-size: 10px; transition: transform 0.3s;}
         .dropdown.active .dropdown-arrow {transform: rotate(180deg);}
@@ -306,8 +311,11 @@
         .footer-nav > li {margin-bottom: 8px;}
         .footer-nav > li > a {display: block; padding: 8px 0; color: #D0D0D0; text-decoration: none; transition: color 0.3s;}
         .footer-nav > li > a:hover {color: #F5A623;}
-        .footer-dropdown {position: relative;}
-        .footer-dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; background: none; border: none; color: #D0D0D0; cursor: pointer; padding: 8px 0; display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; transition: color 0.3s;}
+        .footer-dropdown {position: relative; display: flex; flex-direction: column;}
+        .footer-dropdown-header {display: flex; align-items: center; gap: 5px; width: 100%;}
+        .footer-dropdown-link {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; color: #D0D0D0; text-decoration: none; padding: 8px 0; transition: color 0.3s;}
+        .footer-dropdown-link:hover {color: #F5A623;}
+        .footer-dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; background: none; border: none; color: #D0D0D0; cursor: pointer; padding: 8px 0; display: flex; align-items: center; transition: color 0.3s;}
         .footer-dropdown-toggle:hover {color: #F5A623;}
         .footer-arrow {font-size: 10px; transition: transform 0.3s;}
         .footer-dropdown.active .footer-arrow {transform: rotate(180deg);}
@@ -387,21 +395,37 @@
             .nav-links {position: fixed; top: 130px; left: 0; width: 100%; max-height: 0; background: white; flex-direction: column; gap: 0; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: max-height 0.3s ease; overflow: hidden; z-index: 999;}
             .nav-links.active {max-height: calc(100vh - 130px); overflow-y: auto;}
             .nav-links > li {width: 100%; border-bottom: 1px solid #E0E0E0;}
-            .nav-links > li > a, .dropdown-toggle {padding: 15px 20px; width: 100%; text-align: left; justify-content: space-between; box-sizing: border-box;}
+            
+            .dropdown {flex-direction: column; align-items: stretch;}
+            
+            .dropdown-header {display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; cursor: pointer; padding: 0; gap: 0;}
+            
+            .dropdown-link {flex: 0 0 auto; padding: 15px 20px; text-align: left; cursor: pointer;}
+            
+            .dropdown-label {flex: 1; padding: 15px 20px; text-align: left; min-width: 0;}
+            
+            .dropdown-toggle {padding: 15px 20px; flex-shrink: 0; margin-left: auto; pointer-events: auto;}
+            
+            .nav-links > li > a {padding: 15px 20px; width: 100%; text-align: left; box-sizing: border-box;}
+            
             .dropdown-content {position: static; box-shadow: none; padding: 0; opacity: 1; visibility: visible; transform: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #F5F5F5; width: 100%;}
+            
             .dropdown.active .dropdown-content {max-height: 500px; border-top: 1px solid #E0E0E0;}
+            
             .dropdown-content a {padding: 12px 20px 12px 40px; box-sizing: border-box; word-wrap: break-word; overflow-wrap: break-word;}
+            
             .cta-button {margin: 10px 20px; text-align: center;}
         }
     </style>
 </head>
 <body>
+    <!-- Header with Navigation -->
     <header class="site-header">
         <div class="top-bar">
             <div class="top-bar-container">
-                <a href="tel:520-668-6638" class="top-contact">520-668-6638</a>
-                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">sunriseroofer@outlook.com</a>
-                <span class="top-hours">Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="tel:520-668-6638" class="top-contact"> 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact"> sunriseroofer@outlook.com</a>
+                <span class="top-hours"> Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
             </div>
         </div>
         
@@ -419,29 +443,40 @@
                 
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
+                    
                     <li class="dropdown">
-                        <button class="dropdown-toggle">About <span class="dropdown-arrow">▼</span></button>
+                        <div class="dropdown-header">
+                            <a href="about.html" class="dropdown-link">About</a>
+                            <button class="dropdown-toggle"><span class="dropdown-arrow">▼</span></button>
+                        </div>
                         <div class="dropdown-content">
-                            <a href="about.html">About Us</a>
-                            <a href="gallery.html">Project Gallery</a>
                             <a href="why-choose-sunrise-roofers.html">Why Choose Us</a>
-                            <a href="index.html#testimonials">Customer Reviews</a>
+                            <a href="gallery.html">Project Gallery</a>
+                            <a href="#testimonials">Customer Reviews</a>
                         </div>
                     </li>
+                    
                     <li class="dropdown">
-                        <button class="dropdown-toggle">Services <span class="dropdown-arrow">▼</span></button>
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Services</span>
+                            <button class="dropdown-toggle"><span class="dropdown-arrow">▼</span></button>
+                        </div>
                         <div class="dropdown-content">
                             <a href="services.html">All Services</a>
+                            <a href="roof-repair-tucson.html">Roof Repair</a>
+                            <a href="roof-inspection.html">Roof Inspection</a>
                             <a href="arizona-roof-replacement.html">Roof Replacement</a>
                             <a href="shingle-roof-replacement-tucson.html">Shingle Roofing</a>
                             <a href="concrete-tile-roof-replacement.html">Tile Roofing</a>
                             <a href="metal-roofing-tucson.html">Metal Roofing</a>
-                            <a href="roof-repair-tucson.html">Roof Repair</a>
-                            <a href="roof-inspection.html">Roof Inspection</a>
                         </div>
                     </li>
+                    
                     <li class="dropdown">
-                        <button class="dropdown-toggle">Service Areas <span class="dropdown-arrow">▼</span></button>
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Service Areas</span>
+                            <button class="dropdown-toggle"><span class="dropdown-arrow">▼</span></button>
+                        </div>
                         <div class="dropdown-content">
                             <a href="tucson-roofing-services.html">Tucson</a>
                             <a href="marana-roofing.html">Marana</a>
@@ -451,7 +486,9 @@
                             <a href="green-valley-roofing.html">Green Valley</a>
                         </div>
                     </li>
+                    
                     <li><a href="contact.html">Contact</a></li>
+                    
                     <li><a href="contact.html#estimate" class="cta-button">Free Estimate</a></li>
                 </ul>
             </div>
@@ -580,11 +617,12 @@
         <a href="contact.html">Contact Us Today</a>
     </section>
     
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sunrise Roofers LLC</h3>
-                <p>Professional roofing services in Tucson and Phoenix, Arizona. Licensed, bonded, and insured. Your trusted roofing contractor for all residential and commercial needs.</p>
+                <p>Licensed, bonded, and insured roofing contractor serving Tucson and Phoenix, Arizona.</p>
                 <p style="margin-top: 15px;">ROC #358079</p>
             </div>
             <div class="footer-section footer-nav-section">
@@ -592,16 +630,20 @@
                 <ul class="footer-nav">
                     <li><a href="index.html">Home</a></li>
                     <li class="footer-dropdown">
-                        <button class="footer-dropdown-toggle">About <span class="footer-arrow">▼</span></button>
+                        <div class="footer-dropdown-header">
+                            <a href="about.html" class="footer-dropdown-link">About</a>
+                            <button class="footer-dropdown-toggle"><span class="footer-arrow">▼</span></button>
+                        </div>
                         <ul class="footer-dropdown-content">
-                            <li><a href="about.html">About Us</a></li>
                             <li><a href="gallery.html">Project Gallery</a></li>
                             <li><a href="why-choose-sunrise-roofers.html">Why Choose Us</a></li>
                             <li><a href="index.html#testimonials">Customer Reviews</a></li>
                         </ul>
                     </li>
                     <li class="footer-dropdown">
-                        <button class="footer-dropdown-toggle">Services <span class="footer-arrow">▼</span></button>
+                        <div class="footer-dropdown-header">
+                            <button class="footer-dropdown-toggle">Services <span class="footer-arrow">▼</span></button>
+                        </div>
                         <ul class="footer-dropdown-content">
                             <li><a href="services.html">All Services</a></li>
                             <li><a href="arizona-roof-replacement.html">Roof Replacement</a></li>
@@ -613,7 +655,9 @@
                         </ul>
                     </li>
                     <li class="footer-dropdown">
-                        <button class="footer-dropdown-toggle">Service Areas <span class="footer-arrow">▼</span></button>
+                        <div class="footer-dropdown-header">
+                            <button class="footer-dropdown-toggle">Service Areas <span class="footer-arrow">▼</span></button>
+                        </div>
                         <ul class="footer-dropdown-content">
                             <li><a href="tucson-roofing-services.html">Tucson</a></li>
                             <li><a href="marana-roofing.html">Marana</a></li>
@@ -662,13 +706,18 @@
             
             dropdowns.forEach(dropdown => {
                 const toggle = dropdown.querySelector('.dropdown-toggle');
-                const arrow = toggle ? toggle.querySelector('.dropdown-arrow') : null;
+                const header = dropdown.querySelector('.dropdown-header');
+                const link = dropdown.querySelector('.dropdown-link');
                 
+                // Hover functionality for desktop - auto close others
                 dropdown.addEventListener('mouseenter', function() {
                     clearTimeout(closeTimeout);
                     if (window.innerWidth > 768) {
+                        // Close all other dropdowns when hovering over this one
                         dropdowns.forEach(other => {
-                            if (other !== dropdown) other.classList.remove('active');
+                            if (other !== dropdown) {
+                                other.classList.remove('active');
+                            }
                         });
                         dropdown.classList.add('active');
                     }
@@ -682,29 +731,40 @@
                     }
                 });
                 
-                if (arrow) {
-                    arrow.addEventListener('click', function(e) {
+                // Dropdown header click - expand menu (for mobile and desktop)
+                if (header) {
+                    header.addEventListener('click', function(e) {
+                        // Don't expand if clicking on the "About" link or its children
+                        if (link && (e.target === link || link.contains(e.target))) {
+                            return; // Allow navigation to about page
+                        }
+                        
                         e.preventDefault();
                         e.stopPropagation();
                         
-                        if (window.innerWidth <= 768) {
-                            dropdowns.forEach(other => {
-                                if (other !== dropdown) other.classList.remove('active');
-                            });
-                            dropdown.classList.toggle('active');
-                        }
+                        // Close all other dropdowns
+                        dropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                        
+                        // Toggle this dropdown
+                        dropdown.classList.toggle('active');
                     });
                 }
                 
+                // Toggle button click - works for both mobile and desktop
                 if (toggle) {
                     toggle.addEventListener('click', function(e) {
-                        if (window.innerWidth <= 768) {
-                            e.preventDefault();
-                            dropdowns.forEach(other => {
-                                if (other !== dropdown) other.classList.remove('active');
-                            });
-                            dropdown.classList.toggle('active');
-                        }
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close all other dropdowns
+                        dropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                        
+                        // Toggle this dropdown
+                        dropdown.classList.toggle('active');
                     });
                 }
             });
@@ -712,6 +772,61 @@
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.dropdown')) {
                     dropdowns.forEach(d => d.classList.remove('active'));
+                }
+            });
+            
+            // Footer Dropdown Functionality
+            const footerDropdowns = document.querySelectorAll('.footer-dropdown');
+            
+            footerDropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.footer-dropdown-toggle');
+                const header = dropdown.querySelector('.footer-dropdown-header');
+                const link = dropdown.querySelector('.footer-dropdown-link');
+                
+                // Header click - expand menu
+                if (header) {
+                    header.addEventListener('click', function(e) {
+                        // Don't expand if clicking on the "About" link or its children
+                        if (link && (e.target === link || link.contains(e.target))) {
+                            return; // Allow navigation to about page
+                        }
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close all other footer dropdowns
+                        footerDropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                        
+                        // Toggle this dropdown
+                        dropdown.classList.toggle('active');
+                    });
+                }
+                
+                // Toggle button click
+                if (toggle) {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close all other footer dropdowns
+                        footerDropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                        
+                        // Toggle this dropdown
+                        dropdown.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close footer dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.footer-dropdown')) {
+                    footerDropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
                 }
             });
             
@@ -807,25 +922,6 @@
 
             document.querySelectorAll('img[data-src]').forEach(img => {
                 imageObserver.observe(img);
-            });
-        });
-        
-        // Footer dropdown functionality
-        document.querySelectorAll('.footer-dropdown-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                const parentDropdown = this.parentElement;
-                const isActive = parentDropdown.classList.contains('active');
-                
-                // Close all dropdowns
-                document.querySelectorAll('.footer-dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-                
-                // Open clicked dropdown if it wasn't active
-                if (!isActive) {
-                    parentDropdown.classList.add('active');
-                }
             });
         });
     </script>
