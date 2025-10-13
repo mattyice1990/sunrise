@@ -21,7 +21,8 @@
             justify-content: center;
             padding: 20px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         
         /* Diagonal Slash Design Elements */
@@ -231,24 +232,68 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+                padding-top: 20px;
+            }
+            
             .thank-you-container {
-                padding: 40px 30px;
+                padding: 30px 20px;
+                margin: 0 auto;
+            }
+            
+            .checkmark {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 20px;
+            }
+            
+            .checkmark svg {
+                width: 40px;
+                height: 40px;
             }
             
             h1 {
-                font-size: 36px;
+                font-size: 32px;
+                margin-bottom: 15px;
             }
             
             h2 {
-                font-size: 22px;
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            p {
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .highlight-box {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+            
+            .highlight-box h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .highlight-box p {
+                font-size: 14px;
+                margin-bottom: 8px;
             }
             
             .button-group {
                 flex-direction: column;
+                gap: 12px;
+                margin-top: 20px;
             }
             
             .btn {
                 width: 100%;
+                padding: 14px 24px;
+                font-size: 16px;
             }
         }
     </style>
