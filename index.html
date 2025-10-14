@@ -2614,8 +2614,8 @@
                                         <p>Energy-efficient standing seam metal roof installation</p>
                                     </div>
                                 </div>
-                                <div class="gallery-card" data-title="Shingle Replacement" data-description="<a href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/az/tucson/sunrise-roofers-llc-1153125" target="_blank" rel="noopener noreferrer" style="color: #F5A623;">GAF</a> architectural shingle installation">
-                                    <img src="images/<a href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/az/tucson/sunrise-roofers-llc-1153125" target="_blank" rel="noopener noreferrer" style="color: #F5A623;">GAF</a> Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing">
+                                <div class="gallery-card" data-title="Shingle Replacement" data-description="GAF architectural shingle installation">
+                                    <img src="images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing">
                                     <div class="card-overlay">
                                         <h4>Shingle Roof Replacement</h4>
                                         <p><a href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/az/tucson/sunrise-roofers-llc-1153125" target="_blank" rel="noopener noreferrer" style="color: #F5A623;">GAF</a> architectural shingle installation with warranty</p>
@@ -3937,16 +3937,20 @@
             coords: {lat: 32.3399923325422, lng: -111.0119592071643}
         };
 
-        function initServiceAreaMap() {
+        async function initServiceAreaMap() {
+            // Request required libraries
+            const { Map } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+            
             // Create map centered on business location
-            serviceAreaMap = new google.maps.Map(document.getElementById("service-area-map"), {
+            serviceAreaMap = new Map(document.getElementById("service-area-map"), {
                 zoom: 10,
                 center: businessLocation.coords,
                 mapTypeControl: true,
                 fullscreenControl: true,
                 streetViewControl: false,
                 zoomControl: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapId: "SUNRISE_ROOFERS_MAP", // Required for AdvancedMarkerElement
                 styles: [
                     {
                         featureType: "poi",
@@ -3968,20 +3972,20 @@
                 radius: SERVICE_RADIUS_MILES * MILES_TO_METERS
             });
 
-            // Add marker for business location
-            const marker = new google.maps.Marker({
+            // Create custom pin for marker
+            const pinElement = new PinElement({
+                background: "#F5A623",
+                borderColor: "#FFFFFF",
+                glyphColor: "#FFFFFF",
+                scale: 1.3
+            });
+
+            // Add advanced marker for business location
+            const marker = new AdvancedMarkerElement({
                 position: businessLocation.coords,
                 map: serviceAreaMap,
                 title: businessLocation.title,
-                animation: google.maps.Animation.DROP,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 10,
-                    fillColor: "#F5A623",
-                    fillOpacity: 1,
-                    strokeColor: "#FFFFFF",
-                    strokeWeight: 3
-                }
+                content: pinElement.element
             });
 
             // Add info window
@@ -4025,7 +4029,7 @@
 
     <!-- Google Maps API -->
     <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&callback=initServiceAreaMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&callback=initServiceAreaMap&loading=async">
     </script>
 </body>
 </html>
