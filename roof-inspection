@@ -217,9 +217,9 @@
     <header class="site-header">
         <div class="top-bar">
             <div class="top-bar-container">
-                <a href="tel:520-668-6638" class="top-contact"> 520-668-6638</a>
-                <a href="mailto:sunriseroofer@outlook.com" class="top-contact"> sunriseroofer@outlook.com</a>
-                <span class="top-hours"> Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="tel:520-668-6638" class="top-contact">📞 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">✉️ sunriseroofer@outlook.com</a>
+                <span class="top-hours">🕒 Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
             </div>
         </div>
         
@@ -263,6 +263,7 @@
                             <a href="/shingle-roof-replacement-tucson">Shingle Roofing</a>
                             <a href="/concrete-tile-roof-replacement">Tile Roofing</a>
                             <a href="/metal-roofing-tucson">Metal Roofing</a>
+                            <a href="/flat-roof-coating-tucson">Flat Roof Coating</a>
                         </div>
                     </li>
                     
@@ -514,6 +515,7 @@
                             <li><a href="/shingle-roof-replacement-tucson">Shingle Roofing</a></li>
                             <li><a href="/concrete-tile-roof-replacement">Tile Roofing</a></li>
                             <li><a href="/metal-roofing-tucson">Metal Roofing</a></li>
+                            <li><a href="/flat-roof-coating-tucson">Flat Roof Coating</a></li>
                             <li><a href="/roof-repair-tucson">Roof Repair</a></li>
                             <li><a href="/roof-inspection">Roof Inspection</a></li>
                         </ul>
