@@ -2831,13 +2831,17 @@
                     </p>
                     
                     <!-- Service Area Stats -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
+                    <div id="service-stats" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
                         <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #F5A623 0%, #E89510 100%); border-radius: 10px; box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);">
-                            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: white; margin-bottom: 5px;">40</div>
+                            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: white; margin-bottom: 5px;">
+                                <span id="mile-radius-counter" data-target="40">0</span>
+                            </div>
                             <div style="font-family: 'Roboto', sans-serif; font-size: 14px; color: white; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Mile Radius</div>
                         </div>
                         <div style="text-align: center; padding: 25px; background: white; border: 2px solid #F5A623; border-radius: 10px;">
-                            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #F5A623; margin-bottom: 5px;">10+</div>
+                            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #F5A623; margin-bottom: 5px;">
+                                <span id="cities-counter" data-target="10">0</span><span id="cities-plus" style="opacity: 0; transition: opacity 0.3s ease;">+</span>
+                            </div>
                             <div style="font-family: 'Roboto', sans-serif; font-size: 14px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Cities Served</div>
                         </div>
                     </div>
@@ -3865,6 +3869,59 @@
         });
     </script>
 
+    <!-- Service Area Stats Counter Animation -->
+    <script>
+        // Counter animation function
+        function animateCounter(element, target, duration = 2000, callback) {
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = Math.ceil(target);
+                    clearInterval(timer);
+                    if (callback) callback();
+                } else {
+                    element.textContent = Math.ceil(current);
+                }
+            }, 16);
+        }
+        
+        // Intersection Observer to trigger animation when visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate mile radius counter
+                    const mileCounter = document.getElementById('mile-radius-counter');
+                    const mileTarget = parseInt(mileCounter.getAttribute('data-target'));
+                    animateCounter(mileCounter, mileTarget, 2000);
+                    
+                    // Animate cities counter and show "+" when done
+                    const citiesCounter = document.getElementById('cities-counter');
+                    const citiesPlus = document.getElementById('cities-plus');
+                    const citiesTarget = parseInt(citiesCounter.getAttribute('data-target'));
+                    animateCounter(citiesCounter, citiesTarget, 2000, () => {
+                        // Show the "+" sign after animation completes
+                        if (citiesPlus) {
+                            citiesPlus.style.opacity = '1';
+                        }
+                    });
+                    
+                    // Only animate once
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        // Observe the stats section
+        const statsSection = document.getElementById('service-stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+
     <!-- Google Maps Service Area Script -->
     <script>
         let serviceAreaMap;
@@ -3930,13 +3987,24 @@
             // Add info window
             const infoWindow = new google.maps.InfoWindow({
                 content: `
-                    <div style="font-family: Arial, sans-serif; padding: 10px;">
-                        <h3 style="margin: 0 0 8px 0; color: #F5A623; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px;">${businessLocation.title}</h3>
-                        <p style="margin: 4px 0; font-size: 14px; color: #666;">${businessLocation.address1}</p>
-                        <p style="margin: 4px 0; font-size: 14px; color: #666;">${businessLocation.address2}</p>
-                        <p style="margin-top: 8px; color: #1A1A1A; font-weight: 600;">
+                    <div style="font-family: Arial, sans-serif; padding: 12px; max-width: 300px;">
+                        <h3 style="margin: 0 0 10px 0; color: #F5A623; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px;">${businessLocation.title}</h3>
+                        <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address1}</p>
+                        <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address2}</p>
+                        <p style="margin: 10px 0 12px 0; color: #1A1A1A; font-weight: 600; font-size: 13px;">
                             <i class="fas fa-circle" style="color: #F5A623; font-size: 8px;"></i> Service Area: ${SERVICE_RADIUS_MILES} mile radius
                         </p>
+                        <div style="border-top: 1px solid #E0E0E0; padding-top: 12px; margin-top: 12px;">
+                            <a href="https://google.com/maps/place/Sunrise+Roofers+LLC/@32.3398462,-111.0119968,17z/data=!3m1!5s0x86d674b1c06cc0ed:0xee29905f9ad6a485!4m6!3m5!1s0x41069aff002a721d:0x27f42115ff29e8e8!8m2!3d32.3398462!4d-111.0119968!16s%2Fg%2F11yf9bvjpk?entry=ttu&g_ep=EgoyMDI1MTAxMi4wIKXMDSoASAFQAw%3D%3D" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: #4285F4; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(66, 133, 244, 0.3);"
+                               onmouseover="this.style.background='#357ae8'; this.style.boxShadow='0 4px 12px rgba(66, 133, 244, 0.5)';"
+                               onmouseout="this.style.background='#4285F4'; this.style.boxShadow='0 2px 6px rgba(66, 133, 244, 0.3)';">
+                                <i class="fab fa-google" style="font-size: 16px;"></i>
+                                <span>View on Google Maps</span>
+                            </a>
+                        </div>
                     </div>
                 `
             });
