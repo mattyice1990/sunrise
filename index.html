@@ -3936,6 +3936,12 @@
             address2: "Tucson, AZ 85741, USA",
             coords: {lat: 32.3399923325422, lng: -111.0119592071643}
         };
+        
+        const bensonLocation = {
+            title: "Benson Service Area",
+            address: "Benson, AZ 85602",
+            coords: {lat: 31.9678809, lng: -110.2945396}
+        };
 
         async function initServiceAreaMap() {
             // Request required libraries
@@ -3944,7 +3950,7 @@
             
             // Create map centered on business location
             serviceAreaMap = new Map(document.getElementById("service-area-map"), {
-                zoom: 10,
+                zoom: 9,
                 center: businessLocation.coords,
                 mapTypeControl: true,
                 fullscreenControl: true,
@@ -4021,6 +4027,38 @@
             setTimeout(() => {
                 infoWindow.open(serviceAreaMap, marker);
             }, 500);
+            
+            // Add Benson service area marker
+            const bensonPinElement = new PinElement({
+                background: "#E89510",
+                borderColor: "#FFFFFF",
+                glyphColor: "#FFFFFF",
+                scale: 1.1
+            });
+
+            const bensonMarker = new AdvancedMarkerElement({
+                position: bensonLocation.coords,
+                map: serviceAreaMap,
+                title: bensonLocation.title,
+                content: bensonPinElement.element
+            });
+
+            // Add info window for Benson
+            const bensonInfoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="font-family: Arial, sans-serif; padding: 12px; max-width: 280px;">
+                        <h3 style="margin: 0 0 10px 0; color: #E89510; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px;">${bensonLocation.title}</h3>
+                        <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${bensonLocation.address}</p>
+                        <p style="margin: 10px 0 0 0; color: #1A1A1A; font-weight: 600; font-size: 13px;">
+                            <i class="fas fa-check-circle" style="color: #E89510; font-size: 12px;"></i> Full service coverage area
+                        </p>
+                    </div>
+                `
+            });
+
+            bensonMarker.addListener("click", () => {
+                bensonInfoWindow.open(serviceAreaMap, bensonMarker);
+            });
         }
 
         // Initialize map when page loads
