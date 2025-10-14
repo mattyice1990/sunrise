@@ -3950,7 +3950,6 @@
             
             // Create map centered on business location
             serviceAreaMap = new Map(document.getElementById("service-area-map"), {
-                zoom: 9,
                 center: businessLocation.coords,
                 mapTypeControl: true,
                 fullscreenControl: true,
@@ -3977,6 +3976,16 @@
                 center: businessLocation.coords,
                 radius: SERVICE_RADIUS_MILES * MILES_TO_METERS
             });
+
+            // Fit map bounds to show entire service area circle
+            const bounds = serviceArea.getBounds();
+            serviceAreaMap.fitBounds(bounds);
+            
+            // Add slight padding to the bounds for better visual spacing
+            setTimeout(() => {
+                const currentZoom = serviceAreaMap.getZoom();
+                serviceAreaMap.setZoom(currentZoom - 0.2);
+            }, 100);
 
             // Create custom pin for marker
             const pinElement = new PinElement({
