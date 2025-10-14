@@ -8,6 +8,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box;}
         
@@ -295,7 +298,62 @@
                 font-size: 16px;
             }
         }
-    </style>
+            
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #F5A623;
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: #E89510;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);
+        }
+        
+        /* Desktop: Show "Connect with Us" and only Facebook + BBB */
+        .mobile-heading {
+            display: none;
+        }
+        
+        .mobile-social {
+            display: none;
+        }
+        
+        /* Mobile: Show "Social Media" and all 5 icons */
+        @media (max-width: 768px) {
+            .desktop-heading {
+                display: none;
+            }
+            
+            .mobile-heading {
+                display: block;
+            }
+            
+            .desktop-social {
+                display: none;
+            }
+            
+            .mobile-social {
+                display: flex;
+            }
+        }
+        
+        </style>
 </head>
 <body>
     <div class="thank-you-container">
