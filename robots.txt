@@ -28,6 +28,7 @@ Allow: /roof-inspection.html
 Allow: /shingle-roof-replacement-tucson.html
 Allow: /concrete-tile-roof-replacement.html
 Allow: /metal-roofing-tucson.html
+Allow: /flat-roof-coating-tucson.html
 Allow: /arizona-roof-replacement.html
 Allow: /tucson-roofing-services.html
 
