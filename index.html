@@ -2774,17 +2774,95 @@
         </div>
     </section>
 
-    <!-- Company Story -->
-    <section class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Our Story</h2>
-            <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 18px;">
+    <!-- Areas We Serve -->
+    <section class="bg-light" style="padding: 80px 20px;">
+        <div class="container" style="max-width: 1200px;">
+            <h2 class="section-title" style="margin-bottom: 20px;">Areas We Serve</h2>
+            <p style="max-width: 800px; margin: 0 auto 40px; text-align: center; font-size: 18px;">
                 Founded in 2025, Sunrise Roofers LLC is dedicated to serving the Tucson and Phoenix communities. 
                 We started as a small family business with a commitment to quality and customer satisfaction. Today, we're proud 
                 to be one of Arizona's most trusted roofing contractors, with hundreds of successful projects and satisfied customers. 
                 Our team of licensed professionals brings decades of combined experience to every project, ensuring your roof is 
                 built to withstand Arizona's harsh desert climate.
             </p>
+            
+            <!-- Service Area Map & Stats -->
+            <div class="service-area-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; align-items: center;">
+                <!-- Map Container -->
+                <div style="position: relative; height: 500px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);">
+                    <div id="service-area-map" style="height: 100%; width: 100%;"></div>
+                </div>
+                
+                <!-- Service Area Info -->
+                <div style="padding: 20px;">
+                    <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #1A1A1A; margin-bottom: 20px; letter-spacing: 1px;">30-Mile Service Radius</h3>
+                    <p style="font-size: 17px; line-height: 1.8; color: #666; margin-bottom: 30px;">
+                        We proudly serve Tucson and surrounding communities within a 30-mile radius. From Catalina Foothills to Sahuarita, 
+                        Marana to Green Valley, our team is ready to provide expert roofing services throughout Greater Tucson.
+                    </p>
+                    
+                    <!-- Service Area Stats -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
+                        <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #F5A623 0%, #E89510 100%); border-radius: 10px; box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);">
+                            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: white; margin-bottom: 5px;">30</div>
+                            <div style="font-family: 'Roboto', sans-serif; font-size: 14px; color: white; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Mile Radius</div>
+                        </div>
+                        <div style="text-align: center; padding: 25px; background: white; border: 2px solid #F5A623; border-radius: 10px;">
+                            <div style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #F5A623; margin-bottom: 5px;">10+</div>
+                            <div style="font-family: 'Roboto', sans-serif; font-size: 14px; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Cities Served</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cities List -->
+                    <div style="margin-top: 30px; padding: 25px; background: #f8f8f8; border-radius: 10px;">
+                        <h4 style="font-family: 'Oswald', sans-serif; font-size: 18px; color: #1A1A1A; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Communities We Serve:</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 15px; color: #666;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-marker-alt" style="color: #F5A623;"></i>
+                                <span>Tucson</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-marker-alt" style="color: #F5A623;"></i>
+                                <span>Marana</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-marker-alt" style="color: #F5A623;"></i>
+                                <span>Oro Valley</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-marker-alt" style="color: #F5A623;"></i>
+                                <span>Sahuarita</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-marker-alt" style="color: #F5A623;"></i>
+                                <span>Green Valley</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-marker-alt" style="color: #F5A623;"></i>
+                                <span>Catalina Foothills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Responsive layout for mobile -->
+            <style>
+                @media (max-width: 992px) {
+                    .service-area-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 30px !important;
+                    }
+                    #service-area-map {
+                        height: 400px !important;
+                    }
+                }
+                @media (max-width: 576px) {
+                    #service-area-map {
+                        height: 350px !important;
+                    }
+                }
+            </style>
         </div>
     </section>
 
@@ -3750,6 +3828,101 @@
                 document.body.style.overflow = '';
             }
         });
+    </script>
+
+    <!-- Google Maps Service Area Script -->
+    <script>
+        let serviceAreaMap;
+        
+        // Service area radius in miles
+        const SERVICE_RADIUS_MILES = 30;
+        const MILES_TO_METERS = 1609.34;
+
+        const businessLocation = {
+            title: "Sunrise Roofers LLC",
+            address1: "7320 N La Cholla Blvd Ste 154-276",
+            address2: "Tucson, AZ 85741, USA",
+            coords: {lat: 32.3399923325422, lng: -111.0119592071643}
+        };
+
+        function initServiceAreaMap() {
+            // Create map centered on business location
+            serviceAreaMap = new google.maps.Map(document.getElementById("service-area-map"), {
+                zoom: 10,
+                center: businessLocation.coords,
+                mapTypeControl: true,
+                fullscreenControl: true,
+                streetViewControl: false,
+                zoomControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [
+                    {
+                        featureType: "poi",
+                        elementType: "labels",
+                        stylers: [{ visibility: "off" }]
+                    }
+                ]
+            });
+
+            // Add service area circle
+            const serviceArea = new google.maps.Circle({
+                strokeColor: "#F5A623",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#F5A623",
+                fillOpacity: 0.15,
+                map: serviceAreaMap,
+                center: businessLocation.coords,
+                radius: SERVICE_RADIUS_MILES * MILES_TO_METERS
+            });
+
+            // Add marker for business location
+            const marker = new google.maps.Marker({
+                position: businessLocation.coords,
+                map: serviceAreaMap,
+                title: businessLocation.title,
+                animation: google.maps.Animation.DROP,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 10,
+                    fillColor: "#F5A623",
+                    fillOpacity: 1,
+                    strokeColor: "#FFFFFF",
+                    strokeWeight: 3
+                }
+            });
+
+            // Add info window
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="font-family: Arial, sans-serif; padding: 10px;">
+                        <h3 style="margin: 0 0 8px 0; color: #F5A623; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px;">${businessLocation.title}</h3>
+                        <p style="margin: 4px 0; font-size: 14px; color: #666;">${businessLocation.address1}</p>
+                        <p style="margin: 4px 0; font-size: 14px; color: #666;">${businessLocation.address2}</p>
+                        <p style="margin-top: 8px; color: #1A1A1A; font-weight: 600;">
+                            <i class="fas fa-circle" style="color: #F5A623; font-size: 8px;"></i> Service Area: ${SERVICE_RADIUS_MILES} mile radius
+                        </p>
+                    </div>
+                `
+            });
+
+            marker.addListener("click", () => {
+                infoWindow.open(serviceAreaMap, marker);
+            });
+
+            // Auto-open info window on load
+            setTimeout(() => {
+                infoWindow.open(serviceAreaMap, marker);
+            }, 500);
+        }
+
+        // Initialize map when page loads
+        window.initServiceAreaMap = initServiceAreaMap;
+    </script>
+
+    <!-- Google Maps API -->
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&callback=initServiceAreaMap">
     </script>
 </body>
 </html>
