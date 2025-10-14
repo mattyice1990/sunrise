@@ -149,5 +149,13 @@
     <priority>0.3</priority>
   </url>
   
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://roofwithsunrise.com/privacy-policy</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
 </urlset>
 

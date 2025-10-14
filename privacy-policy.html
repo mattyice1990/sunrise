@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Sunrise Roofers LLC | Tucson Arizona</title>
+    <meta name="description" content="Sunrise Roofers LLC Privacy Policy. Learn how we collect, use, and protect your personal information. Serving Tucson and Southern Arizona since 2025.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.6; color: #1A1A1A;}
+        html {scroll-behavior: smooth;}
+        .container {max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+        
+        h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px;}
+        h2 {font-family: 'Bebas Neue', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.2; margin-bottom: 20px; color: #F5A623;}
+        h3 {font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 600; line-height: 1.3; margin-bottom: 16px; margin-top: 32px; color: #1A1A1A;}
+        h4 {font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 600; line-height: 1.4; margin-bottom: 12px; color: #4A4A4A;}
+        p {font-family: 'Roboto', sans-serif; font-size: 18px; line-height: 1.8; margin-bottom: 20px; color: #1A1A1A;}
+        ul {color: #1A1A1A; line-height: 1.8; margin-bottom: 20px; margin-left: 30px;}
+        ul li {margin-bottom: 10px;}
+        
+        /* Sticky Header */
+        .site-header {position: sticky; top: 0; z-index: 1000;}
+        
+        /* Top Bar */
+        .top-bar {background: #F5F5F5; padding: 10px 0; font-size: 14px; border-bottom: 1px solid #E0E0E0;}
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .top-contact, .top-hours {color: #1A1A1A; text-decoration: none; transition: color 0.3s; font-weight: 700;}
+        .top-contact:hover {color: #F5A623;}
+        
+        .top-social {
+            color: #1877F2;
+            font-size: 18px;
+            margin-left: 15px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .top-social:hover {
+            color: #0e5fc4;
+            transform: scale(1.1);
+        }
+
+        
+        /* Navigation */
+        .main-nav {background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+        .nav-container {max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: relative;}
+        .logo {display: flex; align-items: center; text-decoration: none; margin-right: auto;}
+        .logo img {height: 80px; width: auto; display: block;}
+        .logo-sunrise {color: #1A1A1A;} .logo-roofers {color: #F5A623;}
+        .nav-links {display: flex; gap: 25px; list-style: none; align-items: center; margin: 0; padding: 0;}
+        .nav-links > li > a {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; color: #1A1A1A; transition: color 0.3s ease; padding: 10px 5px; display: block;}
+        .nav-links > li > a:hover {color: #F5A623;}
+        .dropdown {position: relative; display: flex; align-items: center; gap: 2px;}
+        .dropdown-header {display: flex; align-items: center; gap: 2px; flex: 1;}
+        .dropdown-label {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: #1A1A1A; padding: 10px 5px; cursor: pointer; transition: color 0.3s ease;}
+        .dropdown-label:hover {color: #F5A623;}
+        .dropdown-link {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: #1A1A1A; text-decoration: none; padding: 10px 5px; transition: color 0.3s ease;}
+        .dropdown-link:hover {color: #F5A623;}
+        .dropdown-toggle {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: none; border: none; color: #1A1A1A; cursor: pointer; padding: 10px 5px; display: flex; align-items: center; transition: color 0.3s ease;}
+        .dropdown-toggle:hover {color: #F5A623;}
+        .dropdown-arrow {font-size: 10px; transition: transform 0.3s;}
+        .dropdown.active .dropdown-arrow {transform: rotate(180deg);}
+        .dropdown-content {position: absolute; top: calc(100% + 2px); left: 0; background: white; min-width: 240px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 6px; padding: 12px 0; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; z-index: 1000;}
+        .dropdown-content::before {content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; background: transparent;}
+        .dropdown.active .dropdown-content {opacity: 1; visibility: visible; transform: translateY(0);}
+        .dropdown-content a {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400; display: block; padding: 12px 20px; color: #1A1A1A; text-decoration: none; transition: all 0.2s;}
+        .dropdown-content a:hover {background: #fef3e2; color: #F5A623; padding-left: 25px;}
+        .cta-button {font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623 !important; color: #FFFFFF !important; padding: 12px 24px !important; border-radius: 0; border: none; transition: all 0.3s ease;}
+        .cta-button:hover {background: #E89510 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
+        .mobile-menu-toggle {display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 5px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1001;}
+        .mobile-menu-toggle span {width: 25px; height: 3px; background: #1A1A1A; transition: all 0.3s; border-radius: 2px;}
+        
+        /* Hero */
+        .hero {background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%); padding: 120px 40px; text-align: center; color: #FFFFFF; position: relative; overflow: hidden;}
+        .hero::before {content: ''; position: absolute; top: -50%; right: -10%; width: 40%; height: 200%; background: linear-gradient(135deg, rgba(245, 166, 35, 0.08) 0%, transparent 50%); transform: rotate(15deg); pointer-events: none;}
+        .hero::after {content: ''; position: absolute; bottom: -50%; left: -10%; width: 35%; height: 200%; background: linear-gradient(135deg, transparent 50%, rgba(245, 166, 35, 0.05) 100%); transform: rotate(-15deg); pointer-events: none;}
+        .hero h1 {font-family: 'Bebas Neue', sans-serif; font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 24px; color: #F5A623; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); position: relative; z-index: 1;}
+        .hero p {font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 400; line-height: 1.6; color: #FFFFFF; position: relative; z-index: 1;}
+        
+        /* Content */
+        section {padding: 80px 40px;}
+        .content-section {background: #FFFFFF; padding: 80px 40px;}
+        
+        .policy-section {
+            background: #F5F5F5;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #F5A623;
+        }
+        
+        /* Footer */
+        footer {background: #1A1A1A; color: #D0D0D0; padding: 60px 40px 30px;}
+        .footer-content {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px;}
+        .footer-section h3 {font-family: 'Bebas Neue', sans-serif; font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5A623; margin-bottom: 20px;}
+        .footer-section p {font-family: 'Roboto', sans-serif; font-size: 14px; line-height: 1.8; color: #D0D0D0; margin-bottom: 10px;}
+        .footer-section ul {list-style: none; padding: 0; margin: 0;}
+        .footer-section ul li {margin-bottom: 8px; font-size: 14px;}
+        .footer-section a {color: #D0D0D0; text-decoration: none; transition: color 0.3s;}
+        
+        .footer-section a:hover {
+            color: #F5A623;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #4A4A4A;
+        }
+        .footer-bottom p {color: #D0D0D0;}
+        .footer-bottom a {color: #D0D0D0;}
+        
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #F5A623;
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: #E89510;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);
+        }
+        
+        /* Facebook blue color */
+        .social-icons a.facebook-icon {
+            background: #1877F2;
+        }
+        
+        .social-icons a.facebook-icon:hover {
+            background: #0e5fc4;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+        }
+        
+        /* BBB image styling */
+        .social-icons a.bbb-icon {
+            background: white;
+            padding: 5px;
+        }
+        
+        .social-icons a.bbb-icon:hover {
+            background: #f0f0f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icons a.bbb-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Desktop: Show "Connect with Us" and only Facebook + BBB */
+        .mobile-heading {
+            display: none;
+        }
+        
+        .mobile-social {
+            display: none;
+        }
+        
+        /* Mobile: Show "Social Media" and all 5 icons */
+        @media (max-width: 768px) {
+            .desktop-heading {
+                display: none;
+            }
+            
+            .mobile-heading {
+                display: block;
+            }
+            
+            .desktop-social {
+                display: none;
+            }
+            
+            .mobile-social {
+                display: flex;
+            }
+        }
+        
+        /* Footer Navigation Dropdowns */
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-nav > li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-nav > li > a {
+            display: block;
+            padding: 8px 0;
+            color: #D0D0D0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav > li > a:hover {
+            color: #F5A623;
+            padding-left: 5px;
+        }
+        
+        .footer-dropdown {
+            position: relative;
+        }
+        
+        .footer-dropdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .footer-dropdown-toggle {
+            background: none;
+            border: none;
+            color: #D0D0D0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .footer-dropdown-toggle:hover {
+            color: #F5A623;
+        }
+        
+        .footer-arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+        
+        .footer-dropdown.active .footer-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .footer-dropdown-content {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .footer-dropdown.active .footer-dropdown-content {
+            max-height: 500px;
+        }
+        
+        .footer-dropdown-content li {
+            margin-left: 15px;
+            margin-bottom: 6px;
+        }
+        
+        .footer-dropdown-content a {
+            display: block;
+            padding: 6px 0;
+            font-size: 13px;
+            color: #B0B0B0;
+        }
+        
+        .footer-dropdown-content a:hover {
+            color: #F5A623;
+            padding-left: 5px;
+        }
+        
+        .footer-dropdown-link {
+            color: #D0D0D0 !important;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-dropdown-link:hover {
+            color: #F5A623 !important;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {padding: 80px 20px;}
+            .hero h1 {font-size: 40px;}
+            .hero p {font-size: 18px;}
+            .content-section {padding: 60px 20px;}
+            .top-bar-container {justify-content: center; gap: 15px; font-size: 12px;}
+            .logo img {height: 60px;}
+            .mobile-menu-toggle {display: flex;}
+            .nav-links {position: fixed; top: 130px; left: 0; width: 100%; max-height: 0; background: white; flex-direction: column; gap: 0; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: max-height 0.3s ease; overflow: hidden; z-index: 999;}
+            .nav-links.active {max-height: calc(100vh - 130px); overflow-y: auto;}
+            .nav-links > li {width: 100%; border-bottom: 1px solid #E0E0E0;}
+            
+            .dropdown {flex-direction: column; align-items: stretch;}
+            
+            h1 {font-size: 48px;}
+            h2 {font-size: 36px;}
+            h3 {font-size: 24px;}
+            p {font-size: 16px;}
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {font-size: 32px;}
+            h1 {font-size: 36px;}
+            h2 {font-size: 28px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <a href="tel:520-668-6638" class="top-contact">📞 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">✉️ sunriseroofer@outlook.com</a>
+                <span class="top-hours">🕒 Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <img src="SunriseLogo.jpeg" alt="Sunrise Roofers LLC">
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/about" class="dropdown-link">About</a>
+                            <button class="dropdown-toggle"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/why-choose-sunrise-roofers">Why Choose Us</a>
+                            <a href="/gallery">Project Gallery</a>
+                            <a href="/#testimonials">Customer Reviews</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Services</span>
+                            <button class="dropdown-toggle"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/services">All Services</a>
+                            <a href="/roof-repair-tucson">Roof Repair</a>
+                            <a href="/roof-inspection">Roof Inspection</a>
+                            <a href="/arizona-roof-replacement">Roof Replacement</a>
+                            <a href="/shingle-roof-replacement-tucson">Shingle Roofing</a>
+                            <a href="/concrete-tile-roof-replacement">Tile Roofing</a>
+                            <a href="/metal-roofing-tucson">Metal Roofing</a>
+                            <a href="/flat-roof-coating-tucson">Flat Roof Coating</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Service Areas</span>
+                            <button class="dropdown-toggle"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/tucson-roofing-services">Tucson</a>
+                            <a href="/marana-roofing">Marana</a>
+                            <a href="/oro-valley-roofing">Oro Valley</a>
+                            <a href="/catalina-foothills-roofing">Catalina Foothills</a>
+                            <a href="/sahuarita-roofing">Sahuarita</a>
+                            <a href="/green-valley-roofing">Green Valley</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="/contact">Contact</a></li>
+                    
+                    <li><a href="/contact#estimate" class="cta-button">Free Estimate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us</p>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <p><strong>Effective Date:</strong> October 14, 2025</p>
+            <p><strong>Last Updated:</strong> October 14, 2025</p>
+            
+            <h3>What Information Do We Collect?</h3>
+            <p>We collect information from you when you subscribe to our newsletter, fill out a form, or request a roofing estimate.</p>
+            <p>When ordering or registering on our site, as appropriate, you may be asked to enter your: name, email address, mailing address, or phone number. You may, however, visit our site anonymously.</p>
+            
+            <h3>What Do We Use Your Information For?</h3>
+            <p>Any of the information we collect from you may be used in one of the following ways:</p>
+            <ul>
+                <li><strong>To personalize your experience</strong> - Your information helps us to better respond to your individual roofing needs</li>
+                <li><strong>To improve our website</strong> - We continually strive to improve our website offerings based on the information and feedback we receive from you</li>
+                <li><strong>To improve customer service</strong> - Your information helps us to more effectively respond to your customer service requests and support needs</li>
+                <li><strong>To process transactions</strong> - Your information will be used to provide the roofing services you request</li>
+                <li><strong>To send periodic emails</strong> - The email address you provide may be used to send you information and updates pertaining to your roofing project, in addition to receiving occasional company news, updates, and related service information</li>
+            </ul>
+            
+            <p><em>Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</em></p>
+            
+            <h3>How Do We Protect Your Information?</h3>
+            <p>We implement a variety of security measures to maintain the safety of your personal information when you place an order, enter, submit, or access your personal information.</p>
+            <p>We offer the use of a secure server. All supplied sensitive information is transmitted via Secure Socket Layer (SSL) technology and encrypted into our database to be only accessed by those authorized with special access rights to our systems, and are required to keep the information confidential.</p>
+            
+            <h3>Do We Use Cookies?</h3>
+            <p>Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information.</p>
+            <p>We use cookies to help us remember and process the items in your estimate request, understand and save your preferences for future visits, keep track of advertisements, and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
+            <p>We may contract with third-party service providers to assist us in better understanding our site visitors. These service providers are not permitted to use the information collected on our behalf except to help us conduct and improve our business.</p>
+            
+            <h3>Do We Disclose Any Information to Outside Parties?</h3>
+            <p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.</p>
+            <p>We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.</p>
+            <p>However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p>
+            
+            <h3>Third Party Links</h3>
+            <p>Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</p>
+            
+            <h3>Children's Online Privacy Protection Act Compliance</h3>
+            <p>We are in compliance with the requirements of COPPA (Children's Online Privacy Protection Act). We do not collect any information from anyone under 13 years of age. Our website, products, and services are all directed to people who are at least 13 years old or older.</p>
+            
+            <h3>Online Privacy Policy Only</h3>
+            <p>This online privacy policy applies only to information collected through our website and not to information collected offline.</p>
+            
+            <h3>Terms & Conditions for SMS/Text Messages</h3>
+            <div class="policy-section">
+                <p><strong>By submitting this form and signing up for texts, you consent to receive text messages from Sunrise Roofers LLC at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available) and no further messages will be sent. Reply HELP for help. Information will not be shared with third parties for marketing or promotional purposes.</strong></p>
+                
+                <p>Sunrise Roofers LLC will be collecting opt-in verbally from customers. Customers will be able to opt in to receive messages either in person at our physical location or over a phone call. When a customer is registered for the first time, they are asked to provide their phone number, and staff is trained to ask if the customer would like to opt in to SMS-based appointment reminders, project updates, and customer satisfaction surveys.</p>
+                
+                <p>Customers will be verbally informed that:</p>
+                <ul>
+                    <li>"Message and data rates may apply"</li>
+                    <li>"Message frequency may vary"</li>
+                    <li>"Text HELP for support or more information and STOP to unsubscribe at any time and no further messages will be sent"</li>
+                    <li>Their phone number will not be shared with third parties for marketing or promotional purposes</li>
+                </ul>
+            </div>
+            
+            <h3>Your Consent</h3>
+            <p>By using our site, you consent to our online privacy policy.</p>
+            
+            <h3>Changes to Our Privacy Policy</h3>
+            <p>If we decide to change our privacy policy, we will post those changes on this page and update the "Last Updated" date at the top of this policy.</p>
+            
+            <h3>Contacting Us</h3>
+            <p>If there are any questions regarding this privacy policy, you may contact us using the information below:</p>
+            
+            <div class="policy-section">
+                <p><strong>Sunrise Roofers LLC</strong></p>
+                <p>Phone: <a href="tel:520-668-6638" style="color: #F5A623;">520-668-6638</a></p>
+                <p>Email: <a href="mailto:sunriseroofer@outlook.com" style="color: #F5A623;">sunriseroofer@outlook.com</a></p>
+                <p>Tucson, Arizona 85712</p>
+                <p>Licensed ROC #358079</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sunrise Roofers LLC</h3>
+                <p>Licensed, bonded, and insured roofing contractor serving Tucson and Phoenix, Arizona.</p>
+                <p style="margin-top: 15px;">ROC #358079</p>
+            </div>
+            <div class="footer-section footer-nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li class="footer-dropdown">
+                        <div class="footer-dropdown-header">
+                            <a href="/about" class="footer-dropdown-link">About</a>
+                            <button class="footer-dropdown-toggle"><span class="footer-arrow">▼</span></button>
+                        </div>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="/why-choose-sunrise-roofers">Why Choose Us</a></li>
+                            <li><a href="/gallery">Project Gallery</a></li>
+                            <li><a href="/#testimonials">Customer Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <div class="footer-dropdown-header">
+                            <button class="footer-dropdown-toggle">Services <span class="footer-arrow">▼</span></button>
+                        </div>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="/services">All Services</a></li>
+                            <li><a href="/arizona-roof-replacement">Roof Replacement</a></li>
+                            <li><a href="/shingle-roof-replacement-tucson">Shingle Roofing</a></li>
+                            <li><a href="/concrete-tile-roof-replacement">Tile Roofing</a></li>
+                            <li><a href="/metal-roofing-tucson">Metal Roofing</a></li>
+                            <li><a href="/flat-roof-coating-tucson">Flat Roof Coating</a></li>
+                            <li><a href="/roof-repair-tucson">Roof Repair</a></li>
+                            <li><a href="/roof-inspection">Roof Inspection</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <div class="footer-dropdown-header">
+                            <button class="footer-dropdown-toggle">Service Areas <span class="footer-arrow">▼</span></button>
+                        </div>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="/tucson-roofing-services">Tucson</a></li>
+                            <li><a href="/marana-roofing">Marana</a></li>
+                            <li><a href="/oro-valley-roofing">Oro Valley</a></li>
+                            <li><a href="/catalina-foothills-roofing">Catalina Foothills</a></li>
+                            <li><a href="/sahuarita-roofing">Sahuarita</a></li>
+                            <li><a href="/green-valley-roofing">Green Valley</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Service Areas</h3>
+                <ul>
+                    <li>Tucson, AZ</li>
+                    <li>Oro Valley, AZ</li>
+                    <li>Catalina Foothills, AZ</li>
+                    <li>Vail, AZ</li>
+                    <li>Sahuarita, AZ</li>
+                    <li>Green Valley, AZ</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:520-668-6638">📞 520-668-6638</a></li>
+                    <li><a href="mailto:sunriseroofer@outlook.com">✉ sunriseroofer@outlook.com</a></li>
+                    <li>📍 Tucson, AZ 85712</li>
+                    <li>🕒 Mon-Fri: 7AM-6PM</li>
+                    <li>🕒 Sat: 8AM-4PM</li>
+                    <li>🚨 Emergency Service Available 24/7</li>
+                </ul>
+            </div>
+            <div class="footer-section social-section">
+                <h3 class="desktop-heading">Connect with Us</h3>
+                <h3 class="mobile-heading">Social Media</h3>
+                <div class="social-icons desktop-social">
+                    <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.yelp.com/biz/sunrise-roofers-tucson" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+                        <i class="fab fa-yelp"></i>
+                    </a>
+                    <a href="https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900" target="_blank" rel="noopener noreferrer" aria-label="Better Business Bureau" class="bbb-icon">
+                        <img src="images/BBB.png" alt="BBB">
+                    </a>
+                </div>
+                <div class="social-icons mobile-social">
+                    <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.yelp.com/biz/sunrise-roofers-tucson" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+                        <i class="fab fa-yelp"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="/" style="color: #D0D0D0;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #F5A623; text-decoration: none;">Pursuit Analytics</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Dropdown menus
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.closest('.dropdown').classList.toggle('active');
+            });
+        });
+        
+        // Footer dropdowns
+        document.querySelectorAll('.footer-dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.closest('.footer-dropdown').classList.toggle('active');
+            });
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                    dropdown.classList.remove('active');
+                });
+            }
+            if (!e.target.closest('.footer-dropdown')) {
+                document.querySelectorAll('.footer-dropdown').forEach(function(dropdown) {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
