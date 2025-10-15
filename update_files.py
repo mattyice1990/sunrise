@@ -1,38 +1,42 @@
+#!/usr/bin/env python3
+"""
+Script to extract CSS and JavaScript from index.html into separate files
+"""
+
 import re
 
-files = ['about.html', 'contact.html', 'gallery.html', 'services.html', 'index.html']
-
-for filename in files:
-    with open(filename, 'r', encoding='utf-8') as f:
+def extract_css_and_js(input_file, css_output, js_output):
+    """Extract all CSS and JavaScript from HTML file"""
+    
+    with open(input_file, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Replace style blocks with external CSS (using relative path)
-    content = re.sub(
-        r'    <style>.*?    </style>',
-        '    <!-- External Stylesheet -->\n    <link rel="stylesheet" href="css/styles.css">',
-        content,
-        flags=re.DOTALL
-    )
+    # Extract all <style> blocks
+    css_pattern = r'<style>(.*?)</style>'
+    css_blocks = re.findall(css_pattern, content, re.DOTALL)
     
-    # Replace script blocks with external JS (using relative path), but keep JSON-LD scripts
-    # Only replace script blocks that don't have type="application/ld+json"
-    def replace_script(match):
-        full_match = match.group(0)
-        if 'type="application/ld+json"' in full_match or 'application/ld+json' in full_match:
-            return full_match  # Keep JSON-LD scripts
-        return '    <!-- External JavaScript -->\n    <script src="js/main.js"></script>'
+    # Combine all CSS
+    all_css = '\n\n'.join([block.strip() for block in css_blocks])
     
-    content = re.sub(
-        r'    <script>.*?    </script>',
-        replace_script,
-        content,
-        flags=re.DOTALL
-    )
+    # Write CSS to file
+    with open(css_output, 'w', encoding='utf-8') as f:
+        f.write(all_css)
     
-    with open(filename, 'w', encoding='utf-8', newline='') as f:
-        f.write(content)
+    # Extract all <script> blocks (excluding external scripts like Google Maps)
+    script_pattern = r'<script(?![^>]*src=)>(.*?)</script>'
+    script_blocks = re.findall(script_pattern, content, re.DOTALL)
     
-    print(f"Updated {filename}")
+    # Combine all JavaScript
+    all_js = '\n\n'.join([block.strip() for block in script_blocks if block.strip() and 'application/ld+json' not in block])
+    
+    # Write JavaScript to file
+    with open(js_output, 'w', encoding='utf-8') as f:
+        f.write(all_js)
+    
+    print(f"✅ Extracted CSS to {css_output}")
+    print(f"✅ Extracted JavaScript to {js_output}")
+    print(f"CSS: {len(all_css)} characters")
+    print(f"JS: {len(all_js)} characters")
 
-print("All files updated with relative paths!")
-
+if __name__ == '__main__':
+    extract_css_and_js('index.html', 'css/styles.css', 'js/main.js')
