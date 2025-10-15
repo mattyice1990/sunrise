@@ -13,6 +13,11 @@
       "source": "/why-choose-sunrise-roofers",
       "destination": "/why-choose-sunrise-roofers-in-tucson",
       "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/roofing-services",
+      "permanent": true
     }
   ],
   "headers": [
