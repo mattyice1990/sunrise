@@ -22,27 +22,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Critical inline CSS for font fallbacks (prevents layout shift) -->
+    <!-- Critical inline CSS (above-the-fold only - eliminates render blocking) -->
     <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-    /* Ensure content is visible while fonts load */
-    .site-header, .hero-with-inset, section { 
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    }
-    /* Inline SVG icon styling (replaces Font Awesome - saves 300KB!) */
-    .icon {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        fill: currentColor;
-        vertical-align: middle;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;color:#333;background:#fff}:root{--color-orange:#F5A623;--color-black:#1A1A1A;--color-gray:#666;--color-background-light:#f4f4f4}.site-header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1)}.top-bar{background:var(--color-black);color:#fff;padding:10px 0;font-size:13px}.top-bar-container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;align-items:center;gap:20px;flex-wrap:wrap}.top-contact,.top-social,.top-social-instagram,.top-social-google{color:#fff;text-decoration:none;transition:color 0.3s}.main-nav{background:#fff;border-bottom:1px solid #e0e0e0}.nav-container{max-width:1400px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.logo img{height:60px;width:auto}.nav-links{display:flex;list-style:none;gap:30px;align-items:center}.nav-links a{text-decoration:none;color:var(--color-black);font-family:'Oswald',sans-serif;font-weight:500;font-size:16px;text-transform:uppercase;letter-spacing:0.5px;transition:color 0.3s}.btn{display:inline-block;padding:12px 30px;background:var(--color-orange);color:#fff;text-decoration:none;border-radius:5px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;transition:all 0.3s;cursor:pointer;border:none;font-size:16px}.hero-with-inset{padding:60px 20px 240px;background:#f5f5f5;position:relative;z-index:2}.hero-content-box{max-width:1400px;margin:0 auto;background-size:cover;background-position:center;border-radius:20px;padding:120px 40px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.2)}.hero-content-box::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,26,26,0.75) 0%,rgba(245,166,35,0.85) 100%);z-index:1}.hero-content-box h1{font-family:'Bebas Neue',sans-serif;font-size:56px;color:#fff;text-transform:uppercase;letter-spacing:2px;text-shadow:3px 3px 6px rgba(0,0,0,0.5);line-height:1.1}.cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}.icon{display:inline-block;width:1em;height:1em;fill:currentColor;vertical-align:middle}
     </style>
+    
+    <!-- Full stylesheet - deferred to prevent render blocking -->
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     
     <!-- Preload critical hero image -->
     <link rel="preload" as="image" href="images/Roofing In The Desert.jpg" fetchpriority="high">
@@ -209,7 +196,10 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <a href="/" class="logo">
-                    <img src="SunriseLogo.jpeg" alt="Sunrise Roofers LLC">
+                    <picture>
+                        <source srcset="SunriseLogo.webp" type="image/webp">
+                        <img src="SunriseLogo.jpeg" alt="Sunrise Roofers LLC">
+                    </picture>
                 </a>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -320,14 +310,20 @@
                             
                             <div class="card-deck">
                                 <div class="gallery-card active" data-title="Professional Team" data-description="Our expert crew working on a tile roof">
-                                    <img src="images/SunriseRoofersRepairingaRoof.png" alt="Team at Work" loading="lazy" width="600" height="400">
+                                    <picture>
+                                        <source srcset="images/SunriseRoofersRepairingaRoof.webp" type="image/webp">
+                                        <img src="images/SunriseRoofersRepairingaRoof.png" alt="Team at Work" loading="lazy" width="600" height="400">
+                                    </picture>
                                     <div class="card-overlay">
                                         <h4>Professional Team</h4>
                                         <p>Our expert crew working on a tile roof installation</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Tile Installation" data-description="Premium concrete tile roofing in Tucson">
-                                    <img src="images/Concrete Tile Install Tucson AZ.jpeg" alt="Tile Installation" loading="lazy" width="600" height="400">
+                                    <picture>
+                                        <source srcset="images/Concrete Tile Install Tucson AZ.webp" type="image/webp">
+                                        <img src="images/Concrete Tile Install Tucson AZ.jpeg" alt="Tile Installation" loading="lazy" width="600" height="400">
+                                    </picture>
                                     <div class="card-overlay">
                                         <h4>Concrete Tile Roofing</h4>
                                         <p>Premium concrete tile installation in Tucson, AZ</p>
@@ -341,14 +337,20 @@
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Shingle Replacement" data-description="GAF architectural shingle installation">
-                                    <img src="images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing" loading="lazy" width="600" height="400">
+                                    <picture>
+                                        <source srcset="images/GAF Shingle Roof Replacement in Tucson.webp" type="image/webp">
+                                        <img src="images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing" loading="lazy" width="600" height="400">
+                                    </picture>
                                     <div class="card-overlay">
                                         <h4>Shingle Roof Replacement</h4>
                                         <p><a href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/az/tucson/sunrise-roofers-llc-1153125" target="_blank" rel="noopener noreferrer" style="color: #F5A623;">GAF</a> architectural shingle installation with warranty</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Complete Replacement" data-description="Full roof replacement project completed">
-                                    <img src="images/Tucson Roof Replacement.jpeg" alt="Roof Replacement" loading="lazy" width="600" height="400">
+                                    <picture>
+                                        <source srcset="images/Tucson Roof Replacement.webp" type="image/webp">
+                                        <img src="images/Tucson Roof Replacement.jpeg" alt="Roof Replacement" loading="lazy" width="600" height="400">
+                                    </picture>
                                     <div class="card-overlay">
                                         <h4>Complete Roof Replacement</h4>
                                         <p>Full residential roof replacement project in Tucson</p>
