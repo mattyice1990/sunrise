@@ -155,35 +155,35 @@
  }
  });
  });
- // Testimonial Carousel Functionality
- let currentSlide = 0;
- const slides = document.querySelectorAll('.carousel-slide');
- const dots = document.querySelectorAll('.carousel-dot');
- const totalSlides = slides.length;
- function showSlide(index) {
- // Remove active class from all slides and dots
- slides.forEach(slide => {
- slide.classList.remove('active', 'prev');
- });
- dots.forEach(dot => {
- dot.classList.remove('active');
- });
- // Add active class to current slide and dot
- slides[index].classList.add('active');
- dots[index].classList.add('active');
- }
- function moveCarousel(direction) {
- currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
- showSlide(currentSlide);
- }
- function goToSlide(index) {
- currentSlide = index;
- showSlide(currentSlide);
- }
- // Auto-advance carousel every 5 seconds
- setInterval(() => {
- moveCarousel(1);
- }, 5000);
+// Testimonial Carousel Functionality - DISABLED (Replaced with Google Reviews Banner)
+// let currentSlide = 0;
+// const slides = document.querySelectorAll('.carousel-slide');
+// const dots = document.querySelectorAll('.carousel-dot');
+// const totalSlides = slides.length;
+// function showSlide(index) {
+// // Remove active class from all slides and dots
+// slides.forEach(slide => {
+// slide.classList.remove('active', 'prev');
+// });
+// dots.forEach(dot => {
+// dot.classList.remove('active');
+// });
+// // Add active class to current slide and dot
+// slides[index].classList.add('active');
+// dots[index].classList.add('active');
+// }
+// function moveCarousel(direction) {
+// currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+// showSlide(currentSlide);
+// }
+// function goToSlide(index) {
+// currentSlide = index;
+// showSlide(currentSlide);
+// }
+// // Auto-advance carousel every 5 seconds
+// setInterval(() => {
+// moveCarousel(1);
+// }, 5000);
 // Gallery Carousel Functionality
 let currentGallerySlide = 0;
 const galleryCards = document.querySelectorAll('.gallery-card');
