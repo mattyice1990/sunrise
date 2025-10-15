@@ -77,6 +77,9 @@
     <link rel="stylesheet" href="css/styles.css?v=20251015" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/styles.css?v=20251015"></noscript>
     
+    <!-- Google Reviews Banner CSS -->
+    <link rel="stylesheet" href="css/google-reviews-banner.css">
+    
     <!-- Preload critical hero image with WebP - LCP optimization -->
     <link rel="preload" as="image" href="images/Roofing%20In%20The%20Desert-small.webp" type="image/webp" fetchpriority="high">
     
@@ -559,12 +562,12 @@
     </div>
     <!-- End Fixed Background Wrapper -->
 
-<!-- Testimonials - Carousel with Credibility Text -->
-    <section class="reviews-section" id="testimonials">
+<!-- Testimonials - Google Reviews Banner -->
+    <section class="reviews-section" id="testimonials" style="padding: 80px 0 40px;">
         <div class="container">
             <h2 class="section-title" style="color: var(--color-orange); text-align: center; margin-bottom: 60px;">What Our Customers Say</h2>
             
-            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center;">
+            <div class="testimonials-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; margin-bottom: 60px;">
                 <!-- Left Side: Credibility Text -->
                 <div class="credibility-text">
                     <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--color-orange); text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;">
@@ -577,11 +580,11 @@
                         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
                             <span style="font-size: 28px; color: var(--color-orange);">✓</span>
                             <p style="font-size: 16px; color: white; margin: 0;"><strong>Licensed & Insured</strong> - Fully certified in Arizona</p>
-                </div>
+                        </div>
                         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
                             <span style="font-size: 28px; color: var(--color-orange);">✓</span>
                             <p style="font-size: 16px; color: white; margin: 0;"><strong>20+ Years Experience</strong> - Eddie's proven expertise</p>
-                </div>
+                        </div>
                         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
                             <span style="font-size: 28px; color: var(--color-orange);">✓</span>
                             <p style="font-size: 16px; color: white; margin: 0;"><strong>Comprehensive Warranties</strong> - Quality guaranteed</p>
@@ -600,76 +603,28 @@
                     </div>
                 </div>
                 
-                <!-- Right Side: Testimonial Carousel -->
-                <div class="testimonial-carousel-wrapper">
-                    <div class="testimonial-carousel">
-                        <button class="carousel-arrow carousel-arrow-left" onclick="moveCarousel(-1)">‹</button>
-                        
-                        <div class="carousel-track">
-                            <div class="carousel-slide active">
-                                <div class="review-card">
-                                    <div class="review-stars">★★★★★</div>
-                                    <p class="review-text">"Sunrise Roofers replaced our tile roof and the results are outstanding. Professional crew, fair pricing, and they cleaned up everything perfectly. Highly recommend!"</p>
-                                    <div class="review-author">Maria G.</div>
-                                    <div class="review-location">Tucson, AZ</div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="review-card">
-                                    <div class="review-stars">★★★★★</div>
-                                    <p class="review-text">"After monsoon damage, they came out the same day for an emergency repair. Fast, reliable, and honest. These are the roofers you want on your side."</p>
-                                    <div class="review-author">John D.</div>
-                                    <div class="review-location">Phoenix, AZ</div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="review-card">
-                                    <div class="review-stars">★★★★★</div>
-                                    <p class="review-text">"Complete roof replacement done in 3 days. Great communication throughout the process. The quality of work exceeded our expectations."</p>
-                                    <div class="review-author">Sandra L.</div>
-                                    <div class="review-location">Oro Valley, AZ</div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="review-card">
-                                    <div class="review-stars">★★★★★</div>
-                                    <p class="review-text">"Metal roof installation was flawless. They answered all my questions and finished ahead of schedule. My cooling bills have already dropped significantly."</p>
-                                    <div class="review-author">Robert K.</div>
-                                    <div class="review-location">Catalina Foothills, AZ</div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="review-card">
-                                    <div class="review-stars">★★★★★</div>
-                                    <p class="review-text">"Honest assessment, fair price, and quality work. They replaced our aging shingle roof with beautiful architectural shingles. Couldn't be happier!"</p>
-                                    <div class="review-author">Jennifer M.</div>
-                                    <div class="review-location">Vail, AZ</div>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="review-card">
-                                    <div class="review-stars">★★★★★</div>
-                                    <p class="review-text">"Best roofing company in Southern Arizona! From inspection to completion, everything was professional and seamless. Highly recommended!"</p>
-                                    <div class="review-author">David H.</div>
-                                    <div class="review-location">Green Valley, AZ</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="carousel-arrow carousel-arrow-right" onclick="moveCarousel(1)">›</button>
+                <!-- Right Side: Google Rating Badge -->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%); border-radius: 20px; padding: 50px 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);">
+                    <img 
+                        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
+                        alt="Google"
+                        style="height: 32px; margin-bottom: 20px;"
+                    />
+                    <div style="font-size: 80px; font-family: 'Bebas Neue', sans-serif; color: white; line-height: 1; margin-bottom: 10px;">5.0</div>
+                    <div style="display: flex; gap: 4px; margin-bottom: 15px;">
+                        <span style="color: #FFD700; font-size: 28px;">★</span>
+                        <span style="color: #FFD700; font-size: 28px;">★</span>
+                        <span style="color: #FFD700; font-size: 28px;">★</span>
+                        <span style="color: #FFD700; font-size: 28px;">★</span>
+                        <span style="color: #FFD700; font-size: 28px;">★</span>
                     </div>
-                    
-                    <!-- Carousel Dots -->
-                    <div class="carousel-dots">
-                        <span class="carousel-dot active" onclick="goToSlide(0)" role="button" tabindex="0" aria-label="View testimonial 1"></span>
-                        <span class="carousel-dot" onclick="goToSlide(1)" role="button" tabindex="0" aria-label="View testimonial 2"></span>
-                        <span class="carousel-dot" onclick="goToSlide(2)" role="button" tabindex="0" aria-label="View testimonial 3"></span>
-                        <span class="carousel-dot" onclick="goToSlide(3)" role="button" tabindex="0" aria-label="View testimonial 4"></span>
-                        <span class="carousel-dot" onclick="goToSlide(4)" role="button" tabindex="0" aria-label="View testimonial 5"></span>
-                        <span class="carousel-dot" onclick="goToSlide(5)" role="button" tabindex="0" aria-label="View testimonial 6"></span>
-                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px; font-weight: 600; margin: 0;">Based on 47+ Reviews</p>
+                    <a href="https://g.page/r/CejoKf8VIfQnEBM/review" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 25px; background: white; color: #1e40af; font-weight: 700; padding: 14px 32px;">Leave a Review</a>
                 </div>
             </div>
+            
+            <!-- Full-Width Google Reviews Banner -->
+            <div id="google-reviews-container"></div>
         </div>
     </section>
 
@@ -1116,5 +1071,8 @@
     
     <!-- Main JavaScript -->
     <script defer src="js/main.js"></script>
+    
+    <!-- Google Reviews Banner JavaScript -->
+    <script defer src="js/google-reviews-banner.js"></script>
 </body>
 </html>
