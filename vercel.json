@@ -18,6 +18,41 @@
       "source": "/services",
       "destination": "/roofing-services",
       "permanent": true
+    },
+    {
+      "source": "/roof-repair-tucson",
+      "destination": "/roofing-services/roof-repair-tucson",
+      "permanent": true
+    },
+    {
+      "source": "/roof-inspection",
+      "destination": "/roofing-services/roof-inspection",
+      "permanent": true
+    },
+    {
+      "source": "/arizona-roof-replacement",
+      "destination": "/roofing-services/arizona-roof-replacement",
+      "permanent": true
+    },
+    {
+      "source": "/shingle-roof-replacement-tucson",
+      "destination": "/roofing-services/shingle-roof-replacement-tucson",
+      "permanent": true
+    },
+    {
+      "source": "/concrete-tile-roof-replacement",
+      "destination": "/roofing-services/concrete-tile-roof-replacement",
+      "permanent": true
+    },
+    {
+      "source": "/metal-roofing-tucson",
+      "destination": "/roofing-services/metal-roofing-tucson",
+      "permanent": true
+    },
+    {
+      "source": "/flat-roof-coating-tucson",
+      "destination": "/roofing-services/flat-roof-coating-tucson",
+      "permanent": true
     }
   ],
   "headers": [
