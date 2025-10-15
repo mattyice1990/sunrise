@@ -17,28 +17,30 @@ Sitemap: https://roofwithsunrise.com/sitemap.xml
 
 # Allow specific important pages (redundant with Allow: / but explicit)
 Allow: /index.html
-Allow: /about.html
-Allow: /services.html
-Allow: /contact.html
-Allow: /gallery.html
+Allow: /about-our-roofing-contractors-in-tucson
+Allow: /contact
+Allow: /gallery
 
-# Service pages
-Allow: /roof-repair-tucson.html
-Allow: /roof-inspection.html
-Allow: /shingle-roof-replacement-tucson.html
-Allow: /concrete-tile-roof-replacement.html
-Allow: /metal-roofing-tucson.html
-Allow: /flat-roof-coating-tucson.html
-Allow: /new-roof-tucson.html
-Allow: /tucson-roofing-services.html
+# Service pages - roofing-services directory
+Allow: /roofing-services/
+Allow: /roofing-services/roof-repair-tucson
+Allow: /roofing-services/roof-inspection
+Allow: /roofing-services/new-roof-tucson
+Allow: /roofing-services/shingle-roof-replacement-tucson
+Allow: /roofing-services/concrete-tile-roof-replacement
+Allow: /roofing-services/metal-roofing-tucson
+Allow: /roofing-services/flat-roof-coating-tucson
+
+# Main service pages
+Allow: /tucson-roofing-services
 
 # Location-specific pages
-Allow: /catalina-foothills-roofing.html
-Allow: /oro-valley-roofing.html
-Allow: /marana-roofing.html
-Allow: /sahuarita-roofing.html
-Allow: /green-valley-roofing.html
+Allow: /catalina-foothills-roofing
+Allow: /oro-valley-roofing
+Allow: /marana-roofing
+Allow: /sahuarita-roofing
+Allow: /green-valley-roofing
 
 # About pages
-Allow: /why-choose-sunrise-roofers.html
+Allow: /why-choose-sunrise-roofers-in-tucson
 

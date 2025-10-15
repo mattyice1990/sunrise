@@ -29,20 +29,20 @@ Sunrise Roofers is a professional roofing company serving Tucson, Arizona and su
 
 ## Website Structure
 - Homepage: https://roofwithsunrise.com/
-- Services Overview: https://roofwithsunrise.com/services
-- About Us: https://roofwithsunrise.com/about
+- Services Overview: https://roofwithsunrise.com/roofing-services
+- About Us: https://roofwithsunrise.com/about-our-roofing-contractors-in-tucson
 - Contact: https://roofwithsunrise.com/contact
 - Gallery: https://roofwithsunrise.com/gallery
-- Why Choose Us: https://roofwithsunrise.com/why-choose-sunrise-roofers
+- Why Choose Us: https://roofwithsunrise.com/why-choose-sunrise-roofers-in-tucson
 
 ## Service-Specific Pages
-- Arizona Roof Replacement: https://roofwithsunrise.com/new-roof-tucson
-- Shingle Roof Replacement: https://roofwithsunrise.com/shingle-roof-replacement-tucson
-- Concrete Tile Roof Replacement: https://roofwithsunrise.com/concrete-tile-roof-replacement
-- Metal Roofing: https://roofwithsunrise.com/metal-roofing-tucson
-- Flat Roof Coating & TPO Roofing: https://roofwithsunrise.com/flat-roof-coating-tucson
-- Roof Repair: https://roofwithsunrise.com/roof-repair-tucson
-- Roof Inspection: https://roofwithsunrise.com/roof-inspection
+- Arizona Roof Replacement: https://roofwithsunrise.com/roofing-services/new-roof-tucson
+- Shingle Roof Replacement: https://roofwithsunrise.com/roofing-services/shingle-roof-replacement-tucson
+- Concrete Tile Roof Replacement: https://roofwithsunrise.com/roofing-services/concrete-tile-roof-replacement
+- Metal Roofing: https://roofwithsunrise.com/roofing-services/metal-roofing-tucson
+- Flat Roof Coating & TPO Roofing: https://roofwithsunrise.com/roofing-services/flat-roof-coating-tucson
+- Roof Repair: https://roofwithsunrise.com/roofing-services/roof-repair-tucson
+- Roof Inspection: https://roofwithsunrise.com/roofing-services/roof-inspection
 
 ## Location-Specific Pages
 - Tucson Roofing Services: https://roofwithsunrise.com/tucson-roofing-services
@@ -80,5 +80,5 @@ Primary Service Area: Tucson, AZ and surrounding communities
 - Emergency Services: 24/7 availability for urgent repairs
 
 ---
-Last Updated: 2025-10-14
+Last Updated: 2025-10-15
 
