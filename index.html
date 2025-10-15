@@ -20,6 +20,9 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
     
+    <!-- Preload critical hero image -->
+    <link rel="preload" as="image" href="images/Roofing In The Desert.jpg" fetchpriority="high">
+    
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Sunrise Roofers LLC | Professional Roofing Services">
     <meta property="og:description" content="Expert roofing services in Tucson and Phoenix, Arizona. Licensed & insured.">
@@ -250,7 +253,7 @@
     </section>
 
     <!-- About & Services Sections - Orange to Dark Gradient Background -->
-    <div class="about-services-wrapper" style="background-image: url('images/Concrete Tile Install Tucson AZ.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; overflow: hidden; margin-top: -180px; z-index: 1;">
+    <div class="about-services-wrapper" data-bg="url('images/Concrete Tile Install Tucson AZ.jpeg')" style="background-size: cover; background-position: center; background-attachment: fixed; position: relative; overflow: hidden; margin-top: -180px; z-index: 1; background-color: #2a2a2a;">
         <!-- Orange to dark gradient overlay (same as CTA section) -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(245, 166, 35, 0.88) 0%, rgba(26, 26, 26, 0.92) 100%); z-index: 0;"></div>
         
@@ -281,42 +284,42 @@
                             
                             <div class="card-deck">
                                 <div class="gallery-card active" data-title="Professional Team" data-description="Our expert crew working on a tile roof">
-                                    <img src="images/SunriseRoofersRepairingaRoof.png" alt="Team at Work">
+                                    <img src="images/SunriseRoofersRepairingaRoof.png" alt="Team at Work" loading="lazy" width="600" height="400">
                                     <div class="card-overlay">
                                         <h4>Professional Team</h4>
                                         <p>Our expert crew working on a tile roof installation</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Tile Installation" data-description="Premium concrete tile roofing in Tucson">
-                                    <img src="images/Concrete Tile Install Tucson AZ.jpeg" alt="Tile Installation">
+                                    <img src="images/Concrete Tile Install Tucson AZ.jpeg" alt="Tile Installation" loading="lazy" width="600" height="400">
                                     <div class="card-overlay">
                                         <h4>Concrete Tile Roofing</h4>
                                         <p>Premium concrete tile installation in Tucson, AZ</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Metal Roofing" data-description="Energy-efficient standing seam installation">
-                                    <img src="images/Standing Seam Metal Roofs.jpg" alt="Metal Roofing">
+                                    <img src="images/Standing Seam Metal Roofs.jpg" alt="Metal Roofing" loading="lazy" width="600" height="400">
                                     <div class="card-overlay">
                                         <h4>Metal Roofing</h4>
                                         <p>Energy-efficient standing seam metal roof installation</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Shingle Replacement" data-description="GAF architectural shingle installation">
-                                    <img src="images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing">
+                                    <img src="images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing" loading="lazy" width="600" height="400">
                                     <div class="card-overlay">
                                         <h4>Shingle Roof Replacement</h4>
                                         <p><a href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/az/tucson/sunrise-roofers-llc-1153125" target="_blank" rel="noopener noreferrer" style="color: #F5A623;">GAF</a> architectural shingle installation with warranty</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Complete Replacement" data-description="Full roof replacement project completed">
-                                    <img src="images/Tucson Roof Replacement.jpeg" alt="Roof Replacement">
+                                    <img src="images/Tucson Roof Replacement.jpeg" alt="Roof Replacement" loading="lazy" width="600" height="400">
                                     <div class="card-overlay">
                                         <h4>Complete Roof Replacement</h4>
                                         <p>Full residential roof replacement project in Tucson</p>
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Foam Roofing" data-description="Spray foam roof coating application">
-                                    <img src="images/Roofing In The Desert.jpg" alt="Desert Roofing">
+                                    <img src="images/Roofing In The Desert.jpg" alt="Desert Roofing" loading="lazy" width="600" height="400">
                                     <div class="card-overlay">
                                         <h4>Desert Roofing Specialists</h4>
                                         <p>Professional roofing solutions for Arizona's climate</p>
@@ -799,7 +802,7 @@
     </section>
 
     <!-- Full-Width CTA with Background Image -->
-    <section class="fullwidth-cta fullwidth-cta-orange" id="contact" style="background-image: url('images/Tucson Roof Replacement.jpeg');">
+    <section class="fullwidth-cta fullwidth-cta-orange" id="contact" data-bg="url('images/Tucson Roof Replacement.jpeg')" style="background-color: #2a2a2a;">
         <div class="fullwidth-cta-content">
             <h2>Ready for Your Free Roof Inspection?</h2>
             <p>Get a comprehensive roof evaluation and honest assessment from Arizona's trusted roofing experts. Licensed, insured, and serving Southern Arizona since 2025.</p>
@@ -901,7 +904,7 @@
                         <i class="fab fa-google"></i>
                     </a>
                     <a href="https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900" target="_blank" rel="noopener noreferrer" aria-label="Better Business Bureau" class="bbb-icon">
-                        <img src="images/BBB.png" alt="BBB">
+                        <img src="images/BBB.png" alt="BBB" loading="lazy" width="50" height="50">
                     </a>
                 </div>
                 <div class="social-icons mobile-social">
@@ -934,6 +937,45 @@
         </div>
     </footer>
 
+    <!-- Lazy load background images for performance -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Defer loading of large background images
+        const heroSection = document.querySelector('.hero-content-box');
+        const aboutWrapper = document.querySelector('.about-services-wrapper');
+        const ctaSection = document.querySelector('.fullwidth-cta-orange');
+        
+        // Use Intersection Observer for lazy loading backgrounds
+        const bgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const bgImage = element.getAttribute('data-bg');
+                    if (bgImage) {
+                        element.style.backgroundImage = bgImage;
+                        bgObserver.unobserve(element);
+                    }
+                }
+            });
+        }, { rootMargin: '50px' });
+        
+        // Hero image loads immediately (above fold)
+        if (heroSection) {
+            const heroBg = heroSection.style.backgroundImage;
+            heroSection.setAttribute('data-bg', heroBg);
+            heroSection.style.backgroundImage = 'none';
+            // Load after a short delay to prioritize critical content
+            setTimeout(() => {
+                heroSection.style.backgroundImage = heroBg;
+            }, 100);
+        }
+        
+        // Observe other background sections
+        if (aboutWrapper) bgObserver.observe(aboutWrapper);
+        if (ctaSection) bgObserver.observe(ctaSection);
+    });
+    </script>
+    
     <!-- Service Area Stats Counter Animation -->
     <!-- Google Maps Service Area Script -->
     <!-- Google Maps API -->
