@@ -1207,10 +1207,16 @@
             background: transparent;
         }
 
+        .dropdown:hover .dropdown-content,
         .dropdown.active .dropdown-content {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+        
+        .dropdown:hover .dropdown-arrow,
+        .dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
         }
 
         .dropdown-content a {
