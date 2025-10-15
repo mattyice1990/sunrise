@@ -44,8 +44,8 @@
     <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     
-    <!-- Preload critical hero image with WebP -->
-    <link rel="preload" as="image" href="images/Roofing%20In%20The%20Desert-small.webp" type="image/webp" fetchpriority="high" imagesrcset="images/Roofing%20In%20The%20Desert-small.webp 600w, images/Roofing%20In%20The%20Desert.webp 800w" imagesizes="(max-width: 768px) 100vw, 800px">
+    <!-- Preload critical hero image with WebP - LCP optimization -->
+    <link rel="preload" as="image" href="images/Roofing%20In%20The%20Desert-small.webp" type="image/webp" fetchpriority="high">
     
     <link rel="canonical" href="https://roofwithsunrise.com/">
     
@@ -280,7 +280,14 @@
 
     <!-- Hero Section as Rounded Card - CLS Optimized -->
     <section class="hero-with-inset" id="home" style="min-height:650px;">
-        <div class="hero-content-box" style="background-image: url('images/Roofing%20In%20The%20Desert-small.webp'); height:500px; contain: layout; will-change: auto;">
+        <div class="hero-content-box" style="height:500px; contain: layout; will-change: auto; position: relative; overflow: hidden;">
+            <!-- LCP Image - Immediately discoverable with high priority -->
+            <img src="images/Roofing%20In%20The%20Desert-small.webp" 
+                 alt="Arizona Desert Roofing" 
+                 fetchpriority="high"
+                 width="800" 
+                 height="800"
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
             <div style="position: relative; z-index: 3; text-align: center; width:100%; max-width:1200px; margin:0 auto;">
                 <h1 style="margin-bottom: 20px; font-family: 'Bebas Neue', -apple-system, sans-serif; font-size: 56px; line-height: 1.1; height: auto;">PREMIUM ROOFING CONTRACTORS OF ARIZONA</h1>
                 <p style="max-width: 900px; margin: 0 auto 25px; font-family: 'Bebas Neue', -apple-system, sans-serif; font-size: 28px; letter-spacing: 0.5px; line-height: 1.3; height: auto;">SUNRISE ROOFERS ARE EXPERTS in Residential & Commercial Roofing Needs in Tucson & Phoenix</p>
