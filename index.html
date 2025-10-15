@@ -313,135 +313,46 @@
         <!-- About Section - Split Layout -->
         <section id="about" style="padding: 150px 40px 100px; position: relative; z-index: 2;">
             <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 2;">
-                <!-- Text and Gallery Side by Side -->
-                <div class="split-section" style="display: flex; gap: 40px; align-items: center; margin-bottom: 50px;">
-                    <div class="split-content" style="flex: 1;">
-                        <h2 style="color: white; font-size: 48px; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Why Choose Sunrise Roofers?</h2>
+                <!-- Main Heading -->
+                <h2 style="color: white; font-size: 48px; margin-bottom: 50px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); text-align: center; font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 2px;">HONEST WORK, CLEAR COMMUNICATION, NO SURPRISES</h2>
+                
+                <!-- Text and Photo Side by Side -->
+                <div class="split-section" style="display: flex; gap: 40px; align-items: flex-start; margin-bottom: 50px;">
+                    <!-- Left Column - Body Copy (60% width) -->
+                    <div class="split-content" style="flex: 0 0 60%;">
                         <p style="font-size: 18px; line-height: 1.8; color: rgba(255, 255, 255, 0.95); margin-bottom: 25px;">
-                            Founded in 2025 by Eddie, who brings over 20 years of roofing expertise, Sunrise Roofers is quickly becoming Tucson's most trusted name in residential and commercial roofing. Our proven track record speaks for itself—satisfied customers throughout Southern Arizona have experienced our commitment to excellence, integrity, and exceptional craftsmanship. When you choose Sunrise Roofers, you're partnering with a fully licensed and insured company that treats every project with the same attention to detail and professionalism, whether it's a minor repair or a complete roof replacement.
+                            Looking for a roofing contractor you can count on? Whether you need a new roof or roof repairs for your home or commercial property, you deserve someone who stays in touch and shows up when promised. At Sunrise Roofing LLC, communication isn't just a buzzword—it's how we work. We'll send you daily photos and updates throughout your project. Your questions get answered. Your timeline gets respected. And we don't leave until you're satisfied with the results.
                         </p>
                         <p style="font-size: 18px; line-height: 1.8; color: rgba(255, 255, 255, 0.95); margin-bottom: 25px;">
-                            What sets us apart is our unwavering dedication to transparency and customer satisfaction. We understand that your roof is one of your most important investments, which is why we provide detailed inspections, honest assessments, and competitive pricing with no hidden fees. Eddie's two decades of experience have given our team deep expertise in mastering the unique challenges of the Arizona climate, ensuring your roof not only looks great but stands strong against the intense sun, monsoon rains, and extreme temperature fluctuations. As Tucson's go-to local roofing experts, we combine proven expertise with modern techniques to deliver results that exceed expectations every time.
+                            After 20 years working in roofing across Tucson and Southern Arizona, Eddie founded Sunrise Roofing LLC in 2025 to bring that expertise directly to homeowners and businesses. Whether it's a quick repair or a complete roof replacement, you get two decades of hands-on experience on every project. As a locally owned and operated company, we're able to respond quickly, price fairly, and deliver the efficient service and quality craftsmanship that comes from years of doing this work the right way.
                         </p>
                     </div>
-                    <div class="split-image" style="flex: 1;">
-                        <div class="card-deck-container">
-                            <button class="gallery-arrow gallery-arrow-left" onclick="moveGallery(-1)">‹</button>
-                            <button class="gallery-arrow gallery-arrow-right" onclick="moveGallery(1)">›</button>
-                            
-                            <div class="card-deck">
-                                <div class="gallery-card active" data-title="Professional Team" data-description="Our expert crew working on a tile roof">
-                                    <picture>
-                                        <source 
-                                            type="image/webp"
-                                            srcset="images/SunriseRoofersRepairingaRoof-small.webp 280w,
-                                                    images/SunriseRoofersRepairingaRoof-medium.webp 560w"
-                                            sizes="(max-width: 768px) 280px, 280px">
-                                        <img src="images/SunriseRoofersRepairingaRoof-small.webp" alt="Team at Work" loading="lazy" width="280" height="374">
-                                    </picture>
-                                    <div class="card-overlay">
-                                        <h3 style="font-size: 22px; margin-bottom: 12px;">Professional Team</h3>
-                                        <p>Our expert crew working on a tile roof installation</p>
-                                    </div>
-                                </div>
-                                <div class="gallery-card" data-title="Tile Installation" data-description="Premium concrete tile roofing in Tucson">
-                                    <picture>
-                                        <source 
-                                            type="image/webp"
-                                            srcset="images/Concrete%20Tile%20Install%20Tucson%20AZ-small.webp 400w,
-                                                    images/Concrete%20Tile%20Install%20Tucson%20AZ.webp 600w"
-                                            sizes="(max-width: 768px) 280px, 400px">
-                                        <img src="images/Concrete%20Tile%20Install%20Tucson%20AZ-small.webp" alt="Tile Installation" loading="lazy" width="400" height="300">
-                                    </picture>
-                                    <div class="card-overlay">
-                                        <h3 style="font-size: 22px; margin-bottom: 12px;">Concrete Tile Roofing</h3>
-                                        <p>Premium concrete tile installation in Tucson, AZ</p>
-                                    </div>
-                                </div>
-                                <div class="gallery-card" data-title="Metal Roofing" data-description="Energy-efficient standing seam installation">
-                                    <img src="images/Standing Seam Metal Roofs.jpg" alt="Metal Roofing" loading="lazy" width="600" height="400">
-                                    <div class="card-overlay">
-                                        <h3 style="font-size: 22px; margin-bottom: 12px;">Metal Roofing</h3>
-                                        <p>Energy-efficient standing seam metal roof installation</p>
-                                    </div>
-                                </div>
-                                <div class="gallery-card" data-title="Shingle Replacement" data-description="GAF architectural shingle installation">
-                                    <picture>
-                                        <source 
-                                            type="image/webp"
-                                            srcset="images/GAF%20Shingle%20Roof%20Replacement%20in%20Tucson-small.webp 400w,
-                                                    images/GAF%20Shingle%20Roof%20Replacement%20in%20Tucson-medium.webp 560w"
-                                            sizes="(max-width: 768px) 280px, 400px">
-                                        <img src="images/GAF%20Shingle%20Roof%20Replacement%20in%20Tucson-small.webp" alt="Shingle Roofing" loading="lazy" width="400" height="300">
-                                    </picture>
-                                    <div class="card-overlay">
-                                        <h3 style="font-size: 22px; margin-bottom: 12px;">Shingle Roof Replacement</h3>
-                                        <p><a href="https://www.gaf.com/en-us/roofing-contractors/residential/usa/az/tucson/sunrise-roofers-llc-1153125" target="_blank" rel="noopener noreferrer" style="color: #D77A00; text-decoration: underline; font-weight: 600;">GAF</a> architectural shingle installation with warranty</p>
-                                    </div>
-                                </div>
-                                <div class="gallery-card" data-title="Complete Replacement" data-description="Full roof replacement project completed">
-                                    <picture>
-                                        <source 
-                                            type="image/webp"
-                                            srcset="images/Tucson%20Roof%20Replacement-small.webp 280w,
-                                                    images/Tucson%20Roof%20Replacement-medium.webp 560w,
-                                                    images/Tucson%20Roof%20Replacement.webp 800w"
-                                            sizes="(max-width: 768px) 280px, 280px">
-                                        <img src="images/Tucson%20Roof%20Replacement-small.webp" alt="Roof Replacement" loading="lazy" width="280" height="373">
-                                    </picture>
-                                    <div class="card-overlay">
-                                        <h3 style="font-size: 22px; margin-bottom: 12px;">Complete Roof Replacement</h3>
-                                        <p>Full residential roof replacement project in Tucson</p>
-                                    </div>
-                                </div>
-                                <div class="gallery-card" data-title="Foam Roofing" data-description="Spray foam roof coating application">
-                                    <picture>
-                                        <source 
-                                            type="image/webp"
-                                            srcset="images/Roofing%20In%20The%20Desert-small.webp 600w,
-                                                    images/Roofing%20In%20The%20Desert.webp 800w"
-                                            sizes="(max-width: 768px) 400px, 600px">
-                                        <img src="images/Roofing%20In%20The%20Desert-small.webp" alt="Desert Roofing" loading="lazy" width="600" height="600">
-                                    </picture>
-                                    <div class="card-overlay">
-                                        <h3 style="font-size: 22px; margin-bottom: 12px;">Desert Roofing Specialists</h3>
-                                        <p>Professional roofing solutions for Arizona's climate</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="gallery-dots">
-                                <button class="gallery-dot active" onclick="goToGallerySlide(0)" aria-label="View gallery image 1"></button>
-                                <button class="gallery-dot" onclick="goToGallerySlide(1)" aria-label="View gallery image 2"></button>
-                                <button class="gallery-dot" onclick="goToGallerySlide(2)" aria-label="View gallery image 3"></button>
-                                <button class="gallery-dot" onclick="goToGallerySlide(3)" aria-label="View gallery image 4"></button>
-                                <button class="gallery-dot" onclick="goToGallerySlide(4)" aria-label="View gallery image 5"></button>
-                                <button class="gallery-dot" onclick="goToGallerySlide(5)" aria-label="View gallery image 6"></button>
-                            </div>
-                        </div>
-                        <div class="gallery-link">
-                            <a href="/gallery">View Full Gallery →</a>
+                    
+                    <!-- Right Column - Photo (40% width) -->
+                    <div class="split-image" style="flex: 0 0 40%;">
+                        <div style="text-align: center;">
+                            <img src="images/SunriseRoofersRepairingaRoof-small.webp" alt="Eddie, owner of Sunrise Roofing LLC, working on a roof in Tucson" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+                            <p style="color: white; font-size: 18px; margin-top: 15px; font-weight: 600; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">Eddie, Owner & Lead Contractor</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 4 Tiles Spanning Full Width -->
-                <div class="why-choose-tiles" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-                    <div style="padding: 25px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease;">
-                        <h4 style="color: white; font-size: 20px; margin-bottom: 10px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">✓ Proven Excellence</h4>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px;">Led by Eddie with over 20 years of roofing expertise in Tucson and successful projects throughout Southern Arizona.</p>
+                <!-- 3 Stat Boxes Spanning Full Width -->
+                <div class="why-choose-tiles" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div style="padding: 35px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease; text-align: center;">
+                        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: var(--color-orange); margin-bottom: 5px; line-height: 1;">20+</div>
+                        <div style="font-family: 'Oswald', sans-serif; font-size: 20px; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">YEARS<br>EXPERIENCE</div>
+                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0;">Eddie's proven expertise</p>
                     </div>
-                    <div style="padding: 25px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease;">
-                        <h4 style="color: white; font-size: 20px; margin-bottom: 10px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">✓ Trusted & Reputable</h4>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px;">Fully licensed and insured with an A+ rating. Your investment is protected.</p>
+                    <div style="padding: 35px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease; text-align: center;">
+                        <div style="font-size: 36px; color: var(--color-orange); margin-bottom: 5px;">⭐⭐⭐⭐⭐</div>
+                        <div style="font-family: 'Oswald', sans-serif; font-size: 20px; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">5-STAR<br>RATED</div>
+                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0;">9 perfect Google reviews</p>
                     </div>
-                    <div style="padding: 25px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease;">
-                        <h4 style="color: white; font-size: 20px; margin-bottom: 10px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">✓ Local Expertise</h4>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px;">Arizona climate specialists who understand the unique challenges of desert roofing.</p>
-                    </div>
-                    <div style="padding: 25px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease;">
-                        <h4 style="color: white; font-size: 20px; margin-bottom: 10px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">✓ Quality Guaranteed</h4>
-                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px;">Premium materials and superior workmanship backed by comprehensive warranties.</p>
+                    <div style="padding: 35px; background: linear-gradient(135deg, rgba(70, 70, 70, 0.5) 0%, rgba(50, 50, 50, 0.6) 100%); border-radius: 12px; border: 1px solid rgba(200, 200, 200, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: all 0.3s ease; text-align: center;">
+                        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: var(--color-orange); margin-bottom: 5px; line-height: 1;">24/7</div>
+                        <div style="font-family: 'Oswald', sans-serif; font-size: 20px; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">EMERGENCY<br>SERVICE</div>
+                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0;">Same-day response</p>
                     </div>
                 </div>
             </div>
