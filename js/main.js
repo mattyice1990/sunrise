@@ -184,79 +184,89 @@
  setInterval(() => {
  moveCarousel(1);
  }, 5000);
- // Gallery Carousel Functionality
- let currentGallerySlide = 0;
- const galleryCards = document.querySelectorAll('.gallery-card');
- const galleryDots = document.querySelectorAll('.gallery-dot');
- const totalGallerySlides = galleryCards.length;
- function showGallerySlide(index) {
- // Remove active class from all cards and dots
- galleryCards.forEach(card => {
- card.classList.remove('active');
- });
- galleryDots.forEach(dot => {
- dot.classList.remove('active');
- });
- // Add active class to current card and dot
- galleryCards[index].classList.add('active');
- galleryDots[index].classList.add('active');
- }
- function moveGallery(direction) {
- currentGallerySlide = (currentGallerySlide + direction + totalGallerySlides) % totalGallerySlides;
- showGallerySlide(currentGallerySlide);
- }
- function goToGallerySlide(index) {
- currentGallerySlide = index;
- showGallerySlide(currentGallerySlide);
- }
- // Auto-advance gallery every 5 seconds
- setInterval(() => {
- moveGallery(1);
- }, 5000);
- // Gallery Card Lightbox Functionality
- const lightboxModal = document.createElement('div');
- lightboxModal.className = 'lightbox-modal';
- lightboxModal.innerHTML = `
- <div class="lightbox-content">
- <button class="lightbox-close" aria-label="Close">&times;</button>
- <img src="" alt="">
- <div class="lightbox-info">
- <h3></h3>
- <p></p>
- </div>
- </div>
- `;
- document.body.appendChild(lightboxModal);
- const lightboxImg = lightboxModal.querySelector('img');
- const lightboxTitle = lightboxModal.querySelector('h3');
- const lightboxDesc = lightboxModal.querySelector('p');
- const lightboxClose = lightboxModal.querySelector('.lightbox-close');
- // Link to gallery page when card is clicked
- galleryCards.forEach(card => {
- card.addEventListener('click', function() {
- if (!this.classList.contains('active')) return;
- window.location.href = 'gallery.html';
- });
- });
- // Close lightbox
- lightboxClose.addEventListener('click', function() {
- lightboxModal.classList.remove('active');
- document.body.style.overflow = '';
- });
- // Close on background click
- lightboxModal.addEventListener('click', function(e) {
- if (e.target === lightboxModal) {
- lightboxModal.classList.remove('active');
- document.body.style.overflow = '';
- }
- });
- // Close on Escape key
- document.addEventListener('keydown', function(e) {
- if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
- lightboxModal.classList.remove('active');
- document.body.style.overflow = '';
- }
- });
+// Gallery Carousel Functionality
+let currentGallerySlide = 0;
+const galleryCards = document.querySelectorAll('.gallery-card');
+const galleryDots = document.querySelectorAll('.gallery-dot');
+const totalGallerySlides = galleryCards.length;
+
+// Only run gallery functions if gallery elements exist
+if (galleryCards.length > 0) {
+    function showGallerySlide(index) {
+        // Remove active class from all cards and dots
+        galleryCards.forEach(card => {
+            card.classList.remove('active');
+        });
+        galleryDots.forEach(dot => {
+            dot.classList.remove('active');
+        });
+        // Add active class to current card and dot
+        galleryCards[index].classList.add('active');
+        galleryDots[index].classList.add('active');
+    }
+    function moveGallery(direction) {
+        currentGallerySlide = (currentGallerySlide + direction + totalGallerySlides) % totalGallerySlides;
+        showGallerySlide(currentGallerySlide);
+    }
+    function goToGallerySlide(index) {
+        currentGallerySlide = index;
+        showGallerySlide(currentGallerySlide);
+    }
+    // Auto-advance gallery every 5 seconds
+    setInterval(() => {
+        moveGallery(1);
+    }, 5000);
+    
+    // Make functions globally accessible for onclick handlers
+    window.moveGallery = moveGallery;
+    window.goToGallerySlide = goToGallerySlide;
+}
+// Gallery Card Lightbox Functionality - only if gallery exists
+if (galleryCards.length > 0) {
+    const lightboxModal = document.createElement('div');
+    lightboxModal.className = 'lightbox-modal';
+    lightboxModal.innerHTML = `
+    <div class="lightbox-content">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="lightbox-info">
+    <h3></h3>
+    <p></p>
+    </div>
+    </div>
+    `;
+    document.body.appendChild(lightboxModal);
+    const lightboxImg = lightboxModal.querySelector('img');
+    const lightboxTitle = lightboxModal.querySelector('h3');
+    const lightboxDesc = lightboxModal.querySelector('p');
+    const lightboxClose = lightboxModal.querySelector('.lightbox-close');
+    // Link to gallery page when card is clicked
+    galleryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            if (!this.classList.contains('active')) return;
+            window.location.href = 'gallery.html';
+        });
+    });
+    // Close lightbox
+    lightboxClose.addEventListener('click', function() {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    // Close on background click
+    lightboxModal.addEventListener('click', function(e) {
+        if (e.target === lightboxModal) {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
 // Counter animation function
  function animateCounter(element, target, duration = 2000, callback) {
  const start = 0;
@@ -320,22 +330,15 @@ let serviceAreaMap;
  // Request required libraries
  const { Map } = await google.maps.importLibrary("maps");
  const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
- // Create map centered on business location
- serviceAreaMap = new Map(document.getElementById("service-area-map"), {
- center: businessLocation.coords,
- mapTypeControl: true,
- fullscreenControl: true,
- streetViewControl: false,
- zoomControl: true,
- mapId: "SUNRISE_ROOFERS_MAP", // Required for AdvancedMarkerElement
- styles: [
- {
- featureType: "poi",
- elementType: "labels",
- stylers: [{ visibility: "off" }]
- }
- ]
- });
+    // Create map centered on business location
+    serviceAreaMap = new Map(document.getElementById("service-area-map"), {
+        center: businessLocation.coords,
+        mapTypeControl: true,
+        fullscreenControl: true,
+        streetViewControl: false,
+        zoomControl: true,
+        mapId: "SUNRISE_ROOFERS_MAP" // Required for AdvancedMarkerElement (styles controlled via cloud console)
+    });
  // Add service area circle
  const serviceArea = new google.maps.Circle({
  strokeColor: "#F5A623",

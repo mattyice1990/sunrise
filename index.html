@@ -998,7 +998,7 @@
                     mapsLoaded = true;
                     // Load Google Maps API
                     const script = document.createElement('script');
-                    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&callback=initServiceAreaMap';
+                    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&loading=async&callback=initServiceAreaMap';
                     script.async = true;
                     document.head.appendChild(script);
                     observer.unobserve(mapSection);
