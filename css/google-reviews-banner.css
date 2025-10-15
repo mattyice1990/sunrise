@@ -1,10 +1,14 @@
 /* Google Reviews Banner Styles */
 .google-reviews-banner {
-  width: 100%;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1e3a8a 100%);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: linear-gradient(135deg, #F5A623 0%, #E89510 50%, #D77A00 100%);
   padding: 40px 0;
   overflow: hidden;
-  position: relative;
 }
 
 .google-reviews-header {
@@ -90,7 +94,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #1A1A1A 0%, #4A4A4A 100%);
   color: white;
   display: flex;
   align-items: center;
