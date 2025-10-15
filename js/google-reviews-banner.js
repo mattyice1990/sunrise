@@ -68,15 +68,20 @@ class GoogleReviewsBanner {
     try {
       const response = await fetch('/api/reviews');
       
-      if (!response.ok) {
-        throw new Error('Failed to fetch reviews');
-      }
-      
       const data = await response.json();
+      
+      if (!response.ok) {
+        // Log detailed error information
+        console.error('API Error Details:', data);
+        throw new Error(data.message || data.error || 'Failed to fetch reviews');
+      }
       
       if (data.reviews && data.reviews.length > 0) {
         // Filter for 5-star reviews only
         this.reviews = data.reviews.filter(review => review.rating === 5);
+        console.log(`Loaded ${this.reviews.length} five-star reviews from Google`);
+      } else {
+        console.warn('No reviews returned from API, using fallback reviews');
       }
       
       this.loading = false;
@@ -84,7 +89,8 @@ class GoogleReviewsBanner {
       this.error = err.message;
       this.loading = false;
       this.reviews = this.mockReviews;
-      console.warn('Using fallback reviews:', err.message);
+      console.error('Review fetch error:', err.message);
+      console.log('Using fallback reviews');
     }
   }
 
