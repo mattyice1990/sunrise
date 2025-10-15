@@ -1512,7 +1512,7 @@
             display: none;
         }
         
-        /* Mobile: Show "Social Media" and all 5 icons */
+        /* Mobile: Show "Social Media" and all icons */
         @media (max-width: 768px) {
             .desktop-heading {
                 display: none;
@@ -1528,6 +1528,15 @@
             
             .mobile-social {
                 display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
             }
         }
         
@@ -2343,10 +2352,30 @@
         }
 
         @media (max-width: 768px) {
+            .top-bar {
+                padding: 8px 0;
+            }
+            
             .top-bar-container {
                 justify-content: center;
-                gap: 15px;
-                font-size: 12px;
+                gap: 10px;
+                font-size: 11px;
+                padding: 0 10px;
+            }
+            
+            .top-hours {
+                display: none;
+            }
+            
+            .top-contact {
+                font-size: 11px;
+            }
+            
+            .top-social,
+            .top-social-instagram,
+            .top-social-google {
+                font-size: 16px;
+                margin-left: 8px;
             }
             
             .logo img {
@@ -3250,6 +3279,36 @@
         }
 
         @media (max-width: 480px) {
+            /* Top bar - extra small screens */
+            .top-bar-container {
+                gap: 8px;
+                font-size: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .top-contact:nth-of-type(2) {
+                display: none; /* Hide email on very small screens */
+            }
+            
+            .top-social,
+            .top-social-instagram,
+            .top-social-google {
+                font-size: 18px;
+                margin-left: 5px;
+            }
+            
+            /* Footer social icons on very small screens */
+            .mobile-social {
+                gap: 10px !important;
+            }
+            
+            .social-icons a {
+                width: 42px !important;
+                height: 42px !important;
+                font-size: 20px !important;
+            }
+            
             /* Extra small screens */
             #about {
                 padding: 80px 15px 50px !important;
