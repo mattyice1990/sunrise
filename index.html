@@ -18,13 +18,13 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     
-    <!-- Google Fonts - Optimized with font-display optional to prevent layout shift -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=optional" rel="stylesheet"></noscript>
+    <!-- Google Fonts - Optimized with font-display swap to prevent layout shift -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Critical inline CSS (above-the-fold only - eliminates render blocking) -->
     <style>
-    *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;color:#333;background:#fff}:root{--color-orange:#F5A623;--color-black:#1A1A1A;--color-gray:#666;--color-background-light:#f4f4f4}.site-header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1)}.top-bar{background:var(--color-black);color:#fff;padding:10px 0;font-size:13px}.top-bar-container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;align-items:center;gap:20px;flex-wrap:wrap}.top-contact,.top-social,.top-social-instagram,.top-social-google{color:#fff;text-decoration:none;transition:color 0.3s}.main-nav{background:#fff;border-bottom:1px solid #e0e0e0}.nav-container{max-width:1400px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.logo img{height:60px;width:auto;aspect-ratio:300/163}.nav-links{display:flex;list-style:none;gap:30px;align-items:center}.nav-links a{text-decoration:none;color:var(--color-black);font-family:'Oswald',sans-serif;font-weight:500;font-size:16px;text-transform:uppercase;letter-spacing:0.5px;transition:color 0.3s}.btn{display:inline-block;padding:12px 30px;background:var(--color-orange);color:#fff;text-decoration:none;border-radius:5px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;transition:all 0.3s;cursor:pointer;border:none;font-size:16px}.hero-with-inset{padding:60px 20px 240px;background:#f5f5f5;position:relative;z-index:2}.hero-content-box{max-width:1400px;margin:0 auto;background-size:cover;background-position:center;border-radius:20px;padding:120px 40px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.2);height:500px;display:flex;align-items:center;justify-content:center}.hero-content-box::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,26,26,0.75) 0%,rgba(245,166,35,0.85) 100%);z-index:1}.hero-content-box h1{font-family:'Bebas Neue',-apple-system,sans-serif;font-size:56px;color:#fff;text-transform:uppercase;letter-spacing:2px;text-shadow:3px 3px 6px rgba(0,0,0,0.5);line-height:1.1;contain:layout;font-display:optional}.hero-content-box p{font-family:'Bebas Neue',-apple-system,sans-serif;font-size:28px;line-height:1.3;contain:layout;font-display:optional}.cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}img{aspect-ratio:attr(width)/attr(height);object-fit:cover}.icon{display:inline-block;width:1em;height:1em;fill:currentColor;vertical-align:middle}.top-social-instagram .icon{fill:url(#instagram-gradient)}
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;color:#333;background:#fff}:root{--color-orange:#F5A623;--color-black:#1A1A1A;--color-gray:#666;--color-background-light:#f4f4f4}.site-header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1)}.top-bar{background:var(--color-black);color:#fff;padding:10px 0;font-size:13px}.top-bar-container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;align-items:center;gap:20px;flex-wrap:wrap}.top-contact,.top-social,.top-social-instagram,.top-social-google{color:#fff;text-decoration:none;transition:color 0.3s}.main-nav{background:#fff;border-bottom:1px solid #e0e0e0}.nav-container{max-width:1400px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.logo img{height:60px;width:auto;aspect-ratio:300/163}.nav-links{display:flex;list-style:none;gap:30px;align-items:center}.nav-links a{text-decoration:none;color:var(--color-black);font-family:'Oswald',sans-serif;font-weight:500;font-size:16px;text-transform:uppercase;letter-spacing:0.5px;transition:color 0.3s}.btn{display:inline-block;padding:12px 30px;background:var(--color-orange);color:#fff;text-decoration:none;border-radius:5px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;transition:all 0.3s;cursor:pointer;border:none;font-size:16px}.hero-with-inset{padding:60px 20px 240px;background:#f5f5f5;position:relative;z-index:2;min-height:650px}.hero-content-box{max-width:1400px;margin:0 auto;background-size:cover;background-position:center;border-radius:20px;padding:120px 40px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.2);height:500px;min-height:500px;display:flex;align-items:center;justify-content:center;contain:layout paint}.hero-content-box::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,26,26,0.75) 0%,rgba(245,166,35,0.85) 100%);z-index:1}.hero-content-box h1{font-family:'Bebas Neue',-apple-system,sans-serif;font-size:56px;color:#fff;text-transform:uppercase;letter-spacing:2px;text-shadow:3px 3px 6px rgba(0,0,0,0.5);line-height:1.1;margin:0;padding:0}.hero-content-box p{font-family:'Bebas Neue',-apple-system,sans-serif;font-size:28px;line-height:1.3;margin:0;padding:0}.cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:0}img{aspect-ratio:attr(width)/attr(height);object-fit:cover;height:auto;max-width:100%}.icon{display:inline-block;width:1em;height:1em;fill:currentColor;vertical-align:middle}.top-social-instagram .icon{fill:url(#instagram-gradient)}@media (max-width:768px){.hero-with-inset{padding:40px 20px 160px;min-height:550px}.hero-content-box{height:auto;min-height:400px;padding:60px 20px}.hero-content-box h1{font-size:32px}.hero-content-box p{font-size:18px}}
     </style>
     
     <!-- Instagram gradient definition -->
@@ -44,8 +44,8 @@
     <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     
-    <!-- Preload critical hero image -->
-    <link rel="preload" as="image" href="images/Roofing In The Desert.jpg" fetchpriority="high">
+    <!-- Preload critical hero image with WebP -->
+    <link rel="preload" as="image" href="images/Roofing In The Desert-small.webp" type="image/webp" fetchpriority="high" imagesrcset="images/Roofing In The Desert-small.webp 600w, images/Roofing In The Desert.webp 800w" imagesizes="(max-width: 768px) 100vw, 800px">
     
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Sunrise Roofers LLC | Professional Roofing Services">
@@ -276,13 +276,13 @@
         </nav>
     </header>
 
-    <!-- Hero Section as Rounded Card -->
+    <!-- Hero Section as Rounded Card - CLS Optimized -->
     <section class="hero-with-inset" id="home" style="min-height:650px;">
-        <div class="hero-content-box" style="background-image: url('images/Roofing In The Desert.jpg'); height:500px;">
+        <div class="hero-content-box" style="background-image: url('images/Roofing In The Desert-small.webp'); height:500px; contain: layout; will-change: auto;">
             <div style="position: relative; z-index: 3; text-align: center; width:100%; max-width:1200px; margin:0 auto;">
-                <h1 style="margin-bottom: 20px; font-family: 'Bebas Neue', -apple-system, sans-serif; font-size: 56px; line-height: 1.1; min-height: 65px;">PREMIUM ROOFING CONTRACTORS OF ARIZONA</h1>
-                <p style="max-width: 900px; margin: 0 auto 25px; font-family: 'Bebas Neue', -apple-system, sans-serif; font-size: 28px; letter-spacing: 0.5px; line-height: 1.3; min-height: 80px;">SUNRISE ROOFERS ARE EXPERTS in Residential & Commercial Roofing Needs in Tucson & Phoenix</p>
-            <div class="cta-buttons" style="min-height: 60px;">
+                <h1 style="margin-bottom: 20px; font-family: 'Bebas Neue', -apple-system, sans-serif; font-size: 56px; line-height: 1.1; height: auto;">PREMIUM ROOFING CONTRACTORS OF ARIZONA</h1>
+                <p style="max-width: 900px; margin: 0 auto 25px; font-family: 'Bebas Neue', -apple-system, sans-serif; font-size: 28px; letter-spacing: 0.5px; line-height: 1.3; height: auto;">SUNRISE ROOFERS ARE EXPERTS in Residential & Commercial Roofing Needs in Tucson & Phoenix</p>
+            <div class="cta-buttons">
                 <a href="tel:520-668-6638" class="btn btn-primary">Call Now: 520-668-6638</a>
                 <a href="#services" class="btn btn-secondary">Our Services</a>
                 <a href="/contact" class="btn btn-secondary">Free Inspection</a>
@@ -292,7 +292,7 @@
     </section>
 
     <!-- About & Services Sections - Orange to Dark Gradient Background -->
-    <div class="about-services-wrapper" data-bg="url('images/Concrete Tile Install Tucson AZ.jpeg')" style="background-size: cover; background-position: center; background-attachment: fixed; position: relative; overflow: hidden; margin-top: -180px; z-index: 1; background-color: #2a2a2a;">
+    <div class="about-services-wrapper" data-bg="url('images/Concrete Tile Install Tucson AZ-small.webp')" style="background-size: cover; background-position: center; background-attachment: fixed; position: relative; overflow: hidden; margin-top: -180px; z-index: 1; background-color: #2a2a2a;">
         <!-- Orange to dark gradient overlay (same as CTA section) -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(245, 166, 35, 0.88) 0%, rgba(26, 26, 26, 0.92) 100%); z-index: 0;"></div>
         
@@ -324,8 +324,12 @@
                             <div class="card-deck">
                                 <div class="gallery-card active" data-title="Professional Team" data-description="Our expert crew working on a tile roof">
                                     <picture>
-                                        <source srcset="images/SunriseRoofersRepairingaRoof.webp" type="image/webp">
-                                        <img src="images/SunriseRoofersRepairingaRoof.png" alt="Team at Work" loading="lazy" width="600" height="400">
+                                        <source 
+                                            type="image/webp"
+                                            srcset="images/SunriseRoofersRepairingaRoof-small.webp 280w,
+                                                    images/SunriseRoofersRepairingaRoof-medium.webp 560w"
+                                            sizes="(max-width: 768px) 280px, 280px">
+                                        <img src="images/SunriseRoofersRepairingaRoof-small.webp" alt="Team at Work" loading="lazy" width="280" height="374">
                                     </picture>
                                     <div class="card-overlay">
                                         <h4>Professional Team</h4>
@@ -334,8 +338,12 @@
                                 </div>
                                 <div class="gallery-card" data-title="Tile Installation" data-description="Premium concrete tile roofing in Tucson">
                                     <picture>
-                                        <source srcset="images/Concrete Tile Install Tucson AZ.webp" type="image/webp">
-                                        <img src="images/Concrete Tile Install Tucson AZ.jpeg" alt="Tile Installation" loading="lazy" width="600" height="400">
+                                        <source 
+                                            type="image/webp"
+                                            srcset="images/Concrete Tile Install Tucson AZ-small.webp 400w,
+                                                    images/Concrete Tile Install Tucson AZ.webp 600w"
+                                            sizes="(max-width: 768px) 280px, 400px">
+                                        <img src="images/Concrete Tile Install Tucson AZ-small.webp" alt="Tile Installation" loading="lazy" width="400" height="300">
                                     </picture>
                                     <div class="card-overlay">
                                         <h4>Concrete Tile Roofing</h4>
@@ -351,8 +359,12 @@
                                 </div>
                                 <div class="gallery-card" data-title="Shingle Replacement" data-description="GAF architectural shingle installation">
                                     <picture>
-                                        <source srcset="images/GAF Shingle Roof Replacement in Tucson.webp" type="image/webp">
-                                        <img src="images/GAF Shingle Roof Replacement in Tucson.jpg" alt="Shingle Roofing" loading="lazy" width="600" height="400">
+                                        <source 
+                                            type="image/webp"
+                                            srcset="images/GAF Shingle Roof Replacement in Tucson-small.webp 400w,
+                                                    images/GAF Shingle Roof Replacement in Tucson-medium.webp 560w"
+                                            sizes="(max-width: 768px) 280px, 400px">
+                                        <img src="images/GAF Shingle Roof Replacement in Tucson-small.webp" alt="Shingle Roofing" loading="lazy" width="400" height="300">
                                     </picture>
                                     <div class="card-overlay">
                                         <h4>Shingle Roof Replacement</h4>
@@ -361,8 +373,13 @@
                                 </div>
                                 <div class="gallery-card" data-title="Complete Replacement" data-description="Full roof replacement project completed">
                                     <picture>
-                                        <source srcset="images/Tucson Roof Replacement.webp" type="image/webp">
-                                        <img src="images/Tucson Roof Replacement.jpeg" alt="Roof Replacement" loading="lazy" width="600" height="400">
+                                        <source 
+                                            type="image/webp"
+                                            srcset="images/Tucson Roof Replacement-small.webp 280w,
+                                                    images/Tucson Roof Replacement-medium.webp 560w,
+                                                    images/Tucson Roof Replacement.webp 800w"
+                                            sizes="(max-width: 768px) 280px, 280px">
+                                        <img src="images/Tucson Roof Replacement-small.webp" alt="Roof Replacement" loading="lazy" width="280" height="373">
                                     </picture>
                                     <div class="card-overlay">
                                         <h4>Complete Roof Replacement</h4>
@@ -370,7 +387,14 @@
                                     </div>
                                 </div>
                                 <div class="gallery-card" data-title="Foam Roofing" data-description="Spray foam roof coating application">
-                                    <img src="images/Roofing In The Desert.jpg" alt="Desert Roofing" loading="lazy" width="600" height="400">
+                                    <picture>
+                                        <source 
+                                            type="image/webp"
+                                            srcset="images/Roofing In The Desert-small.webp 600w,
+                                                    images/Roofing In The Desert.webp 800w"
+                                            sizes="(max-width: 768px) 400px, 600px">
+                                        <img src="images/Roofing In The Desert-small.webp" alt="Desert Roofing" loading="lazy" width="600" height="600">
+                                    </picture>
                                     <div class="card-overlay">
                                         <h4>Desert Roofing Specialists</h4>
                                         <p>Professional roofing solutions for Arizona's climate</p>
@@ -853,7 +877,7 @@
     </section>
 
     <!-- Full-Width CTA with Background Image -->
-    <section class="fullwidth-cta fullwidth-cta-orange" id="contact" data-bg="url('images/Tucson Roof Replacement.jpeg')" style="background-color: #2a2a2a;">
+    <section class="fullwidth-cta fullwidth-cta-orange" id="contact" data-bg="url('images/Tucson Roof Replacement-medium.webp')" style="background-color: #2a2a2a;">
         <div class="fullwidth-cta-content">
             <h2>Ready for Your Free Roof Inspection?</h2>
             <p>Get a comprehensive roof evaluation and honest assessment from Arizona's trusted roofing experts. Licensed, insured, and serving Southern Arizona since 2025.</p>
