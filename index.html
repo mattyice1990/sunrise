@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Sunrise Roofers LLC - Professional roofing services in Tucson and Phoenix, Arizona. Expert roof installation, repair, and replacement. Licensed & insured. Call 520-668-6638">
+    <meta name="theme-color" content="#F5A623">
     <meta name="keywords" content="roofing tucson, roofers phoenix, roof repair arizona, roof replacement tucson">
     <title>Sunrise Roofers | Professional Roofing in Tucson & Phoenix AZ</title>
     
@@ -11,14 +12,33 @@
     <link rel="icon" type="image/jpeg" href="SunriseLogo.jpeg">
     <link rel="apple-touch-icon" href="SunriseLogo.jpeg">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Optimized: Reduced to essential weights only -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Font Awesome - Async load -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Critical inline CSS for font fallbacks (prevents layout shift) -->
+    <style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+    /* Ensure content is visible while fonts load */
+    .site-header, .hero-with-inset, section { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    }
+    </style>
     
     <!-- Preload critical hero image -->
     <link rel="preload" as="image" href="images/Roofing In The Desert.jpg" fetchpriority="high">
