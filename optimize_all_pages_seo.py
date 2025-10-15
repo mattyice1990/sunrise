@@ -14,7 +14,7 @@ PAGES_CONFIG = {
         'h2': 'Professional Roof Repair Services in Tucson',
         'content_keywords': ['roof repair Tucson', 'emergency roof repair', 'roof leak repair', 'storm damage repair', 'roofing contractors near me']
     },
-    'arizona-roof-replacement.html': {
+    'new-roof-tucson.html': {
         'title': 'Roof Replacement Arizona | Expert Installation',
         'description': 'Complete roof replacement in Arizona. Expert installation, premium materials, lifetime warranties. Licensed & insured. Free estimates.',
         'keywords': 'roof replacement arizona, roof replacement tucson, new roof installation, roof replacement company',

@@ -20,7 +20,7 @@ PAGES = {
     'why-choose-sunrise-roofers.html': '/why-choose-sunrise-roofers',
     
     # Service pages
-    'arizona-roof-replacement.html': '/arizona-roof-replacement',
+    'new-roof-tucson.html': '/new-roof-tucson',
     'roof-repair-tucson.html': '/roof-repair-tucson',
     'roof-inspection.html': '/roof-inspection',
     'shingle-roof-replacement-tucson.html': '/shingle-roof-replacement-tucson',

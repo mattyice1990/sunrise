@@ -35,7 +35,7 @@ sunrise-roofers/
 ├── gallery.html                        # Project gallery
 ├── roof-inspection.html                # Roof inspection service
 ├── roof-repair-tucson.html             # Roof repair service
-├── arizona-roof-replacement.html       # Roof replacement service
+├── new-roof-tucson.html       # Roof replacement service
 ├── shingle-roof-replacement-tucson.html
 ├── concrete-tile-roof-replacement.html
 ├── metal-roofing-tucson.html
