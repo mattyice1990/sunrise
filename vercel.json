@@ -8,6 +8,11 @@
       "source": "/about",
       "destination": "/about-our-roofing-contractors-in-tucson",
       "permanent": true
+    },
+    {
+      "source": "/why-choose-sunrise-roofers",
+      "destination": "/why-choose-sunrise-roofers-in-tucson",
+      "permanent": true
     }
   ],
   "headers": [
