@@ -3,6 +3,13 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/about-our-roofing-contractors-in-tucson",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
