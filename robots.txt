@@ -33,6 +33,31 @@ User-agent: Applebot
 Allow: /
 # Apple (Siri, Spotlight)
 
+# AI Chatbot & Search Crawlers
+User-agent: GPTBot
+Allow: /
+# OpenAI ChatGPT
+
+User-agent: Google-Extended
+Allow: /
+# Google Bard/Gemini
+
+User-agent: PerplexityBot
+Allow: /
+# Perplexity AI
+
+User-agent: CCBot
+Allow: /
+# Common Crawl (used by many AI systems)
+
+User-agent: anthropic-ai
+Allow: /
+# Claude AI
+
+User-agent: ClaudeBot
+Allow: /
+# Claude AI crawler
+
 # Social Media Crawlers (for link previews)
 User-agent: facebookexternalhit
 Allow: /
