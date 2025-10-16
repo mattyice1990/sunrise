@@ -1951,6 +1951,14 @@
             filter: brightness(1.2);
         }
         
+        /* Mobile: Hide Instagram and Google in top bar */
+        @media (max-width: 768px) {
+            .top-bar .top-social-instagram,
+            .top-bar .top-social-google {
+                display: none !important;
+            }
+        }
+        
         /* Instagram gradient for footer */
         .social-icons a.instagram-icon {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
