@@ -1,6 +1,20 @@
 # Robots.txt for Sunrise Roofers LLC
 # Website: https://roofwithsunrise.com
 
+# Explicitly allow SEO/monitoring tools
+User-agent: SemrushBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: Moz-Bot
+Allow: /
+
+User-agent: DotBot
+Allow: /
+
+# Allow all other crawlers
 User-agent: *
 Allow: /
 
