@@ -70,6 +70,18 @@
             font-size: 19px !important;
             line-height: 1.7 !important;
         }
+        .mobile-services-toggle {
+            display: block !important;
+        }
+        .services-grid {
+            display: grid !important;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .services-grid.expanded {
+            max-height: 5000px;
+        }
     }
     </style>
     
