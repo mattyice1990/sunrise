@@ -377,6 +377,11 @@ let serviceAreaMap;
  content: `
  <div style="font-family: Arial, sans-serif; padding: 12px; max-width: 300px;">
  <h3 style="margin: 0 0 10px 0; color: #F5A623; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px;">${businessLocation.title}</h3>
+ <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+ <img src="images/Logo-google-icon-PNG.png" alt="Google" style="width: 18px; height: 18px;">
+ <span style="color: #FFD700; font-size: 16px;">⭐⭐⭐⭐⭐</span>
+ <span style="color: #1A1A1A; font-size: 14px; font-weight: 600;">5.0</span>
+ </div>
  <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address1}</p>
  <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address2}</p>
  <p style="margin: 10px 0 12px 0; color: #1A1A1A; font-weight: 600; font-size: 13px;">
