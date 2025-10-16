@@ -160,9 +160,10 @@ class GoogleReviewsBanner {
         
         <div class="google-reviews-header" style="margin-top: 30px;">
           <img 
-            src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
+            src="images/Logo-google-icon-PNG.png" 
             alt="Google"
             class="google-logo"
+            style="height: 24px; width: auto;"
           />
           <span class="google-reviews-title">5-Star Reviews</span>
         </div>
