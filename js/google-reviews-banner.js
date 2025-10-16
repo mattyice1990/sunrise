@@ -157,16 +157,6 @@ class GoogleReviewsBanner {
             ${allReviews.map(review => this.createReviewCard(review)).join('')}
           </div>
         </div>
-        
-        <div class="google-reviews-header" style="margin-top: 30px;">
-          <img 
-            src="images/Logo-google-icon-PNG.png" 
-            alt="Google"
-            class="google-logo"
-            style="height: 24px; width: auto;"
-          />
-          <span class="google-reviews-title">5-Star Reviews</span>
-        </div>
 
         <div class="reviews-banner-footer">
           <div class="reviews-banner-footer-left">
