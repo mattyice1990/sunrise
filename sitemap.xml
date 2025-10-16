@@ -141,14 +141,6 @@
     <priority>0.6</priority>
   </url>
   
-  <!-- Thank You Page - Lower Priority -->
-  <url>
-    <loc>https://roofwithsunrise.com/thank-you</loc>
-    <lastmod>2025-10-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
   <!-- Privacy Policy Page -->
   <url>
     <loc>https://roofwithsunrise.com/privacy-policy</loc>

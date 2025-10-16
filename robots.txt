@@ -70,6 +70,10 @@ Allow: /
 User-agent: *
 Allow: /
 
+# Block pages that shouldn't be indexed
+Disallow: /thank-you.html
+Disallow: /thank-you
+
 # Allow all search engines to crawl all pages
 # Sitemap location
 Sitemap: https://roofwithsunrise.com/sitemap.xml
