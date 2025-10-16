@@ -146,6 +146,78 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* Reviews Banner Footer */
+.reviews-banner-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviews-banner-footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.bbb-banner-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.bbb-banner-link:hover {
+  transform: scale(1.05);
+}
+
+.bbb-banner-logo {
+  height: 100px;
+  width: auto;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.bbb-banner-link:hover .bbb-banner-logo {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.reviews-banner-footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.leave-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  color: #1A1A1A;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.leave-review-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  background: #f8f8f8;
+}
+
+.google-icon-small {
+  width: 24px;
+  height: 24px;
+  color: #4285F4;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .google-reviews-banner {
@@ -168,6 +240,21 @@
 
   .google-reviews-track-container {
     padding: 0 15px;
+  }
+
+  .reviews-banner-footer {
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 20px 20px;
+  }
+
+  .bbb-banner-logo {
+    height: 80px;
+  }
+
+  .leave-review-btn {
+    font-size: 16px;
+    padding: 12px 28px;
   }
 }
 
@@ -198,6 +285,20 @@
   
   .google-reviews-title {
     font-size: 16px;
+  }
+
+  .bbb-banner-logo {
+    height: 70px;
+  }
+
+  .leave-review-btn {
+    font-size: 14px;
+    padding: 10px 24px;
+  }
+
+  .google-icon-small {
+    width: 20px;
+    height: 20px;
   }
 }
 
