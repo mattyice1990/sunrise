@@ -402,7 +402,57 @@
         "https://www.yelp.com/biz/sunrise-roofers-tucson",
         "https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900"
       ],
-      "areaServed": ["Tucson AZ","Oro Valley AZ","Marana AZ","Vail AZ","Sahuarita AZ","Green Valley AZ","Catalina Foothills AZ"]
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Catalina Foothills",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Arizona"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Tucson"
+        },
+        {
+          "@type": "City",
+          "name": "Oro Valley"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "32.2978",
+        "longitude": "-110.8815"
+      }
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://roofwithsunrise.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Service Areas",
+          "item": "https://roofwithsunrise.com/#service-areas"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Catalina Foothills Roofing",
+          "item": "https://roofwithsunrise.com/catalina-foothills-roofing"
+        }
+      ]
     }
     </script>
     </head>
