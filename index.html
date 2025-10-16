@@ -519,11 +519,19 @@
         <section id="services" style="padding: 80px 40px; position: relative; z-index: 2;">
         <div class="container">
             <h2 class="section-title" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Our Roofing Services</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 18px; color: rgba(255, 255, 255, 0.95);">
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 18px; color: rgba(255, 255, 255, 0.95);">
                 From complete replacements to emergency repairs, Sunrise Roofers provides expert roofing solutions for every need.
             </p>
             
-            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Mobile: Expand Services Button -->
+            <div class="mobile-services-toggle" style="text-align: center; margin-bottom: 30px; display: none;">
+                <button id="toggleServicesBtn" onclick="toggleServices()" style="background: white; color: #1A1A1A; padding: 14px 32px; border: none; border-radius: 8px; font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;">
+                    <span id="toggleServicesText">View Our Services</span>
+                    <span id="toggleServicesArrow" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                </button>
+            </div>
+            
+            <div class="services-grid" id="servicesGrid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div class="service-card" style="background: white; border-left: 4px solid var(--color-orange); padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                     <h3>Roof Replacement</h3>
                     <p style="color: #333;">Complete roof replacement services for all types of roofing materials. Arizona-tested materials built to withstand extreme heat and monsoon seasons.</p>
@@ -627,7 +635,7 @@
                         <span style="color: #FFD700; font-size: 28px;">★</span>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px; font-weight: 600; margin: 0;">Based on Google Reviews</p>
-                    <a href="https://www.google.com/maps/place/Sunrise+Roofers+LLC/@32.3398462,-111.0119968,17z/data=!3m1!4b1!4m6!3m5!1s0x41069aff002a721d:0x27f42115ff29e8e8!8m2!3d32.3398462!4d-111.0119968!16s%2Fg%2F11yf9bvjpk?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 25px; background: white; color: #1e40af; font-weight: 700; padding: 14px 32px;">Leave a Review</a>
+                    <a href="https://g.page/r/CejoKf8VIfQnEBM/review" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 25px; background: white; color: #1e40af; font-weight: 700; padding: 14px 32px;">Leave a Review</a>
                 </div>
             </div>
         </div>

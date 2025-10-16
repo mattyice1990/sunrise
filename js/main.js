@@ -184,6 +184,26 @@
 // setInterval(() => {
 // moveCarousel(1);
 // }, 5000);
+// Mobile Services Toggle
+function toggleServices() {
+  const servicesGrid = document.getElementById('servicesGrid');
+  const toggleText = document.getElementById('toggleServicesText');
+  const toggleArrow = document.getElementById('toggleServicesArrow');
+  
+  if (servicesGrid.classList.contains('expanded')) {
+    servicesGrid.classList.remove('expanded');
+    toggleText.textContent = 'View Our Services';
+    toggleArrow.style.transform = 'rotate(0deg)';
+  } else {
+    servicesGrid.classList.add('expanded');
+    toggleText.textContent = 'Hide Services';
+    toggleArrow.style.transform = 'rotate(180deg)';
+  }
+}
+
+// Make function available globally
+window.toggleServices = toggleServices;
+
 // Gallery Carousel Functionality
 let currentGallerySlide = 0;
 const galleryCards = document.querySelectorAll('.gallery-card');
