@@ -149,20 +149,21 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .google-reviews-banner {
-    padding: 30px 0;
+    padding: 25px 0;
   }
 
   .google-reviews-header {
-    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   .google-reviews-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .google-review-card {
-    width: 320px;
-    padding: 20px;
+    width: 300px;
+    padding: 18px;
+    gap: 12px;
   }
 
   .google-reviews-track-container {
@@ -171,9 +172,14 @@
 }
 
 @media (max-width: 480px) {
+  .google-reviews-banner {
+    padding: 20px 0;
+  }
+
   .google-review-card {
-    width: 280px;
-    padding: 18px;
+    width: 270px;
+    padding: 16px;
+    gap: 10px;
   }
 
   .review-avatar {
@@ -183,11 +189,15 @@
   }
 
   .review-author-name {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .review-card-text {
-    font-size: 14px;
+    font-size: 13px;
+  }
+  
+  .google-reviews-title {
+    font-size: 16px;
   }
 }
 
