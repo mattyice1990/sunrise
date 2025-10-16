@@ -1,7 +1,55 @@
 # Robots.txt for Sunrise Roofers LLC
 # Website: https://roofwithsunrise.com
 
-# Explicitly allow SEO/monitoring tools
+# Major Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+# Yahoo (now powered by Bing)
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+# Chinese search engine
+
+User-agent: YandexBot
+Allow: /
+# Russian search engine
+
+User-agent: Applebot
+Allow: /
+# Apple (Siri, Spotlight)
+
+# Social Media Crawlers (for link previews)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# SEO/Monitoring Tools
 User-agent: SemrushBot
 Allow: /
 
@@ -12,6 +60,10 @@ User-agent: Moz-Bot
 Allow: /
 
 User-agent: DotBot
+Allow: /
+# Moz link crawler
+
+User-agent: Screaming Frog SEO Spider
 Allow: /
 
 # Allow all other crawlers
