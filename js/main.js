@@ -383,10 +383,7 @@ let serviceAreaMap;
  <span style="color: #1A1A1A; font-size: 14px; font-weight: 600;">5.0</span>
  </div>
  <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address1}</p>
- <p style="margin: 4px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address2}</p>
- <p style="margin: 10px 0 12px 0; color: #1A1A1A; font-weight: 600; font-size: 13px;">
- <i class="fas fa-circle" style="color: #F5A623; font-size: 8px;"></i> Service Area: ${SERVICE_RADIUS_MILES} mile radius
- </p>
+ <p style="margin: 4px 0 12px 0; font-size: 14px; color: #666; line-height: 1.5;">${businessLocation.address2}</p>
  <div style="border-top: 1px solid #E0E0E0; padding-top: 12px; margin-top: 12px;">
  <a href="https://google.com/maps/place/Sunrise+Roofers+LLC/@32.3398462,-111.0119968,17z/data=!3m1!5s0x86d674b1c06cc0ed:0xee29905f9ad6a485!4m6!3m5!1s0x41069aff002a721d:0x27f42115ff29e8e8!8m2!3d32.3398462!4d-111.0119968!16s%2Fg%2F11yf9bvjpk?entry=ttu&g_ep=EgoyMDI1MTAxMi4wIKXMDSoASAFQAw%3D%3D" 
  target="_blank" 
