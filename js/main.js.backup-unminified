@@ -184,124 +184,142 @@
         });
         
         // Testimonial Carousel Functionality
-        let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = slides.length;
         
-        function showSlide(index) {
-            // Remove active class from all slides and dots
-            slides.forEach(slide => {
-                slide.classList.remove('active', 'prev');
-            });
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
+        // Only run carousel if elements exist
+        if (slides.length > 0 && dots.length > 0) {
+            let currentSlide = 0;
+            const totalSlides = slides.length;
             
-            // Add active class to current slide and dot
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
+            function showSlide(index) {
+                // Safety check: ensure elements exist
+                if (!slides[index] || !dots[index]) {
+                    return;
+                }
+                
+                // Remove active class from all slides and dots
+                slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev');
+                });
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Add active class to current slide and dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+            
+            function moveCarousel(direction) {
+                currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+            
+            function goToSlide(index) {
+                currentSlide = index;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-advance carousel every 5 seconds
+            setInterval(() => {
+                moveCarousel(1);
+            }, 5000);
         }
-        
-        function moveCarousel(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-        
-        // Auto-advance carousel every 5 seconds
-        setInterval(() => {
-            moveCarousel(1);
-        }, 5000);
         
         // Gallery Carousel Functionality
-        let currentGallerySlide = 0;
         const galleryCards = document.querySelectorAll('.gallery-card');
         const galleryDots = document.querySelectorAll('.gallery-dot');
-        const totalGallerySlides = galleryCards.length;
         
-        function showGallerySlide(index) {
-            // Remove active class from all cards and dots
+        // Only run gallery carousel if elements exist
+        if (galleryCards.length > 0 && galleryDots.length > 0) {
+            let currentGallerySlide = 0;
+            const totalGallerySlides = galleryCards.length;
+            
+            function showGallerySlide(index) {
+                // Safety check: ensure elements exist
+                if (!galleryCards[index] || !galleryDots[index]) {
+                    return;
+                }
+                
+                // Remove active class from all cards and dots
+                galleryCards.forEach(card => {
+                    card.classList.remove('active');
+                });
+                galleryDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Add active class to current card and dot
+                galleryCards[index].classList.add('active');
+                galleryDots[index].classList.add('active');
+            }
+            
+            function moveGallery(direction) {
+                currentGallerySlide = (currentGallerySlide + direction + totalGallerySlides) % totalGallerySlides;
+                showGallerySlide(currentGallerySlide);
+            }
+            
+            function goToGallerySlide(index) {
+                currentGallerySlide = index;
+                showGallerySlide(currentGallerySlide);
+            }
+            
+            // Auto-advance gallery every 5 seconds
+            setInterval(() => {
+                moveGallery(1);
+            }, 5000);
+            
+            // Gallery Card Lightbox Functionality
+            const lightboxModal = document.createElement('div');
+            lightboxModal.className = 'lightbox-modal';
+            lightboxModal.innerHTML = `
+                <div class="lightbox-content">
+                    <button class="lightbox-close" aria-label="Close">&times;</button>
+                    <img src="" alt="">
+                    <div class="lightbox-info">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(lightboxModal);
+            
+            const lightboxImg = lightboxModal.querySelector('img');
+            const lightboxTitle = lightboxModal.querySelector('h3');
+            const lightboxDesc = lightboxModal.querySelector('p');
+            const lightboxClose = lightboxModal.querySelector('.lightbox-close');
+            
+            // Link to gallery page when card is clicked
             galleryCards.forEach(card => {
-                card.classList.remove('active');
-            });
-            galleryDots.forEach(dot => {
-                dot.classList.remove('active');
+                card.addEventListener('click', function() {
+                    if (!this.classList.contains('active')) return;
+                    window.location.href = 'gallery.html';
+                });
             });
             
-            // Add active class to current card and dot
-            galleryCards[index].classList.add('active');
-            galleryDots[index].classList.add('active');
-        }
-        
-        function moveGallery(direction) {
-            currentGallerySlide = (currentGallerySlide + direction + totalGallerySlides) % totalGallerySlides;
-            showGallerySlide(currentGallerySlide);
-        }
-        
-        function goToGallerySlide(index) {
-            currentGallerySlide = index;
-            showGallerySlide(currentGallerySlide);
-        }
-        
-        // Auto-advance gallery every 5 seconds
-        setInterval(() => {
-            moveGallery(1);
-        }, 5000);
-        
-        // Gallery Card Lightbox Functionality
-        const lightboxModal = document.createElement('div');
-        lightboxModal.className = 'lightbox-modal';
-        lightboxModal.innerHTML = `
-            <div class="lightbox-content">
-                <button class="lightbox-close" aria-label="Close">&times;</button>
-                <img src="" alt="">
-                <div class="lightbox-info">
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(lightboxModal);
-        
-        const lightboxImg = lightboxModal.querySelector('img');
-        const lightboxTitle = lightboxModal.querySelector('h3');
-        const lightboxDesc = lightboxModal.querySelector('p');
-        const lightboxClose = lightboxModal.querySelector('.lightbox-close');
-        
-        // Link to gallery page when card is clicked
-        galleryCards.forEach(card => {
-            card.addEventListener('click', function() {
-                if (!this.classList.contains('active')) return;
-                window.location.href = 'gallery.html';
+            // Close lightbox
+            lightboxClose.addEventListener('click', function() {
+                lightboxModal.classList.remove('active');
+                document.body.style.overflow = '';
             });
-        });
-        
-        // Close lightbox
-        lightboxClose.addEventListener('click', function() {
-            lightboxModal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        // Close on background click
-        lightboxModal.addEventListener('click', function(e) {
-            if (e.target === lightboxModal) {
-                lightboxModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Close on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
-                lightboxModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
+            
+            // Close on background click
+            lightboxModal.addEventListener('click', function(e) {
+                if (e.target === lightboxModal) {
+                    lightboxModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+                    lightboxModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
 
 // Counter animation function
         function animateCounter(element, target, duration = 2000, callback) {
