@@ -56,7 +56,45 @@
         "https://www.yelp.com/biz/sunrise-roofers-tucson",
         "https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900"
       ],
-      "areaServed": ["Tucson AZ","Oro Valley AZ","Marana AZ","Vail AZ","Sahuarita AZ","Green Valley AZ","Catalina Foothills AZ"]
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Marana",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Arizona"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Dove Mountain"
+        },
+        {
+          "@type": "City",
+          "name": "Continental Ranch"
+        },
+        {
+          "@type": "City",
+          "name": "Picture Rocks"
+        },
+        {
+          "@type": "City",
+          "name": "Tortolita"
+        },
+        {
+          "@type": "City",
+          "name": "Tucson"
+        },
+        {
+          "@type": "City",
+          "name": "Oro Valley"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "32.4367",
+        "longitude": "-111.2254"
+      }
     }
     </script>
     
@@ -109,10 +147,15 @@
         "postalCode": "85653",
         "addressCountry": "US"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Marana"
-      },
+      "areaServed": [
+        {"@type": "City", "name": "Marana"},
+        {"@type": "City", "name": "Dove Mountain"},
+        {"@type": "City", "name": "Continental Ranch"},
+        {"@type": "City", "name": "Picture Rocks"},
+        {"@type": "City", "name": "Tortolita"},
+        {"@type": "City", "name": "Tucson"},
+        {"@type": "City", "name": "Oro Valley"}
+      ],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

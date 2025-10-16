@@ -56,7 +56,41 @@
         "https://www.yelp.com/biz/sunrise-roofers-tucson",
         "https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900"
       ],
-      "areaServed": ["Tucson AZ","Oro Valley AZ","Marana AZ","Vail AZ","Sahuarita AZ","Green Valley AZ","Catalina Foothills AZ"]
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Sahuarita",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Arizona"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Green Valley"
+        },
+        {
+          "@type": "City",
+          "name": "Corona de Tucson"
+        },
+        {
+          "@type": "City",
+          "name": "Vail"
+        },
+        {
+          "@type": "City",
+          "name": "Rita Ranch"
+        },
+        {
+          "@type": "City",
+          "name": "Tucson"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "31.9575",
+        "longitude": "-110.9557"
+      }
     }
     </script>
     
@@ -109,10 +143,14 @@
         "postalCode": "85629",
         "addressCountry": "US"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Sahuarita"
-      },
+      "areaServed": [
+        {"@type": "City", "name": "Sahuarita"},
+        {"@type": "City", "name": "Green Valley"},
+        {"@type": "City", "name": "Corona de Tucson"},
+        {"@type": "City", "name": "Vail"},
+        {"@type": "City", "name": "Rita Ranch"},
+        {"@type": "City", "name": "Tucson"}
+      ],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
