@@ -1100,6 +1100,24 @@
     });
     </script>
     
+    <!-- Toggle Services Function -->
+    <script>
+    function toggleServices() {
+        const servicesGrid = document.getElementById('servicesGrid');
+        const toggleBtn = document.getElementById('toggleServicesBtn');
+        const toggleText = document.getElementById('toggleServicesText');
+        const toggleArrow = document.getElementById('toggleServicesArrow');
+        
+        if (servicesGrid && toggleBtn) {
+            servicesGrid.classList.toggle('expanded');
+            const isExpanded = servicesGrid.classList.contains('expanded');
+            toggleBtn.setAttribute('aria-expanded', isExpanded);
+            toggleText.textContent = isExpanded ? 'Show Less' : 'View Our Services';
+            toggleArrow.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    }
+    </script>
+    
     <!-- Main JavaScript -->
     <script defer src="js/main.min.js"></script>
     
