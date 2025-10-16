@@ -525,9 +525,9 @@
             
             <!-- Mobile: Expand Services Button -->
             <div class="mobile-services-toggle" style="text-align: center; margin-bottom: 30px; display: none;">
-                <button id="toggleServicesBtn" onclick="toggleServices()" style="background: white; color: #1A1A1A; padding: 14px 32px; border: none; border-radius: 8px; font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;">
+                <button id="toggleServicesBtn" onclick="toggleServices()" aria-expanded="false" aria-controls="servicesGrid" aria-label="Toggle services list" style="background: white; color: #1A1A1A; padding: 14px 32px; border: none; border-radius: 8px; font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;">
                     <span id="toggleServicesText">View Our Services</span>
-                    <span id="toggleServicesArrow" style="font-size: 14px; transition: transform 0.3s;">▼</span>
+                    <span id="toggleServicesArrow" style="font-size: 14px; transition: transform 0.3s;" aria-hidden="true">▼</span>
                 </button>
             </div>
             

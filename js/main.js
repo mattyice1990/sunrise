@@ -187,6 +187,7 @@
 // Mobile Services Toggle
 function toggleServices() {
   const servicesGrid = document.getElementById('servicesGrid');
+  const toggleBtn = document.getElementById('toggleServicesBtn');
   const toggleText = document.getElementById('toggleServicesText');
   const toggleArrow = document.getElementById('toggleServicesArrow');
   
@@ -194,10 +195,12 @@ function toggleServices() {
     servicesGrid.classList.remove('expanded');
     toggleText.textContent = 'View Our Services';
     toggleArrow.style.transform = 'rotate(0deg)';
+    toggleBtn.setAttribute('aria-expanded', 'false');
   } else {
     servicesGrid.classList.add('expanded');
     toggleText.textContent = 'Hide Services';
     toggleArrow.style.transform = 'rotate(180deg)';
+    toggleBtn.setAttribute('aria-expanded', 'true');
   }
 }
 
