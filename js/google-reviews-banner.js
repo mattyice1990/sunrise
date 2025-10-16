@@ -146,15 +146,6 @@ class GoogleReviewsBanner {
     
     const html = `
       <div class="google-reviews-banner">
-        <div class="google-reviews-header">
-          <img 
-            src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-            alt="Google"
-            class="google-logo"
-          />
-          <span class="google-reviews-title">5-Star Reviews</span>
-        </div>
-        
         ${this.error ? `
           <div class="reviews-notice">
             Using demo reviews
@@ -165,6 +156,15 @@ class GoogleReviewsBanner {
           <div class="google-reviews-track">
             ${allReviews.map(review => this.createReviewCard(review)).join('')}
           </div>
+        </div>
+        
+        <div class="google-reviews-header" style="margin-top: 30px;">
+          <img 
+            src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
+            alt="Google"
+            class="google-logo"
+          />
+          <span class="google-reviews-title">5-Star Reviews</span>
         </div>
       </div>
     `;
