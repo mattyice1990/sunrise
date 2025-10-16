@@ -171,11 +171,11 @@
 }
 
 .bbb-banner-logo {
-  height: 100px;
+  height: 60px;
   width: auto;
   background: rgba(255, 255, 255, 0.15);
-  padding: 15px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 8px;
   transition: background 0.3s ease;
 }
 
@@ -191,13 +191,13 @@
 .leave-review-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: white;
   color: #1A1A1A;
-  padding: 14px 32px;
+  padding: 10px 24px;
   border-radius: 50px;
   font-family: 'Oswald', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -213,8 +213,8 @@
 }
 
 .google-icon-small {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: #4285F4;
 }
 
@@ -249,12 +249,12 @@
   }
 
   .bbb-banner-logo {
-    height: 80px;
+    height: 55px;
   }
 
   .leave-review-btn {
-    font-size: 16px;
-    padding: 12px 28px;
+    font-size: 14px;
+    padding: 10px 22px;
   }
 }
 
@@ -288,17 +288,17 @@
   }
 
   .bbb-banner-logo {
-    height: 70px;
+    height: 50px;
   }
 
   .leave-review-btn {
-    font-size: 14px;
-    padding: 10px 24px;
+    font-size: 13px;
+    padding: 9px 20px;
   }
 
   .google-icon-small {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 
