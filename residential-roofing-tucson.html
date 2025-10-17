@@ -45,6 +45,40 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css?v=20251017">
     
+    <!-- Button Animations -->
+    <style>
+        /* Button hover animations */
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+        }
+        .btn-animate:active {
+            transform: translateY(0);
+        }
+        
+        /* Service card hover animation */
+        .service-card-animate {
+            transition: all 0.3s ease;
+        }
+        .service-card-animate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(245,166,35,0.2) !important;
+        }
+        
+        /* Image zoom animation */
+        .img-zoom {
+            transition: transform 0.3s ease;
+        }
+        .img-zoom:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    
     <link rel="canonical" href="https://roofwithsunrise.com/residential-roofing-tucson">
     
     <!-- Open Graph -->
@@ -166,10 +200,10 @@
                 </p>
                 
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <a href="#contact-form" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: #fff; padding: 16px 32px; text-decoration: none; transition: all 0.3s; display: inline-block;">
+                    <a href="#contact-form" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: #fff; padding: 16px 32px; text-decoration: none; transition: all 0.3s; display: inline-block;">
                         Get Free Estimate
                     </a>
-                    <a href="tel:520-668-6638" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: transparent; color: #fff; padding: 16px 32px; text-decoration: none; border: 2px solid #fff; transition: all 0.3s; display: inline-block;">
+                    <a href="tel:520-668-6638" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: transparent; color: #fff; padding: 16px 32px; text-decoration: none; border: 2px solid #fff; transition: all 0.3s; display: inline-block;">
                         📞 520-668-6638
                     </a>
                 </div>
@@ -185,7 +219,7 @@
                     <input type="email" name="email" placeholder="Email Address *" required style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
                     <input type="tel" name="phone" placeholder="Phone Number *" required style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
                     <textarea name="message" placeholder="Tell us about your roofing needs..." rows="4" style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif; resize: vertical;"></textarea>
-                    <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 16px; border: none; cursor: pointer; transition: all 0.3s;">
+                    <button type="submit" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 16px; border: none; cursor: pointer; transition: all 0.3s;">
                         Request Free Estimate
                     </button>
                 </form>
@@ -409,7 +443,7 @@
             </div>
             
             <div style="margin-top: 40px;">
-                <a href="/contact#estimate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 16px 40px; text-decoration: none; display: inline-block; transition: all 0.3s;">
+                <a href="/contact#estimate" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 16px 40px; text-decoration: none; display: inline-block; transition: all 0.3s;">
                     Schedule Free Estimate
                 </a>
                 <p style="font-size: 16px; color: #666; margin-top: 15px;">
@@ -495,12 +529,12 @@
                         ⭐⭐⭐⭐⭐
                     </div>
                     <p style="font-size: 16px; line-height: 1.7; color: #666; margin-bottom: 20px; font-style: italic;">
-                        "Sunrise Roofers replaced our old shingle roof and the transformation is incredible! The team was professional, efficient, and cleaned up everything daily. Highly recommend for any residential roofing project in Tucson."
+                        "Sunrise Roofers replaced our tile roof and the results are outstanding. Professional crew, fair pricing, and they cleaned up everything perfectly. Highly recommend!"
                     </p>
                     <p style="font-family: 'Oswald', sans-serif; font-weight: 600; color: #1A1A1A; margin: 0;">
-                        — Michael T.
+                        — Maria G.
                     </p>
-                    <p style="font-size: 14px; color: #999;">Tucson Homeowner</p>
+                    <p style="font-size: 14px; color: #999;">Google Review</p>
                 </div>
                 
                 <!-- Review 2 -->
@@ -509,12 +543,12 @@
                         ⭐⭐⭐⭐⭐
                     </div>
                     <p style="font-size: 16px; line-height: 1.7; color: #666; margin-bottom: 20px; font-style: italic;">
-                        "Had a leak after monsoon season and Eddie came out the same day. Fixed it quickly and explained everything. Their repair work has held up perfectly through another summer. Best roofers in Tucson!"
+                        "Complete roof replacement done in 3 days. Great communication throughout the process. The quality of work exceeded our expectations."
                     </p>
                     <p style="font-family: 'Oswald', sans-serif; font-weight: 600; color: #1A1A1A; margin: 0;">
-                        — Lisa R.
+                        — Sandra L.
                     </p>
-                    <p style="font-size: 14px; color: #999;">Oro Valley</p>
+                    <p style="font-size: 14px; color: #999;">Google Review</p>
                 </div>
                 
                 <!-- Review 3 -->
@@ -523,12 +557,12 @@
                         ⭐⭐⭐⭐⭐
                     </div>
                     <p style="font-size: 16px; line-height: 1.7; color: #666; margin-bottom: 20px; font-style: italic;">
-                        "We needed a tile roof replacement and Sunrise provided excellent service from quote to completion. The attention to detail and quality of work exceeded our expectations. Worth every penny!"
+                        "Honest assessment, fair price, and quality work. They replaced our aging shingle roof with beautiful architectural shingles. Couldn't be happier!"
                     </p>
                     <p style="font-family: 'Oswald', sans-serif; font-weight: 600; color: #1A1A1A; margin: 0;">
-                        — David & Maria S.
+                        — Jennifer M.
                     </p>
-                    <p style="font-size: 14px; color: #999;">Marana</p>
+                    <p style="font-size: 14px; color: #999;">Google Review</p>
                 </div>
                 
             </div>
@@ -728,10 +762,10 @@
             </p>
             
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
-                <a href="/contact#estimate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 18px 40px; text-decoration: none; transition: all 0.3s; display: inline-block;">
+                <a href="/contact#estimate" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 18px 40px; text-decoration: none; transition: all 0.3s; display: inline-block;">
                     Get Your Free Estimate
                 </a>
-                <a href="tel:520-668-6638" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: transparent; color: white; padding: 18px 40px; text-decoration: none; border: 2px solid white; transition: all 0.3s; display: inline-block;">
+                <a href="tel:520-668-6638" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: transparent; color: white; padding: 18px 40px; text-decoration: none; border: 2px solid white; transition: all 0.3s; display: inline-block;">
                     Call 520-668-6638
                 </a>
             </div>
@@ -758,8 +792,46 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about-our-roofing-contractors-in-tucson">About</a></li>
-                    <li><a href="/roofing-services">Services</a></li>
+                    <li class="footer-dropdown">
+                        <div class="footer-dropdown-header">
+                            <a href="/about-our-roofing-contractors-in-tucson" class="footer-dropdown-link" style="min-width: 44px; min-height: 44px; display: inline-flex; align-items: center;">About</a>
+                            <button class="footer-dropdown-toggle" aria-label="Toggle About submenu" style="min-width: 44px; min-height: 44px;"><span class="footer-arrow">▼</span></button>
+                        </div>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="/why-choose-sunrise-roofers-in-tucson">Why Choose Us</a></li>
+                            <li><a href="/gallery">Project Gallery</a></li>
+                            <li><a href="/#testimonials">Customer Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <div class="footer-dropdown-header">
+                            <a href="/roofing-services" class="footer-dropdown-link">Services</a>
+                            <button class="footer-dropdown-toggle"><span class="footer-arrow">▼</span></button>
+                        </div>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="/residential-roofing-tucson">Residential Roofing</a></li>
+                            <li><a href="/roofing-services/roof-repair-tucson">Roof Repair</a></li>
+                            <li><a href="/roofing-services/roof-inspection">Roof Inspection</a></li>
+                            <li><a href="/roofing-services/new-roof-tucson">Roof Replacement</a></li>
+                            <li><a href="/roofing-services/shingle-roof-replacement-tucson">Shingle Roofing</a></li>
+                            <li><a href="/roofing-services/concrete-tile-roof-replacement">Tile Roofing</a></li>
+                            <li><a href="/roofing-services/metal-roofing-tucson">Metal Roofing</a></li>
+                            <li><a href="/roofing-services/flat-roof-coating-tucson">Flat Roof Coating</a></li>
+                        </ul>
+                    </li>
+                    <li class="footer-dropdown">
+                        <div class="footer-dropdown-header">
+                            <button class="footer-dropdown-toggle" aria-label="Toggle Service Areas submenu" style="min-width: 44px; min-height: 44px;">Service Areas <span class="footer-arrow">▼</span></button>
+                        </div>
+                        <ul class="footer-dropdown-content">
+                            <li><a href="/tucson-roofing-services">Tucson</a></li>
+                            <li><a href="/marana-roofing">Marana</a></li>
+                            <li><a href="/oro-valley-roofing">Oro Valley</a></li>
+                            <li><a href="/catalina-foothills-roofing">Catalina Foothills</a></li>
+                            <li><a href="/sahuarita-roofing">Sahuarita</a></li>
+                            <li><a href="/green-valley-roofing">Green Valley</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/blog/">Blog</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -786,6 +858,32 @@
                     <li>🕒 Sat: 8AM-4PM</li>
                     <li>🚨 Emergency Service Available</li>
                 </ul>
+            </div>
+            <div class="footer-section social-section">
+                <h3 class="desktop-heading">Connect with Us</h3>
+                <h3 class="mobile-heading">Social Media</h3>
+                <div class="social-icons desktop-social">
+                    <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook-icon">
+                        <svg class="icon"><use href="#icon-facebook"/></svg>
+                    </a>
+                    <a href="https://www.yelp.com/biz/sunrise-roofers-tucson" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+                        <svg class="icon"><use href="#icon-yelp"/></svg>
+                    </a>
+                    <a href="https://g.page/r/CW9lEErvgxT0EBM/review" target="_blank" rel="noopener noreferrer" aria-label="Google" class="google-icon">
+                        <svg class="icon"><use href="#icon-google"/></svg>
+                    </a>
+                </div>
+                <div class="social-icons mobile-social">
+                    <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="facebook-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.yelp.com/biz/sunrise-roofers-tucson" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+                        <i class="fab fa-yelp"></i>
+                    </a>
+                    <a href="https://g.page/r/CW9lEErvgxT0EBM/review" target="_blank" rel="noopener noreferrer" aria-label="Google" class="google-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
