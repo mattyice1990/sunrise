@@ -214,10 +214,22 @@
                 <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #1A1A1A; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; text-align: center;">
                     Schedule Your Free Roof Inspection
                 </h3>
-                <form action="/thank-you" method="GET" style="display: flex; flex-direction: column; gap: 15px;">
-                    <input type="text" name="name" placeholder="Your Name *" required style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
-                    <input type="email" name="email" placeholder="Email Address *" required style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
-                    <input type="tel" name="phone" placeholder="Phone Number *" required style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
+                <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="bb31a1fd-2cf0-4ea5-8920-18cad8059ed4">
+                    
+                    <!-- Additional hidden fields for better emails -->
+                    <input type="hidden" name="subject" value="New Residential Roofing Estimate Request - Sunrise Roofers">
+                    <input type="hidden" name="from_name" value="Sunrise Roofers - Residential Page">
+                    <!-- Redirect to custom thank you page after submission -->
+                    <input type="hidden" name="redirect" value="https://roofwithsunrise.com/thank-you.html">
+                    
+                    <!-- Honeypot Spam Protection (hidden from users) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <input type="text" name="name" placeholder="Your Name *" required autocomplete="name" style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
+                    <input type="email" name="email" placeholder="Email Address *" required autocomplete="email" style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
+                    <input type="tel" name="phone" placeholder="Phone Number *" required autocomplete="tel" style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif;">
                     <textarea name="message" placeholder="Tell us about your roofing needs..." rows="4" style="padding: 14px; border: 1px solid #ddd; font-size: 15px; font-family: 'Roboto', sans-serif; resize: vertical;"></textarea>
                     <button type="submit" class="btn-animate" style="font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: #F5A623; color: white; padding: 16px; border: none; cursor: pointer; transition: all 0.3s;">
                         Request Free Estimate
