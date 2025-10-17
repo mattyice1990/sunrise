@@ -521,9 +521,9 @@
                 </p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 
-                <!-- Review 1 -->
+                <!-- Review 1 - Fallback (will be replaced by API data) -->
                 <div style="background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
                     <div style="color: #F5A623; font-size: 20px; margin-bottom: 15px;">
                         ⭐⭐⭐⭐⭐
@@ -537,7 +537,7 @@
                     <p style="font-size: 14px; color: #999;">Google Review</p>
                 </div>
                 
-                <!-- Review 2 -->
+                <!-- Review 2 - Fallback (will be replaced by API data) -->
                 <div style="background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
                     <div style="color: #F5A623; font-size: 20px; margin-bottom: 15px;">
                         ⭐⭐⭐⭐⭐
@@ -551,7 +551,7 @@
                     <p style="font-size: 14px; color: #999;">Google Review</p>
                 </div>
                 
-                <!-- Review 3 -->
+                <!-- Review 3 - Fallback (will be replaced by API data) -->
                 <div style="background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
                     <div style="color: #F5A623; font-size: 20px; margin-bottom: 15px;">
                         ⭐⭐⭐⭐⭐
@@ -893,6 +893,59 @@
 
     <!-- Main JavaScript -->
     <script defer src="js/main.min.js"></script>
+    
+    <!-- Load Google Reviews -->
+    <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        try {
+            const response = await fetch('/api/reviews');
+            const data = await response.json();
+            
+            if (data.reviews && data.reviews.length > 0) {
+                // Filter for 5-star reviews only and get the first 3
+                const fiveStarReviews = data.reviews
+                    .filter(review => review.rating === 5)
+                    .slice(0, 3);
+                
+                if (fiveStarReviews.length > 0) {
+                    // Update the testimonials section
+                    const testimonialsGrid = document.querySelector('.testimonials-grid');
+                    if (testimonialsGrid) {
+                        testimonialsGrid.innerHTML = fiveStarReviews.map(review => {
+                            // Calculate relative time
+                            const reviewDate = new Date(review.time * 1000);
+                            const now = new Date();
+                            const diffDays = Math.floor((now - reviewDate) / (1000 * 60 * 60 * 24));
+                            let timeAgo = '';
+                            if (diffDays < 7) timeAgo = 'This week';
+                            else if (diffDays < 30) timeAgo = `${Math.floor(diffDays / 7)} weeks ago`;
+                            else if (diffDays < 365) timeAgo = `${Math.floor(diffDays / 30)} months ago`;
+                            else timeAgo = `${Math.floor(diffDays / 365)} years ago`;
+                            
+                            return `
+                                <div style="background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+                                    <div style="color: #F5A623; font-size: 20px; margin-bottom: 15px;">
+                                        ${'⭐'.repeat(review.rating)}
+                                    </div>
+                                    <p style="font-size: 16px; line-height: 1.7; color: #666; margin-bottom: 20px; font-style: italic;">
+                                        "${review.text}"
+                                    </p>
+                                    <p style="font-family: 'Oswald', sans-serif; font-weight: 600; color: #1A1A1A; margin: 0;">
+                                        — ${review.author_name}
+                                    </p>
+                                    <p style="font-size: 14px; color: #999;">Google Review · ${timeAgo}</p>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                }
+            }
+        } catch (error) {
+            console.log('Using fallback reviews:', error.message);
+            // Fallback reviews are already in the HTML, so no action needed
+        }
+    });
+    </script>
 </body>
 </html>
 
