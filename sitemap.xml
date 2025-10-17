@@ -157,5 +157,20 @@
     <priority>0.4</priority>
   </url>
   
+  <!-- Blog -->
+  <url>
+    <loc>https://roofwithsunrise.com/blog/</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://roofwithsunrise.com/blog/tucson-homebuyer-roof-photo-review-matt-sarah/</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset>
 

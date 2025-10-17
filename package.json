@@ -1,0 +1,12 @@
+{
+  "name": "sunrise-roofers-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "img:process:matt-sarah": "node scripts/process-matt-sarah-images.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}
+

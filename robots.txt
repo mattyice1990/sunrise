@@ -139,3 +139,6 @@ Allow: /green-valley-roofing
 # About pages
 Allow: /why-choose-sunrise-roofers-in-tucson
 
+# Blog
+Allow: /blog/
+
