@@ -157,28 +157,5 @@
     <priority>0.4</priority>
   </url>
   
-  <!-- Blog Pages -->
-  <url>
-    <loc>https://roofwithsunrise.com/blog/</loc>
-    <lastmod>2025-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Blog Posts -->
-  <url>
-    <loc>https://roofwithsunrise.com/blog/protect-your-new-roof-tucson/</loc>
-    <lastmod>2025-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://roofwithsunrise.com/blog/new-roof-cost-tucson-2025/</loc>
-    <lastmod>2025-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
 </urlset>
 
