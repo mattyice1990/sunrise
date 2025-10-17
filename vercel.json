@@ -3,58 +3,6 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/about",
-      "destination": "/about-our-roofing-contractors-in-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/why-choose-sunrise-roofers",
-      "destination": "/why-choose-sunrise-roofers-in-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/services",
-      "destination": "/roofing-services",
-      "permanent": true
-    },
-    {
-      "source": "/roof-repair-tucson",
-      "destination": "/roofing-services/roof-repair-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/roof-inspection",
-      "destination": "/roofing-services/roof-inspection",
-      "permanent": true
-    },
-    {
-      "source": "/new-roof-tucson",
-      "destination": "/roofing-services/new-roof-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/shingle-roof-replacement-tucson",
-      "destination": "/roofing-services/shingle-roof-replacement-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/concrete-tile-roof-replacement",
-      "destination": "/roofing-services/concrete-tile-roof-replacement",
-      "permanent": true
-    },
-    {
-      "source": "/metal-roofing-tucson",
-      "destination": "/roofing-services/metal-roofing-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/flat-roof-coating-tucson",
-      "destination": "/roofing-services/flat-roof-coating-tucson",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/sitemap.xml",
