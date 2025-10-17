@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sunrise Roofing Blog</title>
+    <link>https://roofwithsunrise.com/blog/</link>
+    <atom:link href="https://roofwithsunrise.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Expert roofing advice from Tucson's trusted contractor. Learn about roof replacement costs, materials, maintenance, and more from our experienced team at Sunrise Roofers LLC.</description>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 17 Oct 2025 07:00:00 -0700</lastBuildDate>
+    <pubDate>Thu, 17 Oct 2025 07:00:00 -0700</pubDate>
+    <managingEditor>sunriseroofer@outlook.com (Eddie Guillen)</managingEditor>
+    <webMaster>sunriseroofer@outlook.com (Sunrise Roofers LLC)</webMaster>
+    <copyright>Copyright 2025 Sunrise Roofers LLC. All rights reserved.</copyright>
+    <category>Home Improvement</category>
+    <category>Roofing</category>
+    <category>Construction</category>
+    <generator>Custom RSS Feed</generator>
+    <image>
+      <url>https://roofwithsunrise.com/SunriseLogo.jpeg</url>
+      <title>Sunrise Roofing Blog</title>
+      <link>https://roofwithsunrise.com/blog/</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    
+    <!-- Blog Post: New Roof Cost in Tucson (2025) -->
+    <item>
+      <title>New Roof Cost in Tucson (2025): What to Expect</title>
+      <link>https://roofwithsunrise.com/blog/new-roof-cost-tucson-2025/</link>
+      <guid isPermaLink="true">https://roofwithsunrise.com/blog/new-roof-cost-tucson-2025/</guid>
+      <description>What a new roof costs in Tucson in 2025, what drives price, and simple ways to save without cutting corners. Get real numbers and honest advice from an experienced roofing contractor.</description>
+      <content:encoded><![CDATA[
+        <p>If you're looking at your roof and wondering what a replacement will cost, you're not alone. Every week I meet homeowners in Tucson who've gotten quotes ranging from $8,000 to $35,000 for the same house. That spread makes no sense—until you understand what's driving the number.</p>
+        <p>I'm Eddie Guillen. I've been installing and repairing roofs across Southern Arizona for over two decades. My wife Viky and I started Sunrise Roofers LLC because we believe you deserve clear information and honest pricing when it comes to a new roof. Let me walk you through what you'll actually pay in 2025 and why.</p>
+        <p><a href="https://roofwithsunrise.com/blog/new-roof-cost-tucson-2025/">Read the full article →</a></p>
+      ]]></content:encoded>
+      <dc:creator>Eddie Guillen</dc:creator>
+      <pubDate>Thu, 17 Oct 2025 07:00:00 -0700</pubDate>
+      <category>Roof Replacement</category>
+      <category>Cost Guide</category>
+      <category>Tucson Roofing</category>
+      <enclosure url="https://roofwithsunrise.com/images/GAF%20Shingle%20Roof%20Replacement%20in%20Tucson-small.webp" type="image/webp" length="0" />
+    </item>
+    
+  </channel>
+</rss>
+
