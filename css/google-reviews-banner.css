@@ -104,6 +104,19 @@
   font-weight: 700;
   font-family: 'Oswald', sans-serif;
   flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.review-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.review-avatar-initial {
+  display: block;
 }
 
 .review-author-info {
@@ -119,6 +132,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.review-stars-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .review-stars-inline {
   display: flex;
   gap: 2px;
@@ -127,6 +146,42 @@
 .review-star {
   width: 16px;
   height: 16px;
+}
+
+.google-branding {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  display: flex;
+}
+
+.google-letter {
+  display: inline-block;
+}
+
+.google-g {
+  color: #4285F4;
+}
+
+.google-o1 {
+  color: #EA4335;
+}
+
+.google-o2 {
+  color: #FBBC04;
+}
+
+.google-g2 {
+  color: #4285F4;
+}
+
+.google-l {
+  color: #34A853;
+}
+
+.google-e {
+  color: #EA4335;
 }
 
 .review-card-text {

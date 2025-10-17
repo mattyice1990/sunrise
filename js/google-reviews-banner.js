@@ -120,15 +120,25 @@ class GoogleReviewsBanner {
     const truncatedText = review.text.length > 180 
       ? review.text.substring(0, 180) + '...' 
       : review.text;
+    
+    // Show profile photo if available, otherwise show initial
+    const avatarContent = review.profile_photo_url 
+      ? `<img src="${review.profile_photo_url}" alt="${review.author_name}" class="review-avatar-img">`
+      : `<span class="review-avatar-initial">${initial}</span>`;
 
     return `
       <div class="google-review-card">
         <div class="review-card-header">
-          <div class="review-avatar">${initial}</div>
+          <div class="review-avatar">${avatarContent}</div>
           <div class="review-author-info">
             <div class="review-author-name">${review.author_name}</div>
-            <div class="review-stars-inline">
-              ${this.createStars(review.rating)}
+            <div class="review-stars-container">
+              <div class="review-stars-inline">
+                ${this.createStars(review.rating)}
+              </div>
+              <div class="google-branding">
+                <span class="google-letter google-g">G</span><span class="google-letter google-o1">o</span><span class="google-letter google-o2">o</span><span class="google-letter google-g2">g</span><span class="google-letter google-l">l</span><span class="google-letter google-e">e</span>
+              </div>
             </div>
           </div>
         </div>
