@@ -3,36 +3,6 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml; charset=utf-8"
-      }
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain; charset=utf-8"
-      }
-    },
-    {
-      "src": "/feed.xml",
-      "dest": "/feed.xml",
-      "headers": {
-        "Content-Type": "application/xml; charset=utf-8"
-      }
-    },
-    {
-      "src": "/blog/blog-posts.json",
-      "dest": "/blog/blog-posts.json",
-      "headers": {
-        "Content-Type": "application/json; charset=utf-8"
-      }
-    }
-  ],
   "redirects": [
     {
       "source": "/:path*",
@@ -125,6 +95,32 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/feed.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/blog/blog-posts.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, must-revalidate"
         }
       ]
     },
