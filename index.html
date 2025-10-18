@@ -22,7 +22,9 @@
     </script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="Full-service roofing in Tucson: repair, replacement, metal, tile, and flat. Licensed, insured, warranty-backed. Free estimates and fast scheduling.">
     <meta name="theme-color" content="#F5A623">
     <meta name="keywords" content="roof repair tucson, roofing contractors near me, roof replacement tucson, emergency roof repair, tucson roofers">
@@ -52,18 +54,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.clarity.ms">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://lh3.googleusercontent.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     
-    <!-- Google Fonts - Optimized with font-display swap to prevent layout shift -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Deferred and optimized for mobile performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Font Awesome - Deferred to prevent render blocking -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Font Awesome removed - using inline SVG icons instead for better performance -->
     
     <!-- Critical inline CSS (above-the-fold only - eliminates render blocking) -->
     <style>
@@ -212,8 +210,9 @@
     <link rel="stylesheet" href="css/styles.css?v=20251017d" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/styles.css?v=20251017d"></noscript>
     
-    <!-- Google Reviews Banner CSS -->
-    <link rel="stylesheet" href="css/google-reviews-banner.min.css?v=20251016">
+    <!-- Google Reviews Banner CSS - Deferred (below fold) -->
+    <link rel="stylesheet" href="css/google-reviews-banner.min.css?v=20251016" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/google-reviews-banner.min.css?v=20251016"></noscript>
     
     <!-- Preload critical hero image with WebP - LCP optimization -->
     <link rel="preload" as="image" href="images/Roofing%20In%20The%20Desert-small.webp" type="image/webp" fetchpriority="high">
@@ -463,10 +462,10 @@
                 <a href="mailto:sunriseroofer@outlook.com" class="top-contact">✉️ sunriseroofer@outlook.com</a>
                 <span class="top-hours">🕒 Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
                 <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social" aria-label="Visit our Facebook page">
-                    <i class="fab fa-facebook"></i>
+                    <svg class="icon" width="18" height="18"><use href="#icon-facebook"/></svg>
                 </a>
                 <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener noreferrer" class="top-social-google" aria-label="Visit our Google Business Profile">
-                    <i class="fab fa-google"></i>
+                    <svg class="icon" width="18" height="18"><use href="#icon-google"/></svg>
                 </a>
             </div>
         </div>
@@ -474,7 +473,7 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <a href="/" class="logo">
-                    <img src="SunriseLogo.jpeg" alt="Sunrise Roofers LLC" width="200" height="200" width="200" height="200">
+                    <img src="SunriseLogo.jpeg" alt="Sunrise Roofers LLC" width="200" height="200" loading="eager">
                 </a>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -1183,30 +1182,32 @@
     });
     </script>
     
-    <!-- Deferred Google Maps loading (only loads when map is visible) -->
+    <!-- Deferred Google Maps loading (only loads when map is visible) - Mobile optimized -->
     <script>
     // Lazy load Google Maps only when the map section becomes visible
-    document.addEventListener('DOMContentLoaded', function() {
-        const mapSection = document.getElementById('service-area-map');
-        if (!mapSection) return;
-        
-        let mapsLoaded = false;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !mapsLoaded) {
-                    mapsLoaded = true;
-                    // Load Google Maps API
-                    const script = document.createElement('script');
-                    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&loading=async&callback=initServiceAreaMap';
-                    script.async = true;
-                    document.head.appendChild(script);
-                    observer.unobserve(mapSection);
-                }
-            });
-        }, { rootMargin: '200px' }); // Start loading 200px before map is visible
-        
-        observer.observe(mapSection);
-    });
+    if ('IntersectionObserver' in window) {
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapSection = document.getElementById('service-area-map');
+            if (!mapSection) return;
+            
+            let mapsLoaded = false;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !mapsLoaded) {
+                        mapsLoaded = true;
+                        // Load Google Maps API
+                        const script = document.createElement('script');
+                        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM&loading=async&callback=initServiceAreaMap';
+                        script.async = true;
+                        document.head.appendChild(script);
+                        observer.unobserve(mapSection);
+                    }
+                });
+            }, { rootMargin: '200px' }); // Start loading 200px before map is visible
+            
+            observer.observe(mapSection);
+        });
+    }
     </script>
     
     <!-- Toggle Services Function -->
