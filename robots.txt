@@ -1,5 +1,6 @@
 # Robots.txt for Sunrise Roofers LLC
 # Website: https://roofwithsunrise.com
+# Note: www.roofwithsunrise.com redirects to roofwithsunrise.com (301)
 
 # Major Search Engines
 User-agent: Googlebot
