@@ -3,24 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXS7NL5W52"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TXS7NL5W52');
-    </script>
-    
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "tqrdpuxath");
-    </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
     <meta name="mobile-web-app-capable" content="yes">
@@ -538,16 +520,19 @@
         </nav>
     </header>
 
-    <!-- Hero Section as Rounded Card - CLS Optimized -->
+    <!-- Hero Section as Rounded Card - CLS & LCP Optimized -->
     <section class="hero-with-inset" id="home" style="min-height:650px;">
-        <div class="hero-content-box" style="height:500px; contain: layout; will-change: auto; position: relative; overflow: hidden;">
-            <!-- LCP Image - Immediately discoverable with high priority -->
+        <div class="hero-content-box" style="height:500px; contain: layout paint; position: relative; overflow: hidden; background-color: #1A1A1A;">
+            <!-- LCP Image - Immediately discoverable with high priority, simplified overlay -->
             <img src="images/Roofing%20In%20The%20Desert-small.webp" 
                  alt="Arizona Desert Roofing" 
                  fetchpriority="high"
                  width="800" 
                  height="800"
-                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;" 
+                 decoding="async">
+            <!-- Simplified gradient overlay for faster rendering -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26,26,26,0.7) 0%, rgba(215,122,0,0.8) 100%); z-index: 1;"></div>
             <div style="position: relative; z-index: 3; text-align: center; width:100%; max-width:1200px; margin:0 auto; padding: 0 15px;">
                 <h1 class="hero-title" style="margin-bottom: 15px; font-family: 'Bebas Neue', -apple-system, sans-serif; line-height: 1.1; height: auto; color: #D77A00;">Tucson's Trusted Roofing Contractors</h1>
                 <p class="hero-subtitle" style="max-width: 900px; margin: 0 auto 20px; font-family: 'Bebas Neue', -apple-system, sans-serif; letter-spacing: 0.5px; line-height: 1.3; height: auto; font-size: 22px;">WITH OVER 20 YEARS OF EXPERIENCE</p>
@@ -1233,6 +1218,25 @@
     
     <!-- Google Reviews Banner JavaScript -->
     <script defer src="js/google-reviews-banner.min.js?v=20251016"></script>
+    
+    <!-- Analytics Scripts - Moved to end for better LCP performance -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXS7NL5W52"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "tqrdpuxath");
+    </script>
 </body>
 </html>
 
