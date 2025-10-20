@@ -396,20 +396,14 @@ let serviceAreaMap;
             const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
             
             // Create map centered on business location
+            // Note: Map styles are controlled via Google Cloud Console when using mapId
             serviceAreaMap = new Map(document.getElementById("service-area-map"), {
                 center: businessLocation.coords,
                 mapTypeControl: true,
                 fullscreenControl: true,
                 streetViewControl: false,
                 zoomControl: true,
-                mapId: "SUNRISE_ROOFERS_MAP", // Required for AdvancedMarkerElement
-                styles: [
-                    {
-                        featureType: "poi",
-                        elementType: "labels",
-                        stylers: [{ visibility: "off" }]
-                    }
-                ]
+                mapId: "SUNRISE_ROOFERS_MAP" // Required for AdvancedMarkerElement
             });
 
             // Add service area circle
