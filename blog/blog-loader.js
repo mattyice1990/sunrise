@@ -8,7 +8,9 @@
 
     // Format date to human-readable format
     function formatDate(dateString) {
-        const date = new Date(dateString);
+        // Parse the date string and create a local date to avoid timezone issues
+        const [year, month, day] = dateString.split('-');
+        const date = new Date(year, month - 1, day); // month is 0-indexed
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         return date.toLocaleDateString('en-US', options);
     }
