@@ -369,11 +369,24 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
   
-  // Only allow POST requests
+  // Handle GET requests (for testing/verification)
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      status: 'ok',
+      message: 'Webhook endpoint is active',
+      endpoint: '/api/blog-webhook',
+      method: 'POST required for blog publishing',
+      documentation: 'Send POST requests with outrank.so publish_articles event'
+    });
+  }
+  
+  // Only allow POST requests for actual webhook
   if (req.method !== 'POST') {
     return res.status(405).json({ 
       error: 'Method not allowed',
-      message: 'This endpoint only accepts POST requests'
+      message: 'This endpoint only accepts POST requests',
+      received_method: req.method,
+      expected_method: 'POST'
     });
   }
 
