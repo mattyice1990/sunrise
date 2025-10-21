@@ -8,6 +8,110 @@
       gtag('config', 'G-TXS7NL5W52');
     </script>
     
+    <!-- Marketing Agent Website Tracking -->
+    <script>
+    /**
+     * Marketing Agent Website Tracking
+     * Tracks social media visits and conversions
+     */
+    (function() {
+        'use strict';
+        
+        // Marketing Agent Analytics API endpoint
+        // TODO: Update this to your production API endpoint
+        const ANALYTICS_API = 'http://localhost:5000/api/track-visit';
+        
+        // Get UTM parameters from URL
+        function getUTMParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                utm_source: urlParams.get('utm_source'),
+                utm_medium: urlParams.get('utm_medium'),
+                utm_campaign: urlParams.get('utm_campaign'),
+                utm_content: urlParams.get('utm_content')
+            };
+        }
+        
+        // Track website visit
+        function trackVisit() {
+            const utmParams = getUTMParams();
+            
+            // Only track if we have UTM parameters
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const trackingData = {
+                    utm_source: utmParams.utm_source,
+                    utm_medium: utmParams.utm_medium,
+                    utm_campaign: utmParams.utm_campaign,
+                    utm_content: utmParams.utm_content,
+                    page_url: window.location.href,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Send to Marketing Agent analytics
+                fetch(ANALYTICS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(trackingData)
+                }).catch(error => {
+                    console.log('Marketing Agent: Could not track visit (API not available)');
+                });
+                
+                console.log('📊 Marketing Agent: Visit tracked from', utmParams.utm_source);
+            }
+        }
+        
+        // Track conversion (call this when someone fills out contact form)
+        window.trackConversion = function(conversionType = 'contact_form') {
+            const utmParams = getUTMParams();
+            
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const conversionData = {
+                    utm_source: utmParams.utm_source,
+                    utm_campaign: utmParams.utm_campaign,
+                    conversion_type: conversionType,
+                    timestamp: new Date().toISOString()
+                };
+                
+                fetch(ANALYTICS_API.replace('/track-visit', '/track-conversion'), {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(conversionData)
+                }).catch(error => {
+                    console.log('Marketing Agent: Could not track conversion (API not available)');
+                });
+                
+                console.log('🎯 Marketing Agent: Conversion tracked from', utmParams.utm_source);
+            }
+        };
+        
+        // Track page view on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', trackVisit);
+        } else {
+            trackVisit();
+        }
+        
+        // Auto-track contact form submissions
+        document.addEventListener('submit', function(event) {
+            if (event.target.matches('form[action*="contact"], form[action*="quote"], form[action*="inquiry"]')) {
+                trackConversion('contact_form');
+            }
+        });
+        
+        // Track phone number clicks
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('a[href^="tel:"]')) {
+                trackConversion('phone_call');
+            }
+        });
+        
+    })();
+    </script>
+    
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="See how Sunrise Roofers transformed a severely weathered Tucson flat roof with professional elastomeric coating—photos, process, and expert answers about roof resealing vs. replacement.">
