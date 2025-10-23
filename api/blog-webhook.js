@@ -106,6 +106,164 @@ function generateBlogPostHTML(article) {
       gtag('config', 'G-TXS7NL5W52');
     </script>
     
+    <!-- Marketing Agent Website Tracking -->
+    <script data-api-url="http://localhost:5000">
+    (function() {
+        'use strict';
+
+        // Get API endpoint from script tag data attribute
+        const scriptTag = document.currentScript;
+        const ANALYTICS_API_BASE = scriptTag?.getAttribute('data-api-url') || 'http://localhost:5000';
+        const ANALYTICS_API = \`\${ANALYTICS_API_BASE}/api/track-visit\`;
+
+        // Generate unique session ID (UUID v4)
+        function generateSessionId() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // Get or create session ID with 30-minute rolling window
+        function getSessionId() {
+            let sessionId = localStorage.getItem('ma_session_id');
+            let sessionStart = localStorage.getItem('ma_session_start');
+            const now = Date.now();
+            const sessionDuration = 30 * 60 * 1000; // 30 minutes
+
+            // Create new session if none exists or if session expired
+            if (!sessionId || !sessionStart || (now - parseInt(sessionStart)) > sessionDuration) {
+                sessionId = generateSessionId();
+                localStorage.setItem('ma_session_id', sessionId);
+                localStorage.setItem('ma_session_start', now.toString());
+            } else {
+                // Update session start time (rolling window)
+                localStorage.setItem('ma_session_start', now.toString());
+            }
+
+            return sessionId;
+        }
+
+        // Get UTM parameters from URL
+        function getUTMParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                utm_source: urlParams.get('utm_source'),
+                utm_medium: urlParams.get('utm_medium'),
+                utm_campaign: urlParams.get('utm_campaign'),
+                utm_content: urlParams.get('utm_content')
+            };
+        }
+
+        // Track website visit
+        function trackVisit() {
+            const utmParams = getUTMParams();
+
+            // Only track if we have UTM parameters from social media
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const trackingData = {
+                    utm_source: utmParams.utm_source,
+                    utm_medium: utmParams.utm_medium,
+                    utm_campaign: utmParams.utm_campaign,
+                    utm_content: utmParams.utm_content,
+                    page_url: window.location.href,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Send to Marketing Agent analytics
+                fetch(ANALYTICS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(trackingData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(\`HTTP \${response.status}: \${response.statusText}\`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('📊 Marketing Agent: Visit tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Visit tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track visit -', error.message);
+                });
+            }
+        }
+
+        // Track conversion (call this when someone fills out contact form)
+        window.trackConversion = function(conversionType = 'contact_form') {
+            const utmParams = getUTMParams();
+
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const conversionData = {
+                    utm_source: utmParams.utm_source,
+                    utm_campaign: utmParams.utm_campaign,
+                    conversion_type: conversionType,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                fetch(\`\${ANALYTICS_API_BASE}/api/track-conversion\`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(conversionData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(\`HTTP \${response.status}: \${response.statusText}\`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('🎯 Marketing Agent: Conversion tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Conversion tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track conversion -', error.message);
+                });
+            }
+        };
+
+        // Track page view on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', trackVisit);
+        } else {
+            trackVisit();
+        }
+
+        // Auto-track contact form submissions
+        document.addEventListener('submit', function(event) {
+            if (event.target.matches('form[action*="contact"], form[action*="quote"], form[action*="inquiry"]')) {
+                trackConversion('contact_form');
+            }
+        });
+
+        // Auto-track phone number clicks
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('a[href^="tel:"]')) {
+                trackConversion('phone_call');
+            }
+        });
+
+    })();
+    </script>
+    
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="${article.meta_description}">
