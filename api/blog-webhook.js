@@ -341,9 +341,9 @@ function generateBlogPostHTML(article) {
     <header class="site-header">
         <div class="top-bar">
             <div class="top-bar-container">
-                <a href="tel:520-668-6638" class="top-contact">📞 520-668-6638</a>
-                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">✉️ sunriseroofer@outlook.com</a>
-                <span class="top-hours">🕒 Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="tel:520-668-6638" class="top-contact">&#128222; 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">&#9993; sunriseroofer@outlook.com</a>
+                <span class="top-hours">&#128337; Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
                 <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social" aria-label="Visit our Facebook page">
                     <svg class="icon" width="18" height="18"><use href="#icon-facebook"/></svg>
                 </a>
