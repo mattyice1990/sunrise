@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1351630159967766');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1351630159967766&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Marketing Agent Website Tracking -->
+    <script data-api-url="http://localhost:5000">
+    (function() {
+        'use strict';
+
+        // Get API endpoint from script tag data attribute
+        const scriptTag = document.currentScript;
+        const ANALYTICS_API_BASE = scriptTag?.getAttribute('data-api-url') || 'http://localhost:5000';
+        const ANALYTICS_API = `${ANALYTICS_API_BASE}/api/track-visit`;
+
+        // Generate unique session ID (UUID v4)
+        function generateSessionId() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // Get or create session ID with 30-minute rolling window
+        function getSessionId() {
+            let sessionId = localStorage.getItem('ma_session_id');
+            let sessionStart = localStorage.getItem('ma_session_start');
+            const now = Date.now();
+            const sessionDuration = 30 * 60 * 1000; // 30 minutes
+
+            // Create new session if none exists or if session expired
+            if (!sessionId || !sessionStart || (now - parseInt(sessionStart)) > sessionDuration) {
+                sessionId = generateSessionId();
+                localStorage.setItem('ma_session_id', sessionId);
+                localStorage.setItem('ma_session_start', now.toString());
+            } else {
+                // Update session start time (rolling window)
+                localStorage.setItem('ma_session_start', now.toString());
+            }
+
+            return sessionId;
+        }
+
+        // Get UTM parameters from URL
+        function getUTMParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                utm_source: urlParams.get('utm_source'),
+                utm_medium: urlParams.get('utm_medium'),
+                utm_campaign: urlParams.get('utm_campaign'),
+                utm_content: urlParams.get('utm_content')
+            };
+        }
+
+        // Track website visit
+        function trackVisit() {
+            const utmParams = getUTMParams();
+
+            // Only track if we have UTM parameters from social media
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const trackingData = {
+                    utm_source: utmParams.utm_source,
+                    utm_medium: utmParams.utm_medium,
+                    utm_campaign: utmParams.utm_campaign,
+                    utm_content: utmParams.utm_content,
+                    page_url: window.location.href,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Send to Marketing Agent analytics
+                fetch(ANALYTICS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(trackingData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('📊 Marketing Agent: Visit tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Visit tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track visit -', error.message);
+                });
+            }
+        }
+
+        // Track conversion (call this when someone fills out contact form)
+        window.trackConversion = function(conversionType = 'contact_form') {
+            const utmParams = getUTMParams();
+
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const conversionData = {
+                    utm_source: utmParams.utm_source,
+                    utm_campaign: utmParams.utm_campaign,
+                    conversion_type: conversionType,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                fetch(`${ANALYTICS_API_BASE}/api/track-conversion`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(conversionData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('🎯 Marketing Agent: Conversion tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Conversion tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track conversion -', error.message);
+                });
+            }
+        };
+
+        // Track page view on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', trackVisit);
+        } else {
+            trackVisit();
+        }
+
+        // Auto-track contact form submissions
+        document.addEventListener('submit', function(event) {
+            if (event.target.matches('form[action*="contact"], form[action*="quote"], form[action*="inquiry"]')) {
+                trackConversion('contact_form');
+            }
+        });
+
+        // Auto-track phone number clicks
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('a[href^="tel:"]')) {
+                trackConversion('phone_call');
+            }
+        });
+
+    })();
+    </script>
+    
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Discover repairing concrete tile roof basics: how to spot damage, source materials, and perform lasting DIY repairs to safeguard your home.">
+    <meta name="theme-color" content="#F5A623">
+    
+    <title>repairing concrete tile roof: quick DIY fixes</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../SunriseLogo.jpeg">
+    <link rel="apple-touch-icon" href="../../SunriseLogo.jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical inline CSS -->
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;line-height:1.6;color:#333;background:#fff}:root{--color-orange:#F5A623;--color-black:#1A1A1A;--color-gray:#666;--color-background-light:#f4f4f4}.site-header{background:#fff;position:sticky;top:0;z-index:1000}.top-bar{background:#F5F5F5;padding:10px 0;font-size:14px;border-bottom:1px solid #E0E0E0}.top-bar-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;gap:30px;flex-wrap:wrap}.top-contact,.top-hours{color:#1A1A1A;text-decoration:none;transition:color 0.3s;font-weight:700;font-family:'Roboto',sans-serif;font-size:14px}.top-contact:hover{color:#D77A00}.top-social{color:#1877F2;font-size:18px;margin-left:15px;transition:all 0.3s;display:inline-flex;align-items:center}.top-social:hover{color:#0e5fc4;transform:scale(1.1)}.main-nav{background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1)}.nav-container{max-width:1200px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:relative}.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}.logo img{height:80px;width:auto;display:block}.nav-links{display:flex;gap:25px;list-style:none;align-items:center;margin:0;padding:0}.nav-links>li>a{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;color:#1A1A1A;transition:color 0.3s ease;padding:10px 5px;display:block}.nav-links>li>a:hover{color:#D77A00}.dropdown{position:relative;display:flex;align-items:center;gap:2px}.dropdown-header{display:flex;align-items:center;gap:2px;flex:1}.dropdown-label{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#1A1A1A;padding:10px 5px;cursor:pointer;transition:color 0.3s ease}.dropdown-label:hover{color:#D77A00}.dropdown-link{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#1A1A1A;text-decoration:none;padding:10px 5px;transition:color 0.3s ease}.dropdown-link:hover{color:#D77A00}.dropdown-toggle{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;background:none;border:none;color:#1A1A1A;cursor:pointer;padding:10px 5px;display:flex;align-items:center;transition:color 0.3s ease}.dropdown-toggle:hover{color:#D77A00}.dropdown-arrow{font-size:10px;transition:transform 0.3s}.dropdown.active .dropdown-arrow{transform:rotate(180deg)}.dropdown-content{position:absolute;top:calc(100% + 2px);left:0;background:white;min-width:240px;box-shadow:0 4px 12px rgba(0,0,0,0.15);border-radius:6px;padding:12px 0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s ease;z-index:1000}.dropdown-content::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent}.dropdown.active .dropdown-content{opacity:1;visibility:visible;transform:translateY(0)}.dropdown-content a{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;display:block;padding:12px 20px;color:#1A1A1A;text-decoration:none;transition:all 0.2s}.dropdown-content a:hover{background:#fef3e2;color:#D77A00;padding-left:25px}.cta-button{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;background:#D77A00!important;color:#FFFFFF!important;padding:12px 24px!important;border-radius:0;border:none;transition:all 0.3s ease}.cta-button:hover{background:#E89510!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,166,35,0.4)}.mobile-menu-toggle{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:5px;position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:1001}.mobile-menu-toggle span{width:25px;height:3px;background:#1A1A1A;transition:all 0.3s;border-radius:2px}@media(max-width:768px){.logo img{height:60px}.mobile-menu-toggle{display:flex}.nav-links{position:fixed;top:130px;left:0;width:100%;max-height:0;background:white;flex-direction:column;gap:0;padding:0;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:max-height 0.3s ease;overflow:hidden;z-index:999}.nav-links.active{max-height:calc(100vh - 130px);overflow-y:auto}.nav-links>li{width:100%;border-bottom:1px solid #E0E0E0}.dropdown{flex-direction:column;align-items:stretch}.dropdown-header{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;width:100%;cursor:pointer;padding:0;gap:0}.dropdown-link{flex:0 0 auto;padding:15px 20px;text-align:left;cursor:pointer}.dropdown-label{flex:1;padding:15px 20px;text-align:left;min-width:0}.dropdown-toggle{padding:15px 20px;flex-shrink:0;margin-left:auto;pointer-events:auto}.nav-links>li>a{padding:15px 20px;width:100%;text-align:left;box-sizing:border-box}.dropdown-content{position:static;box-shadow:none;padding:0;opacity:1;visibility:visible;transform:none;max-height:0;overflow:hidden;transition:max-height 0.3s ease;background:#F5F5F5;width:100%}.dropdown.active .dropdown-content{max-height:500px;border-top:1px solid #E0E0E0}.dropdown-content a{padding:12px 20px 12px 40px;box-sizing:border-box}.cta-button{margin:10px 20px;text-align:center}}
+    </style>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../css/styles.css?v=20251019">
+    
+    <link rel="canonical" href="https://roofwithsunrise.com/blog/repairing-concrete-tile-roof">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="repairing concrete tile roof: quick DIY fixes">
+    <meta property="og:description" content="Discover repairing concrete tile roof basics: how to spot damage, source materials, and perform lasting DIY repairs to safeguard your home.">
+    <meta property="og:url" content="https://roofwithsunrise.com/blog/repairing-concrete-tile-roof">
+    <meta property="og:image" content="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-4d9b1768-8557-49df-a0a3-870937f671f7.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Sunrise Roofers LLC">
+
+    <!-- JSON-LD BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "repairing concrete tile roof: quick DIY fixes",
+      "description": "Discover repairing concrete tile roof basics: how to spot damage, source materials, and perform lasting DIY repairs to safeguard your home.",
+      "datePublished": "2025-10-28T07:15:46.150833+00:00",
+      "dateModified": "2025-10-28T07:15:46.150833+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Sunrise Roofers LLC"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sunrise Roofers LLC",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://roofwithsunrise.com/SunriseLogo.jpeg"
+        }
+      },
+      "image": "https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-4d9b1768-8557-49df-a0a3-870937f671f7.jpg",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://roofwithsunrise.com/blog/repairing-concrete-tile-roof"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Inline SVG Icon Sprites -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-facebook" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></symbol>
+        <symbol id="icon-google" viewBox="0 0 488 512"><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></symbol>
+    </svg>
+    
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <a href="tel:520-668-6638" class="top-contact">&#128222; 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">&#9993; sunriseroofer@outlook.com</a>
+                <span class="top-hours">&#128337; Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social" aria-label="Visit our Facebook page">
+                    <svg class="icon" width="18" height="18"><use href="#icon-facebook"/></svg>
+                </a>
+                <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener noreferrer" class="top-social-google" aria-label="Visit our Google Business Profile">
+                    <svg class="icon" width="18" height="18"><use href="#icon-google"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <img src="../../SunriseLogo.jpeg" alt="Sunrise Roofers LLC" width="200" height="200" loading="lazy">
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/about-our-roofing-contractors-in-tucson" class="dropdown-link">About</a>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/why-choose-sunrise-roofers-in-tucson">Why Choose Us</a>
+                            <a href="/gallery">Project Gallery</a>
+                            <a href="/#testimonials">Customer Reviews</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/roofing-services" class="dropdown-link">Services</a>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/residential-roofing-tucson">Residential Roofing</a>
+                            <a href="/roofing-services/roof-repair-tucson">Roof Repair</a>
+                            <a href="/roofing-services/roof-inspection">Roof Inspection</a>
+                            <a href="/roofing-services/new-roof-tucson">Roof Replacement</a>
+                            <a href="/roofing-services/shingle-roof-replacement-tucson">Shingle Roofing</a>
+                            <a href="/roofing-services/concrete-tile-roof-replacement">Tile Roofing</a>
+                            <a href="/roofing-services/metal-roofing-tucson">Metal Roofing</a>
+                            <a href="/roofing-services/flat-roof-coating-tucson">Flat Roof Coating</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Service Areas</span>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/tucson-roofing-services">Tucson</a>
+                            <a href="/marana-roofing">Marana</a>
+                            <a href="/oro-valley-roofing">Oro Valley</a>
+                            <a href="/catalina-foothills-roofing">Catalina Foothills</a>
+                            <a href="/sahuarita-roofing">Sahuarita</a>
+                            <a href="/green-valley-roofing">Green Valley</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    
+                    <li><a href="/contact#estimate" class="cta-button">Free Estimate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <!-- Article Header -->
+            <header style="background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); padding: 60px 40px; text-align: center;">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #F5A623; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; line-height: 1.2;">repairing concrete tile roof: quick DIY fixes</h1>
+                    <p style="font-size: 16px; color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">By Sunrise Roofers LLC · Oct 28, 2025 · 12-20 min read</p>
+                </div>
+            </header>
+
+            <!-- Hero Image -->
+            <div style="max-width: 800px; margin: 0 auto; padding: 0 40px;">
+                <img
+                    src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-4d9b1768-8557-49df-a0a3-870937f671f7.jpg"
+                    alt="repairing concrete tile roof: quick DIY fixes"
+                    loading="eager"
+                    fetchpriority="high"
+                    style="width: 100%; height: auto; display: block; border-radius: 8px;">
+            </div>
+
+            <!-- Article Content -->
+            <div style="max-width: 800px; margin: 0 auto; padding: 60px 40px;">
+                <p>Fixing a concrete tile roof doesn&#39;t always start with a ladder and tools. It starts with a good, hard look from the ground. Catching the small stuff—like hairline cracks, chipped corners, or a tile that’s just slightly out of place—can save you from massive headaches and even bigger repair bills down the road.</p>
+<h2>How to Know If Your Concrete Roof Needs Repair</h2>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/643123d1-73be-47d9-8b4e-2f6d86568ed0.jpg" alt="A close-up view of a concrete tile roof, showing the texture and pattern of the tiles." /></figure></p>
+<p>Before you even think about getting up on the roof, you can learn a lot just by walking around your property. Concrete tiles are incredibly tough; there&#39;s a reason they&#39;re so popular. In fact, they dominate the market, holding about <strong>47% of the global market share</strong> for roofing tiles, largely because a well-maintained concrete tile roof can last anywhere from <strong>40 to 60 years</strong>.</p>
+<p>But even the toughest materials eventually give in to the elements. Your first job is to play detective and hunt for the clues that signal a repair is needed.</p>
+<h3>What to Look For from the Ground</h3>
+<p>Grab a pair of binoculars and walk the perimeter of your house. It’s the safest way to get a close-up view without taking a single step up a ladder. You’re looking for specific red flags that scream &quot;problem.&quot;</p>
+<p>Here’s what should be on your checklist:</p>
+<ul>
+<li><strong>Cracked or Broken Tiles:</strong> This is the obvious one. Look for clear splits, big missing chunks, or even those subtle, spiderweb-like cracks. Every single one is a potential doorway for water.</li>
+<li><strong>Chipped Edges and Corners:</strong> A small chip might seem like a cosmetic issue, but it can weaken the interlocking design of the tiles. That’s all it takes for wind-driven rain to sneak underneath.</li>
+<li><strong>Slipped or Misaligned Tiles:</strong> Every tile should sit neatly in its place. If one has slid down or looks crooked, the roof&#39;s protective shell is broken. This often points to a failed fastener.</li>
+<li><strong>Debris in Gutters:</strong> If you find little bits of concrete grit in your gutters, it’s a sure sign the tile surfaces are starting to break down and erode.</li>
+</ul>
+<blockquote>
+<p>A proactive mindset is everything with roofing. Regular inspections let you catch small issues before they spiral out of control, much like the process laid out in a thorough <a href="https://roofwithsunrise.com/blog/tucson-homebuyer-roof-inspection-checklist/">homebuyer roof inspection checklist</a>.</p>
+</blockquote>
+<h3>Inspecting Critical Roof Components</h3>
+<p>Once you&#39;ve checked the main field of tiles, shift your focus to the weak spots: the places where different parts of the roof meet. These junctions are where most leaks start.</p>
+<p>Pay close attention to the flashing—those metal strips around chimneys, vents, and skylights. Are they rusted? Bent out of shape? Is the sealant around them cracked or pulling away?</p>
+<p>Bad flashing is one of the biggest culprits behind roof leaks, even if every tile on your roof is perfectly intact. Spotting these trouble areas from the ground helps you understand the true scope of your <strong>repairing concrete tile roof</strong> project and decide if this is a simple tile swap or a more complex job that&#39;s best left to a pro.</p>
+<h2>Gearing Up for a Safe and Successful Repair</h2>
+<p>Success with a concrete tile roof repair is all about preparation. Trying to jump into this kind of work without the right equipment is more than just a bad idea—it’s dangerous. Before you even think about setting foot on a ladder, you need to gather the essential tools and safety gear. This isn&#39;t just about grabbing a hammer; it&#39;s about having specific items that protect you and prevent you from causing even more damage to your roof.</p>
+<p>Personal safety is the absolute priority. Working at height demands respect, and the right gear is non-negotiable. You’ll want non-slip, soft-soled boots to get a good grip without scuffing or cracking the tiles. A sturdy extension ladder, angled correctly, is the only safe way to get up and down.</p>
+<p>Most importantly, you need a personal fall arrest system. This isn&#39;t optional.</p>
+<ul>
+<li>A well-fitted <strong>safety harness</strong></li>
+<li>A strong <strong>rope and rope grab</strong></li>
+<li>A secure <strong>roof anchor</strong> that&#39;s properly fastened to a roof truss</li>
+</ul>
+<p>Even a fall from a one-story roof can be catastrophic. There&#39;s simply no substitute for this equipment.</p>
+<h3>The Right Tools for the Job</h3>
+<p>Once your safety is locked in, the focus shifts to the tools. Using the wrong tool can quickly turn a single broken tile into a much bigger, more expensive problem. For example, a flat pry bar or a specialized tile ripper is designed to slide under a tile and lift the fasteners without stressing the fragile tiles around it. A standard crowbar, on the other hand, is too bulky and will almost certainly cause collateral damage.</p>
+<p>Your toolkit should also include a hammer, a trowel for applying adhesive, and a caulk gun. For the adhesive itself, make sure you get a high-grade polyurethane roofing sealant. This stuff creates a waterproof bond that’s tough enough to handle extreme temperature swings and heavy rain.</p>
+<blockquote>
+<p>Don&#39;t underestimate the challenge of finding the perfect replacement tile. It&#39;s about more than just matching the color; the profile, size, and interlocking mechanism must be identical for a weatherproof fit.</p>
+</blockquote>
+<h3>Sourcing Your Replacement Tiles</h3>
+<p>Finding a perfect match for an older tile can feel like a detective mission. Start by looking at the underside of a broken piece—sometimes you&#39;ll find a manufacturer&#39;s name or a model number stamped there. Don&#39;t expect to find what you need at a big-box hardware store; they rarely stock the specific profiles required for repairs.</p>
+<p>Your best bet is a specialized roofing supply company. The experts there can often identify a tile from just a few clear photos of its top, back, and side profile. When you&#39;re ready to tackle a bigger project or just need some expert help sourcing materials, the knowledge of experienced <a href="https://roofwithsunrise.com/about-our-roofing-contractors-in-tucson">roofing contractors in Tucson</a> can be an invaluable resource, ensuring you get the job done right the first time.</p>
+<h2>A Practical Guide to Replacing Damaged Roof Tiles</h2>
+<p>Alright, you&#39;ve done the inspection, and now it&#39;s time to get hands-on. Replacing a concrete roof tile isn&#39;t about brute force; it&#39;s a game of finesse. Tackling a single cracked tile, especially one buried in the middle of a roof field, can feel intimidating. But when you break it down, the process is surprisingly straightforward.</p>
+<p>The first move? Create a clean, accessible workspace around the broken tile without causing a domino effect of more damage. You don&#39;t want to turn a one-tile job into a three-tile headache.</p>
+<p>This infographic breaks down the simple, three-part flow from prep to the final, finished repair.</p>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/dc6519e9-1688-4e32-abe5-4e7ac45c47e4.jpg" alt="Infographic about repairing concrete tile roof" /></figure></p>
+<p>As the visual guide shows, a successful repair hinges on having the right safety gear, the correct tools, and a perfectly matching new tile ready to go.</p>
+<h3>Gaining Access and Removing the Broken Tile</h3>
+<p>Your main challenge is to lift the surrounding tiles just enough to work without breaking them. You&#39;ll need to gently slide two wooden wedges under the bottom edge of the tiles sitting directly <em>above</em> the one you’re replacing.</p>
+<p>Carefully work them in until they lift the upper tiles by about an inch. That’s all you need—just enough to relieve the pressure and expose the top of the damaged tile and its fastener.</p>
+<p>With the weight off, you can start removing the broken pieces. Begin with the larger fragments, lifting them out carefully. If the tile was nailed down, use a flat pry bar to gently work the nail loose. Take your time here. Yanking on it can easily damage the underlying batten or the underlayment.</p>
+<blockquote>
+<p>Key Takeaway: The goal here is methodical removal, not demolition. Each piece should be taken out with care to avoid cracking adjacent tiles or tearing the underlayment. Patience is your most valuable tool at this stage.</p>
+</blockquote>
+<p>Once all the pieces are out, grab a small brush or a cloth and sweep away any lingering dust and grit from the exposed area. This simple step ensures the new tile will sit perfectly flat and secure.</p>
+<h3>Inspecting the Underlayment and Setting the New Tile</h3>
+<p>With the tile gone, you have a rare, clear view of the <strong>roofing underlayment</strong>. This felt or synthetic membrane is your roof’s last line of defense against water, so give it a good look.</p>
+<p>Check closely for any tears, holes, or signs of moisture damage. A small puncture can be easily patched with a dab of roofing cement and a small piece of extra underlayment, but widespread damage is a red flag signaling a much larger problem.</p>
+<p>To help you stay focused, here&#39;s a quick breakdown of the core tasks and what really matters at each point.</p>
+<p><strong>Tile Replacement Task and Key Considerations</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Repair Step</th>
+<th align="left">Primary Objective</th>
+<th align="left">Key Tip</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Gaining Access</strong></td>
+<td align="left">Lift surrounding tiles without causing new damage.</td>
+<td align="left">Use wooden wedges to lift the upper course about <strong>1 inch</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>Removing Tile</strong></td>
+<td align="left">Extract all broken pieces and fasteners carefully.</td>
+<td align="left">Go slow with the pry bar; avoid yanking to protect the batten.</td>
+</tr>
+<tr>
+<td align="left"><strong>Cleaning Area</strong></td>
+<td align="left">Prepare a clean, flat surface for the new tile.</td>
+<td align="left">Brush away all dust and debris for a perfect fit.</td>
+</tr>
+<tr>
+<td align="left"><strong>Underlayment Check</strong></td>
+<td align="left">Inspect for tears, holes, or moisture damage.</td>
+<td align="left">This is your roof&#39;s real waterproofing layer—don&#39;t skip this.</td>
+</tr>
+<tr>
+<td align="left"><strong>Applying Adhesive</strong></td>
+<td align="left">Create a strong, weatherproof bond.</td>
+<td align="left">An S-shaped bead of polyurethane adhesive is the standard.</td>
+</tr>
+<tr>
+<td align="left"><strong>Setting New Tile</strong></td>
+<td align="left">Position and interlock the tile correctly.</td>
+<td align="left">The new tile should sit flush and not rock or wobble.</td>
+</tr>
+<tr>
+<td align="left"><strong>Finalizing</strong></td>
+<td align="left">Lower the upper course back into place.</td>
+<td align="left">Slowly remove the wedges to lock the new tile in.</td>
+</tr>
+</tbody></table>
+<p>Following these steps ensures you&#39;re not just plugging a hole but truly restoring the roof&#39;s integrity.</p>
+<p>Assuming the underlayment is in good shape, you&#39;re ready to place the new tile. Apply a generous S-shaped bead of polyurethane roofing adhesive to the underside of the replacement tile. This adhesive is what creates a powerful, weatherproof bond that stops wind from getting under the tile and lifting it off.</p>
+<p>Now, carefully slide the new tile into position. Make sure its bottom edge interlocks correctly with the course of tiles below it. The tile should feel secure and sit completely flush. Gently press down to ensure the adhesive makes solid contact.</p>
+<p>Finally, slowly and carefully remove the wooden wedges from the upper course of tiles. You should see them settle back down, perfectly locking the top of your new tile into place. A well-done repair should be nearly invisible.</p>
+<p>While replacing a single tile is often a manageable DIY project, if you uncover widespread issues or just don&#39;t feel comfortable, it&#39;s wise to step back. Understanding what&#39;s involved in a professional <a href="https://roofwithsunrise.com/roofing-services/concrete-tile-roof-replacement">concrete tile roof replacement</a> can give you valuable context for what to do next.</p>
+<h2>Navigating Common Repair Problems and Setbacks</h2>
+<p>Even the most straightforward tile repair can throw you a curveball. The truth is, you never really know what’s happening on a roof until you start lifting tiles. But hitting a snag doesn’t have to kill your project—it just means you need to be ready for what you might find.</p>
+<p>A successful <strong>repair on a concrete tile roof</strong> often boils down to calm, clear-headed troubleshooting. Whether it’s a new tile that just won’t sit right or some nasty surprise hiding underneath, there’s almost always a logical fix. Knowing how to handle these moments is what turns a frustrating afternoon into a solid, lasting repair.</p>
+<h3>Addressing Hidden Underlayment Damage</h3>
+<p>So you&#39;ve pulled off the broken tile, and there it is: a fresh tear in the black underlayment. This is your roof&#39;s last line of defense against water, so any breach is a big deal. Don&#39;t even think about just slapping the new tile over it and calling it a day.</p>
+<p>For a small puncture or tear (less than six inches), you can usually get by with a simple patch.</p>
+<ul>
+<li><strong>Clean the Area:</strong> First, wipe down the underlayment around the tear. Get rid of every bit of dust and grit.</li>
+<li><strong>Apply Sealant:</strong> Grab a putty knife and spread a thin, even layer of roofing cement around the entire hole.</li>
+<li><strong>Place the Patch:</strong> Cut a piece of new underlayment that overlaps the tear by at least two inches on every side. Press it down firmly into the cement.</li>
+<li><strong>Seal the Edges:</strong> Go back and apply another thin layer of roofing cement over all the edges of your patch. You want to create a completely waterproof seal.</li>
+</ul>
+<p>Now, if you find widespread damage—long rips, brittle material that crumbles when you touch it, or multiple holes—that’s your cue to stop. Extensive underlayment failure points to much bigger problems that a patch won&#39;t solve. That&#39;s pro territory.</p>
+<h3>Troubleshooting a Poorly Seated Tile</h3>
+<p>What happens when your replacement tile just won&#39;t sit flush? It might rock back and forth or sit noticeably higher than the tiles around it. This is a super common headache, and it&#39;s almost always caused by one of two things.</p>
+<p>First, check for debris. A tiny pebble, a forgotten nail head, or even a clump of old mortar on the batten can throw the whole thing off. Lift the tile back out and run your hand over the spot to make sure it&#39;s perfectly clean and smooth.</p>
+<p>If the area is clear, the problem might be the wooden batten itself. If the batten that the tile rests on is warped or splintered, the tile will never sit right. Fixing a damaged batten is a more involved repair and often marks the point where a DIY job should be handed over to a professional.</p>
+<blockquote>
+<p>The home renovation boom is a major driver for the roofing materials market, which hit <strong>USD 129.62 billion</strong> in 2023. This just goes to show how critical good maintenance and proper repairs are for protecting a building&#39;s value. You can dig into more stats on the <a href="https://www.grandviewresearch.com/industry-analysis/roofing-materials-market">roofing materials market over at GrandviewResearch.com</a>.</p>
+</blockquote>
+<h3>When to Call a Professional Roofer</h3>
+<p>Knowing your limits is the single most important skill in any DIY project, especially roofing. There are a few red flags that tell you a problem is much bigger than a simple tile swap. Understanding <a href="https://roofwithsunrise.com/blog/why-fixing-broken-roof-tiles-arizona/">why fixing broken roof tiles promptly is so important</a> helps you recognize when it’s time to pick up the phone.</p>
+<p>It&#39;s time to call for professional help if you find:</p>
+<ul>
+<li><strong>Widespread underlayment damage</strong> that’s too big for a simple patch job.</li>
+<li><strong>Signs of rot or soft spots</strong> in the underlying wood roof decking.</li>
+<li><strong>Tiles set in old mortar beds</strong>, which require special tools and techniques to remove without cracking adjacent tiles.</li>
+<li><strong>Multiple slipped or broken tiles</strong> clustered in one area, which almost always points to a systemic failure.</li>
+</ul>
+<p>Any of these issues are signs of a much larger problem that replacing one tile simply won&#39;t fix. A professional roofer can get to the root cause and make sure your entire roofing system is secure.</p>
+<h2>Keeping Your Concrete Tile Roof in Prime Condition</h2>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/f114634a-07fa-4826-9ac2-8d7deab3aa08.jpg" alt="A well-maintained concrete tile roof under a clear blue sky, looking clean and in perfect condition." /></figure></p>
+<p>With your repair done, the game shifts from fixing problems to preventing them. Trust me, proactive care is a whole lot cheaper and less stressful than scrambling to fix a leak.</p>
+<p>A simple maintenance routine is your best bet for getting the full, impressive lifespan out of that concrete tile roof. It&#39;s not just about protecting your investment; it&#39;s about peace of mind.</p>
+<p>This approach lines up with where the whole roofing industry is headed. There&#39;s a huge push for sustainability and durability, driven by tougher building codes and homeowner awareness. It&#39;s a key reason why skilled maintenance is in such high demand. You can get a deeper look at how <a href="https://www.mordorintelligence.com/industry-reports/roofing-tiles-market">sustainability trends are shaping the roofing market on MordorIntelligence.com</a>.</p>
+<h3>Your Biannual Maintenance Checklist</h3>
+<p>You don&#39;t need to live on your roof to keep it in good shape. A quick visual check from the ground, twice a year, is usually all it takes to spot trouble before it gets serious. I recommend doing this in the spring and fall.</p>
+<p>Here’s a simple routine anyone can follow:</p>
+<ul>
+<li><strong>Walk the Perimeter:</strong> Grab a pair of binoculars and scan the tiles. You&#39;re looking for any new cracks, tiles that have shifted out of place, or corners that have been chipped off since your last look.</li>
+<li><strong>Check High-Risk Areas:</strong> Pay close attention to the flashing and sealant around chimneys, vents, and skylights. These transition points are where leaks love to start. Look for any cracking, peeling, or gaps.</li>
+<li><strong>Inspect Your Gutters:</strong> After a good rain, make sure water is flowing freely. Clogged gutters force water to back up under the edge of your tiles, which can rot out your underlayment without you even knowing it.</li>
+</ul>
+<blockquote>
+<p>A healthy roof is the cornerstone of a healthy home. Investing just a couple of hours each year in maintenance is how you prevent the kind of slow-motion water damage that leads to massive structural repairs.</p>
+</blockquote>
+<h3>The Importance of Clean Gutters</h3>
+<p>Of all the things you can do, keeping your gutters and downspouts clear is probably the most critical. When they’re choked with leaves and debris, they simply can&#39;t do their job.</p>
+<p>Water will pool right at the edge of your roof and wick its way up under the first row of tiles. That constant moisture is the absolute enemy of your roof&#39;s underlayment and the wood decking beneath it.</p>
+<p>A small investment in gutter guards or a seasonal cleaning service is one of the smartest moves you can make. Think of it as essential preventative medicine for your house.</p>
+<h2>Answering Your Concrete Roof Repair Questions</h2>
+<p>Even with a good plan, taking on a project like a <strong>concrete tile roof repair</strong> is going to bring up some questions. It&#39;s totally normal. Here are some of the most common ones we hear from homeowners, with straightforward answers to help you know what you’re up against.</p>
+<h3>Can I Walk On My Concrete Tile Roof To Do Repairs?</h3>
+<p>This is the big one. While you <em>can</em> technically walk on a tile roof, we strongly advise against it unless you know exactly what you&#39;re doing. Concrete tiles are tough, but they’re also brittle. Step in the wrong spot, and you&#39;ll hear that dreaded crack.</p>
+<p>If you absolutely have to be up there, stick to the <strong>bottom third of each tile</strong>. This is the sweet spot where the tile overlaps the one below it, getting maximum support from the batten underneath. Never go up without proper safety gear—that means a harness anchored securely to the roof structure. No exceptions.</p>
+<h3>How Much Does Repairing A Concrete Tile Roof Cost?</h3>
+<p>The cost can swing pretty wildly depending on the damage and whether you&#39;re doing it yourself or calling in a pro.</p>
+<ul>
+<li><strong>DIY Repair:</strong> If you&#39;re just swapping out a few cracked tiles, you can probably get away with spending between <strong>$50 and $150</strong> on replacement tiles and some good roofing adhesive.</li>
+<li><strong>Professional Repair:</strong> Hiring a roofer for a small job usually starts in the <strong>$300 to $600</strong> range. The price climbs based on how steep your roof is, its height, and how tricky the repair is.</li>
+</ul>
+<p>If the damage is widespread or you suspect there are issues with the underlayment, the cost will be significantly higher and really needs a professional assessment.</p>
+<blockquote>
+<p>Navigating a roof repair, big or small, can feel overwhelming. Having a reliable point of contact for a professional quote or even just some expert advice is invaluable. Don&#39;t hesitate to reach out for a professional opinion if you&#39;re feeling unsure.</p>
+</blockquote>
+<h3>How Do I Find An Exact Match For My Old Roof Tiles?</h3>
+<p>This is often the most frustrating part of the whole job. Finding a perfect match for older tiles can feel like a treasure hunt.</p>
+<p>Your first move is to carefully pull a broken tile off the roof and flip it over. Look for a manufacturer&#39;s name, a logo, or maybe a model number stamped into the concrete. This is your best clue.</p>
+<p>Next, get out your phone and take clear photos from every angle—top, bottom, and a side profile to capture the curve. Don&#39;t even bother with the big-box home improvement stores; they just don&#39;t carry the specific profiles for repair work. Instead, take your photos and a piece of the broken tile to a dedicated roofing supply house. The folks there live and breathe this stuff and can often identify old tiles or point you to a compatible replacement.</p>
+<p>When you&#39;re struggling to find the right materials or the repair feels a bit over your head, getting an expert involved is the quickest way to solve the problem. You can always <a href="https://roofwithsunrise.com/contact">contact our team at Sunrise Roofers</a> for some guidance or to set up a professional inspection.</p>
+<hr>
+<p>When you need a job done right the first time, trust the experts at <strong>Sunrise Roofers LLC</strong>. We provide reliable, professional roofing services across the Greater Tucson area. Visit us at <a href="https://roofwithsunrise.com">https://roofwithsunrise.com</a> to get your free, no-obligation estimate today.</p>
+
+
+                <hr style="margin: 50px 0; border: none; border-top: 2px solid #E8E8E8;">
+
+                <p style="font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 25px;">
+                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="tel:+15206686638" style="color: #F5A623; text-decoration: underline;">520-668-6638</a>. Related pages: <a href="/roofing-services/roof-repair-tucson" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roofing-services/new-roof-tucson" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/tucson-roofing-services" style="color: #F5A623; text-decoration: underline;">Service Areas</a>.
+                </p>
+
+                <!-- Author Bio -->
+                <div style="background: #fff; border: 2px solid #F5A623; border-radius: 8px; padding: 30px; margin: 50px 0;">
+                    <p style="font-size: 16px; line-height: 1.7; color: #666; text-align: center; margin: 0;">
+                        <strong style="color: #1A1A1A; font-size: 18px;">Published by Sunrise Roofers LLC</strong><br>
+                        Licensed & Insured Roofing Contractor · Tucson, AZ
+                    </p>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sunrise Roofers LLC</h3>
+                <p>Licensed, bonded, and insured roofing contractor serving Greater Tucson, Arizona.</p>
+                <p style="margin-top: 15px;"><a href="https://azroc.my.site.com/AZRoc/s/contractor-search?licenseId=a0ocs00000AArYMAA1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;" title="Verify our license">ROC #358079</a></p>
+            </div>
+            <div class="footer-section footer-nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about-our-roofing-contractors-in-tucson">About</a></li>
+                    <li><a href="/roofing-services">Services</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Service Areas</h3>
+                <ul>
+                    <li>Tucson, AZ</li>
+                    <li>Oro Valley, AZ</li>
+                    <li>Catalina Foothills, AZ</li>
+                    <li>Vail, AZ</li>
+                    <li>Sahuarita, AZ</li>
+                    <li>Green Valley, AZ</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:520-668-6638">📞 520-668-6638</a></li>
+                    <li><a href="mailto:sunriseroofer@outlook.com">✉ sunriseroofer@outlook.com</a></li>
+                    <li>📍 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741</li>
+                    <li>🕒 Mon-Fri: 7AM-6PM</li>
+                    <li>🕒 Sat: 8AM-4PM</li>
+                    <li>🚨 Emergency Service Available</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="/" style="color: #D0D0D0; text-decoration: underline;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #D77A00; text-decoration: underline; font-weight: 600;">Pursuit Analytics</a></p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script defer src="../../js/main.min.js"></script>
+    
+    <!-- Analytics Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXS7NL5W52"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "tqrdpuxath");
+    </script>
+</body>
+</html>
