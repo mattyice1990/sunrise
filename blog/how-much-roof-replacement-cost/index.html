@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1351630159967766');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1351630159967766&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Marketing Agent Website Tracking -->
+    <script data-api-url="http://localhost:5000">
+    (function() {
+        'use strict';
+
+        // Get API endpoint from script tag data attribute
+        const scriptTag = document.currentScript;
+        const ANALYTICS_API_BASE = scriptTag?.getAttribute('data-api-url') || 'http://localhost:5000';
+        const ANALYTICS_API = `${ANALYTICS_API_BASE}/api/track-visit`;
+
+        // Generate unique session ID (UUID v4)
+        function generateSessionId() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // Get or create session ID with 30-minute rolling window
+        function getSessionId() {
+            let sessionId = localStorage.getItem('ma_session_id');
+            let sessionStart = localStorage.getItem('ma_session_start');
+            const now = Date.now();
+            const sessionDuration = 30 * 60 * 1000; // 30 minutes
+
+            // Create new session if none exists or if session expired
+            if (!sessionId || !sessionStart || (now - parseInt(sessionStart)) > sessionDuration) {
+                sessionId = generateSessionId();
+                localStorage.setItem('ma_session_id', sessionId);
+                localStorage.setItem('ma_session_start', now.toString());
+            } else {
+                // Update session start time (rolling window)
+                localStorage.setItem('ma_session_start', now.toString());
+            }
+
+            return sessionId;
+        }
+
+        // Get UTM parameters from URL
+        function getUTMParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                utm_source: urlParams.get('utm_source'),
+                utm_medium: urlParams.get('utm_medium'),
+                utm_campaign: urlParams.get('utm_campaign'),
+                utm_content: urlParams.get('utm_content')
+            };
+        }
+
+        // Track website visit
+        function trackVisit() {
+            const utmParams = getUTMParams();
+
+            // Only track if we have UTM parameters from social media
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const trackingData = {
+                    utm_source: utmParams.utm_source,
+                    utm_medium: utmParams.utm_medium,
+                    utm_campaign: utmParams.utm_campaign,
+                    utm_content: utmParams.utm_content,
+                    page_url: window.location.href,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Send to Marketing Agent analytics
+                fetch(ANALYTICS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(trackingData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('📊 Marketing Agent: Visit tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Visit tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track visit -', error.message);
+                });
+            }
+        }
+
+        // Track conversion (call this when someone fills out contact form)
+        window.trackConversion = function(conversionType = 'contact_form') {
+            const utmParams = getUTMParams();
+
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const conversionData = {
+                    utm_source: utmParams.utm_source,
+                    utm_campaign: utmParams.utm_campaign,
+                    conversion_type: conversionType,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                fetch(`${ANALYTICS_API_BASE}/api/track-conversion`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(conversionData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('🎯 Marketing Agent: Conversion tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Conversion tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track conversion -', error.message);
+                });
+            }
+        };
+
+        // Track page view on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', trackVisit);
+        } else {
+            trackVisit();
+        }
+
+        // Auto-track contact form submissions
+        document.addEventListener('submit', function(event) {
+            if (event.target.matches('form[action*="contact"], form[action*="quote"], form[action*="inquiry"]')) {
+                trackConversion('contact_form');
+            }
+        });
+
+        // Auto-track phone number clicks
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('a[href^="tel:"]')) {
+                trackConversion('phone_call');
+            }
+        });
+
+    })();
+    </script>
+    
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="how much roof replacement cost? Get clear ranges, factors, and budgeting tips to compare quotes and plan your project confidently.">
+    <meta name="theme-color" content="#F5A623">
+    
+    <title>How much roof replacement cost: A Homeowner's Budget Guide</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../SunriseLogo.jpeg">
+    <link rel="apple-touch-icon" href="../../SunriseLogo.jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical inline CSS -->
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;line-height:1.6;color:#333;background:#fff}:root{--color-orange:#F5A623;--color-black:#1A1A1A;--color-gray:#666;--color-background-light:#f4f4f4}.site-header{background:#fff;position:sticky;top:0;z-index:1000}.top-bar{background:#F5F5F5;padding:10px 0;font-size:14px;border-bottom:1px solid #E0E0E0}.top-bar-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;gap:30px;flex-wrap:wrap}.top-contact,.top-hours{color:#1A1A1A;text-decoration:none;transition:color 0.3s;font-weight:700;font-family:'Roboto',sans-serif;font-size:14px}.top-contact:hover{color:#D77A00}.top-social{color:#1877F2;font-size:18px;margin-left:15px;transition:all 0.3s;display:inline-flex;align-items:center}.top-social:hover{color:#0e5fc4;transform:scale(1.1)}.main-nav{background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1)}.nav-container{max-width:1200px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:relative}.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}.logo img{height:80px;width:auto;display:block}.nav-links{display:flex;gap:25px;list-style:none;align-items:center;margin:0;padding:0}.nav-links>li>a{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;color:#1A1A1A;transition:color 0.3s ease;padding:10px 5px;display:block}.nav-links>li>a:hover{color:#D77A00}.dropdown{position:relative;display:flex;align-items:center;gap:2px}.dropdown-header{display:flex;align-items:center;gap:2px;flex:1}.dropdown-label{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#1A1A1A;padding:10px 5px;cursor:pointer;transition:color 0.3s ease}.dropdown-label:hover{color:#D77A00}.dropdown-link{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#1A1A1A;text-decoration:none;padding:10px 5px;transition:color 0.3s ease}.dropdown-link:hover{color:#D77A00}.dropdown-toggle{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;background:none;border:none;color:#1A1A1A;cursor:pointer;padding:10px 5px;display:flex;align-items:center;transition:color 0.3s ease}.dropdown-toggle:hover{color:#D77A00}.dropdown-arrow{font-size:10px;transition:transform 0.3s}.dropdown.active .dropdown-arrow{transform:rotate(180deg)}.dropdown-content{position:absolute;top:calc(100% + 2px);left:0;background:white;min-width:240px;box-shadow:0 4px 12px rgba(0,0,0,0.15);border-radius:6px;padding:12px 0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s ease;z-index:1000}.dropdown-content::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent}.dropdown.active .dropdown-content{opacity:1;visibility:visible;transform:translateY(0)}.dropdown-content a{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;display:block;padding:12px 20px;color:#1A1A1A;text-decoration:none;transition:all 0.2s}.dropdown-content a:hover{background:#fef3e2;color:#D77A00;padding-left:25px}.cta-button{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;background:#D77A00!important;color:#FFFFFF!important;padding:12px 24px!important;border-radius:0;border:none;transition:all 0.3s ease}.cta-button:hover{background:#E89510!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,166,35,0.4)}.mobile-menu-toggle{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:5px;position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:1001}.mobile-menu-toggle span{width:25px;height:3px;background:#1A1A1A;transition:all 0.3s;border-radius:2px}@media(max-width:768px){.logo img{height:60px}.mobile-menu-toggle{display:flex}.nav-links{position:fixed;top:130px;left:0;width:100%;max-height:0;background:white;flex-direction:column;gap:0;padding:0;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:max-height 0.3s ease;overflow:hidden;z-index:999}.nav-links.active{max-height:calc(100vh - 130px);overflow-y:auto}.nav-links>li{width:100%;border-bottom:1px solid #E0E0E0}.dropdown{flex-direction:column;align-items:stretch}.dropdown-header{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;width:100%;cursor:pointer;padding:0;gap:0}.dropdown-link{flex:0 0 auto;padding:15px 20px;text-align:left;cursor:pointer}.dropdown-label{flex:1;padding:15px 20px;text-align:left;min-width:0}.dropdown-toggle{padding:15px 20px;flex-shrink:0;margin-left:auto;pointer-events:auto}.nav-links>li>a{padding:15px 20px;width:100%;text-align:left;box-sizing:border-box}.dropdown-content{position:static;box-shadow:none;padding:0;opacity:1;visibility:visible;transform:none;max-height:0;overflow:hidden;transition:max-height 0.3s ease;background:#F5F5F5;width:100%}.dropdown.active .dropdown-content{max-height:500px;border-top:1px solid #E0E0E0}.dropdown-content a{padding:12px 20px 12px 40px;box-sizing:border-box}.cta-button{margin:10px 20px;text-align:center}}
+    </style>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../css/styles.css?v=20251019">
+    
+    <link rel="canonical" href="https://roofwithsunrise.com/blog/how-much-roof-replacement-cost">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How much roof replacement cost: A Homeowner's Budget Guide">
+    <meta property="og:description" content="how much roof replacement cost? Get clear ranges, factors, and budgeting tips to compare quotes and plan your project confidently.">
+    <meta property="og:url" content="https://roofwithsunrise.com/blog/how-much-roof-replacement-cost">
+    <meta property="og:image" content="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-ace6bb7f-0785-46a7-b017-9c844eb41a52.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Sunrise Roofers LLC">
+
+    <!-- JSON-LD BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How much roof replacement cost: A Homeowner's Budget Guide",
+      "description": "how much roof replacement cost? Get clear ranges, factors, and budgeting tips to compare quotes and plan your project confidently.",
+      "datePublished": "2025-10-29T07:20:08.548523+00:00",
+      "dateModified": "2025-10-29T07:20:08.548523+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Sunrise Roofers LLC"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sunrise Roofers LLC",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://roofwithsunrise.com/SunriseLogo.jpeg"
+        }
+      },
+      "image": "https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-ace6bb7f-0785-46a7-b017-9c844eb41a52.jpg",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://roofwithsunrise.com/blog/how-much-roof-replacement-cost"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Inline SVG Icon Sprites -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-facebook" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></symbol>
+        <symbol id="icon-google" viewBox="0 0 488 512"><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></symbol>
+    </svg>
+    
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <a href="tel:520-668-6638" class="top-contact">&#128222; 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">&#9993; sunriseroofer@outlook.com</a>
+                <span class="top-hours">&#128337; Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social" aria-label="Visit our Facebook page">
+                    <svg class="icon" width="18" height="18"><use href="#icon-facebook"/></svg>
+                </a>
+                <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener noreferrer" class="top-social-google" aria-label="Visit our Google Business Profile">
+                    <svg class="icon" width="18" height="18"><use href="#icon-google"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <img src="../../SunriseLogo.jpeg" alt="Sunrise Roofers LLC" width="200" height="200" loading="lazy">
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/about-our-roofing-contractors-in-tucson" class="dropdown-link">About</a>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/why-choose-sunrise-roofers-in-tucson">Why Choose Us</a>
+                            <a href="/gallery">Project Gallery</a>
+                            <a href="/#testimonials">Customer Reviews</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/roofing-services" class="dropdown-link">Services</a>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/residential-roofing-tucson">Residential Roofing</a>
+                            <a href="/roofing-services/roof-repair-tucson">Roof Repair</a>
+                            <a href="/roofing-services/roof-inspection">Roof Inspection</a>
+                            <a href="/roofing-services/new-roof-tucson">Roof Replacement</a>
+                            <a href="/roofing-services/shingle-roof-replacement-tucson">Shingle Roofing</a>
+                            <a href="/roofing-services/concrete-tile-roof-replacement">Tile Roofing</a>
+                            <a href="/roofing-services/metal-roofing-tucson">Metal Roofing</a>
+                            <a href="/roofing-services/flat-roof-coating-tucson">Flat Roof Coating</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Service Areas</span>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/tucson-roofing-services">Tucson</a>
+                            <a href="/marana-roofing">Marana</a>
+                            <a href="/oro-valley-roofing">Oro Valley</a>
+                            <a href="/catalina-foothills-roofing">Catalina Foothills</a>
+                            <a href="/sahuarita-roofing">Sahuarita</a>
+                            <a href="/green-valley-roofing">Green Valley</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    
+                    <li><a href="/contact#estimate" class="cta-button">Free Estimate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <!-- Article Header -->
+            <header style="background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); padding: 60px 40px; text-align: center;">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #F5A623; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; line-height: 1.2;">How much roof replacement cost: A Homeowner's Budget Guide</h1>
+                    <p style="font-size: 16px; color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">By Sunrise Roofers LLC · Oct 29, 2025 · 13-21 min read</p>
+                </div>
+            </header>
+
+            <!-- Hero Image -->
+            <div style="max-width: 800px; margin: 0 auto; padding: 0 40px;">
+                <img
+                    src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-ace6bb7f-0785-46a7-b017-9c844eb41a52.jpg"
+                    alt="How much roof replacement cost: A Homeowner's Budget Guide"
+                    loading="eager"
+                    fetchpriority="high"
+                    style="width: 100%; height: auto; display: block; border-radius: 8px;">
+            </div>
+
+            <!-- Article Content -->
+            <div style="max-width: 800px; margin: 0 auto; padding: 60px 40px;">
+                <p>A new roof is a serious investment, and the numbers can feel all over the map. Nationally, you&#39;re looking at an average cost of around <strong>$11,500</strong> for a typical home.</p>
+<p>But that&#39;s just a ballpark figure. The full range can start as low as <strong>$6,700</strong> for a simple job and stretch all the way up to <strong>$80,000</strong> or more, especially for high-end materials or complex home designs.</p>
+<h3>Breaking Down Your Roof Replacement Cost</h3>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/cb0cd17a-8872-4043-b760-ea6a66dfebbd.jpg" alt="A professional roofer measuring a residential rooftop for replacement." /></figure></p>
+<p>So, what really goes into that final number on your estimate? Think of it like buying a car—the base price is just the beginning. The engine you pick, the trim package, the add-on features... they all change the final sticker price. A roof is exactly the same.</p>
+<p>The total cost is a mix of materials, the crew&#39;s time, and a few other key items that make sure the job is done right and built to last. Let&#39;s break down the main things that will show up on your quote:</p>
+<ul>
+<li><strong>Roofing Material:</strong> This is the biggest driver of cost. Basic asphalt shingles are the most budget-friendly option, while premium materials like slate or standing seam metal come with a much higher price tag.</li>
+<li><strong>Roof Size and Complexity:</strong> It&#39;s simple geometry. A small, straightforward roof is way less expensive than a huge, steep roof with lots of angles, valleys, dormers, and skylights. More complexity means more labor and more detailed work.</li>
+<li><strong>Labor and Installation:</strong> A skilled, professional crew is a huge part of your investment. You’re not just paying for shingles; you&#39;re paying for the expertise to install them correctly so your roof doesn’t leak in the first big storm.</li>
+<li><strong>Your Location:</strong> Where you live matters. Labor rates, permit fees, and even material availability can change quite a bit from one city to the next, which directly impacts your final cost.</li>
+</ul>
+<blockquote>
+<p>The material you choose sets the foundation for both the initial cost and the long-term value of your roof. While asphalt shingles are popular for their affordability, materials like metal and tile offer much longer lifespans that can make them a smarter financial decision over the decades.</p>
+</blockquote>
+<p>To give you a clearer picture, we put together a quick table showing the average costs for a standard <strong>2,000 sq. ft.</strong> roof using the most common materials.</p>
+<h3>Average Roof Replacement Cost By Material</h3>
+<p>This table gives you a side-by-side look at how different material choices might fit into your budget.</p>
+<table>
+<thead>
+<tr>
+<th>Roofing Material</th>
+<th>Average Cost Per Square Foot (Installed)</th>
+<th>Total Estimated Cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Asphalt Shingles</strong></td>
+<td><strong>$4.50 – $8.00</strong></td>
+<td><strong>$9,000 – $16,000</strong></td>
+</tr>
+<tr>
+<td><strong>Metal Roofing</strong></td>
+<td><strong>$8.00 – $18.00</strong></td>
+<td><strong>$16,000 – $36,000</strong></td>
+</tr>
+<tr>
+<td><strong>Wood Shakes/Shingles</strong></td>
+<td><strong>$7.00 – $15.00</strong></td>
+<td><strong>$14,000 – $30,000</strong></td>
+</tr>
+<tr>
+<td><strong>Clay/Concrete Tile</strong></td>
+<td><strong>$10.00 – $25.00+</strong></td>
+<td><strong>$20,000 – $50,000+</strong></td>
+</tr>
+<tr>
+<td><strong>Slate</strong></td>
+<td><strong>$15.00 – $40.00+</strong></td>
+<td><strong>$30,000 – $80,000+</strong></td>
+</tr>
+</tbody></table>
+<p>Keep in mind these are just estimates to help you get started. Once you have a better idea of what you’re looking for, you can explore the details of our comprehensive <a href="https://roofwithsunrise.com/roofing-services">roofing services</a> to get a precise quote for your home.</p>
+<h2>What Really Drives Your Roofing Quote</h2>
+<p>A roofing quote isn’t just one big number; it’s a story told in three parts. Figuring out these components is the key to knowing exactly where your money is going and why one roofer&#39;s estimate might look so different from another.</p>
+<p>Think of it like buying a custom-built truck. You’re not just paying for the steel and tires. You’re paying for the skilled mechanic who puts it all together and all the small but necessary shop costs that make the job possible. In the same way, your roof replacement cost breaks down into three core pieces every homeowner should understand.</p>
+<p>The biggest chunk of your quote, usually <strong>40% to 60%</strong>, is for the materials themselves. This is the part you have the most control over.</p>
+<h3>The Foundation: Your Roofing Materials</h3>
+<p>Your choice of material really sets the financial tone for the whole project. A standard architectural asphalt shingle is like a reliable family sedan—it’s affordable, does its job well, and will last you a solid 20 to 30 years.</p>
+<p>On the other hand, choosing standing seam metal is like buying a high-performance sports car. It costs a lot more upfront but gives you superior longevity (we&#39;re talking <strong>50+ years</strong>), incredible durability, and better energy efficiency. Just the price difference between these two options can swing a quote by tens of thousands of dollars.</p>
+<p>Other common materials fall somewhere along this spectrum:</p>
+<ul>
+<li><strong>Clay or Slate Tiles:</strong> These are premium, heavy materials that come with a higher price tag for both the product and the specialized labor needed to install them correctly.</li>
+<li><strong>Wood Shakes:</strong> They offer a beautiful, unique look but have their own costs related to the material itself and the maintenance required down the line.</li>
+</ul>
+<h3>The Engine: Your Installation Labor</h3>
+<p>The second major piece of the puzzle is labor, which typically makes up <strong>40% to 50%</strong> of the total cost. This isn’t just about paying people to nail shingles on your roof; it&#39;s an investment in craftsmanship, experience, and safety. A skilled, professional crew costs more than a new, inexperienced one, and for good reason.</p>
+<p>You&#39;re paying for their expertise in installing underlayment properly, getting the flashing details right around chimneys and skylights, and making sure the ventilation is correct. All these details are critical for preventing leaks and making your roof last as long as it should. The size of the crew and how long the job is expected to take also factor into this cost.</p>
+<blockquote>
+<p>A professional roof inspection is the best way to catch underlying problems <em>before</em> the project starts. This helps your roofer give you a much more accurate labor estimate and prevents surprise costs from popping up halfway through the job.</p>
+</blockquote>
+<p>You can learn more and get a clear picture of what your home needs by scheduling a professional <a href="https://roofwithsunrise.com/roofing-services/roof-inspection">roof inspection</a>.</p>
+<h3>The Overlooked Essentials: Permits and Disposal</h3>
+<p>Finally, the last <strong>10% to 20%</strong> of your quote covers the behind-the-scenes work that makes a project clean, legal, and professional. These are the non-negotiable costs of doing business the right way.</p>
+<p>This slice of the pie includes:</p>
+<ul>
+<li><strong>Permit Fees:</strong> Your local city or county requires permits to make sure the work meets building codes and safety standards.</li>
+<li><strong>Waste Disposal:</strong> Tearing off an old roof creates tons of debris. That waste has to be hauled away and disposed of legally in a dumpster.</li>
+<li><strong>Project Management &amp; Insurance:</strong> This covers the contractor&#39;s overhead, liability insurance, and all the coordination that keeps your project running smoothly and safely from day one to final cleanup.</li>
+</ul>
+<p>Once you understand these three pillars—materials, labor, and the essential extras—you can look at any roofing quote with confidence, knowing exactly what’s behind the final number.</p>
+<h2>Choosing Materials That Match Your Budget and Home</h2>
+<p>When it comes to the cost of a new roof, the material you pick is the single biggest decision you&#39;ll make. It’s a classic balancing act between what you spend upfront and the value you get for years to come. This choice will define your home&#39;s protection and its look for decades.</p>
+<p>This is where the idea of &quot;true cost of ownership&quot; really hits home. Sure, a cheaper material saves you cash today. But if it needs constant repairs or has to be replaced twice as fast, you end up spending more in the long run. The goal is finding that sweet spot between what your budget can handle now and what&#39;s going to serve your home best down the road.</p>
+<p>This infographic gives you a quick breakdown of a typical roofing quote, showing how all the pieces—materials, labor, and other costs—add up to the final number.</p>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/fdf23e0e-5f3c-4350-9427-0203a1c4b236.jpg" alt="Infographic about how much roof replacement cost" /></figure></p>
+<p>As you can see, materials and labor are the two heavy hitters in any roofing project. Together, they often make up <strong>80-90%</strong> of the total bill.</p>
+<h3>Asphalt Shingles: The Most Popular and Affordable Option</h3>
+<p>There&#39;s a reason asphalt shingles are the go-to for most American homeowners. They hit the most accessible price point, which makes them a practical choice for a lot of budgets. Plus, modern architectural shingles look great and are tough enough to last <strong>15 to 30 years</strong> when they&#39;re installed right and taken care of.</p>
+<p>Their versatility is another big win. Shingles come in a huge variety of colors and styles, so matching your home’s look is easy and doesn&#39;t break the bank. If you want to dive deeper, you can learn more about professional <a href="https://roofwithsunrise.com/roofing-services/shingle-roof-replacement-tucson">shingle roof replacement in Tucson</a> to see if it’s the right move for your home.</p>
+<h3>Investing in Longevity: Metal and Tile Roofing</h3>
+<p>While asphalt offers great value, some homeowners choose to invest more upfront for a roof that lasts a lifetime. This is where materials like metal and tile come into the picture.</p>
+<ul>
+<li><strong>Metal Roofing:</strong> Once you only saw it on commercial buildings, but standing seam and other metal roof styles are getting more and more popular for homes. They can last <strong>40 to 70 years</strong>, stand up incredibly well to wind and fire, and can even make your home more energy-efficient by reflecting the sun&#39;s heat.</li>
+<li><strong>Clay and Concrete Tile:</strong> For a classic, elegant look that fits certain home styles perfectly, you can&#39;t beat tile. These roofs are unbelievably durable, lasting <strong>50 to 100 years</strong> or even longer. The catch? They&#39;re heavy and often need extra structural support, which adds to the installation cost.</li>
+</ul>
+<blockquote>
+<p>Your choice of material is more than a financial decision—it’s a long-term commitment to your home&#39;s safety and appearance. Balancing the initial cost against the expected lifespan is key to making a wise investment.</p>
+</blockquote>
+<h3>Roofing Material Comparison: Lifespan vs. Cost</h3>
+<p>To make a truly informed decision, it helps to see the options side-by-side, looking past just the initial price tag. This table lays out the key differences between the most common materials.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Material</th>
+<th align="left">Cost Per Square Foot (Installed)</th>
+<th align="left">Expected Lifespan (Years)</th>
+<th align="left">Pros</th>
+<th align="left">Cons</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Asphalt Shingles</strong></td>
+<td align="left">$4.50 – $8.00</td>
+<td align="left">15–30</td>
+<td align="left">Affordable, versatile styles, easy to repair</td>
+<td align="left">Shorter lifespan, susceptible to weather damage</td>
+</tr>
+<tr>
+<td align="left"><strong>Metal Roofing</strong></td>
+<td align="left">$8.00 – $18.00</td>
+<td align="left">40–70</td>
+<td align="left">Very durable, energy-efficient, low maintenance</td>
+<td align="left">Higher upfront cost, can be noisy without proper insulation</td>
+</tr>
+<tr>
+<td align="left"><strong>Clay/Concrete Tile</strong></td>
+<td align="left">$10.00 – $25.00+</td>
+<td align="left">50–100+</td>
+<td align="left">Extremely long-lasting, fireproof, great curb appeal</td>
+<td align="left">Very heavy, requires specialized labor, can be brittle</td>
+</tr>
+</tbody></table>
+<p>Ultimately, picking the right material comes down to your priorities. Whether you&#39;re focused on immediate affordability or long-term performance, understanding these differences will help you choose the perfect option for your budget and your home.</p>
+<h2>Uncovering the Hidden Costs of Roof Replacement</h2>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/e3d54843-a81f-45f0-aab0-1c66f79df24d.jpg" alt="A complex roof with multiple dormers, valleys, and a chimney, illustrating hidden cost factors." /></figure></p>
+<p>The quote you get for materials and labor is just the starting line. A handful of &quot;hidden&quot; factors, often totally unique to your home, can pop up and add to the final <strong>how much roof replacement cost</strong> comes out to be. Budgeting for these potential surprises is the secret to a project that doesn&#39;t give you headaches.</p>
+<p>Think of it this way: replacing the roof on a simple, one-story ranch house is like driving down a straight, flat highway. But tackling a multi-level home with steep angles? That’s more like navigating winding mountain roads—it requires more time, more skill, and specialized safety gear. All of that adds up.</p>
+<h3>Your Roof’s Unique Architecture</h3>
+<p>The complexity of your roof&#39;s design is one of the biggest cost drivers. A steep pitch forces roofers to use extra safety equipment and move a lot more carefully, which naturally adds to the labor hours. It&#39;s just a matter of physics and keeping everyone safe.</p>
+<p>On top of that, every feature that breaks up the simple, flat planes of your roof adds to the bottom line. These architectural details require painstaking cutting, sealing, and flashing to make sure they&#39;re completely watertight.</p>
+<p>Common complexity factors include:</p>
+<ul>
+<li><strong>Chimneys:</strong> These need detailed flashing work to create a bulletproof seal where the roof meets the masonry.</li>
+<li><strong>Skylights:</strong> Just like chimneys, skylights are notorious leak spots if not sealed and flashed with absolute precision.</li>
+<li><strong>Dormers and Valleys:</strong> Every time roof planes intersect, it means more cuts, more material waste, and a significant bump in labor.</li>
+</ul>
+<h3>The Surprise Underneath: Rotten Decking</h3>
+<p>The single biggest unknown in any roof replacement is the condition of the wood decking that lies beneath your old shingles. There&#39;s simply no way to know its true state until the old roof is torn off. If the crew finds wood that&#39;s soft, spongy, or outright rotten, it <strong>must be replaced</strong>. No exceptions.</p>
+<p>This is a non-negotiable repair. Slapping a brand-new roof over a weak foundation is a recipe for disaster and will void just about any manufacturer&#39;s warranty out there. While a few bad boards might only add a few hundred dollars, discovering widespread rot could easily add <strong>$1,000 or more</strong> to your project. This is, without a doubt, the most common reason a final bill comes in higher than the initial estimate. In situations where the damage is really bad, our guide on <a href="https://roofwithsunrise.com/roofing-services/roof-repair-tucson">professional roof repair in Tucson</a> can help you weigh your options.</p>
+<blockquote>
+<p>The condition of your roof&#39;s decking is the wild card in your budget. Always set aside a contingency fund—typically <strong>10-15%</strong> of the total project cost—to cover potential surprises like this.</p>
+</blockquote>
+<h3>Regional and Market Influences</h3>
+<p>Finally, where you live plays a huge role. Labor wages, the cost of permits, and even material availability can vary wildly from one region to another. A roofer working in a high-cost-of-living city will have higher labor rates than one in a small rural town—that&#39;s just economics.</p>
+<p>These local factors are part of a bigger picture, with the global roofing market projected to hit <strong>$306 billion</strong>, all shaped by local demand and costs. You can dig into more data on the roofing industry&#39;s future growth over at <a href="https://www.thebusinessresearchcompany.com/report/roofing-global-market-report">TheBusinessResearchCompany.com</a>.</p>
+<h2>Smart Ways to Budget and Pay for Your New Roof</h2>
+<iframe width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/RgcoJtL8tco" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>Knowing the ballpark cost of a new roof is one thing, but figuring out how to actually pay for it is the next big hurdle. Turning this major expense into a manageable investment starts with a solid game plan. Your first move, always, should be to get multiple, detailed quotes from reputable local contractors.</p>
+<p>This isn&#39;t just about shopping for the lowest price. Comparing estimates helps you understand the fair market rate for your area and spot potential red flags—like a bid that seems way too good to be true. A professional quote will break down every line item—materials, labor, permits, and dumpster fees—giving you a crystal-clear picture of what you&#39;re paying for.</p>
+<h3>Creating Your Financial Strategy</h3>
+<p>Once you have a realistic number in hand, you can start exploring how to cover it. The truth is, most homeowners don&#39;t pay for a new roof with cash they have sitting in the bank. Instead, they find financing solutions that spread the cost out over time, making it much more affordable.</p>
+<p>Some of the most common routes include:</p>
+<ul>
+<li><strong>Home Equity Line of Credit (HELOC):</strong> This is a popular option that lets you borrow against the equity you&#39;ve built in your home. HELOCs often come with lower interest rates than other loans, but remember, your house is the collateral.</li>
+<li><strong>Personal Loan:</strong> This is an unsecured loan from a bank or credit union. The interest rates are usually a bit higher, but your home isn&#39;t on the line if you run into trouble.</li>
+<li><strong>Contractor Financing:</strong> Many roofing companies have partnerships with lenders to offer financing directly to customers. This can be incredibly convenient, but make sure you read the fine print and compare the interest rates and terms to other options.</li>
+</ul>
+<blockquote>
+<p>A new roof is a serious investment in your home&#39;s protection and long-term value. Treat the financing process with the same care you&#39;d use to pick out shingles—compare your options, understand the terms, and choose the path that makes the most sense for your financial health.</p>
+</blockquote>
+<h3>When Homeowners Insurance Can Help</h3>
+<p>There are specific situations where your homeowners insurance might step in and cover a big chunk of the replacement cost. This almost always happens when the damage is from a sudden, accidental event—often called an &quot;act of God.&quot;</p>
+<p>Your policy is designed to help with damage from things like:</p>
+<ul>
+<li>Hailstorms</li>
+<li>Tornadoes or severe high winds</li>
+<li>A tree falling on your house</li>
+<li>Fire</li>
+</ul>
+<p>What insurance <strong>won&#39;t</strong> cover is a roof that&#39;s simply old and worn out from age or lack of maintenance. If you believe a storm or other covered event is to blame for your roof&#39;s condition, your first call should be to your insurance provider to start the claims process. They&#39;ll send an adjuster to assess the damage and determine what they’ll cover for a repair or full replacement.</p>
+<p>When you&#39;re looking at a leak stain on your ceiling or a few missing shingles in the yard, the big question always pops up: can I get away with a patch job, or is it time for a whole new roof?</p>
+<p>How you answer that question is one of the biggest factors driving your budget. A full replacement is a major home investment; a simple repair is not.</p>
+<p>Think of it like keeping an old car on the road. A flat tire or a dead battery? Easy fix. But if the engine is shot and the transmission is slipping, sinking more money into constant repairs just doesn&#39;t make sense. The same logic holds true for your roof.</p>
+<h3>When a Targeted Repair Makes Sense</h3>
+<p>For younger roofs with specific, isolated problems, a repair is almost always the smart, cost-effective choice. If your roof is under <strong>10-15 years old</strong> and has years of life left in it, a targeted fix is the way to go.</p>
+<p>You should be thinking &quot;repair&quot; if you&#39;re dealing with issues like:</p>
+<ul>
+<li><strong>A few missing or cracked shingles</strong> blown off in a recent storm.</li>
+<li><strong>Small leaks around a pipe vent or chimney</strong> that can be fixed with new flashing.</li>
+<li><strong>Damage that&#39;s clearly confined to one small area</strong> of the roof.</li>
+</ul>
+<p>On average, a straightforward roof repair costs around <strong>$750</strong>. Of course, that can swing from a couple hundred dollars to over two thousand, depending on what&#39;s wrong. One thing to keep in mind, though: with ongoing labor shortages and material delays, the cost and hassle of stringing together multiple small repairs can quickly add up. You can read more on rising industry costs over at <a href="https://www.sunsent.com/the-state-of-roofing-in-2025-a-data-driven-look-at-costs-damage-and-industry-trends">SunSent.com</a>.</p>
+<h3>Clear Signs You Need a Full Replacement</h3>
+<p>Sometimes, a repair is just a band-aid on a much bigger wound. A full roof replacement becomes the only logical long-term solution when the system&#39;s core integrity is failing.</p>
+<blockquote>
+<p>A full roof replacement is a proactive investment in your home&#39;s safety and value. While the upfront cost is higher, it eliminates the cycle of recurring repairs and provides decades of reliable protection.</p>
+</blockquote>
+<p>Widespread problems are a clear signal that the entire roofing system is giving up. If you see shingles curling, buckling, or losing their sandy granules across multiple sections of the roof, it’s time to start planning for a replacement. Persistent leaks that seem to pop up in new places are another red flag.</p>
+<p>And, of course, age is a huge factor. If your roof is approaching or has already passed the <strong>20-year</strong> mark, it&#39;s a prime candidate for a proactive replacement before real trouble begins. It&#39;s time to start the conversation about a <strong>new roof in Tucson</strong>.</p>
+<h2>Common Questions About Roof Costs</h2>
+<p>When you&#39;re staring down a roof replacement, questions pop up fast. It&#39;s a big investment, and you deserve clear answers. Here are a few of the most common things homeowners ask when they&#39;re trying to figure out the real cost.</p>
+<h3>How Long Does a Roof Replacement Take?</h3>
+<p>For a pretty standard house, a full tear-off and replacement usually takes <strong>1 to 3 days</strong>. But if your roof has a lot of complex angles, we uncover rotten decking that needs repair, or a surprise storm rolls in, it can stretch the timeline to a week or more.</p>
+<h3>Does a New Roof Increase Home Value?</h3>
+<p>Absolutely. A new roof is a massive selling point that definitely boosts your home&#39;s value. You might not get a 100% dollar-for-dollar return on investment, but it gives potential buyers incredible peace of mind and seriously improves your curb appeal. It makes your home stand out.</p>
+<blockquote>
+<p>A new roof is a major capital improvement. While it may not offer a dollar-for-dollar return, its true value is in protecting your investment and preventing future, far more expensive repairs down the road.</p>
+</blockquote>
+<h3>Can I Put New Shingles Over Old Ones?</h3>
+<p>You technically <em>can</em>, but it’s almost never a good idea. Layering shingles adds a ton of extra weight to your roof structure and, more importantly, it can hide serious underlying problems like rotten decking. A complete tear-off is the professional standard for a reason—it ensures a long-lasting, properly warrantied roof.</p>
+<hr>
+<p>Ready to get a clear, honest quote for your roofing project? The owner-led team at <strong>Sunrise Roofers LLC</strong> provides detailed, line-item estimates with no surprises. Visit our website to schedule your free, photo-documented inspection today: <a href="https://roofwithsunrise.com">https://roofwithsunrise.com</a></p>
+
+
+                <hr style="margin: 50px 0; border: none; border-top: 2px solid #E8E8E8;">
+
+                <p style="font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 25px;">
+                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="tel:+15206686638" style="color: #F5A623; text-decoration: underline;">520-668-6638</a>. Related pages: <a href="/roofing-services/roof-repair-tucson" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roofing-services/new-roof-tucson" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/tucson-roofing-services" style="color: #F5A623; text-decoration: underline;">Service Areas</a>.
+                </p>
+
+                <!-- Author Bio -->
+                <div style="background: #fff; border: 2px solid #F5A623; border-radius: 8px; padding: 30px; margin: 50px 0;">
+                    <p style="font-size: 16px; line-height: 1.7; color: #666; text-align: center; margin: 0;">
+                        <strong style="color: #1A1A1A; font-size: 18px;">Published by Sunrise Roofers LLC</strong><br>
+                        Licensed & Insured Roofing Contractor · Tucson, AZ
+                    </p>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sunrise Roofers LLC</h3>
+                <p>Licensed, bonded, and insured roofing contractor serving Greater Tucson, Arizona.</p>
+                <p style="margin-top: 15px;"><a href="https://azroc.my.site.com/AZRoc/s/contractor-search?licenseId=a0ocs00000AArYMAA1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;" title="Verify our license">ROC #358079</a></p>
+            </div>
+            <div class="footer-section footer-nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about-our-roofing-contractors-in-tucson">About</a></li>
+                    <li><a href="/roofing-services">Services</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Service Areas</h3>
+                <ul>
+                    <li>Tucson, AZ</li>
+                    <li>Oro Valley, AZ</li>
+                    <li>Catalina Foothills, AZ</li>
+                    <li>Vail, AZ</li>
+                    <li>Sahuarita, AZ</li>
+                    <li>Green Valley, AZ</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:520-668-6638">📞 520-668-6638</a></li>
+                    <li><a href="mailto:sunriseroofer@outlook.com">✉ sunriseroofer@outlook.com</a></li>
+                    <li>📍 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741</li>
+                    <li>🕒 Mon-Fri: 7AM-6PM</li>
+                    <li>🕒 Sat: 8AM-4PM</li>
+                    <li>🚨 Emergency Service Available</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="/" style="color: #D0D0D0; text-decoration: underline;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #D77A00; text-decoration: underline; font-weight: 600;">Pursuit Analytics</a></p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script defer src="../../js/main.min.js"></script>
+    
+    <!-- Analytics Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXS7NL5W52"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "tqrdpuxath");
+    </script>
+</body>
+</html>
