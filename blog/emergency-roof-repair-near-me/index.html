@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1351630159967766');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1351630159967766&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Marketing Agent Website Tracking -->
+    <script data-api-url="http://localhost:5000">
+    (function() {
+        'use strict';
+
+        // Get API endpoint from script tag data attribute
+        const scriptTag = document.currentScript;
+        const ANALYTICS_API_BASE = scriptTag?.getAttribute('data-api-url') || 'http://localhost:5000';
+        const ANALYTICS_API = `${ANALYTICS_API_BASE}/api/track-visit`;
+
+        // Generate unique session ID (UUID v4)
+        function generateSessionId() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // Get or create session ID with 30-minute rolling window
+        function getSessionId() {
+            let sessionId = localStorage.getItem('ma_session_id');
+            let sessionStart = localStorage.getItem('ma_session_start');
+            const now = Date.now();
+            const sessionDuration = 30 * 60 * 1000; // 30 minutes
+
+            // Create new session if none exists or if session expired
+            if (!sessionId || !sessionStart || (now - parseInt(sessionStart)) > sessionDuration) {
+                sessionId = generateSessionId();
+                localStorage.setItem('ma_session_id', sessionId);
+                localStorage.setItem('ma_session_start', now.toString());
+            } else {
+                // Update session start time (rolling window)
+                localStorage.setItem('ma_session_start', now.toString());
+            }
+
+            return sessionId;
+        }
+
+        // Get UTM parameters from URL
+        function getUTMParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                utm_source: urlParams.get('utm_source'),
+                utm_medium: urlParams.get('utm_medium'),
+                utm_campaign: urlParams.get('utm_campaign'),
+                utm_content: urlParams.get('utm_content')
+            };
+        }
+
+        // Track website visit
+        function trackVisit() {
+            const utmParams = getUTMParams();
+
+            // Only track if we have UTM parameters from social media
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const trackingData = {
+                    utm_source: utmParams.utm_source,
+                    utm_medium: utmParams.utm_medium,
+                    utm_campaign: utmParams.utm_campaign,
+                    utm_content: utmParams.utm_content,
+                    page_url: window.location.href,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Send to Marketing Agent analytics
+                fetch(ANALYTICS_API, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(trackingData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('📊 Marketing Agent: Visit tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Visit tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track visit -', error.message);
+                });
+            }
+        }
+
+        // Track conversion (call this when someone fills out contact form)
+        window.trackConversion = function(conversionType = 'contact_form') {
+            const utmParams = getUTMParams();
+
+            if (utmParams.utm_source && utmParams.utm_medium === 'social') {
+                const sessionId = getSessionId();
+                const conversionData = {
+                    utm_source: utmParams.utm_source,
+                    utm_campaign: utmParams.utm_campaign,
+                    conversion_type: conversionType,
+                    session_id: sessionId,
+                    timestamp: new Date().toISOString()
+                };
+
+                fetch(`${ANALYTICS_API_BASE}/api/track-conversion`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(conversionData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        console.log('🎯 Marketing Agent: Conversion tracked from', utmParams.utm_source);
+                    } else {
+                        console.warn('Marketing Agent: Conversion tracking failed -', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Marketing Agent: Could not track conversion -', error.message);
+                });
+            }
+        };
+
+        // Track page view on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', trackVisit);
+        } else {
+            trackVisit();
+        }
+
+        // Auto-track contact form submissions
+        document.addEventListener('submit', function(event) {
+            if (event.target.matches('form[action*="contact"], form[action*="quote"], form[action*="inquiry"]')) {
+                trackConversion('contact_form');
+            }
+        });
+
+        // Auto-track phone number clicks
+        document.addEventListener('click', function(event) {
+            if (event.target.matches('a[href^="tel:"]')) {
+                trackConversion('phone_call');
+            }
+        });
+
+    })();
+    </script>
+    
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="emergency roof repair near me: Get immediate steps for leaks, trusted pros, and simpler insurance claims - fast, reliable help when you need it.">
+    <meta name="theme-color" content="#F5A623">
+    
+    <title>Emergency Roof Repair Near Me: Fast, Trusted Help</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../SunriseLogo.jpeg">
+    <link rel="apple-touch-icon" href="../../SunriseLogo.jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical inline CSS -->
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;line-height:1.6;color:#333;background:#fff}:root{--color-orange:#F5A623;--color-black:#1A1A1A;--color-gray:#666;--color-background-light:#f4f4f4}.site-header{background:#fff;position:sticky;top:0;z-index:1000}.top-bar{background:#F5F5F5;padding:10px 0;font-size:14px;border-bottom:1px solid #E0E0E0}.top-bar-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;gap:30px;flex-wrap:wrap}.top-contact,.top-hours{color:#1A1A1A;text-decoration:none;transition:color 0.3s;font-weight:700;font-family:'Roboto',sans-serif;font-size:14px}.top-contact:hover{color:#D77A00}.top-social{color:#1877F2;font-size:18px;margin-left:15px;transition:all 0.3s;display:inline-flex;align-items:center}.top-social:hover{color:#0e5fc4;transform:scale(1.1)}.main-nav{background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1)}.nav-container{max-width:1200px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:relative}.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}.logo img{height:80px;width:auto;display:block}.nav-links{display:flex;gap:25px;list-style:none;align-items:center;margin:0;padding:0}.nav-links>li>a{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;color:#1A1A1A;transition:color 0.3s ease;padding:10px 5px;display:block}.nav-links>li>a:hover{color:#D77A00}.dropdown{position:relative;display:flex;align-items:center;gap:2px}.dropdown-header{display:flex;align-items:center;gap:2px;flex:1}.dropdown-label{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#1A1A1A;padding:10px 5px;cursor:pointer;transition:color 0.3s ease}.dropdown-label:hover{color:#D77A00}.dropdown-link{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:#1A1A1A;text-decoration:none;padding:10px 5px;transition:color 0.3s ease}.dropdown-link:hover{color:#D77A00}.dropdown-toggle{font-family:'Roboto',sans-serif;font-size:16px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;background:none;border:none;color:#1A1A1A;cursor:pointer;padding:10px 5px;display:flex;align-items:center;transition:color 0.3s ease}.dropdown-toggle:hover{color:#D77A00}.dropdown-arrow{font-size:10px;transition:transform 0.3s}.dropdown.active .dropdown-arrow{transform:rotate(180deg)}.dropdown-content{position:absolute;top:calc(100% + 2px);left:0;background:white;min-width:240px;box-shadow:0 4px 12px rgba(0,0,0,0.15);border-radius:6px;padding:12px 0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all 0.3s ease;z-index:1000}.dropdown-content::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;background:transparent}.dropdown.active .dropdown-content{opacity:1;visibility:visible;transform:translateY(0)}.dropdown-content a{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;display:block;padding:12px 20px;color:#1A1A1A;text-decoration:none;transition:all 0.2s}.dropdown-content a:hover{background:#fef3e2;color:#D77A00;padding-left:25px}.cta-button{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;background:#D77A00!important;color:#FFFFFF!important;padding:12px 24px!important;border-radius:0;border:none;transition:all 0.3s ease}.cta-button:hover{background:#E89510!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(245,166,35,0.4)}.mobile-menu-toggle{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:5px;position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:1001}.mobile-menu-toggle span{width:25px;height:3px;background:#1A1A1A;transition:all 0.3s;border-radius:2px}@media(max-width:768px){.logo img{height:60px}.mobile-menu-toggle{display:flex}.nav-links{position:fixed;top:130px;left:0;width:100%;max-height:0;background:white;flex-direction:column;gap:0;padding:0;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:max-height 0.3s ease;overflow:hidden;z-index:999}.nav-links.active{max-height:calc(100vh - 130px);overflow-y:auto}.nav-links>li{width:100%;border-bottom:1px solid #E0E0E0}.dropdown{flex-direction:column;align-items:stretch}.dropdown-header{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;width:100%;cursor:pointer;padding:0;gap:0}.dropdown-link{flex:0 0 auto;padding:15px 20px;text-align:left;cursor:pointer}.dropdown-label{flex:1;padding:15px 20px;text-align:left;min-width:0}.dropdown-toggle{padding:15px 20px;flex-shrink:0;margin-left:auto;pointer-events:auto}.nav-links>li>a{padding:15px 20px;width:100%;text-align:left;box-sizing:border-box}.dropdown-content{position:static;box-shadow:none;padding:0;opacity:1;visibility:visible;transform:none;max-height:0;overflow:hidden;transition:max-height 0.3s ease;background:#F5F5F5;width:100%}.dropdown.active .dropdown-content{max-height:500px;border-top:1px solid #E0E0E0}.dropdown-content a{padding:12px 20px 12px 40px;box-sizing:border-box}.cta-button{margin:10px 20px;text-align:center}}
+    </style>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../css/styles.css?v=20251019">
+    
+    <link rel="canonical" href="https://roofwithsunrise.com/blog/emergency-roof-repair-near-me">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Emergency Roof Repair Near Me: Fast, Trusted Help">
+    <meta property="og:description" content="emergency roof repair near me: Get immediate steps for leaks, trusted pros, and simpler insurance claims - fast, reliable help when you need it.">
+    <meta property="og:url" content="https://roofwithsunrise.com/blog/emergency-roof-repair-near-me">
+    <meta property="og:image" content="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-707cc01e-32f7-42ed-9011-e58197a88354.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Sunrise Roofers LLC">
+
+    <!-- JSON-LD BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Emergency Roof Repair Near Me: Fast, Trusted Help",
+      "description": "emergency roof repair near me: Get immediate steps for leaks, trusted pros, and simpler insurance claims - fast, reliable help when you need it.",
+      "datePublished": "2025-11-01T07:19:16.48077+00:00",
+      "dateModified": "2025-11-01T07:19:16.48077+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Sunrise Roofers LLC"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sunrise Roofers LLC",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://roofwithsunrise.com/SunriseLogo.jpeg"
+        }
+      },
+      "image": "https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-707cc01e-32f7-42ed-9011-e58197a88354.jpg",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://roofwithsunrise.com/blog/emergency-roof-repair-near-me"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Inline SVG Icon Sprites -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-facebook" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></symbol>
+        <symbol id="icon-google" viewBox="0 0 488 512"><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></symbol>
+    </svg>
+    
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <a href="tel:520-668-6638" class="top-contact">&#128222; 520-668-6638</a>
+                <a href="mailto:sunriseroofer@outlook.com" class="top-contact">&#9993; sunriseroofer@outlook.com</a>
+                <span class="top-hours">&#128337; Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
+                <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social" aria-label="Visit our Facebook page">
+                    <svg class="icon" width="18" height="18"><use href="#icon-facebook"/></svg>
+                </a>
+                <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener noreferrer" class="top-social-google" aria-label="Visit our Google Business Profile">
+                    <svg class="icon" width="18" height="18"><use href="#icon-google"/></svg>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <img src="../../SunriseLogo.jpeg" alt="Sunrise Roofers LLC" width="200" height="200" loading="lazy">
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/about-our-roofing-contractors-in-tucson" class="dropdown-link">About</a>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/why-choose-sunrise-roofers-in-tucson">Why Choose Us</a>
+                            <a href="/gallery">Project Gallery</a>
+                            <a href="/#testimonials">Customer Reviews</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <a href="/roofing-services" class="dropdown-link">Services</a>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/residential-roofing-tucson">Residential Roofing</a>
+                            <a href="/roofing-services/roof-repair-tucson">Roof Repair</a>
+                            <a href="/roofing-services/roof-inspection">Roof Inspection</a>
+                            <a href="/roofing-services/new-roof-tucson">Roof Replacement</a>
+                            <a href="/roofing-services/shingle-roof-replacement-tucson">Shingle Roofing</a>
+                            <a href="/roofing-services/concrete-tile-roof-replacement">Tile Roofing</a>
+                            <a href="/roofing-services/metal-roofing-tucson">Metal Roofing</a>
+                            <a href="/roofing-services/flat-roof-coating-tucson">Flat Roof Coating</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <div class="dropdown-header">
+                            <span class="dropdown-label">Service Areas</span>
+                            <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="/tucson-roofing-services">Tucson</a>
+                            <a href="/marana-roofing">Marana</a>
+                            <a href="/oro-valley-roofing">Oro Valley</a>
+                            <a href="/catalina-foothills-roofing">Catalina Foothills</a>
+                            <a href="/sahuarita-roofing">Sahuarita</a>
+                            <a href="/green-valley-roofing">Green Valley</a>
+                        </div>
+                    </li>
+                    
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    
+                    <li><a href="/contact#estimate" class="cta-button">Free Estimate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <!-- Article Header -->
+            <header style="background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%); padding: 60px 40px; text-align: center;">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #F5A623; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; line-height: 1.2;">Emergency Roof Repair Near Me: Fast, Trusted Help</h1>
+                    <p style="font-size: 16px; color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">By Sunrise Roofers LLC · Nov 1, 2025 · 12-20 min read</p>
+                </div>
+            </header>
+
+            <!-- Hero Image -->
+            <div style="max-width: 800px; margin: 0 auto; padding: 0 40px;">
+                <img
+                    src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/featured-image-707cc01e-32f7-42ed-9011-e58197a88354.jpg"
+                    alt="Emergency Roof Repair Near Me: Fast, Trusted Help"
+                    loading="eager"
+                    fetchpriority="high"
+                    style="width: 100%; height: auto; display: block; border-radius: 8px;">
+            </div>
+
+            <!-- Article Content -->
+            <div style="max-width: 800px; margin: 0 auto; padding: 60px 40px;">
+                <p>That gut-wrenching moment you see a water stain spreading on your ceiling or hear a tree branch crash onto your roof demands clear, immediate action. Your first moves are critical. Before you even think about searching for <strong>emergency roof repair near me</strong>, you need to focus on safety, document the damage, and do what you can to stop more water from getting in.</p>
+<h2>Your First Steps After Discovering Roof Damage</h2>
+<p>The moments after you find roof damage feel chaotic. I get it. But working through a methodical checklist can save you from thousands of dollars in secondary damage and make your insurance claim go a lot smoother. It&#39;s all about safety first, then documentation.</p>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/5205aada-ec47-494d-8884-78fba494fed4.jpg" alt="A roofer inspecting a damaged section of a residential roof with a flashlight." /></figure></p>
+<p>Your safety, and your family&#39;s, is the only thing that matters right now. If a tree has punched a hole through the roof or you see any signs of structural collapse, get everyone out of that area immediately. Do not, under any circumstances, climb on a wet, damaged roof, especially during or right after a storm. It&#39;s just not worth the risk.</p>
+<h3>Safely Assess the Damage From Inside</h3>
+<p>Once you know the area is safe to enter, start your damage assessment from <em>inside</em> the house. This is the safest way to see what&#39;s happening and gives you the most important information: where the water is coming in.</p>
+<p>Keep an eye out for these tell-tale signs:</p>
+<ul>
+<li><strong>Active Dripping:</strong> This is the most obvious sign. If you see water coming through the ceiling, you have a direct breach.</li>
+<li><strong>Dark Water Stains:</strong> Discolored, spreading patches on ceilings or walls mean moisture is soaking into your drywall.</li>
+<li><strong>Sagging Ceiling:</strong> A bulge or droop in the ceiling is a major red flag. It means a significant amount of water has pooled up and is compromising the structure. Get out from under it.</li>
+<li><strong>Visible Light:</strong> Can you see daylight peeking through your attic or ceiling? If so, you have a clear, direct opening to the outside.</li>
+</ul>
+<p>This quick indoor check helps you gauge the urgency. A small, contained stain might not be a five-alarm fire, but an active drip or a sagging ceiling needs professional help, fast.</p>
+<h3>Document Everything for Your Insurance Claim</h3>
+<p>Before you move a single thing or even place a bucket, pull out your smartphone. Solid, detailed documentation is your single best tool for a hassle-free insurance claim. Your insurance company needs proof of the initial damage and will want to see that you took responsible steps to prevent it from getting worse.</p>
+<blockquote>
+<p>Taking clear photos and detailed notes from the moment you discover the damage is one of the most important steps you can take. This creates a timeline that helps validate your claim and shows you acted responsibly.</p>
+</blockquote>
+<p>Your documentation checklist should be simple but thorough:</p>
+<ul>
+<li><strong>Wide shots</strong> of the rooms that are affected.</li>
+<li><strong>Close-up photos</strong> of the leaks, stains, and any damaged furniture or belongings.</li>
+<li><strong>Videos</strong> showing any active dripping, if you can capture it safely.</li>
+<li><strong>Written notes</strong> detailing the date and time you first noticed the damage.</li>
+</ul>
+<p>The roofing industry has seen steady growth, partly because of the rise in extreme weather. In the U.S. alone, roofing contractors brought in an estimated <strong>$76.4 billion</strong> in revenue, with demand always spiking after major storms.</p>
+<p>After you&#39;ve documented the interior damage, you can confidently call a professional. The next critical step is getting an expert on-site who can perform a comprehensive exterior evaluation; a professional <a href="https://roofwithsunrise.com/roofing-services/roof-inspection">roof inspection</a> is essential to understanding the full scope of the problem.</p>
+<h2>Protecting Your Home Before Help Arrives</h2>
+<p>The clock starts ticking the moment you find roof damage. What you do in those first few hours—before the roofer even arrives—can make the difference between a manageable problem and a full-blown interior disaster. Your only job right now is to stop more water from getting in and to control what&#39;s already there.</p>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/9359edab-cfc7-4192-be34-6c54923cebf6.jpg" alt="A homeowner placing a bucket under a ceiling leak to catch dripping water." /></figure></p>
+<p>Forget the roof for a minute and focus inside. That&#39;s where you have control, and it&#39;s where water damage gets expensive, fast. Get electronics, furniture, rugs, and anything valuable out of the way immediately.</p>
+<h3>Managing Interior Water Intrusion</h3>
+<p>If water is actively dripping, the solution is simple: buckets, trash cans, whatever you have that holds water. Stick an old towel or a sponge in the bottom of the bucket—it&#39;ll stop that maddening <em>drip... drip... drip...</em> sound and prevent splashing.</p>
+<p>See a big, ugly water stain on the ceiling that hasn&#39;t started dripping yet? You can get ahead of it. Put a bucket directly under the darkest spot and carefully poke a small hole in the center with a screwdriver. This gives the water a controlled escape route, relieving the pressure and preventing it from spreading and collapsing a huge section of drywall.</p>
+<blockquote>
+<p>A small screwdriver hole is a quick, cheap drywall patch. A waterlogged, collapsed ceiling is a whole different nightmare. You&#39;re channeling the damage to one manageable spot.</p>
+</blockquote>
+<p>When the leak is more of a wide mess than a single drip, heavy-duty plastic sheeting is your friend. Use duct tape or a few staples to secure one end to the ceiling around the leak, then funnel the other end down into a large bin or bucket.</p>
+<h3>Safely Deploying an Emergency Roof Tarp</h3>
+<p>Once the inside is under control, your next thought is probably covering the hole on the roof. An <strong>emergency roof tarp</strong> is the go-to temporary fix, but climbing up there yourself is a serious risk. You should only even <em>consider</em> it if you can do it safely.</p>
+<p>Your safety comes first. <strong>Never</strong> get on a roof:</p>
+<ul>
+<li>During a storm—rain, high wind, or lightning are absolute no-gos.</li>
+<li>If your roof is steep or has multiple levels.</li>
+<li>If you&#39;re working alone.</li>
+<li>If the surface is wet, icy, or covered in storm debris.</li>
+</ul>
+<p>If the weather is clear, you have a simple, low-pitched roof on a single-story home, and you are comfortable with the height, proceed with extreme caution. You want the tarp to cover the damage completely, extending at least four feet beyond the hole on all sides. Secure it by wrapping the edges around 2x4s and fastening the boards to the roof deck—don&#39;t just nail through the tarp and your shingles. That creates even more holes. Honestly, a DIY tarp job often blows off and creates bigger headaches. Professional installation is always the safer, more reliable bet.</p>
+<p>Here in the desert, broken tiles are a frequent culprit. It’s not just about covering the hole; it&#39;s about understanding how the entire system works. You can learn more here about why <strong><a href="https://roofwithsunrise.com/blog/why-fixing-broken-roof-tiles-arizona/">fixing broken roof tiles</a></strong> the right way is so critical. These temporary fixes are all about buying yourself time until a professional can get there and put a permanent solution in place.</p>
+<h2>How to Find a Trusted Emergency Roofer</h2>
+<iframe width="100%" style="aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/zKYoHUDmNw0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>When your roof springs a leak, a quick search for &quot;emergency roof repair near me&quot; spits out a wall of options. The pressure is on, but picking the first contractor who answers the phone is a recipe for disaster.</p>
+<p>You need someone who isn&#39;t just available, but reputable, qualified, and won&#39;t take advantage of your stressful situation. The key is knowing how to vet them fast. You don&#39;t have days to do deep research, but you have a few critical minutes to ask the right questions and separate the real pros from the storm chasers.</p>
+<h3>Vetting Contractors Over the Phone</h3>
+<p>Think of your first call as a screening interview. Be direct and listen closely. How they handle this first interaction—their transparency and response time—says a lot about the service you&#39;ll get later.</p>
+<p>Here’s what you absolutely have to ask:</p>
+<ul>
+<li><strong>What is your immediate response time?</strong> You need a firm commitment. &quot;As soon as we can&quot; isn&#39;t an answer. &quot;We can have a crew there in the next <strong>90 minutes</strong>&quot; is what you want to hear.</li>
+<li><strong>Do you have specific emergency service fees?</strong> Get clarity on any call-out charges or after-hours rates right away. No one needs that kind of sticker shock on top of everything else.</li>
+<li><strong>Can you provide proof of licensing and insurance?</strong> This is non-negotiable. They should be able to email you a certificate of insurance on the spot. <strong>Never</strong> skip this.</li>
+<li><strong>Are you a local company?</strong> A roofer with a permanent local address knows the regional building codes and weather patterns, like Tucson&#39;s brutal monsoon season.</li>
+</ul>
+<p>These questions quickly filter out the unqualified or predatory players. A legitimate company will have ready, confident answers for all of them. For instance, when you want to understand <strong><a href="https://roofwithsunrise.com/why-choose-sunrise-roofers-in-tucson">why choosing a local Tucson roofer matters</a></strong>, it boils down to their proven track record in the community and commitment to real solutions, not just quick patches.</p>
+<blockquote>
+<p>Don&#39;t be afraid to sound demanding. You&#39;re in a vulnerable spot, and a true professional will respect your need for clear answers and provide them without hesitation.</p>
+</blockquote>
+<h3>Reading Between the Lines of Online Reviews</h3>
+<p>Once you have a couple of contenders, do a lightning-fast check of their online reviews. Don&#39;t just glance at the star rating; you&#39;re looking for specific patterns related to emergency work.</p>
+<ul>
+<li><strong>Look for keywords:</strong> Scan for terms like &quot;emergency,&quot; &quot;leak,&quot; &quot;storm damage,&quot; or &quot;fast.&quot; How did the company actually perform under pressure?</li>
+<li><strong>Ignore generic praise:</strong> A review that says, &quot;They did a great job&quot; is useless. What you need is, &quot;They were here within an hour of my frantic call during the storm and had a tarp on my roof before the worst of it hit.&quot;</li>
+<li><strong>Watch for red flags:</strong> A pattern of reviews mentioning communication issues, surprise fees, or no-shows are huge warnings. Move on.</li>
+</ul>
+<p>This rapid-fire approach helps you make a solid decision when every minute counts. The global emergency roofing market is booming, valued at around <strong>USD 8.5 billion</strong>, largely because severe weather is becoming more common. For homeowners, that means more choices, but it also makes careful vetting more important than ever. Your goal is to find a trusted partner, not just a temporary fix.</p>
+<h2>The Financial Side: Emergency Costs and Insurance</h2>
+<p>When your roof fails unexpectedly, the physical damage is only half the battle. The financial stress can be just as overwhelming. When you&#39;re frantically searching for &quot;emergency roof repair near me,&quot; it’s important to understand what you’re paying for—it’s not just a patch, but an immediate, often after-hours, response.</p>
+<p>That urgency comes at a premium. Think of it like calling a plumber on a holiday weekend. You’re paying for their immediate availability, for a crew to mobilize outside of normal hours, and for the specialized gear needed to work safely in what could be pretty hazardous conditions.</p>
+<h3>What to Expect on an Emergency Estimate</h3>
+<p>An honest roofer will be upfront about emergency costs. The initial estimate isn&#39;t usually a detailed, line-item quote for the permanent fix. It’s a breakdown of the immediate service call to stop the damage.</p>
+<p>You should see these items clearly listed:</p>
+<ul>
+<li><strong>Call-Out Fee:</strong> This is a flat rate just for dispatching a crew, especially after hours or on a weekend.</li>
+<li><strong>Labor Costs:</strong> An hourly rate for the technicians on-site doing the work.</li>
+<li><strong>Material Costs:</strong> The price for temporary materials, like a high-quality roof tarp, the lumber needed to secure it, and any sealants.</li>
+</ul>
+<p>While the total will be higher than a scheduled visit, a good contractor will be transparent about these charges before they start.</p>
+<blockquote>
+<p>A clear, straightforward emergency invoice is the mark of a trustworthy roofer. It should detail exactly what they did to stop the bleeding, not try to lock you into a long-term contract signed under pressure.</p>
+</blockquote>
+<p>Now, let&#39;s talk numbers. The average cost for a standard, scheduled roof repair in the U.S. hovers around <strong>$750</strong>. For an emergency call-out, that figure can easily double or even triple. And that’s a far cry from a full roof replacement, which now averages about <strong>$30,680</strong> for a typical home.</p>
+<p>To make this clearer, let&#39;s compare the cost drivers for a standard job versus an emergency response.</p>
+<h3>Emergency vs Standard Roof Repair Cost Factors</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Cost Factor</th>
+<th align="left">Standard Repair</th>
+<th align="left">Emergency Repair</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Timing</strong></td>
+<td align="left">Scheduled during business hours (M-F, 8-5)</td>
+<td align="left">Immediate, after-hours, weekends, or holidays</td>
+</tr>
+<tr>
+<td align="left"><strong>Labor Rate</strong></td>
+<td align="left">Standard hourly rate</td>
+<td align="left">Premium hourly rate (often 1.5x to 2x)</td>
+</tr>
+<tr>
+<td align="left"><strong>Call-Out Fee</strong></td>
+<td align="left">Typically none; cost is rolled into the estimate</td>
+<td align="left">Common; covers immediate crew dispatch</td>
+</tr>
+<tr>
+<td align="left"><strong>Safety</strong></td>
+<td align="left">Normal safety protocols</td>
+<td align="left">Enhanced safety measures for adverse weather</td>
+</tr>
+<tr>
+<td align="left"><strong>Materials</strong></td>
+<td align="left">Permanent materials sourced on a schedule</td>
+<td align="left">Immediate need for temporary materials (tarps, lumber)</td>
+</tr>
+<tr>
+<td align="left"><strong>Scope</strong></td>
+<td align="left">Comprehensive, permanent fix</td>
+<td align="left">Damage mitigation and temporary stabilization</td>
+</tr>
+</tbody></table>
+<p>The takeaway is simple: you&#39;re paying a premium for speed and immediate protection, which is a necessary investment to prevent much larger, more expensive problems down the road.</p>
+<h3>Navigating Your Insurance Claim</h3>
+<p>Your homeowner&#39;s insurance is designed for exactly these kinds of sudden, accidental events like storm damage. The secret to a smooth claims process is to act fast and document everything.</p>
+<p>As soon as your roofer has the temporary fix in place and your home is secure, call your insurance agent to open a claim.</p>
+<p>Give them all the documentation you’ve gathered:</p>
+<ul>
+<li><strong>Photos and Videos:</strong> Show the damage <em>before</em> any temporary repairs were made. This is critical.</li>
+<li><strong>Roofer&#39;s Report:</strong> The invoice and assessment from the emergency roofer prove you took responsible steps to prevent further damage.</li>
+<li><strong>Your Notes:</strong> Keep a simple timeline of when you found the damage and what you did.</li>
+</ul>
+<p>Your roofer is your best ally here. They can talk directly to the insurance adjuster, explaining in professional terms why the temporary fix was necessary and what permanent repairs are needed. For homeowners navigating this process, understanding the specifics of a professional <strong><a href="https://roofwithsunrise.com/roofing-services/roof-repair-tucson">roof repair in Tucson</a></strong> can give you real insight into what adjusters are looking for.</p>
+<p>By acting fast and partnering with a roofer you trust, you can manage the financial side of the crisis with confidence.</p>
+<h2>Moving from a Temporary Patch to a Permanent Solution</h2>
+<p>An emergency roof tarp is first aid, not surgery. Its only job is to stop the bleeding while you get a professional on the line. This is a critical distinction: a temporary patch is all about damage control, while a permanent repair is about restoring your roof’s integrity for the long haul.</p>
+<p>Think of it this way: the tarp is the bandage. The professional inspection that comes next is the doctor&#39;s appointment to figure out exactly how bad the injury is and what it will take to fix it right. This is when a real roofer can safely get up there, pull back the temporary cover, and see the full scope of the damage that was hidden from view.</p>
+<h3>The Professional Follow-Up Inspection</h3>
+<p>When a roofer shows up for the follow-up, they aren’t just looking at the obvious hole. They&#39;re hunting for all the collateral damage you can&#39;t see from the ground—the kind of stuff that turns a small leak into a major headache down the road.</p>
+<p>A thorough inspection will always check for:</p>
+<ul>
+<li><strong>Compromised Underlayment:</strong> That water-resistant barrier under your shingles? It could be torn, soaked, or completely worn out.</li>
+<li><strong>Damaged Decking:</strong> The wood sheathing that is the foundation of your roof system might be soft, rotten, or structurally weak from water exposure.</li>
+<li><strong>Hidden Shingle Damage:</strong> High winds don&#39;t always rip shingles off. Sometimes they just lift them enough to break the sealant, leaving them ready to leak in the next storm.</li>
+<li><strong>Flashing Issues:</strong> The metal strips around chimneys, vents, and in roof valleys are common failure points. A storm can easily bend them or pull them away from their seals.</li>
+</ul>
+<p>This is how you ensure the fix addresses the root cause, not just the symptom you can see.</p>
+<p>The infographic below breaks down the key financial steps you’ll navigate, from the emergency call to the final repair.</p>
+<p><figure class="wp-block-image size-large"><img src="https://cdn.outrank.so/7f001e09-cca9-4a5b-a631-db56e859b4dd/ac590fff-e5fa-4c5e-8843-fe5f1f849973.jpg" alt="Infographic about emergency roof repair near me" /></figure></p>
+<p>It shows how costs evolve, starting with the premium for an urgent response and moving toward the final investment in a permanent solution, which is often covered by an insurance claim.</p>
+<h3>From Proposal to Permanent Fix</h3>
+<p>After a detailed inspection, you&#39;ll get a proposal. This isn&#39;t just a number on a piece of paper; it should clearly spell out the necessary repairs, the exact materials they plan to use, and a line-by-line cost breakdown. It might suggest a targeted repair for one small area or, if the damage is widespread or the roof is old, it might recommend a full replacement. For anyone facing that choice, understanding what goes into installing a <strong><a href="https://roofwithsunrise.com/roofing-services/new-roof-tucson">new roof in Tucson</a></strong> can provide some much-needed context.</p>
+<blockquote>
+<p>A quality proposal is a roadmap. It should leave you with zero questions about the scope of work, the timeline, or the final cost. It&#39;s your tool for making an informed, pressure-free decision.</p>
+</blockquote>
+<p>Once you give the green light, scheduling is the last piece of the puzzle. A good roofing crew will work with you to find a clear weather window to get the permanent fix done right, finally giving you back the peace of mind that your home is safe and sound. Just make sure the final contract includes clear warranties for both the materials used and the labor performed.</p>
+<h2>Common Questions About Emergency Roof Repair</h2>
+<p>When your roof fails unexpectedly, the questions hitting your mind can feel as overwhelming as the water coming into your house. Getting straight answers is the first step toward getting things under control. We’ve pulled together the most common questions we hear from homeowners frantically searching for &quot;emergency roof repair near me&quot; to give you clarity, right now.</p>
+<p>This isn&#39;t just about a quick patch. It&#39;s about making smart decisions when you&#39;re under serious pressure. Knowing what to expect helps you navigate the chaos with a bit more confidence.</p>
+<h3>How Can I Tell If My Roof Damage Is a True Emergency?</h3>
+<p>A true roof emergency is any damage that poses an immediate threat to your home’s structure or your family&#39;s safety. This isn&#39;t about a few missing shingles you spot after a windy day; it’s about active, ongoing damage that can&#39;t wait.</p>
+<p>You&#39;ve got a real emergency on your hands if you&#39;re dealing with:</p>
+<ul>
+<li><strong>Significant Water Intrusion:</strong> An active, steady leak that a few buckets just can&#39;t handle. If water is pouring in, it&#39;s an emergency.</li>
+<li><strong>Structural Damage:</strong> A tree branch has punched through your roof, or you can see the roofline or ceiling visibly sagging.</li>
+<li><strong>Widespread Shingle Loss:</strong> A huge section of your roof is suddenly gone after a major storm, leaving the underlayment exposed.</li>
+</ul>
+<p>If you&#39;re seeing minor drips or a small, contained ceiling stain, you can probably schedule a normal repair call. But if water is flooding in or the structure looks compromised, you need to call a professional immediately.</p>
+<h3>Will My Homeowners Insurance Cover an Emergency Repair?</h3>
+<p>In most situations, yes. Standard homeowners insurance policies are designed to cover damage from sudden, accidental events like storms, high winds, fire, or falling trees. This coverage almost always includes the cost of temporary, emergency repairs meant to stop further damage.</p>
+<blockquote>
+<p>Your policy actually requires you to take reasonable steps to mitigate further damage. Getting a pro to tarp your roof isn&#39;t just a smart move—it&#39;s often a requirement to keep your claim valid.</p>
+</blockquote>
+<p>What isn&#39;t covered is damage from neglect, like a slow leak you ignored for months that finally got worse. As soon as your home is safely secured, your next call should be to your insurance agent to get the claims process started.</p>
+<h3>How Much More Does an Emergency Service Cost?</h3>
+<p>Be prepared to pay a premium for emergency service. This isn&#39;t a roofer trying to gouge you; it reflects the real cost of getting a skilled crew out to your home after hours, often in dangerous weather. You can expect the cost to be <strong>1.5 to 2 times higher</strong> than a standard, scheduled repair.</p>
+<p>This premium covers a few key things:</p>
+<ul>
+<li><strong>After-Hours Labor:</strong> Technicians get paid more to work nights, weekends, or holidays.</li>
+<li><strong>Immediate Dispatch:</strong> There&#39;s a call-out fee to cover the logistics of scrambling a crew and loading up materials on a moment&#39;s notice.</li>
+<li><strong>Increased Risk:</strong> Working on a damaged, wet roof in the middle of a storm requires extra safety gear and precautions.</li>
+</ul>
+<p>While the bill is higher, it&#39;s a critical investment. That emergency tarp prevents thousands of dollars in further water damage to your home’s interior, framing, insulation, and even your foundation. An immediate response saves you a fortune in the long run.</p>
+<hr>
+<p>When a storm hits, you need a local crew you can trust to show up fast. <strong>Sunrise Roofers LLC</strong> provides prompt, professional emergency roof repair to secure your home and give you peace of mind. For immediate help in the Tucson area, contact us right away at <a href="https://roofwithsunrise.com">https://roofwithsunrise.com</a>.</p>
+
+
+                <hr style="margin: 50px 0; border: none; border-top: 2px solid #E8E8E8;">
+
+                <p style="font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 25px;">
+                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="tel:+15206686638" style="color: #F5A623; text-decoration: underline;">520-668-6638</a>. Related pages: <a href="/roofing-services/roof-repair-tucson" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roofing-services/new-roof-tucson" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/tucson-roofing-services" style="color: #F5A623; text-decoration: underline;">Service Areas</a>.
+                </p>
+
+                <!-- Author Bio -->
+                <div style="background: #fff; border: 2px solid #F5A623; border-radius: 8px; padding: 30px; margin: 50px 0;">
+                    <p style="font-size: 16px; line-height: 1.7; color: #666; text-align: center; margin: 0;">
+                        <strong style="color: #1A1A1A; font-size: 18px;">Published by Sunrise Roofers LLC</strong><br>
+                        Licensed & Insured Roofing Contractor · Tucson, AZ
+                    </p>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sunrise Roofers LLC</h3>
+                <p>Licensed, bonded, and insured roofing contractor serving Greater Tucson, Arizona.</p>
+                <p style="margin-top: 15px;"><a href="https://azroc.my.site.com/AZRoc/s/contractor-search?licenseId=a0ocs00000AArYMAA1" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;" title="Verify our license">ROC #358079</a></p>
+            </div>
+            <div class="footer-section footer-nav-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about-our-roofing-contractors-in-tucson">About</a></li>
+                    <li><a href="/roofing-services">Services</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Service Areas</h3>
+                <ul>
+                    <li>Tucson, AZ</li>
+                    <li>Oro Valley, AZ</li>
+                    <li>Catalina Foothills, AZ</li>
+                    <li>Vail, AZ</li>
+                    <li>Sahuarita, AZ</li>
+                    <li>Green Valley, AZ</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:520-668-6638">📞 520-668-6638</a></li>
+                    <li><a href="mailto:sunriseroofer@outlook.com">✉ sunriseroofer@outlook.com</a></li>
+                    <li>📍 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741</li>
+                    <li>🕒 Mon-Fri: 7AM-6PM</li>
+                    <li>🕒 Sat: 8AM-4PM</li>
+                    <li>🚨 Emergency Service Available</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="/" style="color: #D0D0D0; text-decoration: underline;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #D77A00; text-decoration: underline; font-weight: 600;">Pursuit Analytics</a></p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script defer src="../../js/main.min.js"></script>
+    
+    <!-- Analytics Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXS7NL5W52"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXS7NL5W52');
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "tqrdpuxath");
+    </script>
+</body>
+</html>
