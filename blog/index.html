@@ -221,6 +221,54 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://roofwithsunrise.com/blog">
     <meta property="og:image" content="https://roofwithsunrise.com/SunriseLogo.jpeg">
+    
+    <!-- Blog Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Sunrise Roofing Blog",
+      "description": "Plain-English roofing guides from Tucson's trusted contractor.",
+      "url": "https://roofwithsunrise.com/blog",
+      "publisher": {
+        "@type": "RoofingContractor",
+        "name": "Sunrise Roofers LLC",
+        "url": "https://roofwithsunrise.com",
+        "logo": "https://roofwithsunrise.com/SunriseLogo.jpeg",
+        "telephone": "+1-520-753-1758",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "7320 N La Cholla Blvd Ste 154-276",
+          "addressLocality": "Tucson",
+          "addressRegion": "AZ",
+          "postalCode": "85741",
+          "addressCountry": "US"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://roofwithsunrise.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://roofwithsunrise.com/blog"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Inline SVG Icon Sprites -->
