@@ -1,6 +1,12 @@
 // Vercel Serverless Function - Blog Webhook for outrank.so
 // This endpoint receives blog posts from outrank.so and automatically publishes them
 
+import {
+  PHONE_DISPLAY,
+  PHONE_TEL_E164,
+  PHONE_TEL_HYPHENATED
+} from '../config/site.js';
+
 // Validate Bearer token
 function validateAccessToken(req) {
   const ACCESS_TOKEN = process.env.OUTRANK_ACCESS_TOKEN;
@@ -341,7 +347,7 @@ function generateBlogPostHTML(article) {
     <header class="site-header">
         <div class="top-bar">
             <div class="top-bar-container">
-                <a href="tel:520-753-1758" class="top-contact">&#128222; 520-753-1758</a>
+                <a href="${PHONE_TEL_HYPHENATED}" class="top-contact">&#128222; ${PHONE_DISPLAY}</a>
                 <a href="mailto:sunriseroofer@outlook.com" class="top-contact">&#9993; sunriseroofer@outlook.com</a>
                 <span class="top-hours">&#128337; Mon-Fri: 7AM-6PM, Sat 8AM-4PM</span>
                 <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener noreferrer" class="top-social" aria-label="Visit our Facebook page">
@@ -448,7 +454,7 @@ function generateBlogPostHTML(article) {
                 <hr style="margin: 50px 0; border: none; border-top: 2px solid #E8E8E8;">
 
                 <p style="font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 25px;">
-                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="tel:+15206686638" style="color: #F5A623; text-decoration: underline;">520-753-1758</a>. Related pages: <a href="/roofing-services/roof-repair-tucson" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roofing-services/new-roof-tucson" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/tucson-roofing-services" style="color: #F5A623; text-decoration: underline;">Service Areas</a>.
+                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="${PHONE_TEL_E164}" style="color: #F5A623; text-decoration: underline;">${PHONE_DISPLAY}</a>. Related pages: <a href="/roofing-services/roof-repair-tucson" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roofing-services/new-roof-tucson" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/tucson-roofing-services" style="color: #F5A623; text-decoration: underline;">Service Areas</a>.
                 </p>
 
                 <!-- Author Bio -->
@@ -496,7 +502,7 @@ function generateBlogPostHTML(article) {
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:520-753-1758">📞 520-753-1758</a></li>
+                    <li><a href="${PHONE_TEL_HYPHENATED}">📞 ${PHONE_DISPLAY}</a></li>
                     <li><a href="mailto:sunriseroofer@outlook.com">✉ sunriseroofer@outlook.com</a></li>
                     <li>📍 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741</li>
                     <li>🕒 Mon-Fri: 7AM-6PM</li>
