@@ -424,11 +424,11 @@
             </div>
             
             <!-- Contact Form Card -->
-            <div id="contact-form" style="background: white; padding: 35px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+            <div id="contact-form-section" style="background: white; padding: 35px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
                 <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #1A1A1A; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; text-align: center;">
                     Schedule Your Free Roof Inspection
                 </h3>
-                <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
                     <!-- Web3Forms Access Key -->
                     <input type="hidden" name="access_key" value="bb31a1fd-2cf0-4ea5-8920-18cad8059ed4">
                     
@@ -1181,6 +1181,14 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "tqrdpuxath");
     </script>
+
+<!-- Pursuit Scoreboard — lead attribution (UTM capture + form ingest) -->
+<script
+  src="https://pursuit-scoreboard.vercel.app/embed/pursuit-form.js"
+  data-client-id="f09805f7-0a7b-43ce-a3be-8e441d1afc70"
+  data-endpoint="https://pursuit-scoreboard.vercel.app/api/public/ingest/form"
+  data-form="#contact-form"
+  defer></script>
 </body>
 </html>
 
