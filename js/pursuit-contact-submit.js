@@ -44,6 +44,12 @@
         });
         var result = await w3.json();
         if (result.success) {
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", {
+              form_id: "contact-form",
+              page_location: window.location.href,
+            });
+          }
           form.reset();
           if (successEl) {
             successEl.style.display = "block";
