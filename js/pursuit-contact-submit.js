@@ -1,6 +1,6 @@
 /**
  * Sunrise Roofers — contact form: Pursuit attribution + Web3Forms.
- * Requires pursuit-form.js loaded first (PursuitAttribution global).
+ * Requires pursuit-form.js from Pursuit Scoreboard (PursuitAttribution global).
  */
 (function () {
   function init() {
