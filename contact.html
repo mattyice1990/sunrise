@@ -1057,18 +1057,7 @@
             if (mobileToggle) { mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); }); }
             document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', function() { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
             
-            // Contact Form Handling - Simple natural submission (no AJAX to avoid CORS)
-            const contactForm = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    // Let form submit naturally - will redirect to thank-you.html
-                    submitBtn.textContent = 'Sending...';
-                    submitBtn.disabled = true;
-                    // Form submits normally (no preventDefault) - no CORS issues!
-                });
-            }
+            // Contact form: Pursuit attribution + Web3Forms (see js/pursuit-contact-submit.js)
         });
     </script>
     
@@ -1093,13 +1082,14 @@
 
 <!-- CallRail Dynamic Number Insertion -->
 <script type="text/javascript" src="//cdn.callrail.com/companies/581513526/ca0b5897d5451d9450b8/12/swap.js"></script>
-<!-- Pursuit Scoreboard — lead attribution (UTM capture + form ingest) -->
+<!-- Pursuit Scoreboard — first-touch attribution (site-wide) -->
 <script
   src="https://pursuit-scoreboard.vercel.app/embed/pursuit-form.js"
   data-client-id="f09805f7-0a7b-43ce-a3be-8e441d1afc70"
   data-endpoint="https://pursuit-scoreboard.vercel.app/api/public/ingest/form"
-  data-form="#contact-form"
+  data-auto-bind="false"
   defer></script>
+<script src="/js/pursuit-contact-submit.js" defer></script>
 </body>
 </html>
 
