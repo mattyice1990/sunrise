@@ -116,7 +116,7 @@ Ensure the homepage org schema has `"@id": "https://roofwithsunrise.com/#organiz
 2. Outline (~800 words): why foam suits Tucson flat roofs (R-value, seamless, reflective) → installation → repair & maintenance → recoating schedule (every 5–10 yrs) → cost factors → FAQ.
 3. **Critical internal link:** add a prominent CTA block inside `/blog/foam-roof-repair` (top third of the post): "Need foam roof repair in Tucson? We're local, licensed (ROC #358079), and offer free inspections → [Tucson Foam Roofing Services]". Also link from `/roofing-services/flat-roof-coating-tucson` and the services hub.
 4. Service + FAQ schema as above.
-### TASK-009: Refresh & defend the foam roof repair blog post
+### TASK-009: Refresh & defend the foam roof repair blog post ✅ DONE [2026-06-10]
 **File:** `/blog/foam-roof-repair` (drives ~93% of current organic traffic — protect it)
 **Implementation:**
 1. Update the visible published/updated date and `dateModified` in Article schema to current.
