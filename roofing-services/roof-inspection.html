@@ -384,6 +384,7 @@
     {
       "@context": "https://schema.org",
       "@type": ["Organization","RoofingContractor","LocalBusiness"],
+      "@id": "https://roofwithsunrise.com/#organization",
       "name": "Sunrise Roofers LLC",
       "url": "https://roofwithsunrise.com",
       "logo": "https://roofwithsunrise.com/SunriseLogo.jpeg",
@@ -409,6 +410,36 @@
         "https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900"
       ],
       "areaServed": ["Tucson AZ","Oro Valley AZ","Marana AZ","Vail AZ","Sahuarita AZ","Green Valley AZ","Catalina Foothills AZ"]
+    }
+    </script>
+    
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Roof Inspection",
+      "name": "Roof Inspection in Tucson, AZ",
+      "description": "Free, photo-documented roof inspections in Tucson, AZ with a written report and honest next steps.",
+      "url": "https://roofwithsunrise.com/roofing-services/roof-inspection",
+      "provider": {
+        "@type": "RoofingContractor",
+        "name": "Sunrise Roofers LLC",
+        "@id": "https://roofwithsunrise.com/#organization"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Tucson"},
+        {"@type": "City", "name": "Oro Valley"},
+        {"@type": "City", "name": "Marana"},
+        {"@type": "City", "name": "Catalina Foothills"},
+        {"@type": "City", "name": "Sahuarita"},
+        {"@type": "City", "name": "Green Valley"},
+        {"@type": "City", "name": "Vail"}
+      ],
+      "offers": {
+        "@type": "Offer",
+        "description": "Free inspection and line-item estimate"
+      }
     }
     </script>
     

@@ -69,7 +69,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 4. Add to Services dropdown nav, footer services list, `/roofing-services` hub, and sitemap.
 5. Service JSON-LD (see TASK-006 template) + FAQ schema (response time, after-hours availability, tarping cost, insurance).
 **Acceptance criteria:** Page live, in nav + sitemap, schema validates, linked from ≥3 pages.
-### TASK-006: Add Service schema to all 8 service pages
+### TASK-006: Add Service schema to all 8 service pages ✅ DONE [2026-06-10]
 **Files:** every page under `/roofing-services/` + `/residential-roofing-tucson`
 **Template (adapt `name`, `description`, `url` per page):**
 

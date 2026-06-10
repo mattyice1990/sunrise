@@ -36,6 +36,7 @@
     {
       "@context": "https://schema.org",
       "@type": ["Organization","RoofingContractor","LocalBusiness"],
+      "@id": "https://roofwithsunrise.com/#organization",
       "name": "Sunrise Roofers LLC",
       "url": "https://roofwithsunrise.com",
       "logo": "https://roofwithsunrise.com/SunriseLogo.jpeg",
@@ -79,28 +80,32 @@
     </script>
     
     <!-- Schema Markup -->
-    <script type="application/ld+json">
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
       "serviceType": "Roof Replacement",
+      "name": "Roof Replacement in Tucson, AZ",
+      "description": "Full roof replacement in Tucson for tile, shingle, metal, and flat roofing systems, installed to manufacturer specifications.",
+      "url": "https://roofwithsunrise.com/roofing-services/new-roof-tucson",
       "provider": {
         "@type": "RoofingContractor",
         "name": "Sunrise Roofers LLC",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "7320 N La Cholla Blvd Ste 154-276",
-          "addressLocality": "Tucson",
-          "addressRegion": "AZ",
-          "postalCode": "85741",
-          "addressCountry": "US"
-        },
-        "telephone": "520-753-1758",
-        "email": "sunriseroofer@outlook.com",
-        "priceRange": "$$",
-        "areaServed": ["Tucson", "Phoenix", "Oro Valley", "Scottsdale", "Mesa", "Chandler", "Arizona"]
+        "@id": "https://roofwithsunrise.com/#organization"
       },
-      "description": "Professional roof replacement services in Arizona, including tile, shingle, and flat roofing systems"
+      "areaServed": [
+        {"@type": "City", "name": "Tucson"},
+        {"@type": "City", "name": "Oro Valley"},
+        {"@type": "City", "name": "Marana"},
+        {"@type": "City", "name": "Catalina Foothills"},
+        {"@type": "City", "name": "Sahuarita"},
+        {"@type": "City", "name": "Green Valley"},
+        {"@type": "City", "name": "Vail"}
+      ],
+      "offers": {
+        "@type": "Offer",
+        "description": "Free inspection and line-item estimate"
+      }
     }
     </script>
     
