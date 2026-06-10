@@ -126,7 +126,7 @@ Ensure the homepage org schema has `"@id": "https://roofwithsunrise.com/#organiz
 5. Verify Article schema includes `author` (Eddie Guillen, with link to About page) — named authorship is an E-E-A-T/GEO signal.
 ---
 ## P3 — Content Cluster & Coverage (this quarter)
-### TASK-010: Cost-guide blog cluster (3 posts, publish in this order)
+### TASK-010: Cost-guide blog cluster (3 posts, publish in this order) ✅ DONE [2026-06-10]
 All posts: Article + FAQ schema, named author Eddie Guillen, cost tables with AZ-specific ranges, conservative disclaimers, CTA to the matching service page, 1,200–1,800 words, interlinked with each other.
 | # | URL slug | Target keyword | Vol | KD | Links to service page |
 |---|----------|----------------|-----|-----|----------------------|
