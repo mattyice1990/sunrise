@@ -90,7 +90,20 @@
         },
         "image": "https://roofwithsunrise.com/images/SunriseLogo.jpeg",
         "priceRange": "$$$$",
-        "openingHours": "Mo-Fr 07:00-18:00, Sa 08:00-16:00",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "16:00"
+          }
+        ],
         "url": "https://roofwithsunrise.com",
         "aggregateRating": {
           "@type": "AggregateRating",

@@ -27,7 +27,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
    - **5.0★ on Google** — link to the existing Google Maps CID URL already in the footer
    - **Family-Owned, 20+ Years of Roofing Expertise** — link to `/why-choose-sunrise-roofers-in-tucson`
 **Acceptance criteria:** `curl -s https://roofwithsunrise.com/ | grep -i "best of tucson\|homeadvisor\|angie\|customer choice\|award-winning"` returns nothing; no `display:none` sections containing marketing claims remain anywhere; no visible page states a BBB letter grade.
-### TASK-002: Hours consistency audit + schema
+### TASK-002: Hours consistency audit + schema ✅ DONE [2026-06-10]
 **File(s):** all templates rendering hours (header bar, footer, contact page), homepage JSON-LD
 **Implementation:**
 1. Grep the codebase for every hours mention; normalize to the canonical hours above.
