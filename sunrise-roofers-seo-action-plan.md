@@ -134,7 +134,7 @@ All posts: Article + FAQ schema, named author Eddie Guillen, cost tables with AZ
 | 2 | `/blog/tile-roof-underlayment-replacement-cost` | tile roof underlayment replacement cost | 100 | 0 | concrete-tile-roof-replacement + tile-roof-repair-tucson |
 | 3 | `/blog/shingle-roof-replacement-cost` | shingle roof replacement cost | 350 | 12 (TP 52,000) | shingle-roof-replacement-tucson |
 Structure each as: quick-answer cost range in the first 100 words (AI Overview bait) → cost table by material/size → factors that change price → Arizona-specific considerations (heat, monsoon, HOA) → repair vs replace → FAQ → CTA.
-### TASK-011: City pages for Vail and Rita Ranch
+### TASK-011: City pages for Vail and Rita Ranch ✅ DONE [2026-06-10]
 **New URLs:** `/vail-roofing`, `/rita-ranch-roofing` (match existing city-page slug pattern)
 Both communities are named on the homepage but have no pages. Clone the structure of `/sahuarita-roofing`, write unique localized content (neighborhoods, common roof types in those areas, distance/response time), add to Service Areas nav dropdown, footer, homepage communities list (link the plain-text mentions), sitemap, and each page's Service schema `areaServed`.
 ### TASK-012: Internal linking pass
