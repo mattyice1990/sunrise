@@ -10,9 +10,9 @@
     
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">    <meta name="mobile-web-app-capable" content="yes">    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="description" content="Metal roofing Tucson: standing seam &amp; metal panel systems that last 50–70 years, withstand 140+ mph winds, and cut cooling costs 15–30%. Free estimate.">
-    <meta name="keywords" content="metal roofing tucson, metal roof installation, standing seam metal roof, energy efficient roofing">
-    <title>Metal Roofing Tucson AZ | Sunrise Roofers LLC</title>
+    <meta name="description" content="Tile roof repair in Tucson, AZ — cracked &amp; slipped tiles, flashing leaks, and underlayment renewal by licensed roofers (ROC #358079). Free estimate. Call (520) 753-1758.">
+    <meta name="keywords" content="tile roof tucson, concrete tile roofing, clay tile roof, tile roof replacement">
+    <title>Tile Roof Repair in Tucson, AZ | Sunrise Roofers LLC</title>
     
     <!-- Google Fonts -->
     <!-- Google Fonts - Deferred for mobile performance -->
@@ -24,11 +24,11 @@
     <!-- Font Awesome -->
     <!-- Font Awesome removed for performance - using inline SVG icons instead -->    <noscript><!-- Font Awesome removed for performance - using inline SVG icons instead --></noscript>
     
-    <link rel="canonical" href="https://roofwithsunrise.com/roofing-services/metal-roofing-tucson">
+    <link rel="canonical" href="https://roofwithsunrise.com/roofing-services/tile-roof-repair-tucson">
     
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Metal Roofing Tucson AZ | Energy-Efficient Metal Roofs">
-    <meta property="og:description" content="Expert metal roofing installation in Tucson. Energy-efficient, durable metal roofs.">
+    <meta property="og:title" content="Tile Roof Repair in Tucson, AZ | Sunrise Roofers LLC">
+    <meta property="og:description" content="Cracked or slipped tiles? Leaky tile roof? We repair concrete, clay & sandcast tile roofs in Tucson. Free inspection & estimate.">
     <meta property="og:type" content="website">
     
     <!-- Organization Schema -->
@@ -61,19 +61,33 @@
         "https://www.yelp.com/biz/sunrise-roofers-tucson",
         "https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900"
       ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
       "areaServed": ["Tucson AZ","Oro Valley AZ","Marana AZ","Vail AZ","Sahuarita AZ","Green Valley AZ","Catalina Foothills AZ"]
     }
     </script>
     
-    <!-- Complete Service Schema with All Required Fields -->
+    <!-- Schema Markup -->
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Metal Roofing Installation",
-      "name": "Metal Roofing in Tucson, AZ",
-      "description": "Energy-efficient metal roofing installation in Tucson, including standing-seam systems rated for desert heat.",
-      "url": "https://roofwithsunrise.com/roofing-services/metal-roofing-tucson",
+      "serviceType": "Tile Roof Repair",
+      "name": "Tile Roof Repair in Tucson, AZ",
+      "description": "Tile roof repair in Tucson for cracked, slipped, and broken concrete, clay, and sandcast tiles, plus flashing leaks and underlayment renewal.",
+      "url": "https://roofwithsunrise.com/roofing-services/tile-roof-repair-tucson",
       "provider": {
         "@type": "RoofingContractor",
         "name": "Sunrise Roofers LLC",
@@ -116,8 +130,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Metal Roofing",
-          "item": "https://roofwithsunrise.com/roofing-services/metal-roofing-tucson"
+          "name": "Tile Roof Repair Tucson",
+          "item": "https://roofwithsunrise.com/roofing-services/tile-roof-repair-tucson"
         }
       ]
     }
@@ -279,6 +293,12 @@
             margin: 0 auto;
         }
         
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #1A1A1A;
+        }
+        
         h2 {
             font-size: 36px;
             margin-bottom: 25px;
@@ -298,23 +318,47 @@
             line-height: 1.8;
         }
         
-        ul {
-            margin-bottom: 20px;
-            margin-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 10px;
-            line-height: 1.8;
-        }
-        
         .bg-light {
             background-color: #F5F5F5;
         }
         
-        /* Background Image Section - Metal Roofing */
-        .metal-options-bg {
-            background-image: url('./images/Standing Seam Metal Roofs.jpg') !important;
+        /* Tile Types Grid */
+        .tile-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tile-card {
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .tile-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tile-card h3 {
+            color: #1A1A1A;
+            margin-top: 0;
+        }
+        
+        .tile-card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        
+        .tile-card li {
+            margin-bottom: 10px;
+        }
+        
+        /* Background Image Section - Concrete Tile */
+        .tile-types-bg {
+            background-image: url('./images/Concrete Tile Install Tucson AZ.jpeg') !important;
             background-size: cover !important;
             background-position: center !important;
             background-attachment: fixed !important;
@@ -322,35 +366,89 @@
             position: relative;
             overflow: hidden;
         }
-        .metal-options-bg::before {
+        .tile-types-bg::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to right, rgba(245, 166, 35, 0.88) 0%, rgba(26, 26, 26, 0.92) 100%);
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.92) 0%, rgba(74, 74, 74, 0.88) 100%);
             z-index: 1;
         }
-        .metal-options-bg .container {
+        .tile-types-bg .container {
             position: relative;
             z-index: 2;
         }
-        .metal-options-bg h2, .metal-options-bg > .container > p {
+        .tile-types-bg h2, .tile-types-bg > .container > p {
             color: #FFFFFF;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
-        .metal-options-bg .tabs-container {
+        .tile-types-bg .tabs-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 8px;
         }
-        .metal-options-bg .tab-content h3, .metal-options-bg .tab-content p, .metal-options-bg .tab-content ul {
+        .tile-types-bg .tab-content h3, .tile-types-bg .tab-content p, .tile-types-bg .tab-content ul {
             color: #1A1A1A;
         }
-        .metal-options-bg strong {
+        .tile-types-bg strong {
             color: #D77A00;
+        }
+        
+        /* Process Timeline */
+        .process-timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-step {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #F5A623;
+        }
+        
+        .timeline-step h3 {
+            margin-top: 0;
+            color: #1A1A1A;
+        }
+        
+        .step-number {
+            background-color: #D77A00;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        /* Cost Factors */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .cost-factor {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .cost-factor h3 {
+            margin-top: 0;
+            font-size: 20px;
         }
         
         /* Benefits Grid */
@@ -379,66 +477,8 @@
             font-size: 20px;
         }
         
-        /* Metal Types Grid */
-        .metal-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .metal-card {
-            background: white;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .metal-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .metal-card h3 {
-            color: #1A1A1A;
-            margin-top: 0;
-        }
-        
-        /* Process Steps */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .step {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
-        
-        .step-number {
-            background-color: #D77A00;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        
-        .step h3 {
-            margin-top: 0;
-        }
-        
-        /* Comparison Table */
-        .comparison {
+        /* Warning Signs */
+        .warning-list {
             background: white;
             padding: 40px;
             border-radius: 10px;
@@ -446,26 +486,20 @@
             margin-top: 30px;
         }
         
-        .comparison table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .warning-list ul {
+            list-style: none;
+            padding: 0;
         }
         
-        .comparison th, .comparison td {
+        .warning-list li {
             padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #E0E0E0;
+            border-left: 4px solid #F5A623;
+            margin-bottom: 15px;
+            background: #F5F5F5;
         }
         
-        .comparison th {
-            background-color: #1A1A1A;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .comparison tr:hover {
-            background-color: #F5F5F5;
+        .warning-list li strong {
+            color: #1A1A1A;
         }
         
         /* FAQ Section */
@@ -520,20 +554,28 @@
             margin-bottom: 30px;
         }
         
-        /* Service Areas */
-        .service-areas {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
+        /* Related Services */
+        .related-services {
+            background: #1A1A1A;
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            margin-top: 40px;
         }
         
-        .area-tag {
-            background-color: #1A1A1A;
+        .related-services h3 {
+            color: #D77A00;
+            margin-top: 0;
+        }
+        
+        .related-services a {
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        .related-services a:hover {
+            color: #D77A00;
         }
         
         /* Footer */
@@ -698,7 +740,7 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .metal-options-bg {background-attachment: scroll;}
+            .tile-types-bg {background-attachment: scroll;}
             .logo img {
                 height: 60px;
             }
@@ -718,10 +760,6 @@
             
             h2 {
                 font-size: 28px;
-            }
-            
-            .comparison table {
-                font-size: 14px;
             }
         }
         
@@ -793,6 +831,83 @@
         }
         
         .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* ============================================ */
+        /* INTERACTIVE COMPONENTS - COLLAPSIBLE LISTS */
+        /* ============================================ */
+        .collapsible-container {
+            margin: 20px 0;
+        }
+
+        .collapsible-item {
+            border-left: 4px solid #F5A623;
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .collapsible-header {
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background: #fef3e2;
+        }
+
+        .collapsible-icon {
+            min-width: 24px;
+            height: 24px;
+            background: #D77A00;
+            color: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+
+        .collapsible-item.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-title {
+            font-weight: 600;
+            color: #1A1A1A;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: #fafafa;
+        }
+
+        .collapsible-item.active .collapsible-content {
+            max-height: 800px;
+            padding: 20px;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .collapsible-content p {
+            color: #6B6B6B;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .collapsible-content p:last-child {
             margin-bottom: 0;
         }
         
@@ -1000,8 +1115,12 @@
                 font-size: 18px;
             }
             
-            .faq-question {
+            .faq-question, .collapsible-header {
                 padding: 15px;
+                font-size: 14px;
+            }
+            
+            .collapsible-title {
                 font-size: 14px;
             }
             
@@ -1009,7 +1128,7 @@
                 font-size: 16px;
             }
         }
-        /* NEW DROPDOWN NAVIGATION */
+        /* NEW DROPDOWN NAVIGATION SYSTEM */
         .top-bar {background: #F5F5F5; padding: 10px 0; font-size: 14px; border-bottom: 1px solid #E0E0E0;}
         .top-bar-container {
             max-width: 1200px;
@@ -1092,7 +1211,8 @@
         .nav-container {max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: relative;}
         .logo {display: flex; align-items: center; text-decoration: none; margin-right: auto;}
         .logo img {height: 80px; width: auto; display: block;}
-        .logo-sunrise {color: #1A1A1A;} .logo-roofers {color: #D77A00;}
+        .logo-sunrise {color: #1A1A1A;}
+        .logo-roofers {color: #D77A00;}
         .nav-links {display: flex; gap: 25px; list-style: none; align-items: center; margin: 0; padding: 0;}
         .nav-links > li > a {font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; color: #1A1A1A; transition: color 0.3s ease; padding: 10px 5px; display: block;}
         .nav-links > li > a:hover {color: #D77A00;}
@@ -1116,13 +1236,17 @@
         .cta-button:hover {background: #E89510 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(245, 166, 35, 0.4);}
         .mobile-menu-toggle {display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 5px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1001;}
         .mobile-menu-toggle span {width: 25px; height: 3px; background: #1A1A1A; transition: all 0.3s; border-radius: 2px;}
-        @media (max-width: 1024px) { .nav-links {gap: 15px;} .nav-links > li > a, .dropdown-toggle {font-size: 14px;} }
+        @media (max-width: 1024px) {
+            .nav-links {gap: 15px;} .nav-links > li > a, .dropdown-toggle {font-size: 14px;}
+        }
         @media (max-width: 768px) {
             .top-bar-container {justify-content: center; gap: 15px; font-size: 12px;}
             .logo img {height: 60px;}
             .mobile-menu-toggle {display: flex;}
             .nav-links {position: fixed; top: 130px; left: 0; width: 100%; max-height: 0; background: white; flex-direction: column; gap: 0; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: max-height 0.3s ease; overflow: hidden; z-index: 999;}
-            .nav-links.active {max-height: calc(100vh - 130px); overflow-y: auto;} .nav-links > li {width: 100%; border-bottom: 1px solid #E0E0E0;}
+            .nav-links.active {max-height: calc(100vh - 130px); overflow-y: auto;}
+            .nav-links > li {width: 100%; border-bottom: 1px solid #E0E0E0;}
+            
             .dropdown {flex-direction: column; align-items: stretch;}
             
             .dropdown-header {display: flex; flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; cursor: pointer; padding: 0; gap: 0;}
@@ -1144,37 +1268,6 @@
             .cta-button {margin: 10px 20px; text-align: center;}
         }
     </style>
-
-    <!-- Review Schema for Google Business Profile -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "LocalBusiness",
-        "name": "Sunrise Roofers LLC",
-        "description": "Professional metal roofing installation in Tucson, Arizona",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "7320 N La Cholla Blvd Ste 154-276",
-          "addressLocality": "Tucson",
-          "addressRegion": "AZ",
-          "postalCode": "85741",
-          "addressCountry": "US"
-        }
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Google Reviews"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "Professional metal roofing services in Tucson"
-    }
-    </script>
 <!-- SEO: FAQ & expandable content rendered open by default (no click-to-expand) -->
 <style>
     .faq-answer { max-height: none !important; overflow: visible !important; padding: 20px !important; }
@@ -1289,513 +1382,217 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Metal Roofing in Tucson</h1>
-            <p><strong>Energy-Efficient Metal Roofs Built to Last 50+ Years</strong></p>
-            <p>Discover why metal roofing in Tucson is the smart choice for energy savings, durability, and longevity. For Tucson metal roofing that performs in extreme heat, trust <a href="/" style="color: white; text-decoration: underline;">Sunrise Roofers LLC</a>—we install premium metal roofing systems designed specifically for Arizona's desert climate. Reduce cooling costs, protect your home for decades, and enjoy worry-free performance with professional metal roofing in Tucson AZ.</p>
-            
+            <h1>Tile Roof Repair in Tucson</h1>
+            <p>Cracked, slipped, or broken tiles? A leak under a sound-looking tile roof? Sunrise Roofers LLC repairs concrete, clay, and sandcast tile roofs across Greater Tucson &mdash; matching your existing tile, fixing flashing, and renewing worn underlayment. Licensed roofers (ROC #358079), free inspections, and a no-commission, line-item estimate.</p>
+
             <div class="trust-signals">
                 <div class="trust-signal">
-                    <strong>50+ Years</strong>
-                    <span>Lifespan</span>
+                    <strong>Tile Specialists</strong>
+                    <span>Concrete, Clay &amp; Sandcast</span>
+                </div>
+                <div class="trust-signal">
+                    <strong>Free</strong>
+                    <span>Inspection &amp; Estimate</span>
                 </div>
                 <div class="trust-signal">
                     <strong>Licensed</strong>
-                    <span>Metal Roofing Specialists</span>
+                    <span>ROC #358079</span>
                 </div>
             </div>
-            
+
             <div class="cta-buttons">
-                <a href="/contact" class="btn btn-primary">Get Free Estimate</a>
+                <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
                 <a href="tel:520-753-1758" class="btn btn-secondary">Call (520) 753-1758</a>
             </div>
         </div>
     </section>
 
-    <!-- Table of Contents -->
-    <div class="container">
-        <div class="table-of-contents">
-            <h2 class="toc-title">On This Page:</h2>
-            <nav class="toc-links">
-                <a href="#best-roofing-choice" class="toc-link">Best Roofing for Tucson</a>
-                <a href="#metal-roofing-options" class="toc-link">Metal Roofing Options</a>
-                <a href="#installation-process" class="toc-link">Installation Process</a>
-                <a href="#energy-efficiency" class="toc-link">Energy Efficiency</a>
-                <a href="#metal-vs-comparison" class="toc-link">Metal vs Tile vs Shingle</a>
-                <a href="#colors-finishes" class="toc-link">Colors & Finishes</a>
-                <a href="#service-areas" class="toc-link">Service Areas</a>
-                <a href="#faqs" class="toc-link">FAQs</a>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Why Metal for Tucson -->
-    <section>
-        <div class="container">
-            <h2 id="best-roofing-choice">The Best Roofing Choice for Tucson's Desert Climate</h2>
-            <p>Metal roofing in Tucson offers unmatched benefits specifically suited to Arizona's extreme environment. As experienced metal roofing contractors serving Southern Arizona, we've seen firsthand how metal roofs outperform traditional materials in our harsh desert conditions.</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>Reflects Solar Heat</h3>
-                    <p>Metal roofing reflects up to 70% of solar heat, reducing cooling costs by 15-30% in Tucson's intense summer heat.</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>Withstands UV Exposure</h3>
-                    <p>Unlike shingles that deteriorate under UV rays, metal roofs resist Arizona's intense sun exposure without degrading.</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>Monsoon-Resistant</h3>
-                    <p>Metal roofing in Tucson AZ withstands monsoon season high winds (rated 140+ mph) and heavy rainfall.</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>50+ Year Lifespan</h3>
-                    <p>Metal roofs last 50-70 years in Tucson—2-3 times longer than shingles. Install once and you're done.</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>Fire-Resistant</h3>
-                    <p>Class A fire rating provides maximum protection. Non-combustible metal roofing is ideal for fire-prone desert areas.</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>Environmentally Friendly</h3>
-                    <p>Metal roofs are 100% recyclable, reducing landfill waste. Most contain 25-95% recycled content.</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>Low Maintenance</h3>
-                    <p>Metal roofing requires minimal maintenance. No deteriorating <a href="/roofing-services/shingle-roof-replacement-tucson" style="color: #D77A00; text-decoration: underline;">shingles</a>, no frequent <a href="/roofing-services/roof-repair-tucson" style="color: #D77A00; text-decoration: underline;">repairs</a>—just long-lasting protection.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top: 40px; font-size: 18px;">When you calculate the lifecycle cost of metal roofing in <a href="/tucson-roofing-services" style="color: #D77A00; text-decoration: underline;">Tucson</a> versus replacing <a href="/roofing-services/shingle-roof-replacement-tucson" style="color: #D77A00; text-decoration: underline;">shingles</a> every 20 years, metal roofs provide superior value. Add energy savings, minimal maintenance, and increased home value, and metal roofing becomes an excellent investment for <a href="/tucson-roofing-services" style="color: #D77A00; text-decoration: underline;">Tucson</a> homeowners.</p>
+    <!-- Why tile roofs fail -->
+    <section style="background: #ffffff; padding: 70px 20px;">
+        <div class="container" style="max-width: 1000px;">
+            <h2>Why Tile Roofs Fail in Tucson</h2>
+            <p>Tile roofs are built to last in the desert &mdash; the tiles themselves can survive 50 years or more. But that doesn't mean they never leak. In Tucson, tile roofs almost always fail for one of three reasons, and all three are repairable without tearing off the whole roof:</p>
+            <ul style="font-size: 17px; line-height: 1.9;">
+                <li><strong>UV-degraded underlayment.</strong> The waterproofing layer is the felt or synthetic underlayment <em>beneath</em> the tiles, not the tiles themselves. Arizona's relentless sun and 115&deg;F-plus attic temperatures dry it out and crack it, usually in 20&ndash;30 years &mdash; long before the tiles wear out. When water shows up under tiles that look perfectly fine, the underlayment is almost always the culprit.</li>
+                <li><strong>Monsoon wind lift &amp; broken tiles.</strong> Summer monsoon winds lift, slip, and shatter tiles, and wind-driven rain finds its way under displaced pieces and through failed flashing around vents, valleys, and walls.</li>
+                <li><strong>Foot-traffic cracks.</strong> Tiles crack when they're walked on wrong &mdash; by a satellite installer, an HVAC tech, or a well-meaning homeowner. A single cracked tile can let water reach the underlayment and the deck below.</li>
+            </ul>
+            <p>The good news: each of these is a targeted repair, not a reason to replace the entire roof.</p>
         </div>
     </section>
 
-    <!-- Types of Metal Roofing -->
-    <section class="bg-light metal-options-bg">
-        <div class="container">
-            <h2 id="metal-roofing-options">Metal Roofing Options for Tucson Homes</h2>
-            <p>As metal roofing contractors, we install various metal roof systems to match your home's style, budget, and performance needs. Here are the most popular options for metal roofing in Tucson. Click each tab to explore:</p>
-            
-            <div class="tabs-container">
-                <div class="tabs-nav">
-                    <button class="tab-button active" data-tab="tab-standing-seam">Standing Seam</button>
-                    <button class="tab-button" data-tab="tab-corrugated">Corrugated Metal</button>
-                    <button class="tab-button" data-tab="tab-metal-panels">Metal Panels</button>
-                </div>
-                
-                <div id="tab-standing-seam" class="tab-content active">
-                    <h3>Standing Seam Metal Roofing</h3>
-                    <p><strong>Most Popular Metal Roofing Style</strong></p>
-                    <p>Standing seam metal roofing features vertical panels with raised seams that interlock. This is the premium choice for metal roofing in Tucson AZ.</p>
-                    <ul>
-                        <li><strong>Appearance:</strong> Clean, modern lines with concealed fasteners</li>
-                        <li><strong>Durability:</strong> Excellent weather resistance, no exposed fasteners to fail</li>
-                        <li><strong>Expansion:</strong> Panels designed to expand/contract with temperature changes</li>
-                        <li><strong>Lifespan:</strong> 50-70 years with minimal maintenance</li>
-                        <li><strong>Energy Efficiency:</strong> Highly reflective, reduces cooling costs significantly</li>
-                        <li><strong>Investment Level:</strong> Premium tier metal roofing option</li>
-                        <li><strong>Best For:</strong> Homeowners wanting premium performance and modern aesthetics</li>
-                    </ul>
-                    <p>Standing seam metal roofing is ideal for Tucson's climate because concealed fasteners eliminate leak points and panels handle thermal expansion beautifully.</p>
-                </div>
-                
-                <div id="tab-corrugated" class="tab-content">
-                    <h3>Corrugated Metal Roofing</h3>
-                    <p><strong>Cost-Effective & Very Durable</strong></p>
-                    <p>Corrugated metal features wavy panels providing strength and water drainage. Popular for agricultural and industrial applications, also residential.</p>
-                    <ul>
-                        <li><strong>Investment Level:</strong> Most affordable metal roofing option</li>
-                        <li><strong>Strength:</strong> Corrugations provide structural rigidity</li>
-                        <li><strong>Drainage:</strong> Excellent water shedding</li>
-                        <li><strong>Style:</strong> Rustic, industrial, or modern farmhouse aesthetic</li>
-                        <li><strong>Installation:</strong> Quick installation process</li>
-                        <li><strong>Durability:</strong> 40-60 year lifespan</li>
-                        <li><strong>Best For:</strong> Budget-conscious homeowners, modern/industrial designs</li>
-                    </ul>
-                    <p>Corrugated metal roofing in Tucson provides excellent value, especially for contemporary home designs or those seeking affordability.</p>
-                </div>
-                
-                <div id="tab-metal-panels" class="tab-content">
-                    <h3>Metal Panels</h3>
-                    <p><strong>Commercial & Residential Applications</strong></p>
-                    <p>Various panel profiles available for different applications. Common for commercial properties but increasingly popular residential option.</p>
-                    <ul>
-                        <li><strong>Profiles:</strong> R-panel, PBR panel, multiple rib options</li>
-                        <li><strong>Applications:</strong> Commercial buildings, residential, workshops</li>
-                        <li><strong>Installation:</strong> Fast installation, large coverage areas</li>
-                        <li><strong>Investment Level:</strong> Competitive pricing for commercial applications</li>
-                        <li><strong>Customization:</strong> Available in many colors and finishes</li>
-                        <li><strong>Performance:</strong> Excellent for Tucson's climate</li>
-                        <li><strong>Best For:</strong> Commercial properties, modern residential homes</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <p style="margin-top: 40px;">Our metal roofing contractors will help you select the perfect type of metal roofing in Tucson AZ for your home's architectural style, your budget, and performance requirements. We provide samples and detailed information about each option.</p>
-        </div>
-    </section>
-
-    <!-- Installation Process -->
-    <section>
-        <div class="container">
-            <h2 id="installation-process">Our Metal Roofing Installation Process</h2>
-            <p>Professional metal roof installation requires specialized knowledge and techniques. Here's our proven process for metal roofing in Tucson. Click each step to learn more:</p>
-            
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="process-number">1</div>
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-title">Consultation & Material Selection</div>
-                            <div class="process-toggle">▼</div>
-                        </div>
-                        <div class="process-details">
-                            <p>We evaluate your home and discuss metal roofing options. You'll see samples of different metal roofing types, learn about color choices and finishes, understand performance differences, and get honest guidance about what works best for your home and budget.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="process-number">2</div>
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-title">Precise Measurements</div>
-                            <div class="process-toggle">▼</div>
-                        </div>
-                        <div class="process-details">
-                            <p>Metal roofing requires extremely accurate measurements. We measure your roof precisely, account for all penetrations and features, calculate panel lengths and quantities, and ensure proper materials ordering for your metal roofing in Tucson project.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="process-number">3</div>
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-title">Surface Preparation</div>
-                            <div class="process-toggle">▼</div>
-                        </div>
-                        <div class="process-details">
-                            <p>We prepare your roof for metal installation by removing old roofing if necessary, inspecting and repairing decking, installing premium underlayment, ensuring proper ventilation, and preparing all flashing and trim areas.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="process-number">4</div>
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-title">Professional Installation</div>
-                            <div class="process-toggle">▼</div>
-                        </div>
-                        <div class="process-details">
-                            <p>Our certified metal roofing contractors install your system using manufacturer-approved techniques, proper fastening patterns, correct panel overlap and alignment, integrated flashing systems, and quality control throughout. Most metal roofing installations are completed in 2-5 days.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="process-number">5</div>
-                    <div class="process-content">
-                        <div class="process-header">
-                            <div class="process-title">Quality Inspection & Warranty</div>
-                            <div class="process-toggle">▼</div>
-                        </div>
-                        <div class="process-details">
-                            <p>We inspect every detail of your metal roofing in Tucson AZ, verify all fasteners and seams, test drainage systems, clean your property thoroughly, and provide warranty documentation and care instructions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Energy Savings -->
-    <section class="bg-light">
-        <div class="container">
-            <h2 id="energy-efficiency">Save Money with Energy-Efficient Metal Roofing</h2>
-            <p>One of the biggest advantages of metal roofing in Tucson is dramatic energy savings. Here's how metal roofs reduce your cooling costs:</p>
-            
-            <h3>Heat Reflection (Cool Roof Technology)</h3>
-            <p>Metal roofing reflects 65-70% of solar heat, compared to asphalt shingles which absorb most heat. This reflection keeps your attic and home significantly cooler, reducing air conditioning load during Tucson's brutal summers.</p>
-            
-            <h3>Reduces AC Load in Tucson Summers</h3>
-            <p>By keeping attic temperatures 20-30 degrees cooler, metal roofing in Tucson AZ reduces your air conditioner's runtime and energy consumption. Less AC use means lower electric bills and extended HVAC system life.</p>
-            
-            <h3>Lower Energy Bills (20-30% Savings)</h3>
-            <p>Tucson homeowners with metal roofing typically see 20-30% reductions in cooling costs. These energy savings compound over the decades, and with metal roofing's 50+ year lifespan, the cumulative savings can be substantial. Many homeowners find the energy savings alone justify the investment.</p>
-            
-            <h3>Tax Credits/Rebates Available</h3>
-            <p>Energy Star rated metal roofing may qualify for federal tax credits and local utility rebates. Our metal roofing contractors can help you understand available incentives for metal roofing in Tucson.</p>
-            
-            <h3>ROI Analysis</h3>
-            <p>While metal roofing costs more upfront than shingles, the combination of energy savings, 50+ year lifespan (no replacement costs), minimal maintenance, and increased home value typically provides positive ROI within 15-20 years. For many Tucson homeowners, metal roofing is the most economical long-term choice.</p>
-            
-            <h3>Environmental Benefits</h3>
-            <p>Reduced energy consumption means lower carbon footprint. Metal roofing is also 100% recyclable at end of life, unlike asphalt shingles which fill landfills. Many metal roofing products contain 25-95% recycled content already.</p>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section>
-        <div class="container">
-            <h2 id="metal-vs-comparison">Metal vs Tile vs Shingle Roofing in Tucson</h2>
-            <p>How does metal roofing in Tucson compare to other popular materials? Here's an honest comparison from experienced metal roofing contractors:</p>
-            
-            <div class="comparison">
-                <table>
+    <!-- Repair vs replace decision -->
+    <section style="background: #F7F7F7; padding: 70px 20px;">
+        <div class="container" style="max-width: 1000px;">
+            <h2>Repair, Renew the Underlayment, or Replace?</h2>
+            <p>Here's how we decide &mdash; and how you can tell &mdash; what your tile roof actually needs. We always recommend the least-invasive fix that solves the problem.</p>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 16px; text-align: left; margin: 10px 0 6px;">
                     <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Metal Roofing</th>
-                            <th>Tile Roofing</th>
-                            <th>Asphalt Shingles</th>
+                        <tr style="background: #D77A00; color: #fff;">
+                            <th style="padding: 14px 16px;">What we find</th>
+                            <th style="padding: 14px 16px;">Recommended fix</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Lifespan</strong></td>
-                            <td>50-Lifetime</td>
-                            <td>30-50 years</td>
-                            <td>25-30 years</td>
+                        <tr style="border-bottom: 1px solid #e5e5e5;">
+                            <td style="padding: 14px 16px;">A few cracked, slipped, or broken tiles; an isolated leak; failed flashing at one penetration</td>
+                            <td style="padding: 14px 16px;"><strong>Tile repair</strong> &mdash; replace the damaged tiles and re-flash the area</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e5e5e5; background: #fff;">
+                            <td style="padding: 14px 16px;">Tiles are sound, but the underlayment is 20+ years old and leaking in one or more areas</td>
+                            <td style="padding: 14px 16px;"><strong>Underlayment renewal</strong> &mdash; lift and re-lay the existing tiles over new underlayment (a "lift &amp; relay")</td>
                         </tr>
                         <tr>
-                            <td><strong>Energy Efficiency</strong></td>
-                            <td>Excellent (best heat reflection)</td>
-                            <td>Very Good (thermal mass)</td>
-                            <td>Poor (absorbs heat)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Weight</strong></td>
-                            <td>Lightest (50-150 lbs/sq)</td>
-                            <td>Heaviest (800-900 lbs/sq)</td>
-                            <td>Light (200-300 lbs/sq)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Installation</strong></td>
-                            <td>Moderate difficulty</td>
-                            <td>Most difficult</td>
-                            <td>Easiest</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Initial Investment</strong></td>
-                            <td>Mid to Premium range</td>
-                            <td>Premium range</td>
-                            <td>Most affordable upfront</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Maintenance</strong></td>
-                            <td>Minimal</td>
-                            <td>Low</td>
-                            <td>Moderate</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fire Rating</strong></td>
-                            <td>Class A (best)</td>
-                            <td>Class A</td>
-                            <td>Class A</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Wind Resistance</strong></td>
-                            <td>Excellent (140+ mph)</td>
-                            <td>Very Good (110+ mph)</td>
-                            <td>Good (110 mph)</td>
+                            <td style="padding: 14px 16px;">Widespread underlayment failure, extensive broken tiles, or rotted decking across the roof</td>
+                            <td style="padding: 14px 16px;"><strong>Full replacement</strong> &mdash; see our <a href="/roofing-services/concrete-tile-roof-replacement" style="color: #D77A00; font-weight: 600;">tile roof replacement</a> page</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            
-            <h3 style="margin-top: 40px;">Metal Roofing Advantages:</h3>
-            <ul>
-                <li><strong>Longest Lifespan per Dollar:</strong> While tile lasts longer, metal roofing in Tucson costs less and still provides 50+ years</li>
-                <li><strong>Best Energy Efficiency:</strong> Superior heat reflection reduces cooling costs more than any other option</li>
-                <li><strong>Lowest Maintenance:</strong> No cracked tiles to replace, no deteriorating shingles—just long-lasting performance</li>
-                <li><strong>Lightest Weight:</strong> No structural reinforcement needed, suitable for any home</li>
-            </ul>
-            
-            <h3>VS TILE:</h3>
-            <ul>
-                <li>Metal is lighter weight (easier installation, no structural concerns)</li>
-                <li>Metal costs less upfront while providing comparable lifespan</li>
-                <li>Metal is easier to repair if damaged</li>
-            </ul>
-            
-            <h3>VS SHINGLES:</h3>
-            <ul>
-                <li>Metal lasts 2-3 times longer (install once vs replacing shingles 2-3 times)</li>
-                <li>Metal provides vastly superior energy efficiency and heat reflection</li>
-                <li>Metal requires minimal maintenance compared to deteriorating shingles</li>
-                <li>Metal has higher ROI over lifespan despite higher initial cost</li>
-            </ul>
+            <p style="font-size: 15px; color: #666;"><em>Not sure which one you need? That's exactly what a free inspection is for. Need a full replacement instead? See <a href="/roofing-services/concrete-tile-roof-replacement" style="color: #D77A00; font-weight: 600;">tile roof replacement in Tucson</a>.</em></p>
         </div>
     </section>
 
-    <!-- Colors & Styles -->
-    <section class="bg-light">
-        <div class="container">
-            <h2 id="colors-finishes">Metal Roofing Colors and Finishes</h2>
-            <p>Modern metal roofing in Tucson is available in extensive color options to complement any home style. Our metal roofing contractors help you select the perfect finish:</p>
-            
-            <h3>Color Options Available</h3>
-            <p>Metal roofing comes in dozens of standard colors plus custom options. Popular choices for Tucson homes include:</p>
-            <ul>
-                <li><strong>Lighter Colors:</strong> White, light gray, beige, tan—reflect most heat, maximum energy savings</li>
-                <li><strong>Earth Tones:</strong> Terracotta, desert tan, brown—complement Southwestern architecture</li>
-                <li><strong>Modern Colors:</strong> Charcoal, dark bronze, slate gray—contemporary aesthetic</li>
-                <li><strong>Traditional Colors:</strong> Black, forest green, red—classic appearances</li>
-            </ul>
-            
-            <h3>Reflective Finishes for Tucson</h3>
-            <p>Energy Star rated finishes with enhanced solar reflectance provide maximum cooling savings. These cool roof finishes reflect more heat even in darker colors, allowing style choices without sacrificing efficiency.</p>
-            
-            <h3>Architectural Styles</h3>
-            <p>Metal roofing in Tucson AZ complements various home styles:</p>
-            <ul>
-                <li><strong>Modern/Contemporary:</strong> Standing seam in grays, whites, or charcoal</li>
-                <li><strong>Southwestern/Adobe:</strong> Metal tiles or shingles in terracotta or earth tones</li>
-                <li><strong>Traditional:</strong> Metal shingles mimicking asphalt or slate</li>
-                <li><strong>Farmhouse/Ranch:</strong> Corrugated or standing seam in classic colors</li>
-            </ul>
-            
-            <h3>Color Retention Warranties</h3>
-            <p>Quality metal roofing includes fade warranties—typically 25-40 years depending on finish. Premium finishes maintain color in Arizona's intense UV exposure far better than any other roofing material.</p>
-        </div>
-    </section>
-
-    <!-- Service Areas -->
-    <section>
-        <div class="container">
-            <h2 id="service-areas">Metal Roofing Services in Greater Tucson</h2>
-            <p>Our metal roofing contractors serve homeowners throughout Southern Arizona with professional metal roof installation and repair:</p>
-            
-            <div class="service-areas">
-                <span class="area-tag">Tucson</span>
-                <span class="area-tag">Oro Valley</span>
-                <span class="area-tag">Catalina Foothills</span>
-                <span class="area-tag">Vail</span>
-                <span class="area-tag">Sahuarita</span>
-                <span class="area-tag">Green Valley</span>
-                <span class="area-tag">Marana</span>
-                <span class="area-tag">Corona De Tucson</span>
+    <!-- Cost -->
+    <section style="background: #ffffff; padding: 70px 20px;">
+        <div class="container" style="max-width: 1000px;">
+            <h2>How Much Does Tile Roof Repair Cost in Tucson?</h2>
+            <p>Tile repair is usually far cheaper than people expect &mdash; and almost always cheaper than the water damage of waiting. Cost depends on the repair type, roof pitch and access, and how many tiles are involved. Typical ranges in Tucson:</p>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 16px; text-align: left; margin: 10px 0 6px;">
+                    <thead>
+                        <tr style="background: #D77A00; color: #fff;">
+                            <th style="padding: 14px 16px;">Repair type</th>
+                            <th style="padding: 14px 16px;">Typical cost range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e5e5e5;">
+                            <td style="padding: 14px 16px;">Individual cracked/slipped tile replacement (a few tiles)</td>
+                            <td style="padding: 14px 16px;">$250 &ndash; $600</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e5e5e5; background: #faf7f2;">
+                            <td style="padding: 14px 16px;">Flashing repair (vent, valley, wall, or chimney)</td>
+                            <td style="padding: 14px 16px;">$400 &ndash; $1,200</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e5e5e5;">
+                            <td style="padding: 14px 16px;">Partial underlayment renewal (lift &amp; relay a section)</td>
+                            <td style="padding: 14px 16px;">$4 &ndash; $9 / sq ft</td>
+                        </tr>
+                        <tr style="background: #faf7f2;">
+                            <td style="padding: 14px 16px;">Full underlayment R&amp;R (tiles reused, roof-wide)</td>
+                            <td style="padding: 14px 16px;">$5 &ndash; $11 / sq ft</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            
-            <p style="margin-top: 30px;">Whether you're in central Tucson or surrounding communities, we provide expert metal roofing in Tucson AZ with the same quality service and professional installation on every project.</p>
+            <p style="font-size: 15px; color: #666;"><em>Ranges are general estimates for planning only &mdash; every roof is different. We give you an exact, line-item price after a free, no-commission inspection.</em></p>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section style="background: #F7F7F7; padding: 70px 20px;">
+        <div class="container" style="max-width: 1000px;">
+            <h2>Our Tile Roof Repair Process</h2>
+            <ol style="font-size: 17px; line-height: 1.9;">
+                <li><strong>Free inspection.</strong> We find the real source of the leak or damage &mdash; not just the obvious cracked tile.</li>
+                <li><strong>Photo report.</strong> You get dated photos of exactly what's wrong, so nothing is taken on faith.</li>
+                <li><strong>Line-item estimate.</strong> A clear, written price with no commission pressure and no surprise add-ons.</li>
+                <li><strong>The repair.</strong> We replace damaged tiles (matched to yours), re-flash penetrations, and renew underlayment where needed &mdash; stepping only on the strong points to protect surrounding tiles.</li>
+                <li><strong>Final photos.</strong> We document the finished work and clean up completely before we leave.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Tile types -->
+    <section style="background: #ffffff; padding: 70px 20px;">
+        <div class="container" style="max-width: 1000px;">
+            <h2>Tile Types We Repair</h2>
+            <p>We repair every tile system common to Tucson and Southern Arizona homes, and we match your existing profile and color as closely as possible:</p>
+            <ul style="font-size: 17px; line-height: 1.9;">
+                <li><strong>Concrete tile</strong> &mdash; the most common tile in Tucson; durable, color-through, and easy to source and match.</li>
+                <li><strong>Clay tile</strong> &mdash; classic terracotta and glazed clay on Spanish and Mediterranean-style homes; we match profile and finish for a seamless repair.</li>
+                <li><strong>Sandcast &amp; specialty tile</strong> &mdash; older and custom tiles on historic and high-end homes, where careful matching and salvage matter most.</li>
+            </ul>
+            <p>However your tile roof is leaking or breaking, we can almost always repair it without a full re-roof. <a href="tel:520-753-1758" style="color: #D77A00; font-weight: 600;">Call (520) 753-1758</a> or <a href="/contact" style="color: #D77A00; font-weight: 600;">request a free inspection</a>.</p>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="bg-light">
-        <div class="container">
-            <h2 id="faqs">Metal Roofing FAQs</h2>
-            
+    <section style="background: #F7F7F7; padding: 70px 20px;">
+        <div class="container" style="max-width: 1000px;">
+            <h2 id="faqs">Tile Roof Repair FAQs</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>How much does metal roofing cost in Tucson?</span>
-                        <span class="faq-arrow">▼</span>
+                        <span>How much does it cost to replace a single broken roof tile in Tucson?</span>
+                        <span class="faq-arrow">&#9660;</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Metal roofing investment varies based on the type, size, and complexity of your project. Corrugated is the most affordable option, standing seam is premium tier, and metal shingles fall in between. While the upfront investment is higher than asphalt shingles, metal roofing provides superior long-term value through its 50+ year lifespan, energy savings, and virtually no replacement costs. We provide free detailed estimates to show you exact pricing for your specific project.</p>
+                        <p>Individual tile repairs are usually one of the most affordable roofing fixes. Replacing a few cracked or slipped tiles typically runs from about $250 to $600 depending on tile type, roof access, and how many tiles are affected. We give you an exact, line-item price after a free inspection.</p>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Is metal roofing loud during rain?</span>
-                        <span class="faq-arrow">▼</span>
+                        <span>Can you match my existing roof tile?</span>
+                        <span class="faq-arrow">&#9660;</span>
                     </div>
                     <div class="faq-answer">
-                        <p>This is a common myth! With proper installation including solid decking and underlayment, metal roofing in Tucson AZ is no louder than other materials. The underlayment provides sound dampening. Most homeowners report no noise issues. During Tucson's occasional monsoon rains, you may hear some sound, but it's not disruptive—many find it pleasant.</p>
+                        <p>In most cases, yes. We stock and source the common concrete, clay, and sandcast tile profiles used across Tucson, and we can often pull matching tiles from an inconspicuous area of your own roof if an exact match has been discontinued. We confirm the match before any work begins.</p>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>How long does a metal roof last in Arizona?</span>
-                        <span class="faq-arrow">▼</span>
+                        <span>Is it safe to walk on a tile roof to make a repair?</span>
+                        <span class="faq-arrow">&#9660;</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Metal roofing lasts 50-70 years in Arizona with minimal maintenance. Premium standing seam systems can exceed 70 years. This is 2-3 times longer than asphalt shingles (20-30 years in Arizona). The durability, UV resistance, and weather resistance of metal roofing makes it ideal for our climate. Many metal roofs installed in Tucson decades ago are still performing excellently.</p>
+                        <p>Tile is walkable, but it cracks easily under the wrong footstep, so tile repair is best left to experienced roofers who know how to step on the strong points. DIY walking is the single most common cause of new cracked tiles &mdash; please call us instead of going up yourself.</p>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Can metal roofing be installed over existing roof?</span>
-                        <span class="faq-arrow">▼</span>
+                        <span>How long does tile roof underlayment last in Arizona?</span>
+                        <span class="faq-arrow">&#9660;</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sometimes, yes. Metal roofing is lightweight enough to install over one layer of asphalt shingles if the decking is sound. This saves tear-off costs and speeds installation. However, our metal roofing contractors evaluate each situation individually. If your existing roof has damage or multiple layers, complete removal is necessary. We provide honest recommendations during your free inspection.</p>
+                        <p>The tiles can last 50+ years, but the underlayment beneath them is the real waterproofing layer and typically lasts 20 to 30 years in Arizona's heat before it dries out and cracks. When leaks appear under sound tiles, it's usually the underlayment that needs renewal, not the tile.</p>
                     </div>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Does metal roofing save energy?</span>
-                        <span class="faq-arrow">▼</span>
+                        <span>Does homeowners insurance cover monsoon tile roof damage?</span>
+                        <span class="faq-arrow">&#9660;</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, significantly! Metal roofing in Tucson reduces cooling costs by 20-30% through superior heat reflection. Metal roofs stay much cooler than shingles, keeping your attic cooler and reducing AC load. Energy Star rated metal roofing reflects 65-70% of solar heat. For Tucson homeowners, this translates to hundreds of dollars in annual savings, providing excellent ROI on the metal roofing investment.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Will metal roofing rust in Tucson?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Modern metal roofing uses materials specifically designed to resist corrosion. Most metal roofing in Tucson AZ is steel with protective coatings (Galvalume) or aluminum which doesn't rust. These materials are designed for desert environments. With proper installation and basic maintenance, rust is not a concern. Premium finishes include fade and corrosion warranties of 25-40 years.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is metal roofing good in hot climates?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Metal roofing is EXCELLENT in hot climates like Tucson! The heat reflection properties make metal roofing ideal for desert environments. While you might think metal would conduct heat, reflective coatings bounce solar heat away before it transfers. Metal roofing actually keeps homes cooler than any other material. This is why metal roofing in Tucson and throughout Arizona is becoming increasingly popular.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What warranties come with metal roofing?</span>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Metal roofing includes comprehensive warranties. Material warranties are typically 30-50 years for panels and paint/finish warranties of 25-40 years. Our metal roofing contractors also provide workmanship warranties covering installation. These warranties protect your investment and provide peace of mind. We register all warranties and provide complete documentation for your metal roofing in Tucson project.</p>
+                        <p>Often, yes. Sudden storm damage &mdash; wind-lifted or broken tiles and the resulting leaks from a monsoon &mdash; is commonly covered, while gradual wear and tear is not. We document the damage with dated photos and an itemized estimate to support your claim.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <h2>Ready for a Metal Roof in Tucson?</h2>
-            <p>Discover how metal roofing can reduce your energy bills, protect your home for 50+ years, and provide worry-free performance. Get a free consultation and estimate from experienced metal roofing contractors who specialize in Tucson's unique climate.</p>
-            <div class="cta-buttons">
-                <a href="/contact" class="btn btn-secondary" style="font-size: 20px; padding: 18px 40px;">Get Free Metal Roofing Estimate</a>
-            </div>
-            <p style="margin-top: 30px; font-size: 20px; font-weight: 600;">Call (520) 753-1758</p>
-            <p style="font-size: 16px;">Licensed Metal Roofing Specialists | Energy Star Options | 50+ Year Warranties</p>
+    <!-- Related / cross-link -->
+    <section style="background: #ffffff; padding: 50px 20px;">
+        <div class="container" style="max-width: 1000px; text-align: center;">
+            <p style="font-size: 17px;">Roof too far gone for a repair? Learn about full <a href="/roofing-services/concrete-tile-roof-replacement" style="color: #D77A00; font-weight: 600;">tile roof replacement in Tucson</a>. Need a different fix? See <a href="/roofing-services/roof-repair-tucson" style="color: #D77A00; font-weight: 600;">general roof repair</a> or a <a href="/roofing-services/roof-inspection" style="color: #D77A00; font-weight: 600;">free roof inspection</a>.</p>
         </div>
     </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Cracked Tiles or a Leaky Tile Roof?</h2>
+            <p>Get a free, photo-documented inspection and an honest, line-item estimate from Tucson's tile roof repair specialists.</p>
+            <div class="cta-buttons">
+                <a href="/contact" class="btn btn-primary">Get Free Estimate</a>
+                <a href="tel:520-753-1758" class="btn btn-secondary">Call (520) 753-1758</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 16px;">Licensed, Bonded &amp; Insured &middot; ROC #358079</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1939,6 +1736,15 @@
                 if (!isActive) {
                     item.classList.add('active');
                 }
+            });
+        });
+
+        // ============================================
+        // COLLAPSIBLE ITEMS
+        // ============================================
+        document.querySelectorAll('.collapsible-item').forEach(item => {
+            item.querySelector('.collapsible-header').addEventListener('click', () => {
+                item.classList.toggle('active');
             });
         });
 
@@ -2111,9 +1917,10 @@
             }
         });
         
-        const mobileToggle = document.querySelector('.mobile-menu-toggle'), navLinks = document.querySelector('.nav-links');
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
         if (mobileToggle) { mobileToggle.addEventListener('click', function() { navLinks.classList.toggle('active'); this.classList.toggle('active'); }); }
-        document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
+        document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => { link.addEventListener('click', function() { navLinks.classList.remove('active'); if (mobileToggle) mobileToggle.classList.remove('active'); }); });
     </script>
     
     <!-- Analytics Scripts - Moved to end for better LCP performance -->
@@ -2145,7 +1952,7 @@
   data-form="#contact-form"
   defer></script>
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a metal roof last in Tucson, AZ?","acceptedAnswer":{"@type":"Answer","text":"Metal roofs in Tucson typically last 50–70 years—two to three times longer than asphalt shingles. Sunrise Roofers LLC installs metal roofing systems designed specifically for Arizona's desert climate, where intense UV exposure and monsoon seasons degrade traditional materials far sooner."}},{"@type":"Question","name":"How much can metal roofing reduce my energy bills in Tucson?","acceptedAnswer":{"@type":"Answer","text":"Metal roofing reflects up to 70% of solar heat, which can reduce cooling costs by 15–30% in Tucson's intense summer climate. Over a 50+ year lifespan, those energy savings substantially offset the higher upfront cost compared to asphalt shingles."}},{"@type":"Question","name":"What types of metal roofing does Sunrise Roofers install in Tucson?","acceptedAnswer":{"@type":"Answer","text":"Sunrise Roofers LLC installs three metal roofing systems in Tucson: (1) Standing seam—premium panels with concealed fasteners and a 50–70 year lifespan, ideal for modern aesthetics and thermal expansion; (2) Corrugated metal—a cost-effective option with a 40–60 year lifespan suited to contemporary or farmhouse designs; and (3) Metal panels (R-panel, PBR) for residential and commercial properties requiring fast installation over large coverage areas."}},{"@type":"Question","name":"Can metal roofing handle Tucson's monsoon season?","acceptedAnswer":{"@type":"Answer","text":"Yes. Metal roofing installed by Sunrise Roofers is rated for 140+ mph winds, making it well-suited for Tucson's monsoon season of high winds and heavy rainfall. Metal roofs also carry a Class A fire rating—the highest available—providing additional protection in fire-prone desert areas."}},{"@type":"Question","name":"Is metal roofing worth the cost compared to shingles or tile in Tucson?","acceptedAnswer":{"@type":"Answer","text":"When comparing lifecycle costs, metal roofing in Tucson outlasts asphalt shingles two to three times over, meaning one installation instead of two or three shingle replacements across the same period. Add 15–30% annual cooling savings, minimal maintenance requirements, and increased home value, and metal roofing is widely considered a strong long-term investment for Tucson homeowners."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to replace a single broken roof tile in Tucson?","acceptedAnswer":{"@type":"Answer","text":"Individual tile repairs are usually one of the most affordable roofing fixes. Replacing a few cracked or slipped tiles typically runs from about $250 to $600 depending on tile type, roof access, and how many tiles are affected. We give you an exact, line-item price after a free inspection."}},{"@type":"Question","name":"Can you match my existing roof tile?","acceptedAnswer":{"@type":"Answer","text":"In most cases, yes. We stock and source the common concrete, clay, and sandcast tile profiles used across Tucson, and we can often pull matching tiles from an inconspicuous area of your own roof if an exact match has been discontinued. We confirm the match before any work begins."}},{"@type":"Question","name":"Is it safe to walk on a tile roof to make a repair?","acceptedAnswer":{"@type":"Answer","text":"Tile is walkable, but it cracks easily under the wrong footstep, so tile repair is best left to experienced roofers who know how to step on the strong points. DIY walking is the single most common cause of new cracked tiles, so please call us instead of going up yourself."}},{"@type":"Question","name":"How long does tile roof underlayment last in Arizona?","acceptedAnswer":{"@type":"Answer","text":"The tiles can last 50 or more years, but the underlayment beneath them is the real waterproofing layer and typically lasts 20 to 30 years in Arizona heat before it dries out and cracks. When leaks appear under sound tiles, it is usually the underlayment that needs renewal, not the tile."}},{"@type":"Question","name":"Does homeowners insurance cover monsoon tile roof damage?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. Sudden storm damage such as wind-lifted or broken tiles and the resulting leaks from a monsoon is commonly covered, while gradual wear and tear is not. We document the damage with dated photos and an itemized estimate to support your claim."}}]}</script>
   </body>
 </html>
 

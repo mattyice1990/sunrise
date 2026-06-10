@@ -95,7 +95,7 @@ Ensure the homepage org schema has `"@id": "https://roofwithsunrise.com/#organiz
 **Acceptance criteria:** All service pages validate with Service schema; no duplicate conflicting LocalBusiness blocks per page.
 ---
 ## P2 — New Money Pages (this month)
-### TASK-007: Tile Roof Repair Tucson page (new) — highest-value new page
+### TASK-007: Tile Roof Repair Tucson page (new) — highest-value new page ✅ DONE [2026-06-10]
 **New URL:** `/roofing-services/tile-roof-repair-tucson`
 **Data:** "tile roof repair tucson" 150/mo **KD 0** — currently only a tile *replacement* page exists
 **Implementation:**
