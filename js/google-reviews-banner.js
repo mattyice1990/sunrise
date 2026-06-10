@@ -171,7 +171,7 @@ class GoogleReviewsBanner {
         <div class="reviews-banner-footer">
           <div class="reviews-banner-footer-left">
             <a href="https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900" target="_blank" rel="noopener noreferrer" class="bbb-banner-link">
-              <img src="images/BBB Accredited Business Logo.svg" alt="Better Business Bureau A+ Rating" class="bbb-banner-logo">
+              <img src="images/BBB Accredited Business Logo.svg" alt="Better Business Bureau Accredited Business" class="bbb-banner-logo">
             </a>
           </div>
           <div class="reviews-banner-footer-right">

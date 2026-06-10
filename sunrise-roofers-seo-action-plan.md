@@ -12,7 +12,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 - Factual guardrails: company founded January 2025 by Eddie & Viky Guillen; Eddie has 20+ years of experience. BBB rating is **A−**, accredited April 2025. GAF-certified. AZ ROC #358079. Never state or imply company awards, ratings, or history that contradict these facts.
 ---
 ## P0 — Trust & Accuracy (do first, same day)
-### TASK-001: Remove hidden "Award-Winning Excellence" markup + fix visible BBB claim
+### TASK-001: Remove hidden "Award-Winning Excellence" markup + fix visible BBB claim ✅ DONE [2026-06-10]
 **Severity:** High (hidden-text spam signal, AI-citation contradiction). Note: this section is NOT visible to users — it is wrapped in `<section style="display:none;">` at lines ~852–879 of the homepage HTML. It appears to be leftover template/placeholder content. Crawlers (Googlebot, GPTBot, PerplexityBot) still read it in the DOM, so the false claims are in indexed content even though no visitor sees them, and hidden text that differs from rendered content is a classic spam signal.
 **File(s):** homepage (`index.html` / homepage template); `/why-choose-sunrise-roofers-in-tucson`
 **Problem:** The hidden block claims awards from 2020–2024 ("Best of Tucson 2024", "BBB A+ Rating 2023", "HomeAdvisor Top Rated Pro 2022", "Angie's List Super Service Award 2021", "Customer Choice 2020"). The company was founded 1/4/2025 and BBB lists an A− rating. Separately, the *visible* why-choose page claims an "A+ BBB rating," which contradicts BBB's published A−.
