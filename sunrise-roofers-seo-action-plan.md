@@ -108,7 +108,7 @@ Ensure the homepage org schema has `"@id": "https://roofwithsunrise.com/#organiz
    - Tile types we service (concrete, clay, sandcast)
 3. Cross-link in BOTH directions with `/roofing-services/concrete-tile-roof-replacement` ("Need full replacement instead?" / "Just need a repair?"). Add to nav dropdown, services hub, footer, sitemap.
 4. Service schema (TASK-006 template, serviceType "Tile Roof Repair") + 5-item FAQ schema: cost per tile, can you match my tile, walk on tile roof, underlayment lifespan in Arizona, insurance coverage for monsoon tile damage.
-### TASK-008: Foam Roofing Tucson page (new)
+### TASK-008: Foam Roofing Tucson page (new) ✅ DONE [2026-06-10]
 **New URL:** `/roofing-services/foam-roofing-tucson`
 **Data:** "foam roofing tucson" 50/mo KD 1. The blog already ranks #4 nationally for "foam roof repair" (400/mo) — this captures the local commercial intent that authority has earned.
 **Implementation:**
