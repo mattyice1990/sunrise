@@ -55,7 +55,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 5. Add 4-item FAQPage JSON-LD targeting conversational queries: "How long does a roof coating last in Arizona?", "Do roof coatings work in Tucson heat?", "Can you repair a flat roof without replacing it?", "How much does flat roof repair cost in Tucson?"
 6. Internal links: from homepage services grid (already exists), from `/tucson-roofing-services`, and from the foam roof repair blog post.
 **Acceptance criteria:** New title/H1 live; cost table renders; FAQ schema validates; ≥3 internal inlinks.
-### TASK-004: Localize the roof inspection page
+### TASK-004: Localize the roof inspection page ✅ DONE [2026-06-10]
 **File:** `/roofing-services/roof-inspection`
 **Data:** "roof inspection tucson" 100/mo KD9
 **Implementation:** Title → `Roof Inspection in Tucson, AZ | Free Photo Report`; H1 → `Tucson Roof Inspection — Free Photo-Documented Report`; ensure "Tucson" appears in first 100 words; add a short "When to schedule" section (post-monsoon, pre-purchase, insurance claims); add 3-item FAQ schema.
