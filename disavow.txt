@@ -1,0 +1,29 @@
+# Google Search Console disavow file for roofwithsunrise.com
+# Generated: 2026-06-10
+# ACTION REQUIRED (HUMAN): Review, then upload at
+# https://search.google.com/search-console/disavow-links
+#
+# These are link-seller / spam / PBN domains identified from the Ahrefs
+# referring-domains export. Disavowing at the domain level covers all URLs.
+# Do NOT add legitimate citation/directory or partner domains
+# (e.g. bbb.org, gaf.com, gaf.ca, superpages.com, arizonaroofers.com).
+
+domain:buybacklinks.agency
+domain:pbnseolinks.shop
+domain:ranklinkerpro.shop
+domain:rankxlinks.shop
+domain:linkrankpro.shop
+domain:authoritybacklinks.shop
+domain:toplinkranker.shop
+domain:linkseopro.shop
+domain:premiumseolinks.shop
+domain:rank-your.website
+domain:rankyour.website
+domain:rank-top.click
+domain:seoexpress.org
+domain:seozora.com
+domain:seodaro.com
+domain:backlinker.shop
+domain:itxoft-professional-seo-services.site
+domain:fiverr-cost-effective-seo.site
+domain:optimize-instant.website

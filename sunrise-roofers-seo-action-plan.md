@@ -143,7 +143,7 @@ After P2/P3 pages exist: every service page links to 2–3 sibling services + 1�
 Update `/llms.txt` to enumerate the new service pages, city pages, and cost guides with one-line descriptions, and state the canonical NAP, license number, hours, and service area. This file is the site's self-description for AI crawlers — keep it current with every page launch.
 ---
 ## P4 — Technical Hygiene
-### TASK-014: Disavow file
+### TASK-014: Disavow file ✅ DONE [2026-06-10]
 Generate `disavow.txt` from Ahrefs referring-domains export: include all link-seller domains (pattern examples observed: `buybacklinks.agency`, `pbnseolinks.shop`, `ranklinkerpro.shop`, `rankxlinks.shop`, `linkrankpro.shop`, `authoritybacklinks.shop`, `toplinkranker.shop`, `linkseopro.shop`, `premiumseolinks.shop`, `rank-your.website`, `rankyour.website`, `rank-top.click`, `seoexpress.org`, `seozora.com`, `seodaro.com`, `backlinker.shop`, `itxoft-professional-seo-services.site`, `fiverr-cost-effective-seo.site`, `optimize-instant.website`) using `domain:` syntax. **Do NOT include:** bbb.org, gaf.com, gaf.ca, superpages.com, arizonaroofers.com, or any directory/citation site. Output the file for human review — **[HUMAN]** submits in Google Search Console.
 ### TASK-015: robots.txt cleanup (low priority)
 Current file works but is bloated. Simplify to: `User-agent: * / Allow: /` + the two thank-you Disallows + Sitemap line. Keep AI-crawler allowance implicit via `*` (or keep explicit blocks if the team prefers documentation value). Remove the redundant per-page Allow lines.
