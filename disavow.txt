@@ -1,29 +1,112 @@
 # Google Search Console disavow file for roofwithsunrise.com
-# Generated: 2026-06-10
-# ACTION REQUIRED (HUMAN): Review, then upload at
-# https://search.google.com/search-console/disavow-links
-#
-# These are link-seller / spam / PBN domains identified from the Ahrefs
-# referring-domains export. Disavowing at the domain level covers all URLs.
-# Do NOT add legitimate citation/directory or partner domains
-# (e.g. bbb.org, gaf.com, gaf.ca, superpages.com, arizonaroofers.com).
+# Generated: 2026-06-10 (regenerated from LIVE Ahrefs data — all domains below are
+# flagged is_spam by Ahrefs, or are part of the same link-seller networks)
+# Upload at: https://search.google.com/search-console/disavow-links
+# NOTE: uploading replaces any previous disavow file — this is the complete list.
+# Legitimate domains intentionally excluded: bbb.org, gaf.com, gaf.ca,
+# superpages.com, arizonaroofers.com, and real local-business links.
 
-domain:buybacklinks.agency
-domain:pbnseolinks.shop
-domain:ranklinkerpro.shop
-domain:rankxlinks.shop
-domain:linkrankpro.shop
+domain:123webshop.shop
+domain:advanced-seo-firm-seoexpress.store
+domain:analyticshaven.top
+domain:atomizelink.icu
+domain:authentic-seoexpress-keyword-firm.store
 domain:authoritybacklinks.shop
-domain:toplinkranker.shop
-domain:linkseopro.shop
-domain:premiumseolinks.shop
-domain:rank-your.website
-domain:rankyour.website
-domain:rank-top.click
-domain:seoexpress.org
-domain:seozora.com
-domain:seodaro.com
 domain:backlinker.shop
-domain:itxoft-professional-seo-services.site
+domain:best-keyword-seoexpress-portal.store
+domain:blogsphere.top
+domain:buybacklinks.agency
+domain:byteshort.xyz
+domain:certified-link-building-seoexpress.store
+domain:certified-seoexpress-organic-services.store
+domain:creativeposts.top
+domain:ekenkoshop.shop
+domain:elite-authority-marketplace-seoexpress.store
+domain:elite-high-da-center-seoexpress.store
+domain:elite-outreach-seoexpress-pros.store
+domain:elite-seoexpress-link-building-team.store
+domain:exclusive-backlink-seoexpress-firm.store
+domain:expert-domain-seoexpress-specialists.store
+domain:expert-organic-seoexpress.store
+domain:expert-search-seoexpress-team.store
 domain:fiverr-cost-effective-seo.site
+domain:global-authority-seoexpress-group.store
+domain:highseo.shop
+domain:highseoranking.shop
+domain:instant-webpage-seoexpress-consultants.store
+domain:itxoft-professional-seo-services.site
+domain:jake.eu
+domain:kawaiishop.shop
+domain:kmoshops.shop
+domain:linkrankboost.shop
+domain:linkrankpro.shop
+domain:linkseopro.shop
+domain:lixil-reformshop.shop
+domain:luxury-seoexpress-tier-1-house.store
+domain:master-seoexpress-search-agency.store
+domain:modern-organic-group-seoexpress.store
+domain:mysky-shop.shop
+domain:official-domain-seoexpress.store
 domain:optimize-instant.website
+domain:optimizeflow.top
+domain:pbnseolinks.shop
+domain:premium-tier-1-company-seoexpress.store
+domain:premiumseolinks.shop
+domain:prime-high-da-seoexpress.store
+domain:professional-seoexpress-high-da-partners.store
+domain:quero.party
+domain:rank-top.click
+domain:rank-your.website
+domain:rankinghighseo.shop
+domain:rankingseohigh.shop
+domain:ranklinkerpro.shop
+domain:ranklinkpro.shop
+domain:rankxlinks.shop
+domain:rankyour.website
+domain:rent-a-shop.shop
+domain:seo-high-ranking.shop
+domain:seoagency.sale
+domain:seodaro.com
+domain:seoexpress-anchor-text-experts.store
+domain:seoexpress-authority-portal.store
+domain:seoexpress-backlink-hub.store
+domain:seoexpress-best-seo-firm.store
+domain:seoexpress-dr-90-group.store
+domain:seoexpress-leading-dofollow-pros.store
+domain:seoexpress-off-page-solutions.store
+domain:seoexpress.online
+domain:seoexpress.org
+domain:seoexpress.shop
+domain:seoexpress.site
+domain:seoexpress.store
+domain:seoexpress.website
+domain:seogeko.shop
+domain:seohighranking.shop
+domain:seolinkpro.shop
+domain:seorankinghigh.shop
+domain:seozora.com
+domain:shop-inframe.shop
+domain:shopbetreiber-blog.shop
+domain:simplywebshop.shop
+domain:smart-indexer-seoexpress.store
+domain:smart-marketing-seoexpress.store
+domain:smart-seoexpress-webpage-experts.store
+domain:supreme-dofollow-seoexpress-hub.store
+domain:thebacklink.shop
+domain:thebacklinks.shop
+domain:theguestpost.shop
+domain:theguestposts.shop
+domain:thehighrankseo.shop
+domain:thehighseo.shop
+domain:therankboostseo.shop
+domain:therankinghighseo.shop
+domain:therankingseohigh.shop
+domain:theseohighranking.shop
+domain:theseomasterhigh.shop
+domain:theseorankinghigh.shop
+domain:thetoprankingseo.shop
+domain:toplinkranker.shop
+domain:trusted-dofollow-team-seoexpress.store
+domain:trusted-off-page-pros-seoexpress.store
+domain:trusted-seoexpress-backlink-experts.store
+domain:verified-seoexpress-search-directory.store
