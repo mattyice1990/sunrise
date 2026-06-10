@@ -1,0 +1,5 @@
+# Local backup snapshots — never deploy.
+# These are dated copies of pages and contain stale/duplicate content
+# (and previously, false award/BBB-rating claims). Keeping them in git is
+# fine for history, but they must not be served or indexed.
+backups/
