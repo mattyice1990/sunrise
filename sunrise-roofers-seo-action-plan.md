@@ -139,7 +139,7 @@ Structure each as: quick-answer cost range in the first 100 words (AI Overview b
 Both communities are named on the homepage but have no pages. Clone the structure of `/sahuarita-roofing`, write unique localized content (neighborhoods, common roof types in those areas, distance/response time), add to Service Areas nav dropdown, footer, homepage communities list (link the plain-text mentions), sitemap, and each page's Service schema `areaServed`.
 ### TASK-012: Internal linking pass ✅ DONE [2026-06-10]
 After P2/P3 pages exist: every service page links to 2–3 sibling services + 1–2 city pages contextually; every city page links to top 3 services; every blog post links to ≥1 service page. No orphan pages (verify via crawl).
-### TASK-013: llms.txt refresh
+### TASK-013: llms.txt refresh ✅ DONE [2026-06-10]
 Update `/llms.txt` to enumerate the new service pages, city pages, and cost guides with one-line descriptions, and state the canonical NAP, license number, hours, and service area. This file is the site's self-description for AI crawlers — keep it current with every page launch.
 ---
 ## P4 — Technical Hygiene
