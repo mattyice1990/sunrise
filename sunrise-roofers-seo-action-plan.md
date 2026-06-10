@@ -147,7 +147,7 @@ Update `/llms.txt` to enumerate the new service pages, city pages, and cost guid
 Generate `disavow.txt` from Ahrefs referring-domains export: include all link-seller domains (pattern examples observed: `buybacklinks.agency`, `pbnseolinks.shop`, `ranklinkerpro.shop`, `rankxlinks.shop`, `linkrankpro.shop`, `authoritybacklinks.shop`, `toplinkranker.shop`, `linkseopro.shop`, `premiumseolinks.shop`, `rank-your.website`, `rankyour.website`, `rank-top.click`, `seoexpress.org`, `seozora.com`, `seodaro.com`, `backlinker.shop`, `itxoft-professional-seo-services.site`, `fiverr-cost-effective-seo.site`, `optimize-instant.website`) using `domain:` syntax. **Do NOT include:** bbb.org, gaf.com, gaf.ca, superpages.com, arizonaroofers.com, or any directory/citation site. Output the file for human review — **[HUMAN]** submits in Google Search Console.
 ### TASK-015: robots.txt cleanup (low priority) ✅ DONE [2026-06-10]
 Current file works but is bloated. Simplify to: `User-agent: * / Allow: /` + the two thank-you Disallows + Sitemap line. Keep AI-crawler allowance implicit via `*` (or keep explicit blocks if the team prefers documentation value). Remove the redundant per-page Allow lines.
-### TASK-016: Page-speed & image audit
+### TASK-016: Page-speed & image audit ✅ DONE [2026-06-10]
 Run Lighthouse on homepage + top 3 service pages. Known candidates: `SunriseLogo.jpeg` and `Roof Installation_edited.jpg` (convert to WebP, add explicit width/height, lazy-load below-fold images, ensure hero image is preloaded). Target LCP < 2.5s mobile.
 ---
 ## [HUMAN] Tasks — not codeable, route to account manager / owner
