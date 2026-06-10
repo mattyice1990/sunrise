@@ -44,7 +44,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 **Acceptance criteria:** One canonical hours string site-wide; schema validates in Google's Rich Results Test.
 ---
 ## P1 — On-Page Quick Wins (this week)
-### TASK-003: Retitle flat roof coating page to capture "roof coating tucson" + "flat roof repair tucson"
+### TASK-003: Retitle flat roof coating page to capture "roof coating tucson" + "flat roof repair tucson" ✅ DONE [2026-06-10]
 **File:** `/roofing-services/flat-roof-coating-tucson`
 **Data:** "roof coating tucson" 100/mo KD12 · "flat roof repair tucson" 150/mo KD38 (TP 1,000) · "roof coating cost" 200/mo KD4
 **Implementation:**
