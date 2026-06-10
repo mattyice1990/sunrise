@@ -59,7 +59,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 **File:** `/roofing-services/roof-inspection`
 **Data:** "roof inspection tucson" 100/mo KD9
 **Implementation:** Title → `Roof Inspection in Tucson, AZ | Free Photo Report`; H1 → `Tucson Roof Inspection — Free Photo-Documented Report`; ensure "Tucson" appears in first 100 words; add a short "When to schedule" section (post-monsoon, pre-purchase, insurance claims); add 3-item FAQ schema.
-### TASK-005: Emergency roof repair page (new)
+### TASK-005: Emergency roof repair page (new) ✅ DONE [2026-06-10]
 **New URL:** `/roofing-services/emergency-roof-repair-tucson`
 **Data:** "emergency roof repair tucson" 80/mo, effectively KD 0
 **Implementation:**
