@@ -1,148 +1,15 @@
 # Robots.txt for Sunrise Roofers LLC
-# Website: https://roofwithsunrise.com
-# Note: www.roofwithsunrise.com redirects to roofwithsunrise.com (301)
+# https://roofwithsunrise.com
+# All crawlers (including AI/search bots) are allowed by default via "*".
 
-# Major Search Engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-Mobile
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-# Yahoo (now powered by Bing)
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-# Chinese search engine
-
-User-agent: YandexBot
-Allow: /
-# Russian search engine
-
-User-agent: Applebot
-Allow: /
-# Apple (Siri, Spotlight)
-
-# AI Chatbot & Search Crawlers
-User-agent: GPTBot
-Allow: /
-# OpenAI ChatGPT
-
-User-agent: Google-Extended
-Allow: /
-# Google Bard/Gemini
-
-User-agent: PerplexityBot
-Allow: /
-# Perplexity AI
-
-User-agent: CCBot
-Allow: /
-# Common Crawl (used by many AI systems)
-
-User-agent: anthropic-ai
-Allow: /
-# Claude AI
-
-User-agent: ClaudeBot
-Allow: /
-# Claude AI crawler
-
-# Social Media Crawlers (for link previews)
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Pinterest
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-# SEO/Monitoring Tools
-User-agent: SemrushBot
-Allow: /
-
-User-agent: AhrefsBot
-Allow: /
-
-User-agent: Moz-Bot
-Allow: /
-
-User-agent: DotBot
-Allow: /
-# Moz link crawler
-
-User-agent: Screaming Frog SEO Spider
-Allow: /
-
-# Allow all other crawlers
 User-agent: *
 Allow: /
 
-# Block pages that shouldn't be indexed
+# Pages that shouldn't be indexed
 Disallow: /thank-you.html
 Disallow: /thank-you
 
-# Block local backup snapshots (also excluded from deploy via .vercelignore)
+# Local backup snapshots (also excluded from deploy via .vercelignore)
 Disallow: /backups/
 
-# Allow all search engines to crawl all pages
-# Sitemap location
 Sitemap: https://roofwithsunrise.com/sitemap.xml
-
-# Optional: Crawl-delay to be respectful (usually not needed for major search engines)
-# Crawl-delay: 1
-
-# Block access to specific files/directories if needed
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow specific important pages (redundant with Allow: / but explicit)
-Allow: /index.html
-Allow: /about-our-roofing-contractors-in-tucson
-Allow: /contact
-Allow: /gallery
-
-# Service pages - roofing-services directory
-Allow: /roofing-services/
-Allow: /roofing-services/roof-repair-tucson
-Allow: /roofing-services/roof-inspection
-Allow: /roofing-services/new-roof-tucson
-Allow: /roofing-services/shingle-roof-replacement-tucson
-Allow: /roofing-services/concrete-tile-roof-replacement
-Allow: /roofing-services/metal-roofing-tucson
-Allow: /roofing-services/flat-roof-coating-tucson
-
-# Main service pages
-Allow: /tucson-roofing-services
-
-# Location-specific pages
-Allow: /catalina-foothills-roofing
-Allow: /oro-valley-roofing
-Allow: /marana-roofing
-Allow: /sahuarita-roofing
-Allow: /green-valley-roofing
-
-# About pages
-Allow: /why-choose-sunrise-roofers-in-tucson
-
-# Blog
-Allow: /blog/
-
