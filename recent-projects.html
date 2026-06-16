@@ -26,7 +26,11 @@
   .np-stat b{display:block;font-size:18px}
   .np-stat span{font-size:12px;color:var(--mut)}
   .np-sec{font-size:13px;font-weight:700;color:var(--mut);text-transform:none;margin:22px 0 12px}
-  .np-rev-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+  .np-rev-row{display:flex;flex-wrap:wrap;gap:14px;padding-bottom:6px}
+  .np-revpage{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .np-pgbtn{min-width:32px;height:32px;border:1px solid var(--bd);background:#fff;color:var(--ink);border-radius:7px;font:inherit;font-size:13px;cursor:pointer}
+  .np-pgbtn:hover{border-color:var(--blue);color:var(--blue)}
+  .np-pgbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
   .np-rev{flex:0 0 240px;scroll-snap-align:start;border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;background:#fff;cursor:pointer}
   .np-rev.exp{flex-basis:300px}
   .np-rev.exp .tx{-webkit-line-clamp:unset}
@@ -81,6 +85,7 @@
       </div>
       <p class="np-sec" id="np-revh">Featured reviews</p>
       <div class="np-rev-row" id="np-reviews"></div>
+      <div class="np-revpage" id="np-revpage"></div>
       <p class="np-sec" id="np-projh">Featured projects</p>
       <div class="np-grid" id="np-projects"><p class="np-empty">Loading projects…</p></div>
     </div>
@@ -112,16 +117,27 @@ function renderRatingBadge(){
   document.getElementById('np-avg').textContent=(window.__rating||5).toFixed(1);
 }
 
-function renderReviews(){
-  var el=document.getElementById('np-reviews');
-  if(!REVIEWS.length){el.innerHTML='<p class="np-empty">Reviews coming soon.</p>';return;}
-  el.innerHTML=REVIEWS.map(function(rv){
-    var reply = rv.owner_reply ? '<div class="reply"><b>Response from owner</b><p>'+esc(rv.owner_reply)+'</p></div>' : '';
-    return '<div class="np-rev" onclick="this.classList.toggle(\'exp\')" title="Click to read full review"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
-      +'<p class="tx">'+esc(rv.text)+'</p>'+reply
-      +'<div class="who">'+(rv.profile_photo_url?'<img src="'+esc(rv.profile_photo_url)+'" alt="">':'')+'<span>'+esc(rv.author_name)+'</span></div></div>';
-  }).join('');
+var REVPAGE=0; var REV_PER=6;
+function reviewCard(rv){
+  var reply = rv.owner_reply ? '<div class="reply"><b>Response from owner</b><p>'+esc(rv.owner_reply)+'</p></div>' : '';
+  return '<div class="np-rev" onclick="this.classList.toggle(\'exp\')" title="Click to read full review"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
+    +'<p class="tx">'+esc(rv.text)+'</p>'+reply
+    +'<div class="who">'+(rv.profile_photo_url?'<img src="'+esc(rv.profile_photo_url)+'" alt="">':'')+'<span>'+esc(rv.author_name)+'</span></div></div>';
 }
+function renderReviews(){
+  var el=document.getElementById('np-reviews'), pg=document.getElementById('np-revpage');
+  if(!REVIEWS.length){el.innerHTML='<p class="np-empty">Reviews coming soon.</p>';if(pg)pg.innerHTML='';return;}
+  var pages=Math.ceil(REVIEWS.length/REV_PER);
+  if(REVPAGE>=pages)REVPAGE=0;
+  var slice=REVIEWS.slice(REVPAGE*REV_PER,(REVPAGE+1)*REV_PER);
+  el.innerHTML=slice.map(reviewCard).join('');
+  if(pg){
+    pg.innerHTML = pages>1
+      ? Array.from({length:pages},function(_,i){return '<button class="np-pgbtn'+(i===REVPAGE?' on':'')+'" onclick="gotoRevPage('+i+')">'+(i+1)+'</button>';}).join('')
+      : '';
+  }
+}
+function gotoRevPage(n){ REVPAGE=n; renderReviews(); }
 
 function matchArea(p,q){ if(!q)return true; q=q.toLowerCase();
   return (p.city||'').toLowerCase().indexOf(q)>=0 || (p.title||'').toLowerCase().indexOf(q)>=0 || (p.service_type||'').toLowerCase().indexOf(q)>=0; }
