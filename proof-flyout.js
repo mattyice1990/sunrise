@@ -101,10 +101,15 @@
   function openOverlay(){
     var ov=document.getElementById('pfly-ov'), bg=document.getElementById('pfly-ovbg');
     if(!ovLoaded){ document.getElementById('pfly-ovframe').src=OVERLAY_URL; ovLoaded=true; }
-    bg.classList.add('open'); ov.classList.add('open'); document.body.style.overflow='hidden';
+    bg.classList.add('open'); ov.classList.add('open');
+    // Drive position inline (!important) — the page's CSS otherwise pins .pfly-ov.
+    ov.style.setProperty('right','0px','important');
+    document.body.style.overflow='hidden';
   }
   function closeOverlay(){
-    document.getElementById('pfly-ov').classList.remove('open');
+    var ov=document.getElementById('pfly-ov');
+    ov.classList.remove('open');
+    ov.style.setProperty('right','-1300px','important');
     document.getElementById('pfly-ovbg').classList.remove('open');
     document.body.style.overflow='';
   }
