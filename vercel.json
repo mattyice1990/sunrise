@@ -1,7 +1,8 @@
 {
   "version": 2,
   "crons": [
-    { "path": "/api/gbp-cron", "schedule": "0 */3 * * *" }
+    { "path": "/api/gbp-cron", "schedule": "0 */3 * * *" },
+    { "path": "/api/gbp-run-scheduled", "schedule": "*/5 * * * *" }
   ],
   "cleanUrls": true,
   "trailingSlash": false,

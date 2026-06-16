@@ -34,6 +34,27 @@ export default async function handler(req, res) {
     const mediaUrls = edits.mediaUrls ?? (post.compositeUrl ? [post.compositeUrl] : post.mediaUrls) ?? [];
     const { accountId, locationId } = gbpTarget();
 
+    // Scheduling: if a future time is given, save the post as "scheduled" and
+    // let the gbp-run-scheduled cron publish it when due (GBP has no native
+    // scheduling). A past/invalid time falls through to publish-now.
+    const when = edits.scheduledFor ? new Date(edits.scheduledFor) : null;
+    if (when && !isNaN(when.getTime()) && when.getTime() > Date.now() + 30000) {
+      const scheduled = await withPosts((arr) => {
+        const p = arr.find((x) => x.id === id);
+        if (!p) return null;
+        p.finalCopy = finalCopy;
+        p.ctaType = ctaType;
+        p.ctaUrl = ctaUrl;
+        if (edits.mediaUrls) p.mediaUrls = edits.mediaUrls;
+        p.status = 'scheduled';
+        p.scheduledFor = when.toISOString();
+        p.error = null;
+        return p;
+      }, `gbp: schedule ${id} for ${when.toISOString()}`);
+      if (!scheduled) return res.status(404).json({ error: 'Post not found' });
+      return res.status(200).json({ post: scheduled, scheduled: true });
+    }
+
     let gbpPostId = null;
     let error = null;
     let status = 'published';

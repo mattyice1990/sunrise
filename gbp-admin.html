@@ -29,6 +29,7 @@
   .badge.new{color:var(--acc);border-color:var(--acc)}
   .badge.draft{color:#7cc4ff;border-color:#7cc4ff}
   .badge.published{color:var(--grn);border-color:var(--grn)}
+  .badge.scheduled{color:#c792ea;border-color:#c792ea}
   .badge.failed{color:var(--red);border-color:var(--red)}
   .card{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:18px;margin:0 0 20px}
   .cardhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
@@ -39,6 +40,7 @@
   /* GBP-style preview */
   .gbp{background:#fff;color:#202124;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.4);max-width:380px}
   .gbp .ph{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#e8eaed}
+  .gbp .ph.contain{object-fit:contain;background:#fff}
   .gbp .noimg{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:#9aa0a6;background:#f1f3f4;font-size:13px}
   .gbp .body{padding:14px 16px 16px}
   .gbp .biz{display:flex;align-items:center;gap:8px;margin-bottom:8px}
@@ -94,6 +96,13 @@ async function api(path,opts={}){
   return data;
 }
 function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+// Email links open /gbp-admin#post=<id> — scroll to and highlight that card.
+function focusFromHash(){
+  const m=/post=([^&]+)/.exec(location.hash||'');
+  if(!m)return;
+  const el=document.getElementById('card-'+decodeURIComponent(m[1]));
+  if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.style.outline='2px solid var(--blue)';el.style.outlineOffset='3px';setTimeout(()=>{el.style.outline='';},3500);}
+}
 
 async function load(){
   const list=document.getElementById('list');
@@ -104,11 +113,12 @@ async function load(){
     posts.forEach(p=>{ CURRENT[p.id]=p.mediaUrls||[]; });
     list.innerHTML=posts.map(render).join('');
     posts.forEach(p=>{
-      if(p.status==='draft'||p.status==='failed'){
+      if(p.status==='draft'||p.status==='failed'||p.status==='scheduled'){
         wire(p.id);
         if((p.mediaUrls||[]).length>=2) setupComposite(p);
       }
     });
+    focusFromHash();
   }catch(e){
     list.innerHTML='<p class="err">'+esc(e.message)+'</p>';
     if(/Unauthorized/.test(e.message))sessionStorage.removeItem('gbp_token');
@@ -116,9 +126,9 @@ async function load(){
 }
 
 // Build the Google-Business-Profile-style preview card.
-function previewCard(id,img,text,cta){
+function previewCard(id,img,text,cta,isPair){
   const ctaHtml = cta&&cta!=='NONE' ? '<div class="cta" id="pv-cta-'+id+'">'+esc(CTA_LABEL[cta]||cta)+'</div>' : '<div class="cta" id="pv-cta-'+id+'" style="display:none"></div>';
-  const imgHtml = '<img class="ph" id="pv-img-'+id+'" src="'+esc(img||'')+'" alt="" style="'+(img?'':'display:none')+'">'+
+  const imgHtml = '<img class="ph'+(isPair?' contain':'')+'" id="pv-img-'+id+'" src="'+esc(img||'')+'" alt="" style="'+(img?'':'display:none')+'">'+
     '<div class="noimg" id="pv-noimg-'+id+'" style="'+(img?'display:none':'')+'">No photo</div>';
   return '<div class="gbp">'+imgHtml+
     '<div class="body"><div class="biz"><div class="dot">S</div><div><b>Sunrise Roofing</b><br><span>Tucson, AZ · Roofing</span></div></div>'+
@@ -138,29 +148,35 @@ function render(p){
     right='<p class="note">Photo + note received. Generate the post copy with Claude.</p>'+
       '<div class="imgs">'+thumbs+'</div>'+
       '<div class="actions"><button class="btn primary" onclick="gen(\''+p.id+'\',this)">✨ Generate draft</button></div>';
-  }else if(p.status==='draft'||p.status==='failed'){
+  }else if(p.status==='draft'||p.status==='failed'||p.status==='scheduled'){
     const opts=CTA.map(c=>'<option value="'+c+'" '+(c===(p.ctaType||'NONE')?'selected':'')+'>'+c+'</option>').join('');
     const pairCtrls = isPair ?
       '<p class="note" id="comp-status-'+p.id+'">Building before/after image…</p>'+
       '<div class="actions"><button class="btn" id="swap-'+p.id+'" onclick="swapBA(\''+p.id+'\')">⇄ Swap before / after</button></div>'
       : '';
-    right='<textarea id="copy-'+p.id+'" maxlength="1500">'+esc(copy)+'</textarea>'+
+    const schedBanner = p.status==='scheduled'&&p.scheduledFor ?
+      '<p class="ok">🕒 Scheduled for '+new Date(p.scheduledFor).toLocaleString()+' — publish now or pick a new time below.</p>' : '';
+    right=schedBanner+
+      '<textarea id="copy-'+p.id+'" maxlength="1500">'+esc(copy)+'</textarea>'+
       '<div class="meta" id="cnt-'+p.id+'">'+copy.length+'/1500</div>'+
       '<div class="ctaRow"><select id="cta-'+p.id+'">'+opts+'</select>'+
       '<input id="ctaurl-'+p.id+'" placeholder="CTA link (optional)" value="'+esc(p.ctaUrl||'')+'"></div>'+
       pairCtrls+
       (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
-      '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(isPair?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish</button>'+
-      '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>';
+      '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(isPair?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
+      '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>'+
+      '<div class="meta" style="margin-top:10px">Or schedule for later (Tucson time):</div>'+
+      '<div class="ctaRow"><input type="datetime-local" id="sched-'+p.id+'" style="flex:1" value="'+esc((p.scheduledFor?toLocalInput(p.scheduledFor):''))+'">'+
+      '<button class="btn" id="sch-'+p.id+'"'+(isPair?' disabled':'')+' onclick="schedule(\''+p.id+'\',this)">🕒 Schedule</button></div>';
   }else if(p.status==='published'){
     right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
       (p.gbpPostId?'<p class="meta">'+esc(p.gbpPostId)+'</p>':'');
   }
 
-  return '<div class="card"><div class="cardhead"><strong>'+esc(p.type||'submission')+'</strong>'+
+  return '<div class="card" id="card-'+p.id+'"><div class="cardhead"><strong>'+esc(p.type||'submission')+'</strong>'+
     '<span class="badge '+p.status+'">'+p.status+'</span></div>'+
     '<p class="note">"'+esc(p.note||'(no note)')+'" · '+new Date(p.createdAt).toLocaleString()+'</p>'+flag+
-    '<div class="cols"><div class="col"><h3>Preview on Google</h3>'+previewCard(p.id,img,copy,p.ctaType||'NONE')+'</div>'+
+    '<div class="cols"><div class="col"><h3>Preview on Google</h3>'+previewCard(p.id,img,copy,p.ctaType||'NONE',isPair)+'</div>'+
     '<div class="col"><h3>'+(p.status==='published'?'Status':'Edit & publish')+'</h3>'+right+'</div></div></div>';
 }
 
@@ -193,7 +209,30 @@ async function publish(id,btn){
   const cu=COMP[id]&&COMP[id].compositeUrl;
   if(cu) body.mediaUrls=[cu];
   try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
-  catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish';}
+  catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish now';}
+}
+
+// ISO -> value for <input type="datetime-local"> in the browser's local time.
+function toLocalInput(iso){
+  const d=new Date(iso); if(isNaN(d.getTime()))return '';
+  const p=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'T'+p(d.getHours())+':'+p(d.getMinutes());
+}
+
+async function schedule(id,btn){
+  const v=document.getElementById('sched-'+id).value;
+  if(!v){alert('Pick a date & time first.');return;}
+  const when=new Date(v);
+  if(isNaN(when.getTime())||when.getTime()<=Date.now()){alert('Pick a time in the future.');return;}
+  const copy=document.getElementById('copy-'+id).value;
+  const ctaType=document.getElementById('cta-'+id).value;
+  const ctaUrl=document.getElementById('ctaurl-'+id).value||null;
+  btn.disabled=true;btn.textContent='Scheduling…';
+  const body={id,finalCopy:copy,ctaType,ctaUrl,scheduledFor:when.toISOString()};
+  const cu=COMP[id]&&COMP[id].compositeUrl;
+  if(cu) body.mediaUrls=[cu];
+  try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
+  catch(e){alert(e.message);btn.disabled=false;btn.textContent='🕒 Schedule';}
 }
 
 /* ---- Before/after compositing (in-browser; GBP allows only one image/post) ---- */
@@ -205,14 +244,19 @@ function loadImg(src){
   return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=()=>rej(new Error('Could not load '+src));im.src=src;});
 }
 
-function drawLabel(ctx,text,x,cellW,canvasH){
+// side: 'seamRight' anchors the label to the inner (right) edge of a left cell;
+// 'seamLeft' anchors to the inner (left) edge of a right cell. Keeping labels
+// near the center seam means they survive GBP's center-crop thumbnail.
+function drawLabel(ctx,text,cellX,cellW,canvasH,side){
   ctx.save();
   ctx.font='bold '+Math.round(canvasH*0.05)+'px system-ui,Segoe UI,Roboto,sans-serif';
   const padX=Math.round(canvasH*0.022), padY=Math.round(canvasH*0.014);
-  const tw=ctx.measureText(text).width, bh=Math.round(canvasH*0.05)+padY*2;
-  const bx=x+Math.round(canvasH*0.03), by=canvasH-bh-Math.round(canvasH*0.03);
+  const inset=Math.round(canvasH*0.03);
+  const tw=ctx.measureText(text).width, bw=tw+padX*2, bh=Math.round(canvasH*0.05)+padY*2;
+  const bx = side==='seamRight' ? (cellX+cellW-bw-inset) : (cellX+inset);
+  const by = canvasH-bh-inset;
   ctx.fillStyle='rgba(0,0,0,0.62)';
-  ctx.fillRect(bx,by,tw+padX*2,bh);
+  ctx.fillRect(bx,by,bw,bh);
   ctx.fillStyle='#fff';ctx.textBaseline='top';
   ctx.fillText(text,bx+padX,by+padY);
   ctx.restore();
@@ -233,7 +277,7 @@ async function buildComposite(urls,order){
   cells.forEach((c,i)=>{
     const w=Math.round(c.w*scale);
     ctx.drawImage(c.im,x,0,w,ch);
-    if(cells.length===2) drawLabel(ctx,labels[i],x,w,ch);
+    if(cells.length===2) drawLabel(ctx,labels[i],x,w,ch,i===0?'seamRight':'seamLeft');
     x+=w+Math.round(gut*scale);
   });
   return cv.toDataURL('image/jpeg',0.85);
@@ -252,12 +296,15 @@ function setStatus(id,msg,cls){
   const el=document.getElementById('comp-status-'+id);
   if(el){el.textContent=msg;el.className=(cls||'note');}
 }
+// Enable/disable the Publish + Schedule buttons together.
+function setReady(id,on){
+  ['pub-','sch-'].forEach(pfx=>{const b=document.getElementById(pfx+id);if(b)b.disabled=!on;});
+}
 
 // For a before/after post: show composite, upload it, wait until live, enable publish.
 async function setupComposite(p){
   const id=p.id, urls=p.mediaUrls||[];
   const st=COMP[id]||(COMP[id]={order:urls.map((_,i)=>i)});
-  const pub=document.getElementById('pub-'+id);
 
   // Already have a committed composite and no pending re-stitch → reuse it.
   if(p.compositeUrl && !st.dirty){
@@ -266,12 +313,12 @@ async function setupComposite(p){
     if(im){im.src=p.compositeUrl;im.style.display='block';}
     const ni=document.getElementById('pv-noimg-'+id);if(ni)ni.style.display='none';
     setStatus(id,'Before / after image ready ✓  (use Swap if the order is reversed)','ok');
-    if(pub)pub.disabled=false;
+    setReady(id,true);
     return;
   }
 
   if(st.building)return; st.building=true; st.dirty=false;
-  if(pub)pub.disabled=true;
+  setReady(id,false);
   try{
     setStatus(id,'Stitching before / after image…','note');
     const dataUrl=await buildComposite(urls,st.order);
@@ -288,7 +335,7 @@ async function setupComposite(p){
     const live=await waitLive(url);
     if(live){
       setStatus(id,'Before / after image ready ✓  (use Swap if the order is reversed)','ok');
-      if(pub)pub.disabled=false;
+      setReady(id,true);
     }else{
       setStatus(id,'Image uploaded but not live yet — wait a moment and hit Reload.','err');
     }
