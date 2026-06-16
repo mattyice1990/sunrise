@@ -38,12 +38,27 @@ export default async function handler(req, res) {
     }
   }
 
+  // Group photos that arrive close together (WhatsApp sends each as its own
+  // message). If the same sender has an open "new" submission from the last
+  // few minutes, append this message's photos/caption to it instead of making
+  // a separate one — so before/after pairs become a single post.
+  const GROUP_WINDOW_MS = 5 * 60 * 1000;
   await withPosts((posts) => {
+    const cutoff = Date.now() - GROUP_WINDOW_MS;
+    const existing = posts.find(
+      (p) => p.from === msg.from && p.status === 'new' && new Date(p.createdAt).getTime() >= cutoff,
+    );
+    if (existing) {
+      existing.mediaUrls.push(...mediaUrls);
+      if (msg.body) existing.note = existing.note ? `${existing.note} ${msg.body}`.trim() : msg.body;
+      existing.updatedAt = new Date().toISOString();
+      return existing.id;
+    }
     posts.unshift({
       id,
       status: 'new', // new -> draft -> published | failed
       from: msg.from,
-      note: msg.body,
+      note: msg.body || '',
       mediaUrls,
       type: null,
       draftCopy: null,
@@ -54,7 +69,8 @@ export default async function handler(req, res) {
       error: null,
       createdAt: new Date().toISOString(),
     });
-  }, `gbp: new submission ${id}`);
+    return id;
+  }, `gbp: inbound photos from ${msg.from}`);
 
   // Empty TwiML — acknowledge without auto-replying.
   res.setHeader('Content-Type', 'text/xml');
