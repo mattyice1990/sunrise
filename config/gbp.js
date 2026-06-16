@@ -46,6 +46,18 @@ export const GBP = {
 
   // GitHub repo coordinates (same as blog-webhook.js).
   github: { owner: 'mattyice1990', repo: 'sunrise', branch: 'main' },
+
+  // ── Daily prompt / reminder cron ──────────────────────────────────
+  // Who receives the "send me today's photos" text (the crew/operator).
+  promptRecipient: 'whatsapp:+15203068136',
+  // Business hours window (Tucson = America/Phoenix, no DST = UTC-7).
+  promptTimezoneOffset: -7,
+  promptStartHour: 8, // first prompt at 8 AM
+  promptEndHour: 21, // stop reminding after 9 PM
+  dailyPromptText:
+    "Morning! Send 2-3 photos of today's job + the town you're working in, and I'll get it posted to your Google Business Profile.",
+  reminderText:
+    "Reminder — I still need today's job photos. Send 2-3 (plus the town) whenever you get a sec and I'll post them.",
 };
 
 /** GBP API target IDs — filled in Vercel env after OAuth + /api/gbp-accounts. */
