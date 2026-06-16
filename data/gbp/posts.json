@@ -1,22 +1,26 @@
 [
   {
     "id": "1781624318616-is14h4",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+15203068136",
     "note": "",
     "mediaUrls": [
-      "https://roofwithsunrise.com/gbp-media/1781624318616-is14h4/0.jpg",
-      "https://roofwithsunrise.com/gbp-media/1781624319315-d2fnfv/0.jpg"
+      "https://roofwithsunrise.com/gbp-media/1781624319315-d2fnfv/0.jpg",
+      "https://roofwithsunrise.com/gbp-media/1781624318616-is14h4/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "before_after",
+    "draftCopy": "Roof repair in progress here in Tucson. Our crew tore out the damaged section and replaced the decking before installing fresh tile—built to last in the Arizona sun. If your tile roof has leak damage or missing tiles, we can help. Give Sunrise Roofing a call today.",
+    "finalCopy": "Roof repair in progress here in Tucson. Our crew tore out the damaged section and replaced the decking before installing fresh tile—built to last in the Arizona sun. If your tile roof has leak damage or missing tiles, we can help. Give Sunrise Roofing a call today.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-16T15:38:40.612Z",
-    "updatedAt": "2026-06-16T15:38:43.586Z"
+    "updatedAt": "2026-06-16T15:38:43.586Z",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   },
   {
     "id": "1781623234532-221rke",
