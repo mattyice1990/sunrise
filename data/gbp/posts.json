@@ -1,7 +1,7 @@
 [
   {
     "id": "1781632829736-964dka",
-    "status": "draft",
+    "status": "scheduled",
     "from": "whatsapp:+17194826976",
     "note": "Job in progress in saddlebrooke. Cool coat system using Tucson rubberized 297X primer and Tucson rubberized 7000 Elastromeric roof coating.",
     "mediaUrls": [
@@ -19,7 +19,8 @@
     "qualityFlags": {
       "needsResend": false,
       "reason": null
-    }
+    },
+    "scheduledFor": "2026-06-17T15:00:00.000Z"
   },
   {
     "id": "1781624318616-is14h4",
