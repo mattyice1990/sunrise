@@ -12,4 +12,10 @@ Disallow: /thank-you
 # Local backup snapshots (also excluded from deploy via .vercelignore)
 Disallow: /backups/
 
+# Private GBP admin app + its API and media (also sent noindex via X-Robots-Tag)
+Disallow: /gbp-admin
+Disallow: /gbp-media/
+Disallow: /data/
+Disallow: /api/
+
 Sitemap: https://roofwithsunrise.com/sitemap.xml
