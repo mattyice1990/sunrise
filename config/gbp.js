@@ -76,7 +76,7 @@ export const GBP = {
     { service: 'Flat Roof Coating', keywords: ['flat roof', 'roof coating', 'elastomeric', 'recoat'], page: '/roofing-services/flat-roof-coating-tucson' },
     { service: 'Foam Roofing', keywords: ['foam', 'spf'], page: '/roofing-services/foam-roofing-tucson' },
     { service: 'Metal Roofing', keywords: ['metal roof', 'standing seam'], page: '/roofing-services/metal-roofing-tucson' },
-    { service: 'Emergency Roof Repair', keywords: ['emergency', 'storm damage', 'storm'], page: '/roofing-services/emergency-roof-repair-tucson' },
+    { service: 'Emergency Roof Repair', keywords: ['emergency', 'storm damage', 'leak emergency'], page: '/roofing-services/emergency-roof-repair-tucson' },
     { service: 'Roof Inspection', keywords: ['inspection', 'inspect'], page: '/roofing-services/roof-inspection' },
     { service: 'Roof Replacement', keywords: ['replacement', 'new roof', 'tear off', 'tear-off', 'reroof', 're-roof', 'replaced the roof'], page: '/roofing-services/new-roof-tucson' },
     { service: 'Roof Repair', keywords: ['repair', 'leak', 'patch', 'seal'], page: '/roofing-services/roof-repair-tucson' },
