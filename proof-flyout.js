@@ -1,15 +1,16 @@
 /**
  * Recent-jobs proof flyout — an edge tab that expands a mini map + recent
- * job cards, fed by /recent-work.json. Self-contained (injects its own CSS,
- * namespaced .pfly-*). Drop onto any page with:
- *   <script src="/proof-flyout.js" async></script>
- * Reuses the site's existing Google Maps key; loads Maps lazily on first open.
+ * job cards (from /recent-work.json), plus a 3/4-height bottom overlay that
+ * loads the full /recent-projects experience inline (no page navigation).
+ * Also makes the homepage Google-reviews carousel open that same overlay.
+ * Self-contained, namespaced .pfly-*. Embed: <script src="/proof-flyout.js" async></script>
  */
 (function () {
   var MAPS_KEY = 'AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM';
   var FEED = '/recent-work.json?max=12';
+  var OVERLAY_URL = '/recent-projects';
   var TUCSON = { lat: 32.2226, lng: -110.9747 };
-  var items = [], map = null, info = null, markers = {}, loaded = false, mapsLoading = false;
+  var items = [], map = null, info = null, markers = {}, loaded = false, mapsLoading = false, ovLoaded = false;
 
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
@@ -37,10 +38,23 @@
     + '.pfly-ct{font-size:13.5px;font-weight:600;margin:0 0 3px;color:#1a2330}'
     + '.pfly-cd{font-size:12px;color:#5f6368;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}'
     + '.pfly-ft{padding:12px 16px;border-top:1px solid #e3e6ea;text-align:center}'
-    + '.pfly-ft a{color:#1a73e8;font-weight:600;text-decoration:none;font-size:14px}'
+    + '.pfly-ft a{color:#1a73e8;font-weight:600;text-decoration:none;font-size:14px;cursor:pointer}'
     + '.pfly-empty{color:#79828d;font-size:13px;text-align:center;padding:24px 0}'
+    // 3/4 overlay
+    + '.pfly-ovbg{position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:opacity .3s}'
+    + '.pfly-ovbg.open{opacity:1;visibility:visible}'
+    + '.pfly-ov{position:fixed;left:0;right:0;bottom:0;height:82vh;z-index:100001;background:#fff;'
+    + 'border-radius:18px 18px 0 0;transform:translateY(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);'
+    + 'display:flex;flex-direction:column;box-shadow:0 -8px 30px rgba(0,0,0,.3);'
+    + 'font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}'
+    + '.pfly-ov.open{transform:translateY(0)}'
+    + '.pfly-ovhd{display:flex;align-items:center;justify-content:space-between;padding:8px 18px 12px;border-bottom:1px solid #e3e6ea;cursor:pointer;flex:0 0 auto}'
+    + '.pfly-ovhd .grip{position:absolute;left:50%;transform:translateX(-50%);top:8px;width:44px;height:5px;border-radius:3px;background:#cfd5db}'
+    + '.pfly-ovhd h3{margin:14px 0 0;font-size:16px;color:#1a2330}'
+    + '.pfly-ovframe{flex:1;border:0;width:100%}'
+    + '#google-reviews-container{cursor:pointer}'
     + '@media(max-width:560px){.pfly-panel{width:100%;height:82%;top:auto;bottom:0;border-radius:16px 16px 0 0;transform:translateY(100%)}'
-    + '.pfly-panel.open{transform:translateY(0)}}';
+    + '.pfly-panel.open{transform:translateY(0)}.pfly-ov{height:88vh}}';
 
   function injectCss(){ var s=document.createElement('style'); s.textContent=css; document.head.appendChild(s); }
 
@@ -56,15 +70,45 @@
       +'<div class="pfly-hd"><h3>Recent jobs near you</h3><button class="pfly-x" aria-label="Close">×</button></div>'
       +'<div id="pfly-map"></div>'
       +'<div class="pfly-list" id="pfly-list"><p class="pfly-empty">Loading…</p></div>'
-      +'<div class="pfly-ft"><a href="/recent-projects">View all projects →</a></div>';
+      +'<div class="pfly-ft"><a id="pfly-viewall">View all projects →</a></div>';
     document.body.appendChild(tab);
     document.body.appendChild(panel);
     panel.querySelector('.pfly-x').onclick=close;
+    panel.querySelector('#pfly-viewall').onclick=function(e){e.preventDefault();openOverlay();};
+
+    // 3/4 overlay (loads the full projects experience inline)
+    var bg=document.createElement('div'); bg.className='pfly-ovbg'; bg.id='pfly-ovbg';
+    var ov=document.createElement('div'); ov.className='pfly-ov'; ov.id='pfly-ov';
+    ov.innerHTML=''
+      +'<div class="pfly-ovhd" id="pfly-ovhd"><span class="grip"></span>'
+      +'<h3>Our recent work near you</h3><button class="pfly-x" aria-label="Close">×</button></div>'
+      +'<iframe class="pfly-ovframe" id="pfly-ovframe" title="Recent projects" loading="lazy"></iframe>';
+    document.body.appendChild(bg);
+    document.body.appendChild(ov);
+    bg.onclick=closeOverlay;
+    ov.querySelector('#pfly-ovhd').onclick=closeOverlay;     // tap header/handle collapses
+    ov.querySelector('.pfly-x').onclick=function(e){e.stopPropagation();closeOverlay();};
+
+    // Make the homepage Google-reviews carousel open the overlay too.
+    var rc=document.getElementById('google-reviews-container');
+    if(rc) rc.addEventListener('click',function(e){ if(e.target.closest('a'))return; openOverlay(); });
+  }
+
+  function openOverlay(){
+    var ov=document.getElementById('pfly-ov'), bg=document.getElementById('pfly-ovbg');
+    if(!ovLoaded){ document.getElementById('pfly-ovframe').src=OVERLAY_URL; ovLoaded=true; }
+    bg.classList.add('open'); ov.classList.add('open'); document.body.style.overflow='hidden';
+  }
+  function closeOverlay(){
+    document.getElementById('pfly-ov').classList.remove('open');
+    document.getElementById('pfly-ovbg').classList.remove('open');
+    document.body.style.overflow='';
   }
 
   function open(){
     document.getElementById('pfly-panel').classList.add('open');
     if(!loaded){ loaded=true; loadData(); }
+    else if(map){ setTimeout(function(){ google.maps.event.trigger(map,'resize'); fitMap(); },350); }
   }
   function close(){ document.getElementById('pfly-panel').classList.remove('open'); }
 
@@ -95,18 +139,26 @@
     s.async=true; document.head.appendChild(s);
   }
 
+  function fitMap(){
+    if(!map) return;
+    var b=new google.maps.LatLngBounds(); var n=0;
+    items.forEach(function(i){ if(typeof i.approximate_lat==='number'){ b.extend({lat:i.approximate_lat,lng:i.approximate_lng}); n++; } });
+    if(n){ map.fitBounds(b); if(n===1) map.setZoom(12); } else { map.setCenter(TUCSON); map.setZoom(10); }
+  }
+
   function initMap(){
     var el=document.getElementById('pfly-map'); if(!el||!window.google) return;
     map=new google.maps.Map(el,{center:TUCSON,zoom:10,mapTypeControl:false,streetViewControl:false,fullscreenControl:false});
-    var bounds=new google.maps.LatLngBounds(); markers={};
+    markers={};
     items.forEach(function(i){
       if(typeof i.approximate_lat!=='number') return;
-      var pos={lat:i.approximate_lat,lng:i.approximate_lng};
-      var m=new google.maps.Marker({position:pos,map:map,title:i.title});
+      var m=new google.maps.Marker({position:{lat:i.approximate_lat,lng:i.approximate_lng},map:map,title:i.title});
       m.addListener('click',function(){ showInfo(i,m); });
-      markers[i.id]=m; bounds.extend(pos);
+      markers[i.id]=m;
     });
-    if(Object.keys(markers).length){ map.fitBounds(bounds); if(items.length===1) map.setZoom(12); }
+    // The panel is still sliding in when the map is created — resize once it's
+    // settled so tiles paint, then fit to the pins.
+    setTimeout(function(){ if(map){ google.maps.event.trigger(map,'resize'); fitMap(); } }, 400);
   }
 
   function showInfo(i,m){
