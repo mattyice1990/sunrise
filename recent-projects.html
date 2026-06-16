@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recent Roofing Projects Near Tucson | Sunrise Roofing</title>
+<meta name="description" content="See recent roofing projects Sunrise Roofing has completed across Tucson, Oro Valley, Marana, and the surrounding area — repairs, replacements, coatings, and inspections.">
+<link rel="canonical" href="https://roofwithsunrise.com/recent-projects">
+<style>
+  :root{--blue:#1a73e8;--ink:#1a2330;--mut:#5f6368;--bd:#e3e6ea;--bg:#f6f8fa}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#fff}
+  .rp-head{max-width:1180px;margin:0 auto;padding:28px 20px 8px}
+  .rp-head h1{font-size:26px;margin:0 0 6px}
+  .rp-head p{color:var(--mut);margin:0;font-size:15px}
+  .rp-filters{max-width:1180px;margin:0 auto;padding:16px 20px;display:flex;gap:10px;flex-wrap:wrap}
+  .rp-filters select{padding:9px 12px;border:1px solid var(--bd);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+  .rp-wrap{max-width:1180px;margin:0 auto;padding:0 20px 48px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  #rp-map{width:100%;height:560px;border-radius:14px;border:1px solid var(--bd);background:var(--bg)}
+  .rp-list{height:560px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding-right:4px}
+  .rp-card{display:flex;gap:12px;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;transition:box-shadow .15s,border-color .15s}
+  .rp-card:hover,.rp-card.active{box-shadow:0 4px 16px rgba(26,115,232,.16);border-color:var(--blue)}
+  .rp-card img{width:128px;height:128px;object-fit:cover;flex:0 0 128px;background:var(--bg)}
+  .rp-cbody{padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+  .rp-ctitle{font-size:15px;font-weight:600;margin:0}
+  .rp-cdesc{font-size:13px;line-height:1.45;color:var(--mut);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .rp-clinks{font-size:12.5px;margin:0}
+  .rp-clinks a{color:var(--blue);text-decoration:none}
+  .rp-cta{align-self:flex-start;margin-top:2px;font-size:13px;font-weight:600;color:#fff;background:var(--blue);padding:7px 12px;border-radius:7px;text-decoration:none}
+  .rp-empty{color:var(--mut);padding:40px 0;text-align:center}
+  .gm-iw{font-family:inherit;max-width:240px}
+  .gm-iw h4{margin:0 0 4px;font-size:14px}
+  .gm-iw p{margin:0 0 8px;font-size:12.5px;color:var(--mut)}
+  .gm-iw a{color:var(--blue);text-decoration:none;font-weight:600;font-size:13px}
+  @media(max-width:820px){
+    .rp-wrap{grid-template-columns:1fr}
+    #rp-map{height:320px}
+    .rp-list{height:auto;overflow:visible}
+  }
+</style>
+</head>
+<body>
+  <div class="rp-head">
+    <h1>Recent Roofing Projects Near Tucson</h1>
+    <p>Real jobs our crew has recently completed across the Tucson area. Locations are approximate for privacy.</p>
+  </div>
+  <div class="rp-filters">
+    <select id="rp-service"><option value="">All services</option></select>
+    <select id="rp-city"><option value="">All areas</option></select>
+  </div>
+  <div class="rp-wrap">
+    <div id="rp-map"></div>
+    <div class="rp-list" id="rp-list"><p class="rp-empty">Loading recent projects…</p></div>
+  </div>
+
+<script>
+const MAPS_KEY = 'AIzaSyBvvwXnVB5WxLjHG091gU0R-uOBodS8pMM'; // same referrer-restricted key as the homepage
+const TUCSON = { lat: 32.2226, lng: -110.9747 };
+let ALL = [], MAP, MARKERS = {}, INFO;
+
+function esc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+async function loadData(){
+  try{
+    const res = await fetch('/recent-work.json?max=100');
+    const data = await res.json();
+    ALL = data.items || [];
+  }catch(e){ ALL = []; }
+  buildFilters();
+  render();
+}
+
+function buildFilters(){
+  const svc = document.getElementById('rp-service'), city = document.getElementById('rp-city');
+  [...new Set(ALL.map(i=>i.service_type))].sort().forEach(s=>{
+    const o=document.createElement('option');o.value=s;o.textContent=s;svc.appendChild(o);
+  });
+  [...new Set(ALL.map(i=>i.city))].sort().forEach(c=>{
+    const o=document.createElement('option');o.value=c;o.textContent=c;city.appendChild(o);
+  });
+  svc.addEventListener('change',render);
+  city.addEventListener('change',render);
+}
+
+function filtered(){
+  const s=document.getElementById('rp-service').value, c=document.getElementById('rp-city').value;
+  return ALL.filter(i=>(!s||i.service_type===s)&&(!c||i.city===c));
+}
+
+function render(){
+  const items = filtered();
+  const list = document.getElementById('rp-list');
+  // clear markers
+  Object.values(MARKERS).forEach(m=>m.setMap(null)); MARKERS={};
+  if(!items.length){ list.innerHTML='<p class="rp-empty">No projects match that filter yet.</p>'; return; }
+
+  list.innerHTML = items.map(i=>`
+    <div class="rp-card" id="rp-card-${esc(i.id)}" onclick="focusItem('${esc(i.id)}')"
+         onmouseenter="hoverItem('${esc(i.id)}',true)" onmouseleave="hoverItem('${esc(i.id)}',false)">
+      ${i.image_url?`<img src="${esc(i.image_url)}" alt="${esc(i.title)}" loading="lazy">`:''}
+      <div class="rp-cbody">
+        <p class="rp-ctitle">${esc(i.title)}</p>
+        <p class="rp-cdesc">${esc(i.short_description)}</p>
+        <p class="rp-clinks"><a href="${esc(i.service_page_url)}">${esc(i.service_type)}</a>
+          ${i.location_page_url?` · <a href="${esc(i.location_page_url)}">Roofing in ${esc(i.city)}</a>`:''}</p>
+        <a class="rp-cta" href="${esc(i.cta_url)}">${esc(i.cta_text)}</a>
+      </div>
+    </div>`).join('');
+
+  if(!MAP) return;
+  const bounds = new google.maps.LatLngBounds();
+  items.forEach(i=>{
+    if(typeof i.approximate_lat!=='number') return;
+    const pos={lat:i.approximate_lat,lng:i.approximate_lng};
+    const m=new google.maps.Marker({position:pos,map:MAP,title:i.title});
+    m.addListener('click',()=>openInfo(i,m));
+    MARKERS[i.id]=m; bounds.extend(pos);
+  });
+  if(Object.keys(MARKERS).length){ MAP.fitBounds(bounds); if(items.length===1) MAP.setZoom(12); }
+}
+
+function openInfo(i,m){
+  if(!INFO) INFO=new google.maps.InfoWindow();
+  INFO.setContent(`<div class="gm-iw"><h4>${esc(i.title)}</h4><p>${esc(i.short_description).slice(0,140)}…</p>
+    <a href="${esc(i.cta_url)}">${esc(i.cta_text)} →</a></div>`);
+  INFO.open(MAP,m);
+}
+function focusItem(id){
+  const m=MARKERS[id]; const item=ALL.find(x=>x.id===id);
+  if(m&&MAP){ MAP.panTo(m.getPosition()); MAP.setZoom(13); openInfo(item,m); }
+}
+function hoverItem(id,on){
+  const c=document.getElementById('rp-card-'+id); if(c)c.classList.toggle('active',on);
+  const m=MARKERS[id]; if(m) m.setAnimation(on?google.maps.Animation.BOUNCE:null);
+}
+
+window.initRecentProjects=function(){
+  MAP=new google.maps.Map(document.getElementById('rp-map'),{
+    center:TUCSON,zoom:11,mapTypeControl:false,streetViewControl:false,fullscreenControl:false
+  });
+  render();
+};
+
+(function(){
+  loadData();
+  const s=document.createElement('script');
+  s.src=`https://maps.googleapis.com/maps/api/js?key=${MAPS_KEY}&loading=async&callback=initRecentProjects`;
+  s.async=true; document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
