@@ -10,6 +10,14 @@
     {
       "source": "/feed.xml",
       "destination": "/api/feed"
+    },
+    {
+      "source": "/recent-work.json",
+      "destination": "/api/recent-work?format=json"
+    },
+    {
+      "source": "/recent-work.html",
+      "destination": "/api/recent-work?format=html"
     }
   ],
   "redirects": [

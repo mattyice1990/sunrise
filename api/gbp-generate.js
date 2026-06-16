@@ -39,6 +39,8 @@ export default async function handler(req, res) {
       p.finalCopy = draft.postCopy || '';
       p.ctaType = draft.ctaType || 'NONE';
       p.ctaUrl = draft.ctaUrl || null;
+      p.city = draft.city || null;
+      p.serviceType = draft.serviceType || null;
       p.mediaUrls = mediaUrls;
       p.qualityFlags = draft.qualityFlags || null;
       p.status = 'draft';
