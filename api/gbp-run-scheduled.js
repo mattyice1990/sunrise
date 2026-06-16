@@ -6,9 +6,11 @@
  */
 import { gbpTarget } from '../config/gbp.js';
 import { readPosts, withPosts } from '../lib/gbp/store.js';
-import { publishLocalPost } from '../lib/gbp/google.js';
+import { publishLocalPost, listLocalPosts } from '../lib/gbp/google.js';
 import { generateDraft } from '../lib/gbp/claude.js';
 import { emailConfigured, sendEmail, buildReviewEmail } from '../lib/gbp/email.js';
+
+const AUTO_PUBLISH = /^(1|true|yes|on)$/i.test(process.env.GBP_AUTO_PUBLISH || '');
 
 export const config = { maxDuration: 60 };
 
@@ -40,6 +42,22 @@ export default async function handler(req, res) {
         const draft = await generateDraft(post.mediaUrls, post.note);
         const chosen = (draft.recommendedMediaIndexes || []).map((i) => post.mediaUrls[i]).filter(Boolean);
         const mediaUrls = chosen.length ? chosen : post.mediaUrls;
+        const badPhotos = draft.qualityFlags && draft.qualityFlags.needsResend;
+
+        // Full auto-publish: when enabled and photos are usable, publish now
+        // (GBP takes one photo; pairs post the first image — no browser composite).
+        let autoStatus = null, gbpPostId = null, perr = null;
+        if (AUTO_PUBLISH && !badPhotos && (draft.postCopy || '').trim()) {
+          const { accountId, locationId } = gbpTarget();
+          try {
+            gbpPostId = await publishLocalPost({
+              accountId, locationId, summary: draft.postCopy,
+              mediaUrls, ctaType: draft.ctaType || 'NONE', ctaUrl: draft.ctaUrl || null,
+            });
+            autoStatus = 'published';
+          } catch (e) { autoStatus = 'failed'; perr = e.message; }
+        }
+
         await withPosts((arr) => {
           const p = arr.find((x) => x.id === post.id);
           if (!p) return null;
@@ -52,22 +70,36 @@ export default async function handler(req, res) {
           p.serviceType = draft.serviceType || null;
           p.mediaUrls = mediaUrls;
           p.qualityFlags = draft.qualityFlags || null;
-          p.status = 'draft';
           p.autoDrafted = true;
+          if (autoStatus === 'published') {
+            p.status = 'published'; p.gbpPostId = gbpPostId;
+            p.publishedMedia = mediaUrls[0] || null; p.publishedAt = new Date().toISOString(); p.error = null;
+          } else if (autoStatus === 'failed') {
+            p.status = 'failed'; p.error = perr;
+          } else {
+            p.status = 'draft';
+          }
           return p;
-        }, `gbp: auto-draft ${post.id}`);
+        }, `gbp: auto-${autoStatus || 'draft'} ${post.id}`);
       } catch (e) {
         console.error('auto-draft failed', post.id, e.message);
       }
     }
 
-    // Pass B: email any auto-generated draft we haven't notified about yet.
+    // Pass B: email auto-handled posts we haven't notified about yet
+    // (drafts awaiting approval, or a heads-up that one was auto-published).
     const after = await readPosts();
-    const toNotify = after.filter((p) => p.status === 'draft' && p.autoDrafted && !p.notifiedAt);
+    const toNotify = after.filter(
+      (p) => p.autoDrafted && !p.notifiedAt && (p.status === 'draft' || p.status === 'published'),
+    );
     for (const post of toNotify) {
       try {
-        const { subject, html } = buildReviewEmail(post);
-        await sendEmail({ subject, html });
+        const built = buildReviewEmail(post);
+        const subject =
+          post.status === 'published'
+            ? `Auto-published to Google: ${post.type || 'job'} in ${post.city || 'Tucson'}`
+            : built.subject;
+        await sendEmail({ subject, html: built.html });
         await withPosts((arr) => {
           const p = arr.find((x) => x.id === post.id);
           if (p) p.notifiedAt = new Date().toISOString();
@@ -77,6 +109,31 @@ export default async function handler(req, res) {
         console.error('notify failed', post.id, e.message);
       }
     }
+  }
+
+  // Pass C: pull live post edits made directly on Google back into the site.
+  // Only commits when something actually changed (avoids empty redeploys).
+  try {
+    const { accountId, locationId } = gbpTarget();
+    if (accountId && locationId) {
+      const live = await listLocalPosts(accountId, locationId);
+      const byName = {};
+      live.forEach((p) => { byName[p.name] = p.summary; });
+      const current = await readPosts();
+      const needs = current.some(
+        (p) => p.gbpPostId && byName[p.gbpPostId] != null && p.finalCopy !== byName[p.gbpPostId],
+      );
+      if (needs) {
+        await withPosts((arr) => {
+          arr.forEach((p) => {
+            if (p.gbpPostId && byName[p.gbpPostId] != null) p.finalCopy = byName[p.gbpPostId];
+          });
+          return true;
+        }, 'gbp: sync live post copy from Google');
+      }
+    }
+  } catch (e) {
+    console.error('post sync failed', e.message);
   }
 
   const now = Date.now();
