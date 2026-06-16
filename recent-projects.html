@@ -123,19 +123,27 @@ function renderRatingBadge(){
 }
 
 var REVPAGE=0; var REV_PER=6;
-function reviewCard(rv){
+function reviewCard(rv,idx){
   var reply = rv.owner_reply ? '<div class="reply"><b>Response from owner</b><p>'+esc(rv.owner_reply)+'</p></div>' : '';
-  return '<div class="np-rev" onclick="this.classList.toggle(\'exp\')" title="Click to read full review"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
+  return '<div class="np-rev" id="np-rev-'+idx+'" onclick="focusReview('+idx+')" title="Click to see it on the map"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
     +'<p class="tx">'+esc(rv.text)+'</p>'+reply
     +'<div class="who">'+(rv.profile_photo_url?'<img src="'+esc(rv.profile_photo_url)+'" alt="">':'')+'<span>'+esc(rv.author_name)+'</span></div></div>';
+}
+// Click a featured review -> pan the map to its pin, open it, and expand the card.
+function focusReview(idx){
+  var m=REVMARKERS[idx], rv=REVIEWS[idx];
+  if(m&&MAP){ MAP.panTo(m.getPosition()); MAP.setZoom(13); reviewInfo(rv,m); }
+  var card=document.getElementById('np-rev-'+idx); if(card)card.classList.toggle('exp');
+  if(MAP){ var mp=document.getElementById('np-map'); if(mp)mp.scrollIntoView({behavior:'smooth',block:'nearest'}); }
 }
 function renderReviews(){
   var el=document.getElementById('np-reviews'), pg=document.getElementById('np-revpage');
   if(!REVIEWS.length){el.innerHTML='<p class="np-empty">Reviews coming soon.</p>';if(pg)pg.innerHTML='';return;}
   var pages=Math.ceil(REVIEWS.length/REV_PER);
   if(REVPAGE>=pages)REVPAGE=0;
-  var slice=REVIEWS.slice(REVPAGE*REV_PER,(REVPAGE+1)*REV_PER);
-  el.innerHTML=slice.map(reviewCard).join('');
+  var start=REVPAGE*REV_PER;
+  var slice=REVIEWS.slice(start,start+REV_PER);
+  el.innerHTML=slice.map(function(rv,i){return reviewCard(rv,start+i);}).join('');
   if(pg){
     pg.innerHTML = pages>1
       ? Array.from({length:pages},function(_,i){return '<button class="np-pgbtn'+(i===REVPAGE?' on':'')+'" onclick="gotoRevPage('+i+')">'+(i+1)+'</button>';}).join('')
@@ -218,7 +226,7 @@ function jitterTucson(seed,radiusMi){
 function reviewInfo(rv,m){
   if(!INFO)INFO=new google.maps.InfoWindow();
   var reply = rv.owner_reply ? '<div style="margin-top:6px;background:#f1f5f9;border-radius:6px;padding:6px 8px;font-size:11.5px;color:#48515c"><b>Response from owner:</b> '+esc(String(rv.owner_reply).slice(0,160))+(rv.owner_reply.length>160?'…':'')+'</div>' : '';
-  INFO.setContent('<div style="font-family:system-ui;max-width:250px"><div style="color:#FBBC05;font-size:14px">'+stars(rv.rating)+'</div>'
+  INFO.setContent('<div style="font-family:system-ui;max-width:250px"><div style="display:flex;align-items:center;gap:6px">'+GICON+'<span style="color:#FBBC05;font-size:14px">'+stars(rv.rating)+'</span></div>'
     +'<p style="font-size:12.5px;color:#3c4450;line-height:1.45;margin:5px 0 0">'+esc(String(rv.text).slice(0,220))+(rv.text.length>220?'…':'')+'</p>'
     +'<div style="font-size:12px;font-weight:600;margin-top:6px">— '+esc(rv.author_name)+'</div>'+reply+'</div>');
   INFO.open(MAP,m);
