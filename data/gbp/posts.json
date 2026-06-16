@@ -16,12 +16,13 @@
     "gbpPostId": null,
     "error": "GBP localPosts 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Google My Business API has not been used in project 1027649293824 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=1027649293824 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"SERVICE_DISABLED\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"consumer\": \"projects/1027649293824\",\n          \"activationUrl\": \"https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=1027649293824\",\n          \"containerInfo\": \"1027649293824\",\n          \"serviceTitle\": \"Google My Business API\",\n          \"service\": \"mybusiness.googleapis.com\"\n        }\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.LocalizedMessage\",\n        \"locale\": \"en-US\",\n        \"message\": \"Google My Business API has not been used in project 1027649293824 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=1027649293824 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.\"\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Google developers console API activation\",\n            \"url\": \"https://console.developers.google.com/apis/api/mybusiness.googleapis.com/overview?project=1027649293824\"\n          }\n        ]\n      }\n    ]\n  }\n}\n",
     "createdAt": "2026-06-16T15:38:40.612Z",
-    "updatedAt": "2026-06-16T15:38:43.586Z",
+    "updatedAt": "2026-06-16T16:27:36.047Z",
     "qualityFlags": {
       "needsResend": false,
       "reason": null
     },
-    "publishedAt": null
+    "publishedAt": null,
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1781624318616-is14h4/composite-mqguv7vr.jpg"
   },
   {
     "id": "1781623234532-221rke",
