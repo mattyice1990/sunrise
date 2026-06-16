@@ -6,43 +6,62 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Sunrise GBP — Post Review</title>
 <style>
-  :root{--bg:#0f1216;--panel:#181d23;--bd:#2a323b;--tx:#e9eef3;--mut:#8b98a5;--acc:#f5a623;--grn:#2ea043;--red:#f85149;--blue:#2f81f7}
+  :root{
+    --bg:#0f1216;--panel:#181d23;--bd:#2a323b;--tx:#e9eef3;--mut:#8b98a5;
+    --acc:#f5a623;--grn:#2ea043;--red:#f85149;--blue:#1a73e8;
+  }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-  header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--bd)}
-  header h1{font-size:17px;margin:0}
-  .wrap{max-width:880px;margin:0 auto;padding:20px}
-  .gate{max-width:420px;margin:80px auto;text-align:center}
-  input,textarea,select{background:#0d1117;color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:9px;font:inherit}
+  header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid var(--bd);position:sticky;top:0;background:var(--bg);z-index:5}
+  header h1{font-size:17px;margin:0;font-weight:600}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 20px 80px}
+  .gate{max-width:420px;margin:90px auto;text-align:center}
+  input,textarea,select{background:#0d1117;color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:10px;font:inherit}
   input,textarea{width:100%}
-  textarea{min-height:130px;resize:vertical}
-  .card{background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:14px 0}
-  .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
-  .badge{font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding:2px 9px;border-radius:999px;border:1px solid var(--bd);color:var(--mut)}
-  .badge.new{color:var(--acc);border-color:var(--acc)}
-  .badge.draft{color:var(--blue);border-color:var(--blue)}
-  .badge.published{color:var(--grn);border-color:var(--grn)}
-  .badge.failed{color:var(--red);border-color:var(--red)}
-  .media{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-  .media img{width:110px;height:110px;object-fit:cover;border-radius:8px;border:1px solid var(--bd)}
-  .note{color:var(--mut);font-size:13px;margin:6px 0}
-  .btn{cursor:pointer;border:1px solid var(--bd);background:#202832;color:var(--tx);padding:8px 14px;border-radius:8px;font:inherit}
+  textarea{min-height:120px;resize:vertical;line-height:1.45}
+  .btn{cursor:pointer;border:1px solid var(--bd);background:#202832;color:var(--tx);padding:9px 16px;border-radius:8px;font:inherit;font-weight:500}
+  .btn:hover{filter:brightness(1.12)}
   .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
   .btn.green{background:var(--grn);border-color:var(--grn);color:#fff}
   .btn:disabled{opacity:.5;cursor:default}
-  .ctaRow{display:flex;gap:8px;margin-top:8px}
+  .badge{font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:3px 10px;border-radius:999px;border:1px solid var(--bd);color:var(--mut)}
+  .badge.new{color:var(--acc);border-color:var(--acc)}
+  .badge.draft{color:#7cc4ff;border-color:#7cc4ff}
+  .badge.published{color:var(--grn);border-color:var(--grn)}
+  .badge.failed{color:var(--red);border-color:var(--red)}
+  .card{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:18px;margin:0 0 20px}
+  .cardhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .meta{color:var(--mut);font-size:13px}
+  .cols{display:flex;gap:22px;flex-wrap:wrap}
+  .col{flex:1;min-width:300px}
+  .col h3{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:0 0 10px}
+  /* GBP-style preview */
+  .gbp{background:#fff;color:#202124;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.4);max-width:380px}
+  .gbp .ph{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#e8eaed}
+  .gbp .noimg{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:#9aa0a6;background:#f1f3f4;font-size:13px}
+  .gbp .body{padding:14px 16px 16px}
+  .gbp .biz{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .gbp .biz .dot{width:26px;height:26px;border-radius:50%;background:#1a73e8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+  .gbp .biz b{font-size:13px;color:#202124}
+  .gbp .biz span{font-size:12px;color:#5f6368}
+  .gbp .txt{font-size:14px;color:#3c4043;white-space:pre-wrap;margin:0 0 14px}
+  .gbp .cta{display:inline-block;color:var(--blue);font-weight:600;font-size:14px;border-top:1px solid #ececec;padding-top:12px;width:100%}
+  .ctaRow{display:flex;gap:8px;margin:10px 0}
   .ctaRow select{flex:0 0 150px}
-  .muted{color:var(--mut)}
-  .err{color:var(--red);font-size:13px}
-  .ok{color:var(--grn);font-size:13px}
-  .empty{color:var(--mut);text-align:center;padding:50px 0}
+  .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .imgs{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+  .imgs img{width:64px;height:64px;object-fit:cover;border-radius:6px;border:1px solid var(--bd)}
+  .err{color:var(--red);font-size:13px;margin-top:8px}
+  .ok{color:var(--grn);font-size:13px;margin-top:8px}
+  .empty{color:var(--mut);text-align:center;padding:60px 0}
+  .note{color:var(--mut);font-size:13px;margin:4px 0 0}
 </style>
 </head>
 <body>
 <div id="gate" class="gate">
   <h1>Sunrise GBP — Post Review</h1>
-  <p class="muted">Enter your access token to continue.</p>
-  <input id="token" type="password" placeholder="Bearer token" autocomplete="off">
+  <p class="meta">Enter your access token to continue.</p>
+  <input id="token" type="password" placeholder="Access token" autocomplete="off">
   <p><button class="btn primary" onclick="saveToken()">Enter</button></p>
   <p id="gateErr" class="err"></p>
 </div>
@@ -51,7 +70,7 @@
   <header>
     <h1>Sunrise GBP — Post Review</h1>
     <div>
-      <button class="btn" onclick="load()">Reload</button>
+      <button class="btn" onclick="load()">↻ Reload</button>
       <button class="btn" onclick="logout()">Sign out</button>
     </div>
   </header>
@@ -59,92 +78,107 @@
 </div>
 
 <script>
-const CTA = ['NONE','CALL','LEARN_MORE','BOOK','ORDER','SHOP','SIGN_UP'];
-let TOKEN = sessionStorage.getItem('gbp_token') || '';
+const CTA=['NONE','CALL','LEARN_MORE','BOOK','ORDER','SHOP','SIGN_UP'];
+const CTA_LABEL={NONE:'(no button)',CALL:'Call now',LEARN_MORE:'Learn more',BOOK:'Book',ORDER:'Order online',SHOP:'Shop',SIGN_UP:'Sign up'};
+let TOKEN=sessionStorage.getItem('gbp_token')||'';
 
-function saveToken(){
-  const v = document.getElementById('token').value.trim();
-  if(!v){return}
-  TOKEN = v; sessionStorage.setItem('gbp_token', v);
-  start();
-}
-function logout(){ sessionStorage.removeItem('gbp_token'); location.reload(); }
-function start(){
-  document.getElementById('gate').style.display='none';
-  document.getElementById('app').style.display='block';
-  load();
-}
-async function api(path, opts={}){
-  const res = await fetch(path, {
-    ...opts,
-    headers:{ 'Authorization':'Bearer '+TOKEN, 'Content-Type':'application/json', ...(opts.headers||{}) }
-  });
-  if(res.status===401){ throw new Error('Unauthorized — check your token'); }
-  const data = await res.json().catch(()=>({}));
-  if(!res.ok) throw new Error(data.error || ('HTTP '+res.status));
+function saveToken(){const v=document.getElementById('token').value.trim();if(!v)return;TOKEN=v;sessionStorage.setItem('gbp_token',v);start();}
+function logout(){sessionStorage.removeItem('gbp_token');location.reload();}
+function start(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';load();}
+async function api(path,opts={}){
+  const res=await fetch(path,{...opts,headers:{'Authorization':'Bearer '+TOKEN,'Content-Type':'application/json',...(opts.headers||{})}});
+  if(res.status===401)throw new Error('Unauthorized — check your token');
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok)throw new Error(data.error||('HTTP '+res.status));
   return data;
 }
-function esc(s){ return (s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
 async function load(){
-  const list = document.getElementById('list');
+  const list=document.getElementById('list');
+  list.innerHTML='<p class="empty">Loading…</p>';
   try{
-    const {posts} = await api('/api/gbp-posts');
-    if(!posts || !posts.length){ list.innerHTML='<p class="empty">No submissions yet. Text photos to the WhatsApp number to start.</p>'; return; }
-    list.innerHTML = posts.map(render).join('');
+    const {posts}=await api('/api/gbp-posts');
+    if(!posts||!posts.length){list.innerHTML='<p class="empty">No submissions yet. Text photos to the WhatsApp number and they\'ll show up here.</p>';return;}
+    list.innerHTML=posts.map(render).join('');
+    posts.forEach(p=>{ if(p.status==='draft'||p.status==='failed') wire(p.id); });
   }catch(e){
-    list.innerHTML = '<p class="err">'+esc(e.message)+'</p>';
-    if(/Unauthorized/.test(e.message)){ sessionStorage.removeItem('gbp_token'); }
+    list.innerHTML='<p class="err">'+esc(e.message)+'</p>';
+    if(/Unauthorized/.test(e.message))sessionStorage.removeItem('gbp_token');
   }
+}
+
+// Build the Google-Business-Profile-style preview card.
+function previewCard(id,img,text,cta){
+  const ctaHtml = cta&&cta!=='NONE' ? '<div class="cta" id="pv-cta-'+id+'">'+esc(CTA_LABEL[cta]||cta)+'</div>' : '<div class="cta" id="pv-cta-'+id+'" style="display:none"></div>';
+  const imgHtml = img ? '<img class="ph" src="'+esc(img)+'" alt="">' : '<div class="noimg">No photo</div>';
+  return '<div class="gbp">'+imgHtml+
+    '<div class="body"><div class="biz"><div class="dot">S</div><div><b>Sunrise Roofing</b><br><span>Tucson, AZ · Roofing</span></div></div>'+
+    '<p class="txt" id="pv-txt-'+id+'">'+esc(text||'')+'</p>'+ctaHtml+'</div></div>';
 }
 
 function render(p){
-  const media = (p.mediaUrls||[]).map(u=>`<img src="${esc(u)}" alt="">`).join('');
-  const flag = p.qualityFlags && p.qualityFlags.needsResend
-    ? `<p class="err">⚠ Claude flagged the photos: ${esc(p.qualityFlags.reason||'low quality')}</p>` : '';
-  let actions = '';
+  const copy=p.finalCopy||p.draftCopy||'';
+  const img=(p.mediaUrls||[])[0]||'';
+  const thumbs=(p.mediaUrls||[]).map(u=>'<img src="'+esc(u)+'" alt="">').join('');
+  const flag=p.qualityFlags&&p.qualityFlags.needsResend?'<p class="err">⚠ Claude flagged the photos: '+esc(p.qualityFlags.reason||'low quality')+'</p>':'';
+
+  let right='';
   if(p.status==='new'){
-    actions = `<button class="btn primary" onclick="gen('${p.id}',this)">Generate draft</button>`;
-  } else if(p.status==='draft' || p.status==='failed'){
-    const opts = CTA.map(c=>`<option ${c===(p.ctaType||'NONE')?'selected':''}>${c}</option>`).join('');
-    actions = `
-      <textarea id="copy-${p.id}" maxlength="1500">${esc(p.finalCopy||p.draftCopy||'')}</textarea>
-      <div class="ctaRow">
-        <select id="cta-${p.id}">${opts}</select>
-        <input id="ctaurl-${p.id}" placeholder="CTA url (optional)" value="${esc(p.ctaUrl||'')}">
-      </div>
-      <p style="margin-top:10px">
-        <button class="btn green" onclick="publish('${p.id}',this)">Approve &amp; publish</button>
-        <button class="btn" onclick="gen('${p.id}',this)">Regenerate</button>
-      </p>`;
-  } else if(p.status==='published'){
-    actions = `<p class="ok">Published ✓ ${p.gbpPostId?('· '+esc(p.gbpPostId)):''}</p>`;
+    right='<p class="note">Photo + note received. Generate the post copy with Claude.</p>'+
+      '<div class="imgs">'+thumbs+'</div>'+
+      '<div class="actions"><button class="btn primary" onclick="gen(\''+p.id+'\',this)">✨ Generate draft</button></div>';
+  }else if(p.status==='draft'||p.status==='failed'){
+    const opts=CTA.map(c=>'<option value="'+c+'" '+(c===(p.ctaType||'NONE')?'selected':'')+'>'+c+'</option>').join('');
+    right='<textarea id="copy-'+p.id+'" maxlength="1500">'+esc(copy)+'</textarea>'+
+      '<div class="meta" id="cnt-'+p.id+'">'+copy.length+'/1500</div>'+
+      '<div class="ctaRow"><select id="cta-'+p.id+'">'+opts+'</select>'+
+      '<input id="ctaurl-'+p.id+'" placeholder="CTA link (optional)" value="'+esc(p.ctaUrl||'')+'"></div>'+
+      (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
+      '<div class="actions"><button class="btn green" onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish</button>'+
+      '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>';
+  }else if(p.status==='published'){
+    right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
+      (p.gbpPostId?'<p class="meta">'+esc(p.gbpPostId)+'</p>':'');
   }
-  return `<div class="card">
-    <div class="row"><strong>${esc(p.type||'submission')}</strong><span class="badge ${p.status}">${p.status}</span></div>
-    <p class="note">${esc(p.note||'(no note)')} · ${new Date(p.createdAt).toLocaleString()}</p>
-    <div class="media">${media}</div>
-    ${flag}
-    ${p.error?('<p class="err">'+esc(p.error)+'</p>'):''}
-    ${actions}
-  </div>`;
+
+  return '<div class="card"><div class="cardhead"><strong>'+esc(p.type||'submission')+'</strong>'+
+    '<span class="badge '+p.status+'">'+p.status+'</span></div>'+
+    '<p class="note">"'+esc(p.note||'(no note)')+'" · '+new Date(p.createdAt).toLocaleString()+'</p>'+flag+
+    '<div class="cols"><div class="col"><h3>Preview on Google</h3>'+previewCard(p.id,img,copy,p.ctaType||'NONE')+'</div>'+
+    '<div class="col"><h3>'+(p.status==='published'?'Status':'Edit & publish')+'</h3>'+right+'</div></div></div>';
 }
 
-async function gen(id, btn){
-  btn.disabled=true; btn.textContent='Generating…';
-  try{ await api('/api/gbp-generate',{method:'POST',body:JSON.stringify({id})}); await load(); }
-  catch(e){ alert(e.message); btn.disabled=false; btn.textContent='Generate draft'; }
-}
-async function publish(id, btn){
-  const copy = document.getElementById('copy-'+id).value;
-  const ctaType = document.getElementById('cta-'+id).value;
-  const ctaUrl = document.getElementById('ctaurl-'+id).value || null;
-  btn.disabled=true; btn.textContent='Publishing…';
-  try{ await api('/api/gbp-publish',{method:'POST',body:JSON.stringify({id,finalCopy:copy,ctaType,ctaUrl})}); await load(); }
-  catch(e){ alert(e.message); btn.disabled=false; btn.textContent='Approve & publish'; }
+// Live-update the preview as the operator edits copy / CTA.
+function wire(id){
+  const ta=document.getElementById('copy-'+id), cta=document.getElementById('cta-'+id);
+  if(ta) ta.addEventListener('input',()=>{
+    document.getElementById('pv-txt-'+id).textContent=ta.value;
+    document.getElementById('cnt-'+id).textContent=ta.value.length+'/1500';
+  });
+  if(cta) cta.addEventListener('change',()=>{
+    const el=document.getElementById('pv-cta-'+id);
+    if(cta.value==='NONE'){el.style.display='none';}
+    else{el.style.display='block';el.textContent=({NONE:'',CALL:'Call now',LEARN_MORE:'Learn more',BOOK:'Book',ORDER:'Order online',SHOP:'Shop',SIGN_UP:'Sign up'})[cta.value]||cta.value;}
+  });
 }
 
-if(TOKEN){ start(); }
+async function gen(id,btn){
+  btn.disabled=true;btn.textContent='Generating…';
+  try{await api('/api/gbp-generate',{method:'POST',body:JSON.stringify({id})});await load();}
+  catch(e){alert(e.message);btn.disabled=false;btn.textContent='✨ Generate draft';}
+}
+async function publish(id,btn){
+  if(!confirm('Publish this post to your live Google Business Profile?'))return;
+  const copy=document.getElementById('copy-'+id).value;
+  const ctaType=document.getElementById('cta-'+id).value;
+  const ctaUrl=document.getElementById('ctaurl-'+id).value||null;
+  btn.disabled=true;btn.textContent='Publishing…';
+  try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify({id,finalCopy:copy,ctaType,ctaUrl})});await load();}
+  catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish';}
+}
+
+if(TOKEN){start();}
 </script>
 </body>
 </html>
