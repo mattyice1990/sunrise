@@ -19,11 +19,15 @@
 
   var css = ''
     + '.pfly-tab{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:99998;'
-    + 'background:#1a73e8;color:#fff;border:none;cursor:pointer;border-radius:12px 0 0 12px;'
-    + 'padding:14px 9px;box-shadow:-2px 2px 12px rgba(0,0,0,.18);display:flex;flex-direction:column;'
-    + 'align-items:center;gap:6px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}'
-    + '.pfly-tab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:12.5px;font-weight:600;letter-spacing:.04em}'
-    + '.pfly-tab b{font-size:16px;line-height:1}'
+    + 'background:#2f6fed;color:#fff;border:none;cursor:pointer;border-radius:14px 0 0 14px;'
+    + 'padding:40px 13px;box-shadow:-3px 3px 16px rgba(0,0,0,.22);display:flex;flex-direction:column;'
+    + 'align-items:center;justify-content:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;'
+    + 'transition:background .2s}'
+    + '.pfly-tab:hover{background:#2256c9}'
+    + '.pfly-tab::before{content:"";position:absolute;left:-11px;top:50%;transform:translateY(-50%);'
+    + 'border-top:13px solid transparent;border-bottom:13px solid transparent;border-right:12px solid #2f6fed}'
+    + '.pfly-tab:hover::before{border-right-color:#2256c9}'
+    + '.pfly-tab .lbl{writing-mode:vertical-rl;transform:rotate(180deg);font-size:16px;font-weight:600;letter-spacing:.05em}'
     // hover map preview (slides via right; ~25% peeks)
     + '.pfly-peek{position:fixed;top:50%;margin-top:-150px;right:-360px;width:360px;height:300px;z-index:99997;'
     + 'background:#fff;border-radius:14px 0 0 14px;overflow:hidden;box-shadow:-6px 4px 22px rgba(0,0,0,.22);'
@@ -53,8 +57,8 @@
 
   function build(){
     var tab=document.createElement('button');
-    tab.className='pfly-tab'; tab.setAttribute('aria-label','See recent jobs near you');
-    tab.innerHTML='<b>◀</b><span>📍 Recent Jobs</span>';
+    tab.className='pfly-tab'; tab.setAttribute('aria-label','See our work near you');
+    tab.innerHTML='<span class="lbl">See work near you</span>';
 
     var peek=document.createElement('div');
     peek.className='pfly-peek'; peek.id='pfly-peek';
