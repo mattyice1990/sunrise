@@ -100,8 +100,14 @@ async function load(){
   try{
     const {posts}=await api('/api/gbp-posts');
     if(!posts||!posts.length){list.innerHTML='<p class="empty">No submissions yet. Text photos to the WhatsApp number and they\'ll show up here.</p>';return;}
+    posts.forEach(p=>{ CURRENT[p.id]=p.mediaUrls||[]; });
     list.innerHTML=posts.map(render).join('');
-    posts.forEach(p=>{ if(p.status==='draft'||p.status==='failed') wire(p.id); });
+    posts.forEach(p=>{
+      if(p.status==='draft'||p.status==='failed'){
+        wire(p.id);
+        if((p.mediaUrls||[]).length>=2) setupComposite(p);
+      }
+    });
   }catch(e){
     list.innerHTML='<p class="err">'+esc(e.message)+'</p>';
     if(/Unauthorized/.test(e.message))sessionStorage.removeItem('gbp_token');
@@ -111,7 +117,8 @@ async function load(){
 // Build the Google-Business-Profile-style preview card.
 function previewCard(id,img,text,cta){
   const ctaHtml = cta&&cta!=='NONE' ? '<div class="cta" id="pv-cta-'+id+'">'+esc(CTA_LABEL[cta]||cta)+'</div>' : '<div class="cta" id="pv-cta-'+id+'" style="display:none"></div>';
-  const imgHtml = img ? '<img class="ph" src="'+esc(img)+'" alt="">' : '<div class="noimg">No photo</div>';
+  const imgHtml = '<img class="ph" id="pv-img-'+id+'" src="'+esc(img||'')+'" alt="" style="'+(img?'':'display:none')+'">'+
+    '<div class="noimg" id="pv-noimg-'+id+'" style="'+(img?'display:none':'')+'">No photo</div>';
   return '<div class="gbp">'+imgHtml+
     '<div class="body"><div class="biz"><div class="dot">S</div><div><b>Sunrise Roofing</b><br><span>Tucson, AZ · Roofing</span></div></div>'+
     '<p class="txt" id="pv-txt-'+id+'">'+esc(text||'')+'</p>'+ctaHtml+'</div></div>';
@@ -119,8 +126,10 @@ function previewCard(id,img,text,cta){
 
 function render(p){
   const copy=p.finalCopy||p.draftCopy||'';
-  const img=(p.mediaUrls||[])[0]||'';
-  const thumbs=(p.mediaUrls||[]).map(u=>'<img src="'+esc(u)+'" alt="">').join('');
+  const srcs=(p.mediaUrls||[]);
+  const isPair=srcs.length>=2;
+  const img=isPair?(p.compositeUrl||''):(srcs[0]||'');
+  const thumbs=srcs.map(u=>'<img src="'+esc(u)+'" alt="">').join('');
   const flag=p.qualityFlags&&p.qualityFlags.needsResend?'<p class="err">⚠ Claude flagged the photos: '+esc(p.qualityFlags.reason||'low quality')+'</p>':'';
 
   let right='';
@@ -130,12 +139,17 @@ function render(p){
       '<div class="actions"><button class="btn primary" onclick="gen(\''+p.id+'\',this)">✨ Generate draft</button></div>';
   }else if(p.status==='draft'||p.status==='failed'){
     const opts=CTA.map(c=>'<option value="'+c+'" '+(c===(p.ctaType||'NONE')?'selected':'')+'>'+c+'</option>').join('');
+    const pairCtrls = isPair ?
+      '<p class="note" id="comp-status-'+p.id+'">Building before/after image…</p>'+
+      '<div class="actions"><button class="btn" id="swap-'+p.id+'" onclick="swapBA(\''+p.id+'\')">⇄ Swap before / after</button></div>'
+      : '';
     right='<textarea id="copy-'+p.id+'" maxlength="1500">'+esc(copy)+'</textarea>'+
       '<div class="meta" id="cnt-'+p.id+'">'+copy.length+'/1500</div>'+
       '<div class="ctaRow"><select id="cta-'+p.id+'">'+opts+'</select>'+
       '<input id="ctaurl-'+p.id+'" placeholder="CTA link (optional)" value="'+esc(p.ctaUrl||'')+'"></div>'+
+      pairCtrls+
       (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
-      '<div class="actions"><button class="btn green" onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish</button>'+
+      '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(isPair?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish</button>'+
       '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>';
   }else if(p.status==='published'){
     right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
@@ -174,8 +188,121 @@ async function publish(id,btn){
   const ctaType=document.getElementById('cta-'+id).value;
   const ctaUrl=document.getElementById('ctaurl-'+id).value||null;
   btn.disabled=true;btn.textContent='Publishing…';
-  try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify({id,finalCopy:copy,ctaType,ctaUrl})});await load();}
+  const body={id,finalCopy:copy,ctaType,ctaUrl};
+  const cu=COMP[id]&&COMP[id].compositeUrl;
+  if(cu) body.mediaUrls=[cu];
+  try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
   catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish';}
+}
+
+/* ---- Before/after compositing (in-browser; GBP allows only one image/post) ---- */
+const COMP={}; // id -> {order:[..], compositeUrl, building}
+const CURRENT={}; // id -> source mediaUrls, kept so Swap can rebuild
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+function loadImg(src){
+  return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=()=>rej(new Error('Could not load '+src));im.src=src;});
+}
+
+function drawLabel(ctx,text,x,cellW,canvasH){
+  ctx.save();
+  ctx.font='bold '+Math.round(canvasH*0.05)+'px system-ui,Segoe UI,Roboto,sans-serif';
+  const padX=Math.round(canvasH*0.022), padY=Math.round(canvasH*0.014);
+  const tw=ctx.measureText(text).width, bh=Math.round(canvasH*0.05)+padY*2;
+  const bx=x+Math.round(canvasH*0.03), by=canvasH-bh-Math.round(canvasH*0.03);
+  ctx.fillStyle='rgba(0,0,0,0.62)';
+  ctx.fillRect(bx,by,tw+padX*2,bh);
+  ctx.fillStyle='#fff';ctx.textBaseline='top';
+  ctx.fillText(text,bx+padX,by+padY);
+  ctx.restore();
+}
+
+// Stitch images side-by-side into a single JPEG data URL. order = indices into urls.
+async function buildComposite(urls,order){
+  const seq=(order&&order.length===urls.length)?order:urls.map((_,i)=>i);
+  const imgs=await Promise.all(seq.map(i=>loadImg(urls[i])));
+  const H=900,gut=12;
+  const cells=imgs.map(im=>({w:Math.max(1,Math.round(im.width*(H/im.height))),im}));
+  let totalW=cells.reduce((a,c)=>a+c.w,0)+gut*(cells.length-1);
+  const scale=Math.min(1,2400/totalW);
+  const cw=Math.round(totalW*scale),ch=Math.round(H*scale);
+  const cv=document.createElement('canvas');cv.width=cw;cv.height=ch;
+  const ctx=cv.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,cw,ch);
+  const labels=['BEFORE','AFTER'];let x=0;
+  cells.forEach((c,i)=>{
+    const w=Math.round(c.w*scale);
+    ctx.drawImage(c.im,x,0,w,ch);
+    if(cells.length===2) drawLabel(ctx,labels[i],x,w,ch);
+    x+=w+Math.round(gut*scale);
+  });
+  return cv.toDataURL('image/jpeg',0.85);
+}
+
+// Poll a media URL until the new deploy serves it (avoids publishing a 404).
+async function waitLive(url,tries=40){
+  for(let i=0;i<tries;i++){
+    try{const r=await fetch(url+'?t='+Date.now(),{cache:'no-store'});if(r.ok)return true;}catch(e){}
+    await sleep(3000);
+  }
+  return false;
+}
+
+function setStatus(id,msg,cls){
+  const el=document.getElementById('comp-status-'+id);
+  if(el){el.textContent=msg;el.className=(cls||'note');}
+}
+
+// For a before/after post: show composite, upload it, wait until live, enable publish.
+async function setupComposite(p){
+  const id=p.id, urls=p.mediaUrls||[];
+  const st=COMP[id]||(COMP[id]={order:urls.map((_,i)=>i)});
+  const pub=document.getElementById('pub-'+id);
+
+  // Already have a committed composite and no pending re-stitch → reuse it.
+  if(p.compositeUrl && !st.dirty){
+    st.compositeUrl=p.compositeUrl;
+    const im=document.getElementById('pv-img-'+id);
+    if(im){im.src=p.compositeUrl;im.style.display='block';}
+    const ni=document.getElementById('pv-noimg-'+id);if(ni)ni.style.display='none';
+    setStatus(id,'Before / after image ready ✓  (use Swap if the order is reversed)','ok');
+    if(pub)pub.disabled=false;
+    return;
+  }
+
+  if(st.building)return; st.building=true; st.dirty=false;
+  if(pub)pub.disabled=true;
+  try{
+    setStatus(id,'Stitching before / after image…','note');
+    const dataUrl=await buildComposite(urls,st.order);
+    // Instant local preview from the data URL.
+    const im=document.getElementById('pv-img-'+id);
+    if(im){im.src=dataUrl;im.style.display='block';}
+    const ni=document.getElementById('pv-noimg-'+id);if(ni)ni.style.display='none';
+
+    setStatus(id,'Uploading image…','note');
+    const {url}=await api('/api/gbp-composite',{method:'POST',body:JSON.stringify({id,dataUrl})});
+    st.compositeUrl=url;
+
+    setStatus(id,'Publishing the image to the web (≈1 min)…','note');
+    const live=await waitLive(url);
+    if(live){
+      setStatus(id,'Before / after image ready ✓  (use Swap if the order is reversed)','ok');
+      if(pub)pub.disabled=false;
+    }else{
+      setStatus(id,'Image uploaded but not live yet — wait a moment and hit Reload.','err');
+    }
+  }catch(e){
+    setStatus(id,'Composite failed: '+e.message,'err');
+  }finally{
+    st.building=false;
+  }
+}
+
+function swapBA(id){
+  const st=COMP[id]||(COMP[id]={order:(CURRENT[id]||[]).map((_,i)=>i)});
+  st.order=(st.order||[0,1]).slice().reverse();
+  st.dirty=true;
+  setupComposite({id,mediaUrls:CURRENT[id]||[],compositeUrl:null});
 }
 
 if(TOKEN){start();}

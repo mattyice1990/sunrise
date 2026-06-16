@@ -30,7 +30,8 @@ export default async function handler(req, res) {
 
     const ctaType = edits.ctaType ?? post.ctaType ?? 'NONE';
     const ctaUrl = edits.ctaUrl ?? post.ctaUrl ?? null;
-    const mediaUrls = edits.mediaUrls ?? post.mediaUrls ?? [];
+    // Prefer the stitched before/after composite when present; GBP takes one photo.
+    const mediaUrls = edits.mediaUrls ?? (post.compositeUrl ? [post.compositeUrl] : post.mediaUrls) ?? [];
     const { accountId, locationId } = gbpTarget();
 
     let gbpPostId = null;
@@ -49,7 +50,9 @@ export default async function handler(req, res) {
       p.finalCopy = finalCopy;
       p.ctaType = ctaType;
       p.ctaUrl = ctaUrl;
-      p.mediaUrls = mediaUrls;
+      // Keep source photos intact; the published image is tracked via compositeUrl/publishedMedia.
+      if (edits.mediaUrls) p.mediaUrls = edits.mediaUrls;
+      p.publishedMedia = mediaUrls[0] || null;
       p.status = status;
       p.gbpPostId = gbpPostId;
       p.error = error;
