@@ -37,7 +37,9 @@
   .np-pgbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
   .np-rev{flex:0 0 240px;scroll-snap-align:start;border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;background:#fff;cursor:pointer}
   .np-rev.exp{flex-basis:300px}
-  .np-rev.exp .tx{-webkit-line-clamp:unset}
+  .np-rev.txfull .tx{-webkit-line-clamp:unset}
+  .np-rev .more{font-size:12px;color:var(--blue);font-weight:600;cursor:pointer;margin-top:-2px;align-self:flex-start}
+  .np-rev .more:hover{text-decoration:underline}
   .np-rev .reply{display:none;background:#f1f5f9;border-radius:8px;padding:8px 10px}
   .np-rev.exp .reply{display:block}
   .np-rev .reply b{font-size:11px;color:var(--mut);display:block;margin-bottom:3px}
@@ -125,15 +127,26 @@ function renderRatingBadge(){
 var REVPAGE=0; var REV_PER=6;
 function reviewCard(rv,idx){
   var reply = rv.owner_reply ? '<div class="reply"><b>Response from owner</b><p>'+esc(rv.owner_reply)+'</p></div>' : '';
+  var more = (rv.text && rv.text.length>160) ? '<span class="more" onclick="toggleMore(event,'+idx+')">Show more</span>' : '';
   return '<div class="np-rev" id="np-rev-'+idx+'" onclick="focusReview('+idx+')" title="Click to see it on the map"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
-    +'<p class="tx">'+esc(rv.text)+'</p>'+reply
+    +'<p class="tx">'+esc(rv.text)+'</p>'+more+reply
     +'<div class="who">'+(rv.profile_photo_url?'<img src="'+esc(rv.profile_photo_url)+'" alt="">':'')+'<span>'+esc(rv.author_name)+'</span></div></div>';
 }
-// Click a featured review -> pan the map to its pin, open it, and expand the card.
+// "Show more / less" toggles the full review text (without triggering the card click).
+function toggleMore(e,idx){
+  e.stopPropagation();
+  var card=document.getElementById('np-rev-'+idx); if(!card)return;
+  card.classList.toggle('txfull');
+  e.target.textContent = card.classList.contains('txfull') ? 'Show less' : 'Show more';
+}
+// Click a featured review -> accordion (close any other open one), expand this,
+// and pan the map to its pin.
 function focusReview(idx){
+  var openOnes=document.querySelectorAll('.np-rev.exp');
+  for(var i=0;i<openOnes.length;i++){ if(openOnes[i].id!=='np-rev-'+idx) openOnes[i].classList.remove('exp'); }
+  var card=document.getElementById('np-rev-'+idx); if(card)card.classList.toggle('exp');
   var m=REVMARKERS[idx], rv=REVIEWS[idx];
   if(m&&MAP){ MAP.panTo(m.getPosition()); MAP.setZoom(13); reviewInfo(rv,m); }
-  var card=document.getElementById('np-rev-'+idx); if(card)card.classList.toggle('exp');
   if(MAP){ var mp=document.getElementById('np-map'); if(mp)mp.scrollIntoView({behavior:'smooth',block:'nearest'}); }
 }
 function renderReviews(){
