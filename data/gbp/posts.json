@@ -16,19 +16,23 @@
   },
   {
     "id": "1781623232858-t2enhh",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+15203068136",
     "note": "This is a roof replacement job in Oro Valley we completed today we replaced a tile roof and sealed all of the valleys",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1781623232858-t2enhh/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Our crew wrapped up a tile roof replacement in Oro Valley today. This flat roof section got fresh decking and sealed valleys before the tile goes back on. If your Tucson-area tile roof needs repair or replacement, we'd be happy to take a look.",
+    "finalCopy": "Our crew wrapped up a tile roof replacement in Oro Valley today. This flat roof section got fresh decking and sealed valleys before the tile goes back on. If your Tucson-area tile roof needs repair or replacement, we'd be happy to take a look.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
-    "createdAt": "2026-06-16T15:20:34.223Z"
+    "createdAt": "2026-06-16T15:20:34.223Z",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   }
 ]
