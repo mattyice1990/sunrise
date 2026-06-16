@@ -27,7 +27,13 @@
   .np-stat span{font-size:12px;color:var(--mut)}
   .np-sec{font-size:13px;font-weight:700;color:var(--mut);text-transform:none;margin:22px 0 12px}
   .np-rev-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
-  .np-rev{flex:0 0 240px;scroll-snap-align:start;border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+  .np-rev{flex:0 0 240px;scroll-snap-align:start;border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;background:#fff;cursor:pointer}
+  .np-rev.exp{flex-basis:300px}
+  .np-rev.exp .tx{-webkit-line-clamp:unset}
+  .np-rev .reply{display:none;background:#f1f5f9;border-radius:8px;padding:8px 10px}
+  .np-rev.exp .reply{display:block}
+  .np-rev .reply b{font-size:11px;color:var(--mut);display:block;margin-bottom:3px}
+  .np-rev .reply p{font-size:12px;line-height:1.45;color:#48515c;margin:0}
   .np-rev .top{display:flex;align-items:center;gap:7px}
   .np-rev .st{color:var(--star);font-size:13px;letter-spacing:.5px}
   .np-rev .tx{font-size:13px;line-height:1.45;color:#3c4450;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
@@ -93,7 +99,8 @@ function fmtDate(s){if(!s)return '';var d=new Date(s);return isNaN(d)?'':d.toLoc
 
 async function loadAll(){
   try{var p=await fetch('/recent-work.json?max=100').then(r=>r.json());PROJECTS=p.items||[];}catch(e){PROJECTS=[];}
-  try{var r=await fetch('/api/reviews').then(r=>r.json());REVIEWS=r.reviews||[];window.__rating=r.rating||5;window.__total=r.totalReviews||0;}catch(e){REVIEWS=[];window.__total=0;window.__rating=5;}
+  try{var r=await fetch('/api/gbp-reviews').then(r=>r.json());REVIEWS=r.reviews||[];window.__rating=r.rating||5;window.__total=r.totalReviews||0;}catch(e){REVIEWS=[];window.__total=0;window.__rating=5;}
+  if(!REVIEWS.length){ try{var r2=await fetch('/api/reviews').then(r=>r.json());REVIEWS=r2.reviews||[];window.__rating=r2.rating||5;window.__total=r2.totalReviews||0;}catch(e){} }
   renderRatingBadge(); renderReviews(); applyFilter('');
   document.getElementById('np-q').addEventListener('input',function(){applyFilter(this.value.trim());});
 }
@@ -109,8 +116,9 @@ function renderReviews(){
   var el=document.getElementById('np-reviews');
   if(!REVIEWS.length){el.innerHTML='<p class="np-empty">Reviews coming soon.</p>';return;}
   el.innerHTML=REVIEWS.map(function(rv){
-    return '<div class="np-rev"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
-      +'<p class="tx">'+esc(rv.text)+'</p>'
+    var reply = rv.owner_reply ? '<div class="reply"><b>Response from owner</b><p>'+esc(rv.owner_reply)+'</p></div>' : '';
+    return '<div class="np-rev" onclick="this.classList.toggle(\'exp\')" title="Click to read full review"><div class="top">'+GICON+'<span class="st">'+stars(rv.rating)+'</span></div>'
+      +'<p class="tx">'+esc(rv.text)+'</p>'+reply
       +'<div class="who">'+(rv.profile_photo_url?'<img src="'+esc(rv.profile_photo_url)+'" alt="">':'')+'<span>'+esc(rv.author_name)+'</span></div></div>';
   }).join('');
 }

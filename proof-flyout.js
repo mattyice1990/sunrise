@@ -40,21 +40,26 @@
     + '.pfly-ft{padding:12px 16px;border-top:1px solid #e3e6ea;text-align:center}'
     + '.pfly-ft a{color:#1a73e8;font-weight:600;text-decoration:none;font-size:14px;cursor:pointer}'
     + '.pfly-empty{color:#79828d;font-size:13px;text-align:center;padding:24px 0}'
-    // 3/4 overlay
+    // 3/4 overlay — slides in from the right; collapse arrow on left-edge center
     + '.pfly-ovbg{position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:opacity .3s}'
     + '.pfly-ovbg.open{opacity:1;visibility:visible}'
-    + '.pfly-ov{position:fixed;left:0;right:0;bottom:0;height:82vh;z-index:100001;background:#fff;'
-    + 'border-radius:18px 18px 0 0;transform:translateY(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);'
-    + 'display:flex;flex-direction:column;box-shadow:0 -8px 30px rgba(0,0,0,.3);'
+    + '.pfly-ov{position:fixed;top:0;right:0;height:100%;width:78%;max-width:1180px;z-index:100001;background:#fff;'
+    + 'transform:translateX(105%);transition:transform .34s cubic-bezier(.4,0,.2,1);'
+    + 'display:flex;flex-direction:column;box-shadow:-10px 0 34px rgba(0,0,0,.32);'
     + 'font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}'
-    + '.pfly-ov.open{transform:translateY(0)}'
-    + '.pfly-ovhd{display:flex;align-items:center;justify-content:space-between;padding:8px 18px 12px;border-bottom:1px solid #e3e6ea;cursor:pointer;flex:0 0 auto}'
-    + '.pfly-ovhd .grip{position:absolute;left:50%;transform:translateX(-50%);top:8px;width:44px;height:5px;border-radius:3px;background:#cfd5db}'
-    + '.pfly-ovhd h3{margin:14px 0 0;font-size:16px;color:#1a2330}'
+    + '.pfly-ov.open{transform:translateX(0)}'
+    + '.pfly-ovtab{position:absolute;left:-34px;top:50%;transform:translateY(-50%);z-index:2;background:#1a73e8;color:#fff;'
+    + 'border:none;cursor:pointer;border-radius:12px 0 0 12px;padding:18px 8px;display:flex;flex-direction:column;'
+    + 'align-items:center;gap:8px;box-shadow:-2px 2px 12px rgba(0,0,0,.2)}'
+    + '.pfly-ovtab b{font-size:18px;line-height:1}'
+    + '.pfly-ovtab span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11.5px;font-weight:600;letter-spacing:.05em}'
+    + '.pfly-ovhd{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid #e3e6ea;flex:0 0 auto}'
+    + '.pfly-ovhd h3{margin:0;font-size:16px;color:#1a2330}'
     + '.pfly-ovframe{flex:1;border:0;width:100%}'
     + '#google-reviews-container{cursor:pointer}'
-    + '@media(max-width:560px){.pfly-panel{width:100%;height:82%;top:auto;bottom:0;border-radius:16px 16px 0 0;transform:translateY(100%)}'
-    + '.pfly-panel.open{transform:translateY(0)}.pfly-ov{height:88vh}}';
+    + '@media(max-width:760px){.pfly-ov{width:100%;max-width:none}'
+    + '.pfly-panel{width:100%;height:82%;top:auto;bottom:0;border-radius:16px 16px 0 0;transform:translateY(100%)}'
+    + '.pfly-panel.open{transform:translateY(0)}}';
 
   function injectCss(){ var s=document.createElement('style'); s.textContent=css; document.head.appendChild(s); }
 
@@ -80,14 +85,13 @@
     var bg=document.createElement('div'); bg.className='pfly-ovbg'; bg.id='pfly-ovbg';
     var ov=document.createElement('div'); ov.className='pfly-ov'; ov.id='pfly-ov';
     ov.innerHTML=''
-      +'<div class="pfly-ovhd" id="pfly-ovhd"><span class="grip"></span>'
-      +'<h3>Our recent work near you</h3><button class="pfly-x" aria-label="Close">×</button></div>'
+      +'<button class="pfly-ovtab" id="pfly-ovtab" aria-label="Collapse"><b>▶</b><span>CLOSE</span></button>'
+      +'<div class="pfly-ovhd"><h3>Our recent work near you</h3></div>'
       +'<iframe class="pfly-ovframe" id="pfly-ovframe" title="Recent projects" loading="lazy"></iframe>';
     document.body.appendChild(bg);
     document.body.appendChild(ov);
     bg.onclick=closeOverlay;
-    ov.querySelector('#pfly-ovhd').onclick=closeOverlay;     // tap header/handle collapses
-    ov.querySelector('.pfly-x').onclick=function(e){e.stopPropagation();closeOverlay();};
+    ov.querySelector('#pfly-ovtab').onclick=closeOverlay;    // left-edge arrow collapses
 
     // Make the homepage Google-reviews carousel open the overlay too.
     var rc=document.getElementById('google-reviews-container');
