@@ -40,7 +40,7 @@
   // closed: only the ribbon shows; peek: ribbon + ~110px sliver, full height; full: open.
   function setState(s){
     STATE=s;
-    if(s==='closed'){ ov.style.right = -(W()-48)+'px'; bg.classList.remove('open'); document.body.style.overflow=''; }
+    if(s==='closed'){ ov.style.right = -W()+'px'; bg.classList.remove('open'); document.body.style.overflow=''; }
     else if(s==='peek'){ ensureLoaded(); ov.style.right = -(W()-160)+'px'; bg.classList.remove('open'); document.body.style.overflow=''; }
     else { ensureLoaded(); ov.style.right='0px'; bg.classList.add('open'); document.body.style.overflow='hidden'; }
   }
