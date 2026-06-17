@@ -174,10 +174,12 @@ function render(p){
   }
 
   return '<div class="card" id="card-'+p.id+'"><div class="cardhead"><strong>'+esc(p.type||'submission')+'</strong>'+
-    '<span class="badge '+p.status+'">'+p.status+'</span></div>'+
+    '<div style="display:flex;align-items:center;gap:10px"><span class="badge '+p.status+'">'+p.status+'</span>'+
+    '<button class="btn" style="padding:6px 10px" title="Delete this submission" onclick="delPost(\''+p.id+'\')">🗑</button></div></div>'+
     '<p class="note">"'+esc(p.note||'(no note)')+'" · '+new Date(p.createdAt).toLocaleString()+'</p>'+flag+
     '<div class="cols"><div class="col"><h3>Preview on Google</h3>'+previewCard(p.id,img,copy,p.ctaType||'NONE',isPair)+'</div>'+
-    '<div class="col"><h3>'+(p.status==='published'?'Status':'Edit & publish')+'</h3>'+right+'</div></div></div>';
+    '<div class="col"><h3>'+(p.status==='published'?'Status':'Edit & publish')+'</h3>'+right+'</div></div>'+
+    channelsRow(p)+'</div>';
 }
 
 // Live-update the preview as the operator edits copy / CTA.
@@ -194,6 +196,30 @@ function wire(id){
   });
 }
 
+// Multi-channel strip shown on every submission (GBP is the main flow above).
+function channelsRow(p){
+  var blog = p.blogUrl
+    ? '<a class="btn" href="'+esc(p.blogUrl)+'" target="_blank" rel="noopener">📝 View blog ↗</a>'+
+      '<button class="btn" id="blog-'+p.id+'" onclick="blogify(\''+p.id+'\',this)">↻ Re-write blog</button>'
+    : '<button class="btn" id="blog-'+p.id+'" onclick="blogify(\''+p.id+'\',this)">📝 Write blog article</button>';
+  return '<div style="margin-top:16px;border-top:1px solid var(--bd);padding-top:12px">'+
+    '<div class="meta" style="margin-bottom:8px">Channels — publish this job to:</div>'+
+    '<div class="actions">'+blog+
+    '<button class="btn" disabled title="Coming soon — activates once your Meta app is approved">📘 Facebook (soon)</button>'+
+    '<button class="btn" disabled title="Coming soon — activates once your Meta app is approved">📸 Instagram (soon)</button>'+
+    '</div></div>';
+}
+async function delPost(id){
+  if(!confirm('Delete this submission? Removes it from the queue and the website recent-work feed.\\n(It does NOT delete an already-published Google post — that lives on Google.)'))return;
+  try{ await api('/api/gbp-delete',{method:'POST',body:JSON.stringify({id})}); await load(); }
+  catch(e){ alert(e.message); }
+}
+async function blogify(id,btn){
+  if(!confirm('Generate and publish an SEO blog article from this job to your /blog?'))return;
+  btn.disabled=true;btn.textContent='Writing…';
+  try{ const r=await api('/api/gbp-blog',{method:'POST',body:JSON.stringify({id})}); alert('Blog published:\n'+r.url); await load(); }
+  catch(e){ alert(e.message); btn.disabled=false; btn.textContent='📝 Write blog article'; }
+}
 async function gen(id,btn){
   btn.disabled=true;btn.textContent='Generating…';
   try{await api('/api/gbp-generate',{method:'POST',body:JSON.stringify({id})});await load();}
