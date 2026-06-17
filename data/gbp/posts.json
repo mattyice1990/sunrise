@@ -18,21 +18,27 @@
   },
   {
     "id": "1781665357878-278i6t",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Why it is important to have your flat roof inspected for water pooling and to ensure your scuppers are working correctly.",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "educational",
+    "draftCopy": "Flat roofs in Tucson need regular inspections to catch problems early. Water pooling and clogged scuppers can lead to leaks and costly damage over time. Our crew checks drainage systems on every visit to keep your roof working the way it should. If it's been a while since your last roof inspection, give us a call.",
+    "finalCopy": "Flat roofs in Tucson need regular inspections to catch problems early. Water pooling and clogged scuppers can lead to leaks and costly damage over time. Our crew checks drainage systems on every visit to keep your roof working the way it should. If it's been a while since your last roof inspection, give us a call.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-17T03:02:39.711Z",
-    "updatedAt": "2026-06-17T03:03:25.652Z"
+    "updatedAt": "2026-06-17T03:03:25.652Z",
+    "city": null,
+    "serviceType": "Roof Inspection",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   },
   {
     "id": "1781664888702-e4rl0a",
