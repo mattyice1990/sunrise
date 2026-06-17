@@ -91,6 +91,11 @@ export const GBP = {
     { city: 'Sahuarita', lat: 31.9573, lng: -110.9559, page: '/sahuarita-roofing' },
     { city: 'Vail', lat: 32.0481, lng: -110.7126, page: '/vail-roofing' },
     { city: 'Rita Ranch', lat: 32.1153, lng: -110.7826, page: '/rita-ranch-roofing' },
+    // Additional Tucson-metro communities (no dedicated page yet -> general service-areas page).
+    { city: 'SaddleBrooke', lat: 32.5469, lng: -110.8665, page: '/tucson-roofing-services' },
+    { city: 'Catalina', lat: 32.5042, lng: -110.9209, page: '/tucson-roofing-services' },
+    { city: 'Tanque Verde', lat: 32.2531, lng: -110.7376, page: '/tucson-roofing-services' },
+    { city: 'Casas Adobes', lat: 32.3331, lng: -111.0119, page: '/tucson-roofing-services' },
     { city: 'Tucson', lat: 32.2226, lng: -110.9747, page: '/tucson-roofing-services' },
   ],
   defaultArea: { city: 'Tucson', lat: 32.2226, lng: -110.9747, page: '/tucson-roofing-services' },
