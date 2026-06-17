@@ -27,7 +27,7 @@
   },
   {
     "id": "1781665357878-278i6t",
-    "status": "draft",
+    "status": "scheduled",
     "from": "whatsapp:+17194826976",
     "note": "Why it is important to have your flat roof inspected for water pooling and to ensure your scuppers are working correctly.",
     "mediaUrls": [
@@ -47,7 +47,8 @@
     "qualityFlags": {
       "needsResend": false,
       "reason": null
-    }
+    },
+    "scheduledFor": "2026-06-19T15:00:00.000Z"
   },
   {
     "id": "1781664888702-e4rl0a",
