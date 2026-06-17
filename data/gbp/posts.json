@@ -51,7 +51,7 @@
   },
   {
     "id": "1781664888702-e4rl0a",
-    "status": "draft",
+    "status": "scheduled",
     "from": "whatsapp:+17194826976",
     "note": "GAF HDZ Shingle Installation in Central Tucson. 50 Year Manufacturer Warranty",
     "mediaUrls": [
@@ -71,7 +71,8 @@
     "qualityFlags": {
       "needsResend": false,
       "reason": null
-    }
+    },
+    "scheduledFor": "2026-06-18T15:00:00.000Z"
   },
   {
     "id": "1781632829736-964dka",
