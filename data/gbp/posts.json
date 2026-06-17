@@ -18,22 +18,28 @@
   },
   {
     "id": "1781667258998-wc2kmk",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+15207531758",
     "note": "Monier Low Profile Tile Repair (Valley Area) Vail, AZ",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1781667258998-wc2kmk/0.jpg",
       "https://roofwithsunrise.com/gbp-media/1781667419920-3xl0dv/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Our crew tackled a tile roof repair in Vail this week, replacing damaged valley sections on this Monier low-profile tile roof. Valleys channel a lot of water, so deteriorated decking and underlayment can lead to serious leaks if left unchecked. If your tile roof is showing its age, give us a call for a free inspection.",
+    "finalCopy": "Our crew tackled a tile roof repair in Vail this week, replacing damaged valley sections on this Monier low-profile tile roof. Valleys channel a lot of water, so deteriorated decking and underlayment can lead to serious leaks if left unchecked. If your tile roof is showing its age, give us a call for a free inspection.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-17T03:34:20.939Z",
-    "updatedAt": "2026-06-17T03:37:02.169Z"
+    "updatedAt": "2026-06-17T03:37:02.169Z",
+    "city": "Vail",
+    "serviceType": "Tile Roof Repair",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   },
   {
     "id": "1781666700429-9gcgia",
