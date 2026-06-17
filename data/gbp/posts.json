@@ -1,20 +1,26 @@
 [
   {
     "id": "1781666700429-9gcgia",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+15207531758",
     "note": "Monier Low Profile Tile Repair (Valley Area) Vail, AZ",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1781666700429-9gcgia/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Our crew tackled a tile roof repair in Vail today, replacing damaged decking and flashing in a critical valley area. Monsoon season can be tough on older roofs—catching problems early saves you from bigger headaches down the road. If your tile roof is showing signs of wear, give us a call.",
+    "finalCopy": "Our crew tackled a tile roof repair in Vail today, replacing damaged decking and flashing in a critical valley area. Monsoon season can be tough on older roofs—catching problems early saves you from bigger headaches down the road. If your tile roof is showing signs of wear, give us a call.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
-    "createdAt": "2026-06-17T03:25:02.595Z"
+    "createdAt": "2026-06-17T03:25:02.595Z",
+    "city": "Vail",
+    "serviceType": "Tile Roof Repair",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   },
   {
     "id": "1781665357878-278i6t",
