@@ -58,6 +58,27 @@
   .ok{color:var(--grn);font-size:13px;margin-top:8px}
   .empty{color:var(--mut);text-align:center;padding:60px 0}
   .note{color:var(--mut);font-size:13px;margin:4px 0 0}
+  /* Scheduler calendar */
+  .cal-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;display:none;align-items:center;justify-content:center}
+  .cal-bg.open{display:flex}
+  .cal{background:var(--panel);border:1px solid var(--bd);border-radius:16px;width:400px;max-width:94vw;padding:20px}
+  .cal-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .cal-hd b{font-size:17px}
+  .cal-nav{display:flex;gap:6px}
+  .cal-nav .btn{padding:6px 12px}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cal-dow{font-size:11px;color:var(--mut);text-align:center;padding:2px 0}
+  .cal-day{aspect-ratio:1;border:1px solid var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;position:relative;background:#0d1117}
+  .cal-day:hover{border-color:var(--blue)}
+  .cal-day.muted{opacity:.28;cursor:default;border-color:transparent}
+  .cal-day.muted:hover{border-color:transparent}
+  .cal-day.today{border-color:var(--acc)}
+  .cal-day.sel{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700}
+  .cal-day .dot{width:5px;height:5px;border-radius:50%;background:var(--grn);position:absolute;bottom:5px}
+  .cal-day.sel .dot{background:#fff}
+  .cal-time{display:flex;gap:8px;align-items:center;margin-top:14px}
+  .cal-list{margin-top:8px;max-height:120px;overflow:auto}
+  .cal-list .it{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--bd);font-size:12.5px;color:var(--mut)}
 </style>
 </head>
 <body>
@@ -79,6 +100,8 @@
   </header>
   <div class="wrap" id="list"><p class="empty">Loading…</p></div>
 </div>
+
+<div id="cal-bg" class="cal-bg"><div class="cal" id="cal"></div></div>
 
 <script>
 const CTA=['NONE','CALL','LEARN_MORE','BOOK','ORDER','SHOP','SIGN_UP'];
@@ -110,6 +133,7 @@ async function load(){
   try{
     const {posts}=await api('/api/gbp-posts');
     if(!posts||!posts.length){list.innerHTML='<p class="empty">No submissions yet. Text photos to the WhatsApp number and they\'ll show up here.</p>';return;}
+    ALLPOSTS=posts;
     posts.forEach(p=>{ CURRENT[p.id]=p.mediaUrls||[]; });
     list.innerHTML=posts.map(render).join('');
     posts.forEach(p=>{
@@ -165,9 +189,8 @@ function render(p){
       (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
       '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(isPair?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
       '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>'+
-      '<div class="meta" style="margin-top:10px">Or schedule for later (Tucson time):</div>'+
-      '<div class="ctaRow"><input type="datetime-local" id="sched-'+p.id+'" style="flex:1" value="'+esc((p.scheduledFor?toLocalInput(p.scheduledFor):''))+'">'+
-      '<button class="btn" id="sch-'+p.id+'"'+(isPair?' disabled':'')+' onclick="schedule(\''+p.id+'\',this)">🕒 Schedule</button></div>';
+      '<div class="actions" style="margin-top:10px"><button class="btn" id="sch-'+p.id+'"'+(isPair?' disabled':'')+' onclick="openScheduler(\''+p.id+'\')">🗓 Schedule for later…</button>'+
+      (p.status==='scheduled'&&p.scheduledFor?'<span class="meta" style="align-self:center">📅 '+new Date(p.scheduledFor).toLocaleString()+'</span>':'')+'</div>';
   }else if(p.status==='published'){
     right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
       (p.gbpPostId?'<p class="meta">'+esc(p.gbpPostId)+'</p>':'');
@@ -238,27 +261,69 @@ async function publish(id,btn){
   catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish now';}
 }
 
-// ISO -> value for <input type="datetime-local"> in the browser's local time.
-function toLocalInput(iso){
-  const d=new Date(iso); if(isNaN(d.getTime()))return '';
-  const p=n=>String(n).padStart(2,'0');
-  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'T'+p(d.getHours())+':'+p(d.getMinutes());
+/* ---- Visual calendar scheduler ---- */
+let ALLPOSTS=[];
+const SCHED={target:null, view:new Date(), sel:null};
+function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function scheduledByDate(){
+  const m={};
+  (ALLPOSTS||[]).forEach(p=>{ if(p.status==='scheduled'&&p.scheduledFor){ const k=ymd(new Date(p.scheduledFor)); (m[k]=m[k]||[]).push(p); } });
+  return m;
 }
-
-async function schedule(id,btn){
-  const v=document.getElementById('sched-'+id).value;
-  if(!v){alert('Pick a date & time first.');return;}
-  const when=new Date(v);
-  if(isNaN(when.getTime())||when.getTime()<=Date.now()){alert('Pick a time in the future.');return;}
-  const copy=document.getElementById('copy-'+id).value;
-  const ctaType=document.getElementById('cta-'+id).value;
-  const ctaUrl=document.getElementById('ctaurl-'+id).value||null;
+function openScheduler(id){
+  SCHED.target=id; SCHED.sel=null;
+  const f=ALLPOSTS.find(p=>p.id===id);
+  SCHED.view = f&&f.scheduledFor ? new Date(f.scheduledFor) : new Date();
+  document.getElementById('cal-bg').classList.add('open'); renderCalendar();
+}
+function closeScheduler(){ document.getElementById('cal-bg').classList.remove('open'); }
+function calMove(d){ SCHED.view=new Date(SCHED.view.getFullYear(), SCHED.view.getMonth()+d, 1); renderCalendar(); }
+function selectDay(k){ SCHED.sel=k; renderCalendar(); }
+function renderCalendar(){
+  const y=SCHED.view.getFullYear(), mo=SCHED.view.getMonth();
+  const first=new Date(y,mo,1), startDow=first.getDay(), days=new Date(y,mo+1,0).getDate();
+  const byDate=scheduledByDate(), todayK=ymd(new Date());
+  const today0=new Date(); today0.setHours(0,0,0,0);
+  const dows=['Su','Mo','Tu','We','Th','Fr','Sa'].map(d=>'<div class="cal-dow">'+d+'</div>').join('');
+  let cells='';
+  for(let i=0;i<startDow;i++) cells+='<div class="cal-day muted"></div>';
+  for(let dn=1; dn<=days; dn++){
+    const k=y+'-'+String(mo+1).padStart(2,'0')+'-'+String(dn).padStart(2,'0');
+    const past=new Date(y,mo,dn)<today0;
+    const has=byDate[k]&&byDate[k].length;
+    const cls='cal-day'+(past?' muted':'')+(k===todayK?' today':'')+(k===SCHED.sel?' sel':'');
+    cells+='<div class="'+cls+'"'+(past?'':' onclick="selectDay(\''+k+'\')"')+'>'+dn+(has?'<span class="dot" title="'+byDate[k].length+' scheduled"></span>':'')+'</div>';
+  }
+  let selBlock;
+  if(SCHED.sel){
+    const list=(byDate[SCHED.sel]||[]).map(p=>'<div class="it"><span>'+esc(p.serviceType||p.type||'post')+'</span><span>'+new Date(p.scheduledFor).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})+'</span></div>').join('');
+    selBlock='<div class="cal-time"><span class="meta">Time (Tucson):</span><input type="time" id="cal-time" value="09:00"></div>'+
+      '<div class="meta" style="margin-top:10px">Already scheduled on '+SCHED.sel+':</div>'+
+      '<div class="cal-list">'+(list||'<div class="it">Nothing yet</div>')+'</div>';
+  } else {
+    selBlock='<p class="note" style="margin-top:12px">Tap a day to schedule. A green dot means posts are already booked that day.</p>';
+  }
+  document.getElementById('cal').innerHTML=
+    '<div class="cal-hd"><b>'+first.toLocaleDateString('en-US',{month:'long',year:'numeric'})+'</b>'+
+    '<div class="cal-nav"><button class="btn" onclick="calMove(-1)">‹</button><button class="btn" onclick="calMove(1)">›</button></div></div>'+
+    '<div class="cal-grid">'+dows+cells+'</div>'+selBlock+
+    '<div class="actions" style="margin-top:16px"><button class="btn green"'+(SCHED.sel?'':' disabled')+' onclick="confirmSchedule(this)">📅 Schedule this post</button>'+
+    '<button class="btn" onclick="closeScheduler()">Cancel</button></div>';
+}
+async function confirmSchedule(btn){
+  if(!SCHED.sel)return;
+  const id=SCHED.target;
+  const time=(document.getElementById('cal-time')||{}).value||'09:00';
+  const when=new Date(SCHED.sel+'T'+time);
+  if(isNaN(when.getTime())||when.getTime()<=Date.now()){alert('Pick a future date & time.');return;}
+  const copy=(document.getElementById('copy-'+id)||{}).value||'';
+  const ctaType=(document.getElementById('cta-'+id)||{}).value||'NONE';
+  const ctaUrl=(document.getElementById('ctaurl-'+id)||{}).value||null;
   btn.disabled=true;btn.textContent='Scheduling…';
   const body={id,finalCopy:copy,ctaType,ctaUrl,scheduledFor:when.toISOString()};
-  const cu=COMP[id]&&COMP[id].compositeUrl;
-  if(cu) body.mediaUrls=[cu];
-  try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
-  catch(e){alert(e.message);btn.disabled=false;btn.textContent='🕒 Schedule';}
+  const cu=COMP[id]&&COMP[id].compositeUrl; if(cu) body.mediaUrls=[cu];
+  try{ await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)}); closeScheduler(); await load(); }
+  catch(e){ alert(e.message); btn.disabled=false; btn.textContent='📅 Schedule this post'; }
 }
 
 /* ---- Before/after compositing (in-browser; GBP allows only one image/post) ---- */
