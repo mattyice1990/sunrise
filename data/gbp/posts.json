@@ -77,7 +77,7 @@
   },
   {
     "id": "1781632829736-964dka",
-    "status": "scheduled",
+    "status": "published",
     "from": "whatsapp:+17194826976",
     "note": "Job in progress in saddlebrooke. Cool coat system using Tucson rubberized 297X primer and Tucson rubberized 7000 Elastromeric roof coating.",
     "mediaUrls": [
@@ -88,7 +88,7 @@
     "finalCopy": "Our crew is hard at work on a flat roof coating project in SaddleBrooke. We're applying a professional elastomeric coating system to protect this roof from Tucson's intense sun and monsoon rains. If your flat roof needs a refresh or you're noticing wear, give us a call—we're your trusted roofing contractor in Tucson and surrounding areas.",
     "ctaType": "CALL",
     "ctaUrl": null,
-    "gbpPostId": null,
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/5627011364787955032",
     "error": null,
     "createdAt": "2026-06-16T18:00:31.546Z",
     "updatedAt": "2026-06-16T18:01:57.115Z",
@@ -96,7 +96,9 @@
       "needsResend": false,
       "reason": null
     },
-    "scheduledFor": "2026-06-17T15:00:00.000Z"
+    "scheduledFor": "2026-06-17T15:00:00.000Z",
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1781632829736-964dka/0.jpg",
+    "publishedAt": "2026-06-17T16:56:07.307Z"
   },
   {
     "id": "1781624318616-is14h4",
