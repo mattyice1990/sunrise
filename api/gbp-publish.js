@@ -48,6 +48,7 @@ export default async function handler(req, res) {
         if (edits.mediaUrls) p.mediaUrls = edits.mediaUrls;
         p.status = 'scheduled';
         p.scheduledFor = when.toISOString();
+        p.channels = edits.channels || { gbp: true };
         p.error = null;
         return p;
       }, `gbp: schedule ${id} for ${when.toISOString()}`);

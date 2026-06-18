@@ -298,6 +298,13 @@ function renderCalendar(){
   if(SCHED.sel){
     const list=(byDate[SCHED.sel]||[]).map(p=>'<div class="it"><span>'+esc(p.serviceType||p.type||'post')+'</span><span>'+new Date(p.scheduledFor).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})+'</span></div>').join('');
     selBlock='<div class="cal-time"><span class="meta">Time (Tucson):</span><input type="time" id="cal-time" value="09:00"></div>'+
+      '<div class="meta" style="margin-top:12px">Post to:</div>'+
+      '<div style="display:flex;flex-direction:column;gap:6px;margin-top:6px;font-size:13px">'+
+      '<label><input type="checkbox" id="ch-gbp" checked> Google Business Profile</label>'+
+      '<label><input type="checkbox" id="ch-blog"> Blog article</label>'+
+      '<label style="opacity:.5"><input type="checkbox" disabled> Facebook (soon)</label>'+
+      '<label style="opacity:.5"><input type="checkbox" disabled> Instagram (soon)</label>'+
+      '</div>'+
       '<div class="meta" style="margin-top:10px">Already scheduled on '+SCHED.sel+':</div>'+
       '<div class="cal-list">'+(list||'<div class="it">Nothing yet</div>')+'</div>';
   } else {
@@ -320,7 +327,8 @@ async function confirmSchedule(btn){
   const ctaType=(document.getElementById('cta-'+id)||{}).value||'NONE';
   const ctaUrl=(document.getElementById('ctaurl-'+id)||{}).value||null;
   btn.disabled=true;btn.textContent='Scheduling…';
-  const body={id,finalCopy:copy,ctaType,ctaUrl,scheduledFor:when.toISOString()};
+  const channels={ gbp:(document.getElementById('ch-gbp')||{checked:true}).checked, blog:(document.getElementById('ch-blog')||{checked:false}).checked };
+  const body={id,finalCopy:copy,ctaType,ctaUrl,scheduledFor:when.toISOString(),channels};
   const cu=COMP[id]&&COMP[id].compositeUrl; if(cu) body.mediaUrls=[cu];
   try{ await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)}); closeScheduler(); await load(); }
   catch(e){ alert(e.message); btn.disabled=false; btn.textContent='📅 Schedule this post'; }

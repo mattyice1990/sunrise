@@ -5,19 +5,38 @@
  * here when due. Auth: Vercel cron header or ?secret=GBP_OAUTH_STATE_SECRET.
  */
 import { gbpTarget } from '../config/gbp.js';
+import { cronAuthorized } from '../lib/gbp/auth.js';
 import { readPosts, withPosts } from '../lib/gbp/store.js';
 import { publishLocalPost, listLocalPosts } from '../lib/gbp/google.js';
 import { generateDraft } from '../lib/gbp/claude.js';
+import { generateBlogArticle } from '../lib/gbp/blog.js';
 import { emailConfigured, sendEmail, buildReviewEmail } from '../lib/gbp/email.js';
 
 const AUTO_PUBLISH = /^(1|true|yes|on)$/i.test(process.env.GBP_AUTO_PUBLISH || '');
 
+// Generate + publish a blog article for a post (via the existing blog pipeline).
+async function publishBlogFor(post) {
+  const article = await generateBlogArticle(post.mediaUrls, post.note, { city: post.city, serviceType: post.serviceType });
+  const base = process.env.APP_BASE_URL || 'https://roofwithsunrise.com';
+  const token = process.env.OUTRANK_ACCESS_TOKEN;
+  if (!token) throw new Error('OUTRANK_ACCESS_TOKEN not set');
+  const hero = post.compositeUrl || post.publishedMedia || (post.mediaUrls || [])[0] || null;
+  const r = await fetch(`${base}/api/blog-webhook`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({
+      event_type: 'publish_articles', timestamp: new Date().toISOString(),
+      data: { articles: [{ id: 'gbp-' + post.id, title: article.title, slug: article.slug, content_html: article.contentHtml, content_markdown: article.contentHtml, meta_description: article.metaDescription, image_url: hero, created_at: new Date().toISOString(), tags: article.tags && article.tags.length ? article.tags : ['Roofing'] }] } }),
+  });
+  const out = await r.json().catch(() => ({}));
+  if (!(r.ok && out.results && out.results[0] && out.results[0].success)) throw new Error('blog publish failed');
+  return `${base}/blog/${article.slug}`;
+}
+
 export const config = { maxDuration: 60 };
 
 export default async function handler(req, res) {
-  const isVercelCron = !!req.headers['x-vercel-cron'];
-  const secretOk = req.query?.secret && req.query.secret === process.env.GBP_OAUTH_STATE_SECRET;
-  if (!isVercelCron && !secretOk) return res.status(403).json({ error: 'Forbidden' });
+  if (!cronAuthorized(req)) return res.status(403).json({ error: 'Forbidden' });
 
   let posts = [];
   try {
@@ -146,28 +165,36 @@ export default async function handler(req, res) {
   const results = [];
 
   for (const post of due) {
+    const ch = post.channels || { gbp: true };
     const summary = (post.finalCopy || post.draftCopy || '').trim();
     const mediaUrls = post.compositeUrl ? [post.compositeUrl] : post.mediaUrls || [];
     let gbpPostId = null;
     let error = null;
     let status = 'published';
+    let blogUrl = post.blogUrl || null;
 
-    if (!summary) {
-      status = 'failed';
-      error = 'No copy to publish';
-    } else {
-      try {
-        gbpPostId = await publishLocalPost({
-          accountId,
-          locationId,
-          summary,
-          mediaUrls,
-          ctaType: post.ctaType,
-          ctaUrl: post.ctaUrl,
-        });
-      } catch (e) {
+    // Channel: Google Business Profile (default on)
+    if (ch.gbp !== false) {
+      if (!summary) {
         status = 'failed';
-        error = e.message;
+        error = 'No copy to publish';
+      } else {
+        try {
+          gbpPostId = await publishLocalPost({ accountId, locationId, summary, mediaUrls, ctaType: post.ctaType, ctaUrl: post.ctaUrl });
+        } catch (e) {
+          status = 'failed';
+          error = e.message;
+        }
+      }
+    }
+
+    // Channel: Blog
+    if (ch.blog) {
+      try {
+        blogUrl = await publishBlogFor(post);
+      } catch (e) {
+        error = (error ? error + '; ' : '') + 'blog: ' + e.message;
+        if (ch.gbp === false) status = 'failed'; // blog-only schedule that failed
       }
     }
 
@@ -179,10 +206,11 @@ export default async function handler(req, res) {
       p.error = error;
       p.publishedMedia = mediaUrls[0] || null;
       p.publishedAt = status === 'published' ? new Date().toISOString() : null;
+      if (blogUrl) p.blogUrl = blogUrl;
       return p;
     }, `gbp: scheduled publish ${post.id} (${status})`);
 
-    results.push({ id: post.id, status, error });
+    results.push({ id: post.id, status, error, blogUrl });
   }
 
   return res.status(200).json({ action: 'run', count: results.length, results });

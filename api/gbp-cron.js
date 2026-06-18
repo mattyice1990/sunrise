@@ -10,6 +10,7 @@
  * so there's no extra state file to commit.
  */
 import { GBP } from '../config/gbp.js';
+import { cronAuthorized } from '../lib/gbp/auth.js';
 import { readPosts } from '../lib/gbp/store.js';
 import { sendWhatsApp } from '../lib/gbp/twilio.js';
 
@@ -24,10 +25,7 @@ function phxDateStr(date) {
 }
 
 export default async function handler(req, res) {
-  // Allow Vercel Cron (sets x-vercel-cron) or a manual call with ?secret=.
-  const isVercelCron = !!req.headers['x-vercel-cron'];
-  const secretOk = req.query?.secret && req.query.secret === process.env.GBP_OAUTH_STATE_SECRET;
-  if (!isVercelCron && !secretOk) return res.status(403).json({ error: 'Forbidden' });
+  if (!cronAuthorized(req)) return res.status(403).json({ error: 'Forbidden' });
 
   const now = new Date();
   const hour = phoenix(now).getUTCHours();
