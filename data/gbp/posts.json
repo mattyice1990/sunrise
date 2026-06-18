@@ -48,7 +48,11 @@
       "needsResend": false,
       "reason": null
     },
-    "scheduledFor": "2026-06-19T15:00:00.000Z"
+    "scheduledFor": "2026-06-19T16:00:00.000Z",
+    "channels": {
+      "gbp": true,
+      "blog": true
+    }
   },
   {
     "id": "1781664888702-e4rl0a",
