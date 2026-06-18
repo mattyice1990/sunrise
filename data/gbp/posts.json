@@ -52,7 +52,7 @@
   },
   {
     "id": "1781664888702-e4rl0a",
-    "status": "scheduled",
+    "status": "published",
     "from": "whatsapp:+17194826976",
     "note": "GAF HDZ Shingle Installation in Central Tucson. 50 Year Manufacturer Warranty",
     "mediaUrls": [
@@ -63,7 +63,7 @@
     "finalCopy": "Fresh shingle roof replacement wrapped up in central Tucson. Our crew installed premium GAF HDZ shingles with a clean ridge cap and proper vent flashing. If your Tucson home needs a roof replacement or you're thinking about upgrading to durable architectural shingles, give us a call for a free inspection.",
     "ctaType": "CALL",
     "ctaUrl": null,
-    "gbpPostId": null,
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/1012953739409177253",
     "error": null,
     "createdAt": "2026-06-17T02:54:51.008Z",
     "updatedAt": "2026-06-17T02:55:46.835Z",
@@ -73,7 +73,9 @@
       "needsResend": false,
       "reason": null
     },
-    "scheduledFor": "2026-06-18T15:00:00.000Z"
+    "scheduledFor": "2026-06-18T15:00:00.000Z",
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1781664888702-e4rl0a/0.jpg",
+    "publishedAt": "2026-06-18T15:00:05.923Z"
   },
   {
     "id": "1781632829736-964dka",
