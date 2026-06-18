@@ -23,7 +23,11 @@
       "reason": null
     },
     "compositeUrl": "https://roofwithsunrise.com/gbp-media/1781667258998-wc2kmk/composite-mqhisyaa.jpg",
-    "scheduledFor": "2026-06-20T15:00:00.000Z"
+    "scheduledFor": "2026-06-20T16:00:00.000Z",
+    "channels": {
+      "gbp": true,
+      "blog": true
+    }
   },
   {
     "id": "1781665357878-278i6t",
