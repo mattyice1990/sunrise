@@ -139,7 +139,7 @@ async function load(){
     posts.forEach(p=>{
       if(p.status==='draft'||p.status==='failed'||p.status==='scheduled'){
         wire(p.id);
-        if((p.mediaUrls||[]).length>=2) setupComposite(p);
+        if((p.mediaUrls||[]).length>=1) setupComposite(p);
       }
     });
     focusFromHash();
@@ -163,7 +163,8 @@ function render(p){
   const copy=p.finalCopy||p.draftCopy||'';
   const srcs=(p.mediaUrls||[]);
   const isPair=srcs.length>=2;
-  const img=isPair?(p.compositeUrl||''):(srcs[0]||'');
+  const hasPhotos=srcs.length>=1;
+  const img=p.compositeUrl||(isPair?'':(srcs[0]||''));
   const thumbs=srcs.map(u=>'<img src="'+esc(u)+'" alt="">').join('');
   const flag=p.qualityFlags&&p.qualityFlags.needsResend?'<p class="err">⚠ Claude flagged the photos: '+esc(p.qualityFlags.reason||'low quality')+'</p>':'';
 
@@ -174,9 +175,9 @@ function render(p){
       '<div class="actions"><button class="btn primary" onclick="gen(\''+p.id+'\',this)">✨ Generate draft</button></div>';
   }else if(p.status==='draft'||p.status==='failed'||p.status==='scheduled'){
     const opts=CTA.map(c=>'<option value="'+c+'" '+(c===(p.ctaType||'NONE')?'selected':'')+'>'+c+'</option>').join('');
-    const pairCtrls = isPair ?
-      '<p class="note" id="comp-status-'+p.id+'">Building before/after image…</p>'+
-      '<div class="actions"><button class="btn" id="swap-'+p.id+'" onclick="swapBA(\''+p.id+'\')">⇄ Swap before / after</button></div>'
+    const pairCtrls = hasPhotos ?
+      '<p class="note" id="comp-status-'+p.id+'">Preparing image…</p>'+
+      (isPair?'<div class="actions"><button class="btn" id="swap-'+p.id+'" onclick="swapBA(\''+p.id+'\')">⇄ Swap before / after</button></div>':'')
       : '';
     const schedBanner = p.status==='scheduled'&&p.scheduledFor ?
       '<p class="ok">🕒 Scheduled for '+new Date(p.scheduledFor).toLocaleString()+' — publish now or pick a new time below.</p>' : '';
@@ -187,9 +188,9 @@ function render(p){
       '<input id="ctaurl-'+p.id+'" placeholder="CTA link (optional)" value="'+esc(p.ctaUrl||'')+'"></div>'+
       pairCtrls+
       (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
-      '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(isPair?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
+      '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
       '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>'+
-      '<div class="actions" style="margin-top:10px"><button class="btn" id="sch-'+p.id+'"'+(isPair?' disabled':'')+' onclick="openScheduler(\''+p.id+'\')">🗓 Schedule for later…</button>'+
+      '<div class="actions" style="margin-top:10px"><button class="btn" id="sch-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="openScheduler(\''+p.id+'\')">🗓 Schedule for later…</button>'+
       (p.status==='scheduled'&&p.scheduledFor?'<span class="meta" style="align-self:center">📅 '+new Date(p.scheduledFor).toLocaleString()+'</span>':'')+'</div>';
   }else if(p.status==='published'){
     right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
@@ -403,6 +404,9 @@ function setReady(id,on){
 // For a before/after post: show composite, upload it, wait until live, enable publish.
 async function setupComposite(p){
   const id=p.id, urls=p.mediaUrls||[];
+  const multi=urls.length>=2;
+  const readyMsg=multi?'Before / after image ready ✓  (use Swap if the order is reversed)':'Image ready ✓';
+  const workMsg=multi?'Stitching before / after image…':'Preparing image…';
   const st=COMP[id]||(COMP[id]={order:urls.map((_,i)=>i)});
 
   // Already have a committed composite and no pending re-stitch → reuse it.
@@ -411,7 +415,7 @@ async function setupComposite(p){
     const im=document.getElementById('pv-img-'+id);
     if(im){im.src=p.compositeUrl;im.style.display='block';}
     const ni=document.getElementById('pv-noimg-'+id);if(ni)ni.style.display='none';
-    setStatus(id,'Before / after image ready ✓  (use Swap if the order is reversed)','ok');
+    setStatus(id,readyMsg,'ok');
     setReady(id,true);
     return;
   }
@@ -419,7 +423,7 @@ async function setupComposite(p){
   if(st.building)return; st.building=true; st.dirty=false;
   setReady(id,false);
   try{
-    setStatus(id,'Stitching before / after image…','note');
+    setStatus(id,workMsg,'note');
     const dataUrl=await buildComposite(urls,st.order);
     // Instant local preview from the data URL.
     const im=document.getElementById('pv-img-'+id);
@@ -433,7 +437,7 @@ async function setupComposite(p){
     setStatus(id,'Publishing the image to the web (≈1 min)…','note');
     const live=await waitLive(url);
     if(live){
-      setStatus(id,'Before / after image ready ✓  (use Swap if the order is reversed)','ok');
+      setStatus(id,readyMsg,'ok');
       setReady(id,true);
     }else{
       setStatus(id,'Image uploaded but not live yet — wait a moment and hit Reload.','err');
