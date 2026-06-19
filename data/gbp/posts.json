@@ -77,19 +77,19 @@
   },
   {
     "id": "1781665357878-278i6t",
-    "status": "draft",
+    "status": "published",
     "from": "whatsapp:+17194826976",
     "note": "Why it is important to have your flat roof inspected for water pooling and to ensure your scuppers are working correctly.",
     "mediaUrls": [
-      "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/0.jpg"
+      "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/composite-mql6uqvz.jpg"
     ],
     "type": "educational",
     "draftCopy": "Flat roofs need regular inspections to catch water pooling before it becomes a bigger problem. This Tucson commercial roof shows ponding water and scuppers that need attention—small issues that turn into leaks if left unchecked. Our team inspects flat roofs throughout the Tucson area to keep your building protected. Call Sunrise Roofing today to schedule your flat roof inspection.",
-    "finalCopy": "Flat roofs need regular inspections to catch water pooling before it becomes a bigger problem. This Tucson commercial roof shows ponding water and scuppers that need attention—small issues that turn into leaks if left unchecked. Our team inspects flat roofs throughout the Tucson area to keep your building protected. Call Sunrise Roofing today to schedule your flat roof inspection.",
+    "finalCopy": "Flat roofs in Tucson need regular inspections to catch problems early. Water pooling and clogged scuppers can lead to leaks and costly damage over time. Our crew checks drainage systems on every visit to keep your roof working the way it should. If it's been a while since your last roof inspection, give us a call.",
     "ctaType": "CALL",
     "ctaUrl": null,
-    "gbpPostId": null,
-    "error": "GBP localPosts 400: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Request contains an invalid argument.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.mybusiness.v4.ValidationError\",\n        \"errorDetails\": [\n          {\n            \"code\": 1000,\n            \"message\": \"Fetching image failed.\",\n            \"value\": \"https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/0.jpg\"\n          }\n        ]\n      }\n    ]\n  }\n}\n",
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/8184961428918106672",
+    "error": null,
     "createdAt": "2026-06-17T03:02:39.711Z",
     "updatedAt": "2026-06-19T17:14:13.851Z",
     "city": "Tucson",
@@ -103,8 +103,8 @@
       "gbp": true,
       "blog": true
     },
-    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/0.jpg",
-    "publishedAt": null,
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/composite-mql6uqvz.jpg",
+    "publishedAt": "2026-06-19T17:14:46.743Z",
     "blogUrl": "https://roofwithsunrise.com/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az",
     "compositeUrl": "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/composite-mql6uqvz.jpg"
   },
