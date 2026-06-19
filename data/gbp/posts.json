@@ -16,14 +16,15 @@
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-18T18:25:03.135Z",
-    "updatedAt": "2026-06-18T18:25:09.136Z",
+    "updatedAt": "2026-06-19T16:57:37.056Z",
     "city": "Catalina Foothills",
     "serviceType": "Flat Roof Coating",
     "qualityFlags": {
       "needsResend": false,
       "reason": null
     },
-    "autoDrafted": true
+    "autoDrafted": true,
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1781807100943-mn5xcu/composite-mql69dq6.jpg"
   },
   {
     "id": "1781801207822-71kcpj",
