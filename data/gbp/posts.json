@@ -91,7 +91,7 @@
     "gbpPostId": null,
     "error": "GBP localPosts 400: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Request contains an invalid argument.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.mybusiness.v4.ValidationError\",\n        \"errorDetails\": [\n          {\n            \"code\": 1000,\n            \"message\": \"Fetching image failed.\",\n            \"value\": \"https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/0.jpg\"\n          }\n        ]\n      }\n    ]\n  }\n}\n",
     "createdAt": "2026-06-17T03:02:39.711Z",
-    "updatedAt": "2026-06-17T03:03:25.652Z",
+    "updatedAt": "2026-06-19T17:14:13.851Z",
     "city": null,
     "serviceType": "Roof Inspection",
     "qualityFlags": {
@@ -105,7 +105,8 @@
     },
     "publishedMedia": "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/0.jpg",
     "publishedAt": null,
-    "blogUrl": "https://roofwithsunrise.com/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az"
+    "blogUrl": "https://roofwithsunrise.com/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az",
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1781665357878-278i6t/composite-mql6uqvz.jpg"
   },
   {
     "id": "1781664888702-e4rl0a",
