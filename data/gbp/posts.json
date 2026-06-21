@@ -1,7 +1,7 @@
 [
   {
     "id": "1781807100943-mn5xcu",
-    "status": "scheduled",
+    "status": "published",
     "from": "whatsapp:+15207531758",
     "note": "Just finished an existing Granulated Capsheet built-up roof and replacing it with a Tucson Rubberized 3-Ply system with premium Pro-Coat 10000 with a 27 year system warranty here in the Catalina highway area",
     "mediaUrls": [
@@ -12,7 +12,7 @@
     "finalCopy": "Fresh flat roof coating completed in the Catalina Foothills area. Our crew replaced the old granulated capsheet with a durable 3-ply rubberized system and premium reflective coating—built to handle Tucson's intense sun and monsoon season. If your flat roof needs attention, give us a call.",
     "ctaType": "CALL",
     "ctaUrl": null,
-    "gbpPostId": null,
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/4424678044051602125",
     "error": null,
     "createdAt": "2026-06-18T18:25:03.135Z",
     "updatedAt": "2026-06-19T16:57:37.056Z",
@@ -28,7 +28,10 @@
     "channels": {
       "gbp": true,
       "blog": true
-    }
+    },
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1781807100943-mn5xcu/composite-mql69dq6.jpg",
+    "publishedAt": "2026-06-21T16:02:24.582Z",
+    "blogUrl": "https://roofwithsunrise.com/blog/flat-roof-coating-tucson-what-homeowners-need-to-know"
   },
   {
     "id": "1781801207822-71kcpj",
