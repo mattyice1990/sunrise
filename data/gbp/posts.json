@@ -1,22 +1,29 @@
 [
   {
     "id": "1782152562488-ttxdwq",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+15207531758",
     "note": "Here we we are replacing a discontinued 3-tab shingle roof  for a GAF natural shadow system on a manufactured home in the Trails west community. We are also putting a GAF silver pledge #Warranty on this roof!!",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1782152562488-ttxdwq/0.jpg",
       "https://roofwithsunrise.com/gbp-media/1782152563844-921t2y/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "before_after",
+    "draftCopy": "Roof replacement underway at a manufactured home in Tucson's Trails West community. Our crew is upgrading from an old 3-tab shingle system to GAF Natural Shadow shingles—built to last under the Arizona sun. If your manufactured home needs a roof replacement in Tucson, give us a call today.",
+    "finalCopy": "Roof replacement underway at a manufactured home in Tucson's Trails West community. Our crew is upgrading from an old 3-tab shingle system to GAF Natural Shadow shingles—built to last under the Arizona sun. If your manufactured home needs a roof replacement in Tucson, give us a call today.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-22T18:22:44.192Z",
-    "updatedAt": "2026-06-22T18:22:57.923Z"
+    "updatedAt": "2026-06-22T18:22:57.923Z",
+    "city": "Tucson",
+    "serviceType": "Roof Replacement",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    },
+    "autoDrafted": true
   },
   {
     "id": "1782151077767-zlocbx",
