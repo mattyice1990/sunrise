@@ -35,22 +35,27 @@
   },
   {
     "id": "1781801207822-71kcpj",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Metal roof installation underway in Vail, Arizona",
     "mediaUrls": [
-      "https://roofwithsunrise.com/gbp-media/1781801207822-71kcpj/0.jpg",
-      "https://roofwithsunrise.com/gbp-media/1781801210662-wmv58i/0.jpg"
+      "https://roofwithsunrise.com/gbp-media/1781801207822-71kcpj/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Metal roof installation underway in Vail. Our crew is prepping custom metal panels on-site for a precise fit. Whether you need a durable metal roof or reliable roof repair in Tucson and surrounding areas, we've got you covered. Call Sunrise Roofing today.",
+    "finalCopy": "Metal roof installation underway in Vail. Our crew is prepping custom metal panels on-site for a precise fit. Whether you need a durable metal roof or reliable roof repair in Tucson and surrounding areas, we've got you covered. Call Sunrise Roofing today.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-18T16:46:50.953Z",
-    "updatedAt": "2026-06-18T16:46:55.311Z"
+    "updatedAt": "2026-06-18T16:46:55.311Z",
+    "city": "Vail",
+    "serviceType": "Metal Roof Installation",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   },
   {
     "id": "1781667258998-wc2kmk",
