@@ -41,14 +41,15 @@
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-22T17:57:58.033Z",
-    "updatedAt": "2026-06-22T18:01:08.623Z",
+    "updatedAt": "2026-06-22T22:22:01.472Z",
     "city": "Tucson",
     "serviceType": "Metal Roof Replacement",
     "qualityFlags": {
       "needsResend": false,
       "reason": null
     },
-    "autoDrafted": true
+    "autoDrafted": true,
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782151077767-zlocbx/composite-mqps64gu.jpg"
   },
   {
     "id": "1781807100943-mn5xcu",
