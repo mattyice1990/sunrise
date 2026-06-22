@@ -1,21 +1,28 @@
 [
   {
     "id": "1782151077767-zlocbx",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Nee construction metal roof with 24GA Standing Seam Nail Strip with FT Solutions Butyl underlayment with lifetime warranty. For metal roof panels longer than 5 feet installed on steep-pitch roof areas, we recommend using striated panels in a minimum 24-gauge steel. The added panel thickness and striations help reduce visible waviness, commonly known as oil canning.\n\nOil canning is a cosmetic rippling or waviness that can appear in flat metal panels, especially in longer panel lengths. It can be caused by normal expansion and contraction, installation tension, uneven decking, or thinner metal. While oil canning typically does not affect the roof’s waterproofing performance, using heavier-gauge, striated panels helps minimize its appearance.",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1782151265745-t549cg/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Our crew just staged the materials for a new standing seam metal roof here in Tucson. We're using 24-gauge striated panels with butyl underlayment—a solid system that stands up to our desert heat and minimizes that wavy appearance (oil canning) you sometimes see on metal roofs. If you've been thinking about a metal roof replacement, now's a great time to talk options. Give us a call.",
+    "finalCopy": "Our crew just staged the materials for a new standing seam metal roof here in Tucson. We're using 24-gauge striated panels with butyl underlayment—a solid system that stands up to our desert heat and minimizes that wavy appearance (oil canning) you sometimes see on metal roofs. If you've been thinking about a metal roof replacement, now's a great time to talk options. Give us a call.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-22T17:57:58.033Z",
-    "updatedAt": "2026-06-22T18:01:08.623Z"
+    "updatedAt": "2026-06-22T18:01:08.623Z",
+    "city": "Tucson",
+    "serviceType": "Metal Roof Replacement",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    },
+    "autoDrafted": true
   },
   {
     "id": "1781807100943-mn5xcu",
