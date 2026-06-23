@@ -4,7 +4,7 @@ Object.assign(window.SEO, {
 
   "foam-roofing": {
     slug: "foam-roofing", cat: "service", crumb: "Services",
-    title: "Foam Roofing (SPF) in Tucson, AZ | Spray Foam Roofs — Sunrise Roofers",
+    title: "Foam Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Spray polyurethane foam (SPF) roofing in Tucson — seamless, energy-efficient flat-roof systems plus foam roof repair and recoats. Free estimate: 520-753-1758.",
     kw: { primary: "foam roofing tucson", vol: 50, kd: 1, cpc: 5 },
     secondary: ["polyurethane foam roofing", "foam roof repair", "silicone roof coating", "roof coating cost"],
@@ -58,7 +58,7 @@ Object.assign(window.SEO, {
 
   "roof-coatings": {
     slug: "roof-coatings", cat: "service", crumb: "Services",
-    title: "Roof Coatings in Tucson, AZ | Elastomeric & Silicone — Sunrise Roofers",
+    title: "Roof Coatings in Tucson, AZ — Sunrise Roofers",
     desc: "Reflective roof coatings in Tucson — elastomeric and silicone systems that seal leaks, cut heat and extend roof life. Free estimate: 520-753-1758.",
     kw: { primary: "roof coating tucson", vol: 100, kd: 12, cpc: 7 },
     secondary: ["elastomeric roof coating", "silicone roof coating", "roof coating cost", "roof coating arizona"],
@@ -112,7 +112,7 @@ Object.assign(window.SEO, {
 
   "metal-roofing": {
     slug: "metal-roofing", cat: "service", crumb: "Services",
-    title: "Metal Roofing in Tucson, AZ | Standing Seam Install — Sunrise Roofers",
+    title: "Metal Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Metal roofing in Tucson — durable, energy-efficient standing seam systems for homes and businesses. Long-lasting and low-maintenance. Free estimate: 520-753-1758.",
     kw: { primary: "metal roofing tucson", vol: 100, kd: 16, cpc: 8 },
     secondary: ["standing seam metal roof", "metal roof cost", "best roofing material for arizona", "metal roofing contractors"],
@@ -166,7 +166,7 @@ Object.assign(window.SEO, {
 
   "shingle-roofing": {
     slug: "shingle-roofing", cat: "service", crumb: "Services",
-    title: "Shingle Roofing in Tucson, AZ | Asphalt Shingle Install — Sunrise Roofers",
+    title: "Shingle Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Asphalt shingle roofing in Tucson — architectural shingle installation and shingle roof replacement built for desert heat. Affordable & fast. Free quote: 520-753-1758.",
     kw: { primary: "shingle roofing tucson", vol: 30, kd: null, cpc: null },
     secondary: ["shingle roof replacement", "roof shingles", "asphalt shingle roof", "best roofing material for arizona"],
@@ -220,7 +220,7 @@ Object.assign(window.SEO, {
 
   "gutter-installation": {
     slug: "gutter-installation", cat: "service", crumb: "Services",
-    title: "Gutter Installation in Tucson, AZ | Seamless Rain Gutters — Sunrise Roofers",
+    title: "Gutter Installation in Tucson — Sunrise Roofers",
     desc: "Seamless gutter installation in Tucson — rain gutters, gutter guards and repair that protect your roof, walls and foundation from monsoon runoff. Free quote: 520-753-1758.",
     kw: { primary: "gutter installation tucson", vol: 100, kd: 17, cpc: 5 },
     secondary: ["rain gutters tucson", "seamless gutters", "gutter guards", "gutter repair tucson"],
@@ -274,7 +274,7 @@ Object.assign(window.SEO, {
 
   "skylight-installation": {
     slug: "skylight-installation", cat: "service", crumb: "Services",
-    title: "Skylight Installation in Tucson, AZ | Skylights & Solar Tubes — Sunrise Roofers",
+    title: "Skylight Installation in Tucson — Sunrise Roofers",
     desc: "Skylight installation and replacement in Tucson — leak-free skylights and solar tubes that bring in natural light. Roofing-grade flashing. Free quote: 520-753-1758.",
     kw: { primary: "skylight installation tucson", vol: 80, kd: null, cpc: null },
     secondary: ["skylight replacement", "velux skylight installation", "skylight repair tucson", "solar tube installation"],

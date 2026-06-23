@@ -6,7 +6,7 @@ Object.assign(window.SEO, {
 
   "roof-repair": {
     slug: "roof-repair", cat: "service", crumb: "Services",
-    title: "Roof Repair in Tucson, AZ | Fast Leak & Storm Repairs — Sunrise Roofers",
+    title: "Roof Repair in Tucson, AZ — Sunrise Roofers",
     desc: "Trusted roof repair in Tucson for leaks, storm damage, cracked tile and worn flashing. Free inspections, honest assessments and lasting fixes. Call 520-753-1758.",
     kw: { primary: "roof repair tucson", vol: 300, kd: 40, cpc: 11 },
     secondary: ["roof repair near me", "roof leak repair tucson", "flat roof repair", "roof repair cost"],
@@ -70,7 +70,7 @@ Object.assign(window.SEO, {
 
   "roof-replacement": {
     slug: "roof-replacement", cat: "service", crumb: "Services",
-    title: "Roof Replacement in Tucson, AZ | Full Re-Roofs & Tear-Offs — Sunrise Roofers",
+    title: "Roof Replacement in Tucson, AZ — Sunrise Roofers",
     desc: "Professional roof replacement in Tucson — tile, shingle, metal and foam. Built for desert heat, with financing and warranties. Free estimate: 520-753-1758.",
     kw: { primary: "roof replacement tucson", vol: 100, kd: 40, cpc: 2.5 },
     secondary: ["shingle roof replacement", "how often should you replace your roof", "signs you need a new roof", "when to replace tile roof"],
@@ -135,7 +135,7 @@ Object.assign(window.SEO, {
 
   "roof-installation": {
     slug: "roof-installation", cat: "service", crumb: "Services",
-    title: "New Roof Installation in Tucson, AZ | New Build & Re-Roof — Sunrise Roofers",
+    title: "New Roof Installation in Tucson — Sunrise Roofers",
     desc: "Expert new roof installation in Tucson for new construction and re-roofs. Tile, shingle, metal and foam systems, financing available. Free quote: 520-753-1758.",
     kw: { primary: "roof installation tucson", vol: 100, kd: null, cpc: null },
     secondary: ["roofing companies near me", "roofing financing", "how long do tile roofs last", "new roof tucson"],
@@ -191,7 +191,7 @@ Object.assign(window.SEO, {
 
   "roof-inspection": {
     slug: "roof-inspection", cat: "service", crumb: "Services",
-    title: "Free Roof Inspection in Tucson, AZ | Documented Reports — Sunrise Roofers",
+    title: "Free Roof Inspection in Tucson — Sunrise Roofers",
     desc: "Free, documented roof inspection in Tucson. Storm and hail damage assessments, pre-purchase inspections and honest reports with photos. Book now: 520-753-1758.",
     kw: { primary: "roof inspection tucson", vol: 100, kd: 9, cpc: 10 },
     secondary: ["free roof inspection", "storm damage roof repair", "hail damage roof repair", "monsoon roof damage"],
@@ -255,7 +255,7 @@ Object.assign(window.SEO, {
 
   "emergency-roof-repair": {
     slug: "emergency-roof-repair", cat: "service", crumb: "Services",
-    title: "Emergency & Storm Damage Roof Repair in Tucson | 24/7 — Sunrise Roofers",
+    title: "Emergency Roof Repair in Tucson — Sunrise Roofers",
     desc: "24/7 emergency roof repair in Tucson. Fast tarping, monsoon and storm damage repair, leak control and insurance help. Call now: 520-753-1758.",
     kw: { primary: "emergency roof repair tucson", vol: 80, kd: null, cpc: null },
     secondary: ["roof leak repair tucson", "storm damage roof repair", "hail damage roof repair", "monsoon roof damage"],
@@ -311,7 +311,7 @@ Object.assign(window.SEO, {
 
   "tile-roofing": {
     slug: "tile-roofing", cat: "service", crumb: "Services",
-    title: "Tile Roofing in Tucson, AZ | Tile Repair, Re-Felt & Install — Sunrise Roofers",
+    title: "Tile Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Tucson tile roofing experts — tile roof repair, underlayment replacement and new tile installation. Concrete & clay, built to last. Free estimate: 520-753-1758.",
     kw: { primary: "tile roof repair tucson", vol: 150, kd: 0, cpc: 10 },
     secondary: ["tile roof repair", "how long do tile roofs last", "tile roof underlayment replacement", "when to replace tile roof"],
@@ -365,7 +365,7 @@ Object.assign(window.SEO, {
 
   "flat-roofing": {
     slug: "flat-roofing", cat: "service", crumb: "Services",
-    title: "Flat Roofing in Tucson, AZ | Flat Roof Repair, TPO & Coatings — Sunrise Roofers",
+    title: "Flat Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Flat roof repair and installation in Tucson — TPO, modified bitumen, built-up and coatings. Stop ponding and leaks for good. Free estimate: 520-753-1758.",
     kw: { primary: "flat roof repair tucson", vol: 150, kd: 38, cpc: 11 },
     secondary: ["flat roof repair", "commercial flat roof", "tpo roofing", "roof coating cost"],

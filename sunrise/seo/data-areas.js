@@ -6,7 +6,7 @@ window.SEO = window.SEO || {};
 function areaPage(o) {
   return {
     slug: o.slug, cat: "area", crumb: "Service Areas",
-    title: `${o.h1} | ${o.city} Roofing Contractor — Sunrise Roofers`,
+    title: `${o.city} Roofing Contractor — Sunrise Roofers`,
     desc: o.desc,
     kw: o.kw, secondary: o.secondary,
     hero: {
