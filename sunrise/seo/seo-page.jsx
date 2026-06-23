@@ -356,7 +356,6 @@ function SeoPage() {
         <ContactForm />
       </main>
       <Footer />
-      <ChatWidget />
     </React.Fragment>
   );
 }
