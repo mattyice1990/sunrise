@@ -13,6 +13,7 @@ function App() {
         <GoogleReviews />
         <FAQAccordion />
         <ContactForm />
+        <ServiceArea />
       </main>
       <Footer />
     </React.Fragment>
