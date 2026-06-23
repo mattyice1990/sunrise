@@ -63,12 +63,12 @@ function Hero() {
   useEffect(() => {
     const vids = [aRef.current, bRef.current];
     if (!vids[0] || !vids[1]) return;
-    // On phones, data-saver, or reduced-motion: skip the video entirely and let
-    // the poster image stand in — saves mobile bandwidth and improves LCP.
-    const lite = window.matchMedia("(max-width: 760px)").matches
-      || window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    // Play the (now ~5MB total, 720p) hero video on mobile too. Still respect
+    // an explicit reduced-motion preference and data-saver — those users get
+    // the poster image instead.
+    const skipVideo = window.matchMedia("(prefers-reduced-motion: reduce)").matches
       || (navigator.connection && navigator.connection.saveData);
-    if (lite) return;
+    if (skipVideo) return;
     vids.forEach((v) => { v.muted = true; v.playsInline = true; });
     let timer;
 

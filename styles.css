@@ -158,3 +158,18 @@ image-slot {
   border: 1px dashed #cdbfa6;
 }
 .dark image-slot { background: #2f3942; border-color: rgba(255,255,255,.18); }
+
+/* ===== Boot splash — crawlable internal-link graph + branded loading state.
+   Rendered inside #root in the static HTML; React replaces it on mount so
+   crawlers (and users on slow connections) get real links + content first. ===== */
+.boot{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center;padding:56px 20px;font-family:'Barlow',system-ui,sans-serif;color:#20292F}
+.boot__brand{display:flex;flex-direction:column;gap:8px}
+.boot__mark{font-family:'Barlow Condensed','Barlow',sans-serif;font-weight:800;font-size:36px;letter-spacing:1px;color:#F0801C}
+.boot__tag{font-size:15px;color:#5b6168}
+.boot__cta{font-size:15px;font-weight:600}
+.boot__cta a,.boot__nav a{color:#C2620E;text-decoration:none}
+.boot__nav{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;max-width:920px}
+.boot__col{display:flex;flex-direction:column;gap:5px;text-align:left;font-size:13px}
+.boot__col b{color:#20292F;margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px;font-size:12px}
+.boot__loading{font-size:13px;color:#9aa0a6;letter-spacing:.6px}
+@media (max-width:600px){.boot__mark{font-size:27px}.boot__nav{gap:20px}.boot{min-height:70vh}}
