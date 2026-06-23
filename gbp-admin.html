@@ -194,7 +194,9 @@ function render(p){
       (p.status==='scheduled'&&p.scheduledFor?'<span class="meta" style="align-self:center">📅 '+new Date(p.scheduledFor).toLocaleString()+'</span>':'')+'</div>';
   }else if(p.status==='published'){
     right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
-      (p.gbpPostId?'<p class="meta">'+esc(p.gbpPostId)+'</p>':'');
+      (p.gbpPostId?'<p class="meta">'+esc(p.gbpPostId)+'</p>':'')+
+      '<div class="actions" style="margin-top:12px"><button class="btn" id="repub-'+p.id+'" onclick="republish(\''+p.id+'\',this)">♻ Republish to GBP</button></div>'+
+      '<p class="note">Posts a fresh copy to Google using the same text & photo. Use this if the Google post was deleted.</p>';
   }
 
   return '<div class="card" id="card-'+p.id+'"><div class="cardhead"><strong>'+esc(p.type||'submission')+'</strong>'+
@@ -260,6 +262,14 @@ async function publish(id,btn){
   if(cu) body.mediaUrls=[cu];
   try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
   catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish now';}
+}
+// Re-post an already-published job to GBP (e.g. the Google post got deleted).
+// The server falls back to the stored copy, CTA and composite image, so {id} is enough.
+async function republish(id,btn){
+  if(!confirm('Publish this post to Google Business Profile again?\\nUse this if the Google post was deleted — it creates a new post with the same text and photo.'))return;
+  btn.disabled=true;btn.textContent='Republishing…';
+  try{ await api('/api/gbp-publish',{method:'POST',body:JSON.stringify({id})}); await load(); }
+  catch(e){ alert(e.message); btn.disabled=false; btn.textContent='♻ Republish to GBP'; }
 }
 
 /* ---- Visual calendar scheduler ---- */
