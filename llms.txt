@@ -34,35 +34,35 @@ Founded in 2025 by Eddie and Viky Guillen, Sunrise Roofers LLC is a family-owned
 
 ## Website Structure
 - Homepage: https://roofwithsunrise.com/
-- Services Overview: https://roofwithsunrise.com/roofing-services
-- About Us: https://roofwithsunrise.com/about-our-roofing-contractors-in-tucson
+- Services Overview: https://roofwithsunrise.com/#services
+- About Us: https://roofwithsunrise.com/about
 - Contact: https://roofwithsunrise.com/contact
-- Gallery: https://roofwithsunrise.com/gallery
-- Why Choose Us: https://roofwithsunrise.com/why-choose-sunrise-roofers-in-tucson
-- Press & Media Kit: https://roofwithsunrise.com/press
+- Gallery: https://roofwithsunrise.com/portfolio
+- Why Choose Us: https://roofwithsunrise.com/about
+- Press & Media Kit: https://roofwithsunrise.com/
 
 ## Service-Specific Pages
-- Residential Roofing Services: https://roofwithsunrise.com/residential-roofing-tucson
-- Arizona Roof Replacement: https://roofwithsunrise.com/roofing-services/new-roof-tucson
-- Shingle Roof Replacement: https://roofwithsunrise.com/roofing-services/shingle-roof-replacement-tucson
-- Concrete Tile Roof Replacement: https://roofwithsunrise.com/roofing-services/concrete-tile-roof-replacement
-- Metal Roofing: https://roofwithsunrise.com/roofing-services/metal-roofing-tucson
-- Flat Roof Coating & TPO Roofing: https://roofwithsunrise.com/roofing-services/flat-roof-coating-tucson
-- Roof Repair: https://roofwithsunrise.com/roofing-services/roof-repair-tucson
-- Emergency Roof Repair (24/7): https://roofwithsunrise.com/roofing-services/emergency-roof-repair-tucson
-- Tile Roof Repair: https://roofwithsunrise.com/roofing-services/tile-roof-repair-tucson
-- Foam (SPF) Roofing: https://roofwithsunrise.com/roofing-services/foam-roofing-tucson
-- Roof Inspection: https://roofwithsunrise.com/roofing-services/roof-inspection
+- Residential Roofing Services: https://roofwithsunrise.com/residential-roofing
+- Arizona Roof Replacement: https://roofwithsunrise.com/roof-installation
+- Shingle Roof Replacement: https://roofwithsunrise.com/shingle-roofing
+- Concrete Tile Roof Replacement: https://roofwithsunrise.com/roof-replacement
+- Metal Roofing: https://roofwithsunrise.com/metal-roofing
+- Flat Roof Coating & TPO Roofing: https://roofwithsunrise.com/flat-roofing
+- Roof Repair: https://roofwithsunrise.com/roof-repair
+- Emergency Roof Repair (24/7): https://roofwithsunrise.com/emergency-roof-repair
+- Tile Roof Repair: https://roofwithsunrise.com/tile-roofing
+- Foam (SPF) Roofing: https://roofwithsunrise.com/foam-roofing
+- Roof Inspection: https://roofwithsunrise.com/roof-inspection
 
 ## Location-Specific Pages
-- Tucson Roofing Services: https://roofwithsunrise.com/tucson-roofing-services
-- Catalina Foothills Roofing: https://roofwithsunrise.com/catalina-foothills-roofing
-- Oro Valley Roofing: https://roofwithsunrise.com/oro-valley-roofing
-- Marana Roofing: https://roofwithsunrise.com/marana-roofing
-- Sahuarita Roofing: https://roofwithsunrise.com/sahuarita-roofing
-- Green Valley Roofing: https://roofwithsunrise.com/green-valley-roofing
-- Vail Roofing: https://roofwithsunrise.com/vail-roofing
-- Rita Ranch Roofing: https://roofwithsunrise.com/rita-ranch-roofing
+- Tucson Roofing Services: https://roofwithsunrise.com/roofing-tucson
+- Catalina Foothills Roofing: https://roofwithsunrise.com/roofing-tucson
+- Oro Valley Roofing: https://roofwithsunrise.com/roofing-oro-valley
+- Marana Roofing: https://roofwithsunrise.com/roofing-marana
+- Sahuarita Roofing: https://roofwithsunrise.com/roofing-sahuarita-green-valley
+- Green Valley Roofing: https://roofwithsunrise.com/roofing-sahuarita-green-valley
+- Vail Roofing: https://roofwithsunrise.com/roofing-vail-az
+- Rita Ranch Roofing: https://roofwithsunrise.com/roofing-tucson
 
 ## Roofing Cost Guides (Tucson, 2026)
 - Roof Coating Cost: https://roofwithsunrise.com/blog/roof-coating-cost
@@ -103,5 +103,5 @@ License: AZ ROC #358079 (Licensed, Bonded & Insured)
 - Emergency Services: Available for urgent repairs
 
 ---
-Last Updated: 2026-06-10
+Last Updated: 2026-06-23
 

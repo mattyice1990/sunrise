@@ -7,217 +7,114 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/feed.xml",
-      "destination": "/api/feed"
-    },
-    {
-      "source": "/recent-work.json",
-      "destination": "/api/recent-work?format=json"
-    }
+    { "source": "/feed.xml", "destination": "/api/feed" },
+    { "source": "/recent-work.json", "destination": "/api/recent-work?format=json" }
   ],
   "redirects": [
     {
       "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.roofwithsunrise.com"
-        }
-      ],
+      "has": [{ "type": "host", "value": "www.roofwithsunrise.com" }],
       "destination": "https://roofwithsunrise.com/:path*",
       "permanent": true
     },
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/about.html",
-      "destination": "/about-our-roofing-contractors-in-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/about",
-      "destination": "/about-our-roofing-contractors-in-tucson",
-      "permanent": true
-    },
-    {
-      "source": "/services.html",
-      "destination": "/roofing-services",
-      "permanent": true
-    },
-    {
-      "source": "/services",
-      "destination": "/roofing-services",
-      "permanent": true
-    },
-    {
-      "source": "/roof-inspection.html",
-      "destination": "/roofing-services/roof-inspection",
-      "permanent": true
-    },
-    {
-      "source": "/roof-inspection",
-      "destination": "/roofing-services/roof-inspection",
-      "permanent": true
-    },
-    {
-      "source": "/:path*.html",
-      "destination": "/:path*",
-      "permanent": true
-    }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/Sunrise Roofers LLC.html", "destination": "/", "permanent": true },
+
+    { "source": "/about-our-roofing-contractors-in-tucson", "destination": "/about", "permanent": true },
+    { "source": "/why-choose-sunrise-roofers-in-tucson", "destination": "/about", "permanent": true },
+
+    { "source": "/roofing-services", "destination": "/", "permanent": true },
+    { "source": "/tucson-roofing-services", "destination": "/roofing-tucson", "permanent": true },
+    { "source": "/roofing-services/roof-inspection", "destination": "/roof-inspection", "permanent": true },
+    { "source": "/roofing-services/roof-repair-tucson", "destination": "/roof-repair", "permanent": true },
+    { "source": "/roofing-services/emergency-roof-repair-tucson", "destination": "/emergency-roof-repair", "permanent": true },
+    { "source": "/roofing-services/metal-roofing-tucson", "destination": "/metal-roofing", "permanent": true },
+    { "source": "/roofing-services/foam-roofing-tucson", "destination": "/foam-roofing", "permanent": true },
+    { "source": "/roofing-services/flat-roof-coating-tucson", "destination": "/flat-roofing", "permanent": true },
+    { "source": "/roofing-services/tile-roof-repair-tucson", "destination": "/tile-roofing", "permanent": true },
+    { "source": "/roofing-services/concrete-tile-roof-replacement", "destination": "/roof-replacement", "permanent": true },
+    { "source": "/roofing-services/shingle-roof-replacement-tucson", "destination": "/shingle-roofing", "permanent": true },
+    { "source": "/roofing-services/new-roof-tucson", "destination": "/roof-installation", "permanent": true },
+
+    { "source": "/catalina-foothills-roofing", "destination": "/roofing-tucson", "permanent": true },
+    { "source": "/rita-ranch-roofing", "destination": "/roofing-tucson", "permanent": true },
+    { "source": "/residential-roofing-tucson", "destination": "/residential-roofing", "permanent": true },
+    { "source": "/oro-valley-roofing", "destination": "/roofing-oro-valley", "permanent": true },
+    { "source": "/marana-roofing", "destination": "/roofing-marana", "permanent": true },
+    { "source": "/green-valley-roofing", "destination": "/roofing-sahuarita-green-valley", "permanent": true },
+    { "source": "/sahuarita-roofing", "destination": "/roofing-sahuarita-green-valley", "permanent": true },
+    { "source": "/vail-roofing", "destination": "/roofing-vail-az", "permanent": true },
+
+    { "source": "/gallery", "destination": "/portfolio", "permanent": true },
+    { "source": "/press", "destination": "/", "permanent": true },
+
+    { "source": "/:path*.html", "destination": "/:path*", "permanent": true }
   ],
   "headers": [
     {
       "source": "/gbp-admin",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }
-      ]
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }]
     },
     {
       "source": "/gbp-admin.html",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }
-      ]
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }]
     },
     {
       "source": "/gbp-media/(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noimageindex" }
-      ]
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noimageindex" }]
     },
     {
       "source": "/data/(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-      ]
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
       "source": "/api/(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-      ]
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "(.*)\\.vercel\\.app"
-        }
-      ],
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
+      "has": [{ "type": "host", "value": "(.*)\\.vercel\\.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
-        }
+        { "key": "Content-Type", "value": "application/xml" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
-        }
+        { "key": "Content-Type", "value": "text/plain" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
       ]
     },
     {
       "source": "/feed.xml",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/blog/blog-posts.json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=300, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/blog/blog-loader.js",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, immutable"
-        }
+        { "key": "Content-Type", "value": "application/xml" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "frame-ancestors 'self' https://roofwithsunrise.com https://www.roofwithsunrise.com https://*.vercel.app"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "geolocation=(), microphone=(), camera=()"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors 'self' https://roofwithsunrise.com https://www.roofwithsunrise.com https://*.vercel.app" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
       ]
     },
     {
       "source": "/images/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/uploads/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
 }
-

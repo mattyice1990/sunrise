@@ -1,0 +1,165 @@
+/* ============================================================
+   PRELOADER — "Build the Logo" initial page-load animation
+   Roof falls in from the top piece-by-piece, then the wordmark
+   fills in left → right → bottom. Masked copies of the logo PNG
+   reassemble pixel-perfect at rest.
+   ============================================================ */
+
+body.pl-lock { overflow: hidden; }
+
+.pl {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(0px) saturate(100%);
+  -webkit-backdrop-filter: blur(0px) saturate(100%);
+  /* opacity-only transition — smooth & cheap (no per-frame blur re-raster over video) */
+  transition: opacity .95s cubic-bezier(.33,0,.2,1);
+  will-change: opacity;
+}
+/* solid dark backdrop during the build — fades away to expose the frosted glass */
+.pl__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 44%, #161616 0%, #0B0B0B 55%, #050505 100%);
+  transition: opacity .65s ease;
+  will-change: opacity;
+}
+
+/* soft crimson glow behind the mark */
+.pl__glow {
+  position: absolute;
+  width: min(720px, 92vw);
+  height: min(720px, 92vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(178,31,45,.28) 0%, rgba(178,31,45,.10) 38%, rgba(178,31,45,0) 68%);
+  filter: blur(6px);
+  opacity: 0;
+  animation: plGlow 3.4s ease-out .1s both;
+}
+@keyframes plGlow {
+  0%   { opacity: 0;   transform: scale(.72); }
+  45%  { opacity: 1;   transform: scale(1); }
+  100% { opacity: .6;  transform: scale(1.04); }
+}
+
+/* ---- the building logo ---- */
+.pl__logo {
+  position: relative;
+  z-index: 2;
+  width: min(460px, 78vw);
+  aspect-ratio: 2421 / 900;
+}
+.pl__part {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  will-change: transform, opacity, clip-path;
+}
+
+/* === ROOF — falls in piece by piece from the top === */
+.pl__part--markA {            /* top chevron */
+  clip-path: inset(0 32% 62% 33%);
+  animation: plFall .62s cubic-bezier(.34,1.5,.64,1) .2s both;
+}
+.pl__part--markB {            /* middle chevron tier */
+  clip-path: inset(38% 32% 48.5% 33%);
+  animation: plFall .62s cubic-bezier(.34,1.5,.64,1) .46s both;
+}
+.pl__part--markC {            /* house body + small house */
+  clip-path: inset(51.5% 40.2% 27% 40.5%);
+  animation: plFall .64s cubic-bezier(.34,1.5,.64,1) .72s both;
+}
+@keyframes plFall {
+  0%   { opacity: 0; transform: translateY(-72%); }
+  26%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* === WORDMARK — fills in left → right → bottom === */
+.pl__part--wordL {            /* WESTERN, wipes in from the left */
+  clip-path: inset(49% 59% 27% 6%);
+  animation: plWestern .6s cubic-bezier(.32,.72,.2,1) 1.5s both;
+}
+@keyframes plWestern {
+  0%   { clip-path: inset(49% 94% 27% 6%); opacity: 0; }
+  18%  { opacity: 1; }
+  100% { clip-path: inset(49% 59% 27% 6%); opacity: 1; }
+}
+.pl__part--wordR {            /* ROOFING, wipes in from the left edge of its word */
+  clip-path: inset(49% 3% 27% 60%);
+  animation: plRoofing .6s cubic-bezier(.32,.72,.2,1) 1.92s both;
+}
+@keyframes plRoofing {
+  0%   { clip-path: inset(49% 40% 27% 60%); opacity: 0; }
+  18%  { opacity: 1; }
+  100% { clip-path: inset(49% 3% 27% 60%); opacity: 1; }
+}
+.pl__part--base {             /* foundation swoosh, draws left → right */
+  clip-path: inset(72% 3% 17% 2%);
+  animation: plBase .58s cubic-bezier(.3,.7,.2,1) 2.28s both;
+}
+@keyframes plBase {
+  0%   { clip-path: inset(72% 98% 17% 2%); opacity: 0; }
+  18%  { opacity: 1; }
+  100% { clip-path: inset(72% 3% 17% 2%); opacity: 1; }
+}
+.pl__part--inst {             /* INSTALLATIONS, fills in last */
+  clip-path: inset(83% 17% 0% 20%);
+  animation: plInst .6s cubic-bezier(.32,.72,.2,1) 2.58s both;
+}
+@keyframes plInst {
+  0%   { clip-path: inset(83% 80% 0% 20%); opacity: 0; }
+  18%  { opacity: 1; }
+  100% { clip-path: inset(83% 17% 0% 20%); opacity: 1; }
+}
+
+.pl__skip {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--display, sans-serif);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  color: rgba(255,255,255,.40);
+  opacity: 0;
+  animation: plFadeIn .5s ease 2.2s both;
+}
+@keyframes plFadeIn { to { opacity: 1; } }
+
+/* transitions for the dissolve */
+.pl__logo { transition: opacity .55s ease, transform .65s ease; }
+.pl__glow, .pl__skip { transition: opacity .45s ease; }
+
+/* EXIT step 1 — logo fades out, dark backdrop melts into frosted glass
+   (the site shows through, blurred). Blur is set at a CONSTANT radius and
+   is NOT animated — only opacity moves, so it stays smooth over the video. */
+.pl--glass {
+  backdrop-filter: blur(20px) saturate(116%);
+  -webkit-backdrop-filter: blur(20px) saturate(116%);
+}
+.pl--glass .pl__bg { opacity: 0; }
+.pl--glass .pl__glow { opacity: 0; }
+.pl--glass .pl__skip { opacity: 0; }
+.pl--glass .pl__logo { opacity: 0; transform: scale(1.04); }
+
+/* EXIT step 2 — the frosted veil fades away (blur held steady), so the
+   site eases gently into focus. */
+.pl--clear {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pl__glow, .pl__part, .pl__skip {
+    animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
+  }
+  .pl__part { transform: none !important; opacity: 1 !important; }
+}

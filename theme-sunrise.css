@@ -1,0 +1,258 @@
+/* ============================================================
+   THEME — Sunrise Roofers LLC · Graphite & Ember
+   Loaded AFTER styles.css + styles-sections.css to retheme tokens.
+   Brand palette: sunrise orange #F0801C · graphite black #16171A ·
+   cool greys — black / grey / orange, no tan or cream surfaces.
+   ============================================================ */
+:root {
+  /* Surfaces — cool neutral greys */
+  --sand:       #F5F6F7;   /* off-white page bg (cool grey) */
+  --sand-deep:  #E9EBED;   /* secondary band bg */
+  --paper:      #FFFFFF;
+  --ink:        #16171A;   /* graphite-black dark sections */
+  --ink-2:      #0D0E10;   /* near-black */
+
+  /* Ink / text */
+  --text:       #16171A;
+  --text-soft:  #4A4E54;
+  --text-mute:  #7A7F86;
+  --on-dark:    #F5F6F7;
+  --on-dark-soft:#B6BBC2;
+
+  /* Accent — sunrise orange */
+  --terra:      #F0801C;
+  --terra-rgb:  240,128,28;
+  --terra-700:  #C2620E;   /* deeper orange for hovers / pressed */
+  --terra-300:  #FCA94A;   /* brighter orange for dark surfaces */
+  --terra-tint: #FCE6D2;   /* pale orange wash behind soft cards */
+
+  /* Secondary — cool graphite grey */
+  --slate:      #6B7178;
+  --green:      #4B5057;   /* graphite used where a 2nd accent appears */
+
+  /* Lines & shadows — cool, soft */
+  --line:       #E2E5E8;
+  --shadow-sm:  0 1px 2px rgba(15,17,20,.06), 0 2px 6px rgba(15,17,20,.06);
+  --shadow-md:  0 4px 14px rgba(15,17,20,.09), 0 12px 30px rgba(15,17,20,.08);
+  --shadow-lg:  0 10px 24px rgba(15,17,20,.10), 0 30px 60px rgba(15,17,20,.14);
+}
+
+/* neutral grey image-slot placeholders */
+image-slot { --is-bg: #E6E8EA; background: #E6E8EA; border-color: #CDD1D5; }
+.dark image-slot { background: #24262A; border-color: rgba(255,255,255,.16); }
+
+/* footer near-black */
+.footer { background: var(--ink-2); }
+
+/* solid header reads cleanly on the cool off-white */
+.header--solid { background: rgba(247,248,249,.95); }
+
+/* sunrise gradient warmth on the primary button for a touch of the logo's glow */
+.btn--primary {
+  background: linear-gradient(135deg, #F79434 0%, var(--terra) 55%, var(--terra-700) 100%);
+}
+
+/* ============================================================
+   LOGO — cream lettering on dark surfaces (hero video + footer),
+   original gray on the light scrolled header. No background.
+   ============================================================ */
+body.brand-real .logo__pimg--color { display: block; }
+body.brand-real .logo__pimg--light { display: none; }
+body.brand-real .header--over .logo__pimg--color,
+body.brand-real .footer .logo__pimg--color { display: none; }
+body.brand-real .header--over .logo__pimg--light,
+body.brand-real .footer .logo__pimg--light { display: block; }
+body.brand-real .header--over .logo__photo,
+body.brand-real .header--solid .logo__photo,
+body.brand-real .footer .logo__photo {
+  background: none; padding: 0; border: none; box-shadow: none;
+}
+
+/* Header logo: a touch larger, and a drop-shadow on the cream variant so it
+   stays crisp and readable over the busy hero imagery. */
+/* Header logo: lock its width so it never collapses when the desktop menu +
+   CTA get wide (a flex child with no shrink guard was clipping it). */
+.logo { flex: 0 0 auto; }
+.logo__photo { flex: none; }
+.header .logo__pimg { height: clamp(44px, 4.6vw, 54px); }
+
+/* Compact the desktop nav so the logo, 7-item menu and CTA all fit cleanly
+   between 1080px and wider screens without crowding. */
+.nav__menu { gap: 1px; }
+.nav__link { padding: 9px 10px; font-size: 14.5px; letter-spacing: .03em; }
+.nav__cta { gap: 11px; }
+.nav__phone { font-size: 17px; }
+@media (min-width: 1081px) and (max-width: 1240px) {
+  .nav__cta .nav__phone { display: none; }   /* phone still in the topbar */
+}
+body.brand-real .header--over .logo__pimg--light {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.6)) drop-shadow(0 4px 16px rgba(0,0,0,.55));
+}
+
+/* On the homepage the header sits transparent over the dark video while the
+   giant centered brand logo is showing — hide the small top-left logo there so
+   it doesn't read as a blob; it returns (full color) once the header is solid. */
+.header--over .logo { opacity: 0; visibility: hidden; pointer-events: none; }
+.header--solid .logo { opacity: 1; visibility: visible; }
+
+/* ============================================================
+   HERO — scroll-reveal brand intro
+   A tall scroll track with a pinned stage: a huge centered logo on a
+   desert-cream plate fades + scales away as the headline rises in.
+   ============================================================ */
+.hero { height: 200vh; min-height: 0; display: block; align-items: stretch; overflow: visible; padding-top: 0; }
+.hero__stage {
+  position: sticky; top: 0; height: 100vh; min-height: 580px;
+  overflow: hidden; display: flex; align-items: center; color: #fff;
+}
+.hero__stage .hero__media { position: absolute; inset: 0; z-index: 0; background: #14181c; }
+.hero__stage .hero__media video, .hero__stage .hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.hero__brand {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(16px, 2.4vw, 26px); text-align: center; padding: var(--nav-h) 24px 0;
+  will-change: opacity, transform;
+}
+.hero__plate { background: none; padding: 0; box-shadow: none; border: none; }
+/* No CSS filter on the logo itself — a filtered element gets rasterized once
+   at 1× and then the scroll choreography scales it (scale 1.13), which makes it
+   look soft/pixelated on hi-dpi screens. Keep the image un-filtered so it paints
+   at full device resolution; depth comes from the radial glow behind it. */
+.hero__logo { display: block; width: clamp(290px, 56vw, 660px); height: auto; position: relative; z-index: 1; }
+.hero__brand::before {
+  content: ""; position: absolute; z-index: 0; top: 50%; left: 50%;
+  width: clamp(420px, 72vw, 880px); aspect-ratio: 1.85 / 1;
+  transform: translate(-50%, -58%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.32) 42%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+}
+.hero__tagline {
+  font-family: var(--display); text-transform: uppercase; letter-spacing: .26em;
+  font-weight: 600; font-size: clamp(12px, 1.5vw, 16px);
+  color: #fff; margin: 0; text-shadow: 0 2px 24px rgba(0,0,0,.55);
+}
+/* scroll cue lives in the brand layer so it fades out with the logo */
+.hero__brand .hero__scroll { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); }
+@media (max-height: 680px) { .hero__brand .hero__scroll { display: none; } }
+
+/* big CTA pair under the logo (phase 1) */
+.hero__actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 4px; }
+.btn--xl { font-size: clamp(16px, 1.5vw, 19px); padding: 18px 34px; border-radius: 14px; letter-spacing: .01em; }
+.btn--xl svg { width: 19px; height: 19px; }
+
+/* nav CTA group — hidden over the hero, slides in once the header is solid */
+.nav__cta { display: flex; align-items: center; gap: 14px; transition: opacity .35s ease, transform .35s ease, visibility .35s ease; }
+.header--over .nav__cta { opacity: 0; visibility: hidden; transform: translateY(-8px); pointer-events: none; }
+.header--solid .nav__cta { opacity: 1; visibility: visible; transform: none; }
+
+/* Keep BOTH the estimate + call buttons reachable top-right after scroll,
+   on tablet/mobile too (base design hid the estimate button below 1080). */
+@media (max-width: 1080px) {
+  .header--solid .nav__cta .btn--primary { display: inline-flex; }
+  .nav__cta .nav__call { display: grid; }
+}
+@media (max-width: 460px) {
+  .header--solid .nav__cta .btn--primary { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero__actions { flex-direction: column; width: min(360px, 86vw); }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+}
+
+/* message layer overrides the base flow rules so it centers in the pinned stage */
+.hero__stage .hero__inner { position: relative; z-index: 2; width: 100%; padding: var(--nav-h) 0 40px; will-change: opacity, transform; }
+
+/* reduced-motion / static fallback */
+.hero--static { height: auto; }
+.hero--static .hero__stage { position: relative; }
+
+@media (max-width: 820px) {
+  .hero { height: 178vh; }
+  .hero__stage { min-height: 0; }
+  .hero__stage .hero__inner { padding-bottom: 28px; }
+}
+
+/* ============================================================
+   SECTION BACKGROUNDS — no flat blocks.
+   Dark bands get angled tonal grey/black panels (like the desert
+   construction look); light bands get a subtle warm gradient wash.
+   ============================================================ */
+:root {
+  --panels: linear-gradient(100deg,
+    transparent 0 10%, rgba(255,255,255,.05) 10% 21%,
+    transparent 21% 37%, rgba(0,0,0,.30) 37% 49%,
+    transparent 49% 62%, rgba(255,255,255,.034) 62% 74%,
+    rgba(0,0,0,.22) 74% 87%, transparent 87%);
+}
+
+/* shared dark band: graphite base + sunrise glow + angled panels */
+.section.dark, .proj-cta {
+  position: relative; overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(120% 100% at 85% 0%, rgba(240,128,28,.16), transparent 55%),
+    linear-gradient(160deg, #232427 0%, #141518 70%, #0D0E10 100%);
+}
+.section.dark::before, .proj-cta::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; background-image: var(--panels);
+}
+.section.dark::after, .proj-cta::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; z-index: 0;
+  background: linear-gradient(90deg, transparent, rgba(240,128,28,.55), transparent);
+}
+.section.dark > .container, .proj-cta > .container { position: relative; z-index: 1; }
+
+/* light grey band: subtle orange corner glow + a faint angled panel */
+.section.deep {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(80% 70% at 100% 0%, rgba(240,128,28,.05), transparent 60%),
+    linear-gradient(100deg, transparent 0 58%, rgba(20,21,24,.022) 58% 70%, transparent 70%),
+    var(--sand-deep);
+}
+.section.deep > .container { position: relative; z-index: 1; }
+
+/* ============================================================
+   PARALLAX BAND — a roof photo pinned behind the page; content
+   scrolls over the top of it. JS drifts .parallax__bg slowly.
+   ============================================================ */
+.parallax {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; align-items: center;
+  min-height: clamp(460px, 72vh, 720px);
+  padding: clamp(72px, 12vh, 140px) 0;
+  color: #fff; text-align: center;
+}
+.parallax__bg {
+  position: absolute; inset: -2px; z-index: 0;
+  background-position: center 38%; background-size: cover; background-repeat: no-repeat;
+  transform: translate3d(0,0,0) scale(1.28);
+  will-change: transform;
+}
+.parallax__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(120% 90% at 50% 120%, rgba(240,128,28,.22), transparent 55%),
+    linear-gradient(180deg, rgba(13,14,16,.74) 0%, rgba(13,14,16,.52) 42%, rgba(13,14,16,.78) 100%);
+}
+.parallax__content { position: relative; z-index: 2; max-width: 880px; }
+.parallax__eyebrow { color: var(--terra-300); margin: 0 0 14px; }
+.parallax__h2 {
+  font-family: var(--display); font-weight: 800; line-height: 1.04;
+  letter-spacing: -.01em; text-transform: none;
+  font-size: clamp(30px, 5vw, 60px); margin: 0;
+  text-shadow: 0 2px 30px rgba(0,0,0,.5);
+}
+.parallax__sub {
+  max-width: 620px; margin: 22px auto 0; color: rgba(255,255,255,.9);
+  font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6;
+  text-shadow: 0 1px 16px rgba(0,0,0,.5);
+}
+.parallax__cta {
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 34px;
+}
+@media (max-width: 600px) {
+  .parallax__cta { flex-direction: column; width: min(360px, 86vw); margin-inline: auto; }
+  .parallax__cta .btn { width: 100%; justify-content: center; }
+}
