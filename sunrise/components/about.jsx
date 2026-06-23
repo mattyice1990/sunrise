@@ -2,9 +2,9 @@
 
 const STATS = [
   { n: "20+", l: "Years of roofing experience" },
-  { n: "6,400+", l: "Roofs repaired across Tucson" },
-  { n: "1,900+", l: "Full roof replacements" },
-  { n: "5★", l: "Rated on Google" },
+  { n: "5.0★", l: "Rated across 41 Google reviews" },
+  { n: "ROC #358079", l: "Licensed, bonded & insured" },
+  { n: "GAF", l: "Certified roofing contractor" },
 ];
 
 function AboutSection() {
@@ -12,7 +12,7 @@ function AboutSection() {
     <section className="section" id="about">
       <div className="container about">
         <div className="about__media">
-          <Slot id="about-crew" src="uploads/sunrise-crew.webp" ph="Crew / founder photo" radius="16" />
+          <Slot id="about-crew" src="uploads/sunrise-crew.webp" ph="Crew / founder photo" alt="Sunrise Roofers family-owned crew in Tucson, AZ" radius="16" />
           <div className="about__badge">
             <div className="n">100%</div>
             <div className="t">Locally owned &amp; operated</div>

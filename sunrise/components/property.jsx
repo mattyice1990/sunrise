@@ -54,7 +54,7 @@ function PropertyTypeSection() {
               </div>
               <a className="btn btn--primary btn--sm" href="#contact">Talk to Us About {d.t} <Icon name="arrow" /></a>
             </div>
-            <div className="prop__media"><Slot id={d.slot} src={d.src} ph={d.t + " photo"} radius="10" /></div>
+            <div className="prop__media"><Slot id={d.slot} src={d.src} ph={d.t + " photo"} alt={`Roofing for ${d.t.toLowerCase()} in Tucson, AZ — Sunrise Roofers`} radius="10" /></div>
           </div>
         </div>
       </div>

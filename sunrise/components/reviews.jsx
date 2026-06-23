@@ -17,15 +17,16 @@ const GStars = () => (
   </div>
 );
 
+// Real Google reviews (seed). GoogleReviews refreshes these live from
+// /api/reviews on mount so the carousel always reflects the current Google
+// Business Profile. Colors cycle through the Google palette for the avatars.
+const GREV_COLORS = ["#4285F4", "#EA4335", "#34A853", "#FBBC05"];
 const REVIEWS = [
-  { n: "Dana Reyes", c: "#4285F4", t: "2 weeks ago", q: "Found the actual source of our monsoon leak after two other companies just patched the surface. Honest, fast, and the crew left the yard spotless." },
-  { n: "Marcus Tran", c: "#EA4335", t: "1 month ago", q: "The only roofer we trust with phased work across our HOA communities. Clear service logs, clear pricing, and the board never gets surprises." },
-  { n: "Lena Koch", c: "#34A853", t: "3 weeks ago", q: "Recoated our warehouse roof instead of pushing a full tear-off — saved us thousands and it hasn't leaked since. That kind of honesty earns repeat business." },
-  { n: "Robert Hale", c: "#FBBC05", dark: true, t: "1 week ago", q: "Our new concrete tile roof looks incredible. The crew was respectful, on time every single day, and cleaned up like they were never here." },
-  { n: "Sandra Mireles", c: "#4285F4", t: "2 months ago", q: "They walked me through repair vs. replacement with zero pressure. Turned out I just needed a repair — they easily could have sold me a whole roof." },
-  { n: "James Powell", c: "#EA4335", t: "5 days ago", q: "Metal roof install was flawless and the house already stays cooler in the afternoon. Worth every penny and the financing made it easy." },
-  { n: "Olivia Castro", c: "#34A853", t: "3 days ago", q: "A storm knocked tiles loose right before monsoon season. They came out the next day, sealed everything up, and put my mind at ease." },
-  { n: "Daniel Vega", c: "#4285F4", t: "1 month ago", q: "Professional from the estimate to the final walkthrough. Fair price, great communication, and they actually answer the phone when you call." },
+  { n: "Julie McIntyre", c: "#4285F4", t: "a month ago", q: "Eddie and his crew were responsive, kind, and prompt. Eddie took time to come to my home on the edge of town and communicate about all the options. My second story pitch is steep with older tiles, and he and his crew were safety conscious and careful and they cleaned up the work site perfectly. Their knowledge and skill are reflected in the final outcome of my roof repair and I am very pleased!" },
+  { n: "Maryfaith Marshall", c: "#EA4335", t: "2 months ago", q: "Eddie Guillen and all of the people with whom he works are outstanding: one thousand percent competent, and skilled, kind, generous, so clearly honest that I could just take a deep breath and trust whatever Eddie told me. They did a meticulous job on replacing our roof and it is beautiful. And he is very reasonably priced." },
+  { n: "Alexis Fahlman", c: "#34A853", t: "3 months ago", q: "They were very responsive and quick to help me get an estimate on my client's roof! Provided a very detailed inspection with photos and videos explaining what work needs to be done! On top of being knowledgeable and diligent, he also was willing to work on the aluminum which is super helpful." },
+  { n: "Sheryl Cain", c: "#FBBC05", dark: true, t: "2 months ago", q: "From start to finish, Sunrise Roofers gave a solid performance. Eddie Guillen gave our tile roof a thorough inspection, detailed estimate with pictures, and promptly replied to any questions. The materials used are of the highest quality, chosen to best endure our desert climate. I could not be happier. They deserve far more than five stars!" },
+  { n: "Ernesto Ortega", c: "#4285F4", t: "11 months ago", q: "Eddie Guillen from Sunrise Roofers LLC did an outstanding job on my full roof replacement. He was professional, efficient, and paid close attention to every detail. He also gave me great preventative maintenance tips. Highly recommend Eddie and his team for anyone needing reliable, high-quality roofing services!" },
 ];
 
 function ReviewCard({ r }) {
@@ -40,13 +41,32 @@ function ReviewCard({ r }) {
         <GoogleG size={20} />
       </div>
       <GStars />
-      <p className="grev-card__q">{r.q}</p>
+      <p className="grev-card__q">{r.q && r.q.length > 230 ? r.q.slice(0, 220).trim() + "…" : r.q}</p>
     </article>
   );
 }
 
 function GoogleReviews() {
-  const loop = REVIEWS.concat(REVIEWS);
+  const [reviews, setReviews] = useState(REVIEWS);
+  const [rating, setRating] = useState(5.0);
+  const [total, setTotal] = useState(41);
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/reviews")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!alive || !d) return;
+        const mapped = (d.reviews || [])
+          .filter((rv) => rv && rv.text && rv.rating >= 4)
+          .map((rv, i) => ({ n: rv.author_name, c: GREV_COLORS[i % 4], dark: GREV_COLORS[i % 4] === "#FBBC05", t: rv.relative_time_description || "Google review", q: rv.text }));
+        if (mapped.length) setReviews(mapped);
+        if (d.rating) setRating(d.rating);
+        if (d.totalReviews) setTotal(d.totalReviews);
+      })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, []);
+  const loop = reviews.concat(reviews);
   return (
     <section className="section grev" id="reviews">
       <div className="container">
@@ -55,10 +75,10 @@ function GoogleReviews() {
             <GoogleG size={40} />
             <div>
               <div className="grev-rating__row">
-                <span className="grev-rating__num">5.0</span>
+                <span className="grev-rating__num">{Number(rating).toFixed(1)}</span>
                 <GStars />
               </div>
-              <p className="grev-rating__sub"><b>5-Star Rated</b> on Google</p>
+              <p className="grev-rating__sub"><b>5-Star Rated</b> on Google · {total} reviews</p>
             </div>
           </div>
           <div className="grev-head__txt">
@@ -76,7 +96,7 @@ function GoogleReviews() {
         </div>
       </div>
       <div className="container grev-cta">
-        <span className="grev-cta__txt">Joined hundreds of happy Tucson homeowners &amp; property managers.</span>
+        <span className="grev-cta__txt">Rated 5.0 across {total} Google reviews from Tucson homeowners &amp; property managers.</span>
         <a className="grev-btn grev-btn--solid" href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener">
           <GoogleG size={20} /> <span>Leave Us a Review</span>
         </a>

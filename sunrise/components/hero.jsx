@@ -117,8 +117,8 @@ function Hero() {
     <section className="hero" id="top" ref={heroRef}>
       <div className="hero__stage">
         <div className="hero__media">
-          <video ref={aRef} muted playsInline preload="auto"></video>
-          <video ref={bRef} muted playsInline preload="auto" style={{ opacity: 0 }}></video>
+          <video ref={aRef} muted playsInline preload="auto" poster="uploads/aerial-home.jpg"></video>
+          <video ref={bRef} muted playsInline preload="auto" poster="uploads/aerial-home.jpg" style={{ opacity: 0 }}></video>
         </div>
         <div className="hero__scrim"></div>
 

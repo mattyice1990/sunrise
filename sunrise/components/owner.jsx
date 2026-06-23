@@ -18,7 +18,7 @@ function MeetOwner() {
             <p className="owner__bubble-line">Caught more sunrises up here than on my own porch.</p>
           </div>
           <div className="owner__photo">
-            <Slot id="owner-eddie" src="uploads/Roof%20Installation_edited.jpg" ph="Eddie on a roof" />
+            <Slot id="owner-eddie" src="uploads/Roof%20Installation_edited.jpg" ph="Eddie on a roof" alt="Eddie Guillen, owner of Sunrise Roofers, working on a roof in Tucson, AZ" />
           </div>
         </div>
 

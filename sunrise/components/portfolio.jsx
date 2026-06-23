@@ -3,12 +3,12 @@
    - PortfolioFeature: homepage section (one featured slider + "See more recent projects")
    - ProjectsGrid    : the filterable project grid (lives on the Projects page now) */
 
-function BACompare({ beforeSrc, afterSrc, beforeSlot, afterSlot, beforePh, afterPh, height }) {
+function BACompare({ beforeSrc, afterSrc, beforeSlot, afterSlot, beforePh, afterPh, beforeAlt, afterAlt, height }) {
   const [split, setSplit] = useState(50);
   return (
     <div className="ba" style={{ "--split": split + "%", height: height || undefined }}>
-      <div className="ba__layer ba__before"><Slot id={beforeSlot} ph={beforePh || "BEFORE"} radius="0" src={beforeSrc} /></div>
-      <div className="ba__layer ba__after"><Slot id={afterSlot} ph={afterPh || "AFTER"} radius="0" src={afterSrc} /></div>
+      <div className="ba__layer ba__before"><Slot id={beforeSlot} ph={beforePh || "BEFORE"} alt={beforeAlt} radius="0" src={beforeSrc} /></div>
+      <div className="ba__layer ba__after"><Slot id={afterSlot} ph={afterPh || "AFTER"} alt={afterAlt} radius="0" src={afterSrc} /></div>
       <span className="ba__lbl ba__lbl--b">Before</span>
       <span className="ba__lbl ba__lbl--a">After</span>
       <div className="ba__handle" style={{ left: split + "%" }}>
@@ -34,6 +34,8 @@ function PortfolioFeature({ ctaHref, ctaLabel }) {
           <BACompare
             beforeSlot="ba-before" afterSlot="ba-after"
             beforePh="BEFORE — worn roof" afterPh="AFTER — new install"
+            beforeAlt="Worn, leaking clay tile roof before replacement — Catalina Foothills, Tucson AZ"
+            afterAlt="New concrete tile roof after replacement by Sunrise Roofers — Catalina Foothills, Tucson AZ"
             beforeSrc={(window.__resources && window.__resources.baBefore) || "uploads/Clay%20Tile%20Before.jpg"}
             afterSrc={(window.__resources && window.__resources.baAfter) || "uploads/Concrete%20Tile%20After.jpg"}
           />
@@ -90,7 +92,7 @@ function ProjectsGrid() {
                   <span className="pf-pill pf-pill--terra">{p.cat}</span>
                   <span className="pf-pill">{p.sys}</span>
                 </div>
-                <Slot id={p.slot} src={p.src} ph={p.ph} radius="0" />
+                <Slot id={p.slot} src={p.src} ph={p.ph} alt={`${p.t} in ${p.loc}, AZ — ${p.sys} by Sunrise Roofers`} radius="0" />
               </div>
               <div className="pf-card__body">
                 <p className="pf-card__loc"><Icon name="pin" /> {p.loc}, AZ</p>

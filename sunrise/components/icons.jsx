@@ -69,8 +69,8 @@ const Roofline = ({ color }) => (
   </div>
 );
 
-const Slot = ({ id, ph, style, shape = "rounded", radius, src }) => (
-  <image-slot id={id} placeholder={ph} shape={shape} radius={radius} src={src} style={style}></image-slot>
+const Slot = ({ id, ph, alt, style, shape = "rounded", radius, src }) => (
+  <image-slot id={id} placeholder={ph} alt={alt || ph} shape={shape} radius={radius} src={src} style={style}></image-slot>
 );
 
 /* Brand: 4-color Google G */

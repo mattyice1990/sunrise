@@ -30,7 +30,7 @@ function ServiceCardGrid() {
             <article className="svc-card" key={c.t}>
               <div className="svc-card__media">
                 <span className="tag svc-card__tag">{c.tag}</span>
-                <Slot id={c.slot} ph={c.ph} radius="0" src={c.src} />
+                <Slot id={c.slot} ph={c.ph} alt={`${c.t} in Tucson, AZ — Sunrise Roofers`} radius="0" src={c.src} />
               </div>
               <div className="svc-card__body">
                 <h3 className="svc-card__title">{c.t}</h3>
@@ -51,7 +51,7 @@ const WHY = [
   { ic: "badge", t: "Properly Licensed", d: "Arizona ROC #358079 — bonded, insured, and built to local code." },
   { ic: "shield", t: "GAF-Certified Systems", d: "GAF-certified work with a manufacturer warranty behind every roof we put on." },
   { ic: "sun", t: "Built for the Arizona Sun", d: "We build for our weather — the heat, the UV, and that sideways monsoon rain." },
-  { ic: "star", t: "A- BBB & 5-Star Rated", d: "Earned one honest job at a time, from the first look to the final walkthrough." },
+  { ic: "star", t: "5-Star Rated on Google", d: "A 5.0 rating earned one honest job at a time, from the first look to the final walkthrough." },
 ];
 
 /* Merged section: folds "Who We Serve", "Local Roofing / Honest Work" and
@@ -64,7 +64,7 @@ function WhyChooseUs() {
       <div className="whyx__scrim" aria-hidden="true"></div>
       <div className="container about whyx__grid">
         <div className="about__media">
-          <Slot id="about-crew" ph="Crew / founder photo" radius="16" src="uploads/about-crew.webp" />
+          <Slot id="about-crew" ph="Crew / founder photo" alt="Sunrise Roofers owner-led crew on a roof in Tucson, AZ" radius="16" src="uploads/about-crew.webp" />
           <div className="about__badge">
             <div className="n">100%</div>
             <div className="t">Locally owned &amp; operated</div>
