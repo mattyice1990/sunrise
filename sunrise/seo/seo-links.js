@@ -9,8 +9,10 @@
   S.PHONE_HREF = "tel:5207531758";
   S.EMAIL = "sunriseroofer@outlook.com";
 
-  // slug -> page URL. "home" is special. Extensionless to match Vercel cleanUrls.
-  S.url = (slug) => (slug === "home" ? S.HOME : encodeURIComponent(slug));
+  // slug -> page URL. "home" is special. Absolute + extensionless to match Vercel
+  // cleanUrls, the sitemap, canonicals and the static boot-splash links (so every
+  // internal link is one consistent crawlable form, never relative or *.html).
+  S.url = (slug) => (slug === "home" ? S.HOME : "/" + encodeURIComponent(slug));
 
   // Service pages (13) — grouped into mega-menu columns.
   S.SERVICES = [

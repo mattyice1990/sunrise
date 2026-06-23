@@ -5,7 +5,7 @@
 const SERVICES = (window.SUNRISE && window.SUNRISE.SERVICES) || [];
 const PROPS    = (window.SUNRISE && window.SUNRISE.SEGMENTS) || [];
 const AREAS    = (window.SUNRISE && window.SUNRISE.AREAS) || [];
-const U = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : slug + ".html");
+const U = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug);
 
 /* Cross-page links. On the homepage __home is unset, so section links stay
    in-page hashes ("#services"). On sub-pages (Projects.html) __home points

@@ -8,7 +8,7 @@ const SVC_CARDS = [
   { tag: "Flat / Foam", t: "Flat Roof & Coatings", slug: "flat-roofing", d: "Foam roofs, elastomeric coatings, and fixing the spots where water pools before they turn into leaks.", slot: "svc-flat", ph: "Flat roof / coating photo", src: "uploads/svc-flat.webp" },
   { tag: "Commercial", t: "Commercial Roofing", slug: "commercial-roofing", d: "Offices, retail, warehouses and multi-family — roofs we work around your hours, not the other way around.", slot: "svc-comm", ph: "Commercial roof photo", src: "uploads/svc-comm.webp" },
 ];
-const svcUrl = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : slug + ".html");
+const svcUrl = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug);
 
 function ServiceCardGrid() {
   return (

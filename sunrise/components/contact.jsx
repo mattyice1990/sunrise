@@ -173,7 +173,7 @@ function ContactForm() {
 }
 
 function Footer() {
-  const U = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : slug + ".html");
+  const U = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug);
   const col = (h, items) => (
     <div className="footer__col">
       <h4>{h}</h4>
