@@ -15,7 +15,6 @@ function App() {
         <ContactForm />
       </main>
       <Footer />
-      <ChatWidget />
     </React.Fragment>
   );
 }

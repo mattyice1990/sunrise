@@ -95,7 +95,6 @@ function ProjectsPage() {
         <ProjectsCTA />
       </main>
       <Footer />
-      <ChatWidget />
     </React.Fragment>
   );
 }
