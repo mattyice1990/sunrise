@@ -15,9 +15,11 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const [vals, setVals] = useState({ name: "", phone: "", email: "", address: "", service: "", message: "" });
   const [errs, setErrs] = useState({});
+  const [sending, setSending] = useState(false);
+  const [submitErr, setSubmitErr] = useState("");
   const set = (k) => (e) => setVals((v) => ({ ...v, [k]: e.target.value }));
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const er = {};
     if (!vals.name.trim()) er.name = "Please enter your name";
@@ -25,20 +27,53 @@ function ContactForm() {
     if (!/^\S+@\S+\.\S+$/.test(vals.email)) er.email = "Enter a valid email";
     if (!vals.service) er.service = "Choose a service";
     setErrs(er);
-    if (Object.keys(er).length === 0) {
-      // Forward the lead into the Pursuit ingest pipeline (first-touch
-      // attribution + CRM) — the same backend the live roofwithsunrise.com
-      // site uses. Loaded via the pursuit-form.js embed (data-auto-bind="false").
-      try {
-        if (window.PursuitAttribution) {
-          window.PursuitAttribution.submit({
-            name: vals.name, phone: vals.phone, email: vals.email,
-            address: vals.address, service: vals.service,
-            message: vals.message, property_type: type,
-          });
-        }
-      } catch (err) {}
-      setSent(true);
+    if (Object.keys(er).length > 0) return;
+
+    setSending(true);
+    setSubmitErr("");
+
+    // First-touch attribution / CRM (best-effort — never blocks the email).
+    try {
+      if (window.PursuitAttribution) {
+        window.PursuitAttribution.submit({
+          name: vals.name, phone: vals.phone, email: vals.email,
+          address: vals.address, service: vals.service,
+          message: vals.message, property_type: type,
+        });
+      }
+    } catch (err) {}
+
+    // Web3Forms → emails sunriseroofer@outlook.com. This is the same backend
+    // the original roofwithsunrise.com contact form used and is what actually
+    // delivers the lead. Only show success when the email truly goes out.
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "bb31a1fd-2cf0-4ea5-8920-18cad8059ed4",
+          subject: "New Roofing Estimate Request - Sunrise Roofers",
+          from_name: "Sunrise Roofers Website",
+          property_type: type,
+          name: vals.name, phone: vals.phone, email: vals.email,
+          address: vals.address, service: vals.service, message: vals.message,
+        }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        try {
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", { form_id: "contact-form", page_location: window.location.href });
+          }
+        } catch (err) {}
+        setSent(true);
+      } else {
+        setSubmitErr(result.message || "Something went wrong sending your request. Please call or text 520-753-1758.");
+      }
+    } catch (err) {
+      setSubmitErr("Couldn't send your request right now. Please call or text 520-753-1758 and we'll get right on it.");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -123,7 +158,10 @@ function ContactForm() {
                   <label className="upload"><Icon name="camera" /> Drag roof photos here, or click to upload</label>
                 </div>
                 <div className="field--full">
-                  <button className="btn btn--primary btn--block" type="submit">Request My Free Roof Estimate <Icon name="arrow" /></button>
+                  {submitErr && <p className="field__err" style={{ marginBottom: 12, display: "block" }}>{submitErr}</p>}
+                  <button className="btn btn--primary btn--block" type="submit" disabled={sending}>
+                    {sending ? "Sending…" : <>Request My Free Roof Estimate <Icon name="arrow" /></>}
+                  </button>
                 </div>
               </form>
             )}
