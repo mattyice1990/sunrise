@@ -5,9 +5,9 @@
    Slot src= but stays swappable in the editor. */
 function MeetOwner() {
   const POINTS = [
-    "20-some years on Arizona roofs — I learned this trade from my dad, and he learned it from his.",
-    "GAF-certified, and picky about it. I won't put anything up there I wouldn't put on my own house.",
-    "No commission guys, no closers. You call, you get me — usually with my boots still on.",
+    "20-plus years on Arizona roofs — roofing's a family trade for us, and I've spent my career learning what holds up against our heat and monsoons.",
+    "GAF-certified, and particular about it. I won't put anything up there I wouldn't put on my own house.",
+    "No commission reps, no closers. You call, you get me — usually with my boots still on.",
   ];
   return (
     <section className="section dark owner" id="owner">
@@ -26,12 +26,13 @@ function MeetOwner() {
           <p className="eyebrow">Meet the Owner</p>
           <h2 className="h2">Hi, I'm Eddie &mdash; I'll be the one up on your roof.</h2>
           <p className="owner__lead">
-            I started Sunrise because I got tired of watching folks get talked into
-            roofs they didn't need. I grew up in this trade &mdash; my family's been
-            roofing Arizona my whole life. Quick leak or a full tear-off, I'll come look
-            at it myself, tell you straight what it needs, and hand you a price that
-            doesn't move. No salesman, no runaround. Just me and a crew that takes the
-            job personally.
+            I started Sunrise Roofers because I got tired of watching folks get talked
+            into roofs they didn't need. Roofing's a family trade for us, and I've spent
+            my career on Arizona rooftops &mdash; learning firsthand what actually holds
+            up against our heat and monsoons. Quick leak or a full tear-off, I'll come
+            look at it myself, tell you straight what it needs, and give you a price that
+            doesn't move. No salesmen, no runaround &mdash; just me and a crew that takes
+            every job personally.
           </p>
           <ul className="owner__points">
             {POINTS.map((t) => (
