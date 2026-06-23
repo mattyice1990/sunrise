@@ -63,6 +63,12 @@ function Hero() {
   useEffect(() => {
     const vids = [aRef.current, bRef.current];
     if (!vids[0] || !vids[1]) return;
+    // On phones, data-saver, or reduced-motion: skip the video entirely and let
+    // the poster image stand in — saves mobile bandwidth and improves LCP.
+    const lite = window.matchMedia("(max-width: 760px)").matches
+      || window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      || (navigator.connection && navigator.connection.saveData);
+    if (lite) return;
     vids.forEach((v) => { v.muted = true; v.playsInline = true; });
     let timer;
 
