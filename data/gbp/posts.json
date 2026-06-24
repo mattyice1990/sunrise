@@ -1,23 +1,29 @@
 [
   {
     "id": "1782341678535-vau2ds",
-    "status": "new",
+    "status": "draft",
     "from": "library",
     "note": "",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1782152562488-ttxdwq/0.jpg",
       "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Just wrapped up a shingle roof replacement in Tucson. Clean installation, proper ventilation, and quality materials make all the difference for long-term protection. If your roof is showing its age, give us a call for a free inspection.",
+    "finalCopy": "Just wrapped up a shingle roof replacement in Tucson. Clean installation, proper ventilation, and quality materials make all the difference for long-term protection. If your roof is showing its age, give us a call for a free inspection.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-24T22:54:38.535Z",
     "updatedAt": "2026-06-24T22:54:38.535Z",
-    "fromLibrary": true
+    "fromLibrary": true,
+    "city": "Tucson",
+    "serviceType": "Roof Replacement",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    }
   },
   {
     "id": "1782310765373-meii2y",
