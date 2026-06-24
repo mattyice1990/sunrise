@@ -1,32 +1,5 @@
 [
   {
-    "id": "1782341678535-vau2ds",
-    "status": "draft",
-    "from": "library",
-    "note": "",
-    "mediaUrls": [
-      "https://roofwithsunrise.com/gbp-media/1782152562488-ttxdwq/0.jpg",
-      "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/0.jpg"
-    ],
-    "type": "job",
-    "draftCopy": "Just wrapped up a sharp shingle roof replacement in Tucson. Our crew installed fresh dimensional shingles with clean ridge lines and proper ventilation to handle the Arizona heat. If your roof is showing its age, give us a call for a free inspection.",
-    "finalCopy": "Just wrapped up a sharp shingle roof replacement in Tucson. Our crew installed fresh dimensional shingles with clean ridge lines and proper ventilation to handle the Arizona heat. If your roof is showing its age, give us a call for a free inspection.",
-    "ctaType": "CALL",
-    "ctaUrl": null,
-    "gbpPostId": null,
-    "error": null,
-    "createdAt": "2026-06-24T22:54:38.535Z",
-    "updatedAt": "2026-06-24T22:54:54.054Z",
-    "fromLibrary": true,
-    "city": "Tucson",
-    "serviceType": "Roof Replacement",
-    "qualityFlags": {
-      "needsResend": false,
-      "reason": null
-    },
-    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782341678535-vau2ds/composite-mqso840e.jpg"
-  },
-  {
     "id": "1782310765373-meii2y",
     "status": "published",
     "from": "whatsapp:+17194826976",
