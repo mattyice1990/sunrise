@@ -85,6 +85,20 @@
   .cal-time{display:flex;gap:8px;align-items:center;margin-top:14px}
   .cal-list{margin-top:8px;max-height:120px;overflow:auto}
   .cal-list .it{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--bd);font-size:12.5px;color:var(--mut)}
+  /* Photo library */
+  .lib-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:none;align-items:center;justify-content:center;padding:20px}
+  .lib-bg.open{display:flex}
+  .lib{background:var(--panel);border:1px solid var(--bd);border-radius:16px;width:780px;max-width:96vw;max-height:88vh;display:flex;flex-direction:column;padding:18px 18px 16px}
+  .lib-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .lib-hd b{font-size:17px}
+  .lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;overflow:auto;padding:6px 2px;flex:1}
+  .lib-ph{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:var(--field)}
+  .lib-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .lib-ph:hover{border-color:var(--mut)}
+  .lib-ph.sel{border-color:var(--blue)}
+  .lib-ph .seq{position:absolute;top:5px;left:5px;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:600;display:none;align-items:center;justify-content:center}
+  .lib-ph.sel .seq{display:flex}
+  .lib-ft{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -100,6 +114,7 @@
   <header>
     <h1>Sunrise GBP — Post Review</h1>
     <div>
+      <button class="btn" onclick="openLibrary('create')" title="Build a post from any photos your crew sent">📷 Photo library</button>
       <button class="btn" id="themeBtn" onclick="toggleTheme()" title="Switch between dark and light">☀ Light</button>
       <button class="btn" onclick="load()">↻ Reload</button>
       <button class="btn" onclick="logout()">Sign out</button>
@@ -109,6 +124,19 @@
 </div>
 
 <div id="cal-bg" class="cal-bg"><div class="cal" id="cal"></div></div>
+
+<div id="lib-bg" class="lib-bg"><div class="lib">
+  <div class="lib-hd"><b id="lib-title">Photo library</b><button class="btn" onclick="closeLibrary()">✕ Close</button></div>
+  <p class="note" id="lib-sub" style="margin:0 0 8px">Click photos to select. Click order sets before → after.</p>
+  <div id="lib-body" style="flex:1;overflow:auto;min-height:120px"></div>
+  <div class="lib-ft">
+    <span class="meta" id="lib-count">Click photos to select</span>
+    <div style="display:flex;gap:8px">
+      <button class="btn" onclick="closeLibrary()">Cancel</button>
+      <button class="btn green" id="lib-action" onclick="libConfirm(this)" disabled>Create post</button>
+    </div>
+  </div>
+</div></div>
 
 <script>
 const CTA=['NONE','CALL','LEARN_MORE','BOOK','ORDER','SHOP','SIGN_UP'];
@@ -202,6 +230,7 @@ function render(p){
       '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
       '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>'+
       '<div class="actions" style="margin-top:10px"><button class="btn" id="sch-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="openScheduler(\''+p.id+'\')">🗓 Schedule for later…</button>'+
+      '<button class="btn" onclick="openLibrary(\'replace\',\''+p.id+'\')" title="Swap, add, or remove photos from the library">🖼 Change photos</button>'+
       (p.status==='scheduled'&&p.scheduledFor?'<span class="meta" style="align-self:center">📅 '+new Date(p.scheduledFor).toLocaleString()+'</span>':'')+'</div>';
   }else if(p.status==='published'){
     const swapCtrls = isPair
@@ -532,6 +561,61 @@ function swapBA(id){
   st.order=(st.order||[0,1]).slice().reverse();
   st.dirty=true;
   setupComposite({id,mediaUrls:CURRENT[id]||[],compositeUrl:null});
+}
+
+/* ---- Photo library: pick any photos to build a post or swap a post's photos ---- */
+const LIB={mode:'create', postId:null, photos:[], sel:[]};
+async function openLibrary(mode, postId){
+  LIB.mode=mode; LIB.postId=postId||null; LIB.sel=[];
+  document.getElementById('lib-title').textContent = mode==='replace' ? 'Change photos' : 'Photo library';
+  document.getElementById('lib-sub').textContent = mode==='replace'
+    ? 'Pick the photos for this post. Click order sets before → after.'
+    : 'Pick photos (any day) to build a new post. Click order sets before → after.';
+  document.getElementById('lib-bg').classList.add('open');
+  document.getElementById('lib-body').innerHTML='<p class="empty">Loading photos…</p>';
+  document.getElementById('lib-action').disabled=true;
+  try{
+    const {photos}=await api('/api/gbp-library');
+    LIB.photos=photos||[];
+    if(mode==='replace'&&postId){ LIB.sel=(CURRENT[postId]||[]).filter(u=>LIB.photos.some(p=>p.url===u)); }
+    renderLibrary();
+  }catch(e){ document.getElementById('lib-body').innerHTML='<p class="err">'+esc(e.message)+'</p>'; }
+}
+function closeLibrary(){ document.getElementById('lib-bg').classList.remove('open'); }
+function toggleLibPhoto(url){
+  const i=LIB.sel.indexOf(url);
+  if(i>=0) LIB.sel.splice(i,1);
+  else { if(LIB.sel.length>=4){ alert('You can pick up to 4 photos.'); return; } LIB.sel.push(url); }
+  renderLibrary();
+}
+function renderLibrary(){
+  const body=document.getElementById('lib-body');
+  if(!LIB.photos.length){ body.innerHTML='<p class="empty">No photos yet — once your crew texts some in, they\'ll show up here.</p>'; }
+  else {
+    body.innerHTML='<div class="lib-grid">'+LIB.photos.map(p=>{
+      const n=LIB.sel.indexOf(p.url);
+      return '<div class="lib-ph'+(n>=0?' sel':'')+'" onclick="toggleLibPhoto(\''+p.url+'\')"><img src="'+esc(p.url)+'" loading="lazy" alt=""><span class="seq">'+(n>=0?(n+1):'')+'</span></div>';
+    }).join('')+'</div>';
+  }
+  const n=LIB.sel.length;
+  const act=document.getElementById('lib-action');
+  act.disabled=n<1;
+  act.textContent = LIB.mode==='replace' ? ('Use these '+n+' photo'+(n===1?'':'s')) : ('Create post · '+n+' photo'+(n===1?'':'s'));
+  document.getElementById('lib-count').textContent = n
+    ? (n+' selected'+(n===2?' — before → after':'')+' · click again to deselect')
+    : 'Click photos to select';
+}
+async function libConfirm(btn){
+  if(!LIB.sel.length) return;
+  const txt=btn.textContent; btn.disabled=true; btn.textContent='Working…';
+  try{
+    if(LIB.mode==='replace'){
+      await api('/api/gbp-set-media',{method:'POST',body:JSON.stringify({id:LIB.postId, mediaUrls:LIB.sel})});
+    } else {
+      await api('/api/gbp-create',{method:'POST',body:JSON.stringify({mediaUrls:LIB.sel})});
+    }
+    closeLibrary(); await load();
+  }catch(e){ alert(e.message); btn.disabled=false; btn.textContent=txt; }
 }
 
 /* ---- Theme toggle: refined dark (default) <-> clean light, remembered ---- */
