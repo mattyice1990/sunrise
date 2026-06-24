@@ -100,7 +100,7 @@ body.brand-real .header--over .logo__pimg--light {
    A tall scroll track with a pinned stage: a huge centered logo on a
    desert-cream plate fades + scales away as the headline rises in.
    ============================================================ */
-.hero { height: 200vh; min-height: 0; display: block; align-items: stretch; overflow: visible; padding-top: 0; }
+.hero { height: 130vh; min-height: 0; display: block; align-items: stretch; overflow: visible; padding-top: 0; }
 .hero__stage {
   position: sticky; top: 0; height: 100vh; min-height: 580px;
   overflow: hidden; display: flex; align-items: center; color: #fff;
@@ -169,7 +169,7 @@ body.brand-real .header--over .logo__pimg--light {
 .hero--static .hero__stage { position: relative; }
 
 @media (max-width: 820px) {
-  .hero { height: 178vh; }
+  .hero { height: 125vh; }
   .hero__stage { min-height: 0; }
   .hero__stage .hero__inner { padding-bottom: 28px; }
 }
