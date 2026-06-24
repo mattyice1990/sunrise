@@ -79,6 +79,35 @@ async function commitToGitHub(filePath, content, message) {
   return await response.json();
 }
 
+// Static, crawlable blog-index card. MUST stay in sync with the card() markup in
+// scripts/build-blog-index.mjs so manual rebuilds and webhook updates match.
+function escHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function fmtCardDate(dateString) {
+  const [y, m, d] = String(dateString).split('-').map(Number);
+  if (!y || !m || !d) return escHtml(dateString);
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+function staticBlogCard(post) {
+  const href = `/blog/${escHtml(post.slug)}`;
+  return `                <article style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <a href="${href}" style="text-decoration: none; color: inherit; display: block;">
+                        <div style="position: relative; overflow: hidden; height: 220px;">
+                            <img src="${escHtml(post.image)}" alt="${escHtml(post.imageAlt || post.title)}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: 15px; left: 15px; background: #F5A623; color: white; padding: 5px 15px; border-radius: 20px; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">${escHtml(post.category)}</div>
+                        </div>
+                        <div style="padding: 30px;">
+                            <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #1A1A1A; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2;">${escHtml(post.title)}</h3>
+                            <p style="color: #999; font-size: 13px; margin-bottom: 15px; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.5px;">${fmtCardDate(post.date)} · ${escHtml(post.readTime)}</p>
+                            <p style="font-size: 16px; line-height: 1.7; color: #666; margin-bottom: 20px;">${escHtml(post.excerpt)}</p>
+                            <span style="font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #F5A623; display: inline-flex; align-items: center; gap: 8px;">Read Article <span style="font-size: 16px;">→</span></span>
+                        </div>
+                    </a>
+                </article>`;
+}
+
 // Generate blog post HTML template
 function generateBlogPostHTML(article) {
   const date = new Date(article.created_at);
@@ -678,7 +707,34 @@ export default async function handler(req, res) {
           JSON.stringify(currentBlogPosts, null, 2) + '\n',
           `Update blog-posts.json: Add ${article.title} (automated via outrank.so)`
         );
-        
+
+        // 3. Regenerate the static, crawlable post cards in blog/index.html so the
+        // new post has an incoming internal link (no orphan pages) even for crawlers
+        // that don't run JS. Mirrors scripts/build-blog-index.mjs.
+        try {
+          const idxResp = await fetch('https://raw.githubusercontent.com/mattyice1990/sunrise/main/blog/index.html');
+          let indexHtml = await idxResp.text();
+          const START = '<!-- BLOG_CARDS_START -->';
+          const END = '<!-- BLOG_CARDS_END -->';
+          const s = indexHtml.indexOf(START);
+          const e = indexHtml.indexOf(END);
+          if (s !== -1 && e !== -1 && e > s) {
+            const sorted = [...currentBlogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const block = START +
+              '\n                <!-- Static, crawlable post links (auto-generated). Do not edit by hand. -->\n' +
+              sorted.map(staticBlogCard).join('\n') +
+              '\n                ' + END;
+            indexHtml = indexHtml.slice(0, s) + block + indexHtml.slice(e + END.length);
+            await commitToGitHub(
+              'blog/index.html',
+              indexHtml,
+              `Update blog index links: ${article.title} (automated via outrank.so)`
+            );
+          }
+        } catch (idxErr) {
+          console.error('Blog index card regeneration failed:', idxErr.message);
+        }
+
         results.push({
           success: true,
           article: article.title,

@@ -21,7 +21,7 @@
         
         return `
             <article style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <a href="/blog/${post.slug}/" style="text-decoration: none; color: inherit; display: block;">
+                <a href="/blog/${post.slug}" style="text-decoration: none; color: inherit; display: block;">
                     <div style="position: relative; overflow: hidden; height: 220px;">
                         <img src="${post.image}" 
                              alt="${post.imageAlt}" 
