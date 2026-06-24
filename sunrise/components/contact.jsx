@@ -195,30 +195,38 @@ function Footer() {
               <a href="https://www.youtube.com/@Sunriseroofers520" target="_blank" rel="noopener" aria-label="YouTube"><Icon name="yt" /></a>
             </div>
           </div>
-          {col("Services", [
+          {col("Roofing Services", [
             { t: "Roof Repair", s: "roof-repair" },
             { t: "Roof Replacement", s: "roof-replacement" },
-            { t: "Metal Roofing", s: "metal-roofing" },
-            { t: "Tile Roofing", s: "tile-roofing" },
-            { t: "Flat & Coatings", s: "flat-roofing" },
-            { t: "Commercial Roofing", s: "commercial-roofing" },
-          ])}
-          {col("Explore", [
-            { t: "Residential Roofing", s: "residential-roofing" },
+            { t: "Roof Installation", s: "roof-installation" },
             { t: "Roof Inspection", s: "roof-inspection" },
             { t: "Emergency Repair", s: "emergency-roof-repair" },
-            { t: "Gutters", s: "gutter-installation" },
-            { t: "Skylights", s: "skylight-installation" },
-            { t: "Resources", s: "resources" },
-            { t: "Blog", href: "/blog" },
+            { t: "Gutter Installation", s: "gutter-installation" },
+            { t: "Skylight Installation", s: "skylight-installation" },
+          ])}
+          {col("Roof Types", [
+            { t: "Metal Roofing", s: "metal-roofing" },
+            { t: "Tile Roofing", s: "tile-roofing" },
+            { t: "Shingle Roofing", s: "shingle-roofing" },
+            { t: "Flat Roofing", s: "flat-roofing" },
+            { t: "Foam Roofing", s: "foam-roofing" },
+            { t: "Roof Coatings", s: "roof-coatings" },
           ])}
           {col("Service Areas", [
-            { t: "Tucson", s: "home" },
+            { t: "Tucson", s: "roofing-tucson" },
             { t: "Oro Valley", s: "roofing-oro-valley" },
             { t: "Marana", s: "roofing-marana" },
             { t: "Sahuarita / Green Valley", s: "roofing-sahuarita-green-valley" },
             { t: "Vail", s: "roofing-vail-az" },
-            { t: "Contact Us", s: "contact" },
+            { t: "Residential", s: "residential-roofing" },
+            { t: "Commercial", s: "commercial-roofing" },
+          ])}
+          {col("Company", [
+            { t: "About Us", s: "about" },
+            { t: "Roofing Projects", s: "portfolio" },
+            { t: "Resources", s: "resources" },
+            { t: "Blog", href: "/blog" },
+            { t: "Contact", s: "contact" },
           ])}
         </div>
         <div className="footer__bottom">

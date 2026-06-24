@@ -627,7 +627,7 @@ body.brand-real .footer .logo__pimg--light { display: block; }
 
 /* ============ FOOTER ============ */
 .footer { background: var(--ink); color: var(--on-dark); }
-.footer__main { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding: 72px 0 56px; }
+.footer__main { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 32px; padding: 72px 0 56px; }
 .footer__brand .logo__name { color: #fff; }
 .footer__brand p { color: var(--on-dark-soft); font-size: 15px; margin: 18px 0 22px; max-width: 34ch; }
 .footer__col h4 { font-family: var(--display); text-transform: uppercase; letter-spacing: .06em; font-size: 15px; color: #fff; margin-bottom: 18px; }
