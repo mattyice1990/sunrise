@@ -224,6 +224,7 @@ function Footer() {
           {col("Company", [
             { t: "About Us", s: "about" },
             { t: "Roofing Projects", s: "portfolio" },
+            { t: "Reviews", s: "reviews" },
             { t: "Resources", s: "resources" },
             { t: "Blog", href: "/blog" },
             { t: "Contact", s: "contact" },

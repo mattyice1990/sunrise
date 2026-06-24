@@ -2,6 +2,37 @@
 window.SEO = window.SEO || {};
 Object.assign(window.SEO, {
 
+  "reviews": {
+    slug: "reviews", cat: "core", crumb: "Reviews",
+    title: "Sunrise Roofers Reviews — Tucson, AZ",
+    desc: "Read verified 5-star Google reviews for Sunrise Roofers LLC, a licensed Tucson roofing contractor serving Tucson and Pima County.",
+    kw: { primary: "sunrise roofers reviews", vol: null, kd: null, cpc: null },
+    secondary: ["sunrise roofers tucson reviews", "tucson roofing reviews", "best roofers tucson reviews"],
+    hero: {
+      eyebrow: "What Tucson Says",
+      h1: "Sunrise Roofers Reviews",
+      sub: "Real, verified Google reviews from homeowners and property managers across Tucson, Oro Valley, Marana, Sahuarita, Green Valley and Vail — we're proud to be rated 5.0 stars.",
+      chips: ["5.0★ on Google", "Licensed · ROC #358079", "Family-owned & local", "Free inspections"],
+    },
+    intro: {
+      kicker: "Reviewed & Rated",
+      h: "Trusted by Tucson homeowners",
+      lead: [
+        "We've built Sunrise Roofers one honest job at a time — clear estimates, clean work, and a roofer who actually picks up the phone. The reviews below are pulled live from our Google Business Profile.",
+        "Had a good experience with us? We'd be grateful if you left a review — it helps your neighbors find an honest local roofer.",
+      ],
+      bullets: ["Verified Google reviews", "5.0-star average rating", "Owner-led, family-owned crew", "Repairs, replacements, tile, metal, foam & flat"],
+    },
+    faqs: [
+      { q: "Where can I read Sunrise Roofers reviews?", a: "Right here — the reviews on this page are pulled live from our Google Business Profile, and you can read them all on Google too. We're rated 5.0 stars by Tucson-area homeowners and property managers." },
+      { q: "Is Sunrise Roofers a licensed Tucson roofing contractor?", a: "Yes. Sunrise Roofers LLC is fully licensed, bonded and insured under Arizona ROC #358079, and based in Tucson." },
+      { q: "How can I leave a review?", a: "Tap any “Leave us a review” link on this page to open our Google profile, or search “Sunrise Roofers LLC” on Google. We appreciate every one." },
+    ],
+    related: ["roof-repair", "roof-replacement", "roof-inspection", "about"],
+    ctaH: "Ready for honest, 5-star roofing?",
+    ctaSub: "Get a free inspection and a straight estimate from a licensed local roofer Tucson trusts.",
+  },
+
   "about": {
     slug: "about", cat: "core", crumb: "Company",
     title: "About Sunrise Roofers — Tucson Roofing Contractor",

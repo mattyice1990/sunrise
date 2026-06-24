@@ -418,6 +418,9 @@ function Footer() {
     t: "Roofing Projects",
     s: "portfolio"
   }, {
+    t: "Reviews",
+    s: "reviews"
+  }, {
     t: "Resources",
     s: "resources"
   }, {
