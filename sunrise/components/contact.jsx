@@ -4,7 +4,7 @@ function Field({ k, label, type = "text", req, full, ph, value, onChange, err })
   return (
     <div className={"field" + (full ? " field--full" : "") + (err ? " has-error" : "")}>
       <label>{label} {req && <span className="req">*</span>}</label>
-      <input type={type} value={value} onChange={onChange} placeholder={ph} />
+      <input type={type} value={value} onChange={onChange} placeholder={ph} aria-label={label} />
       {err && <span className="field__err">{err}</span>}
     </div>
   );
@@ -128,7 +128,7 @@ function ContactForm() {
                 {F({ k: "address", label: "Property Address", full: true, ph: "123 E Speedway Blvd, Tucson" })}
                 <div className={"field" + (errs.service ? " has-error" : "")}>
                   <label>Service Needed <span className="req">*</span></label>
-                  <select value={vals.service} onChange={set("service")}>
+                  <select value={vals.service} onChange={set("service")} aria-label="Service Needed">
                     <option value="">Select a service…</option>
                     <option>Roof Repair</option>
                     <option>Roof Replacement</option>
@@ -151,7 +151,7 @@ function ContactForm() {
                 </div>
                 <div className="field field--full">
                   <label>Message</label>
-                  <textarea value={vals.message} onChange={set("message")} placeholder="Tell us what's going on with your roof…"></textarea>
+                  <textarea value={vals.message} onChange={set("message")} placeholder="Tell us what's going on with your roof…" aria-label="Message"></textarea>
                 </div>
                 <div className="field field--full">
                   <label>Photos (optional)</label>

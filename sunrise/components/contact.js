@@ -20,7 +20,8 @@ function Field({
     type: type,
     value: value,
     onChange: onChange,
-    placeholder: ph
+    placeholder: ph,
+    "aria-label": label
   }), err && /*#__PURE__*/React.createElement("span", {
     className: "field__err"
   }, err));
@@ -262,7 +263,8 @@ function ContactForm() {
     className: "req"
   }, "*")), /*#__PURE__*/React.createElement("select", {
     value: vals.service,
-    onChange: set("service")
+    onChange: set("service"),
+    "aria-label": "Service Needed"
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
   }, "Select a service…"), /*#__PURE__*/React.createElement("option", null, "Roof Repair"), /*#__PURE__*/React.createElement("option", null, "Roof Replacement"), /*#__PURE__*/React.createElement("option", null, "Metal Roof Installation"), /*#__PURE__*/React.createElement("option", null, "Tile Roofing"), /*#__PURE__*/React.createElement("option", null, "Flat Roof / Coatings"), /*#__PURE__*/React.createElement("option", null, "Commercial Roofing"), /*#__PURE__*/React.createElement("option", null, "Roof Inspection"), /*#__PURE__*/React.createElement("option", null, "Storm / Monsoon Damage")), errs.service && /*#__PURE__*/React.createElement("span", {
@@ -281,7 +283,8 @@ function ContactForm() {
   }, /*#__PURE__*/React.createElement("label", null, "Message"), /*#__PURE__*/React.createElement("textarea", {
     value: vals.message,
     onChange: set("message"),
-    placeholder: "Tell us what's going on with your roof…"
+    placeholder: "Tell us what's going on with your roof…",
+    "aria-label": "Message"
   })), /*#__PURE__*/React.createElement("div", {
     className: "field field--full"
   }, /*#__PURE__*/React.createElement("label", null, "Photos (optional)"), /*#__PURE__*/React.createElement("label", {

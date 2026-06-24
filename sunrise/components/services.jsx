@@ -35,7 +35,7 @@ function ServiceCardGrid() {
               <div className="svc-card__body">
                 <h3 className="svc-card__title">{c.t}</h3>
                 <p className="svc-card__desc">{c.d}</p>
-                <a className="link-arrow" href={svcUrl(c.slug)}>Learn More <Icon name="arrow" /></a>
+                <a className="link-arrow" href={svcUrl(c.slug)} aria-label={`Learn more about ${c.t} in Tucson`}>Learn More <Icon name="arrow" /></a>
               </div>
             </article>
           ))}

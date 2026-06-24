@@ -1,107 +1,63 @@
 # Sunrise Roofers LLC - Tucson, Arizona
-> Professional Roofing Services in Tucson and Surrounding Areas
 
-## Business Overview
-Founded in 2025 by Eddie and Viky Guillen, Sunrise Roofers LLC is a family-owned, professional roofing company serving Tucson, Arizona and surrounding communities including Catalina Foothills, Oro Valley, Marana, Sahuarita, Green Valley, Vail, and Rita Ranch. Our team brings over 20 years of roofing expertise, specializing in residential and commercial roofing solutions designed for Arizona's extreme climate conditions.
+> Family-owned, licensed roofing contractor (AZ ROC #358079) serving Tucson and surrounding Pima County communities — repair, replacement, metal, tile, shingle, flat, and foam roofing built for the desert climate.
 
-## Core Services
-- Roof Replacement: Complete roof replacement services for all types of roofing materials using Arizona-tested materials built to withstand extreme heat and monsoon seasons
-- Roof Repair: Fast, reliable roof repairs for leaks, storm damage, and wear with emergency service available
-- Roof Inspection: Comprehensive roof inspections to identify potential issues with honest assessments and free estimates
-- Shingle Roofing: Professional asphalt shingle installation using top brands like GAF, Owens Corning, and CertainTeed with UV protection
-- Tile Roofing: Specialized concrete and clay tile installation perfect for Arizona's climate, lasting 30+ years
-- Metal Roofing: Energy-efficient metal roof installation that reduces cooling costs by up to 30%, lasting 50+ years and withstanding monsoon winds
-- Flat Roof Coating & TPO Roofing: Expert flat roof services including TPO installation, protective coatings, and restoration using premium materials from Polyglass, Johns Manville, and Tucson Rubberized Coating
-- Emergency Roof Repair: 24/7 emergency roof repair in Tucson with same-day response, emergency tarping/dry-in, and permanent repairs after leaks and storm damage
-- Tile Roof Repair: Repair of cracked, slipped, and broken concrete, clay, and sandcast tiles, plus flashing leaks and underlayment renewal
-- Foam (SPF) Roofing: Seamless, reflective spray polyurethane foam roofing — installation, repair, and recoating for flat and low-slope roofs
+Founded in 2025 by Eddie and Viky Guillen, Sunrise Roofers LLC is a family-owned roofing company serving Tucson, Arizona and surrounding communities including Catalina Foothills, Oro Valley, Marana, Sahuarita, Green Valley, Vail, and Rita Ranch. The team brings 20+ years of roofing expertise, specializing in residential and commercial roofing solutions designed for Arizona's extreme heat and monsoon seasons. Free estimates, emergency service, and workmanship guarantees on every job.
+
+## Main Pages
+
+- [Homepage](https://roofwithsunrise.com/): Tucson roofing company overview and service summary
+- [About Us](https://roofwithsunrise.com/about): Company story, ownership, and why homeowners choose Sunrise
+- [Roofing Projects](https://roofwithsunrise.com/portfolio): Gallery of completed Tucson roofing projects
+- [Reviews](https://roofwithsunrise.com/reviews): Verified 5-star Google reviews from Tucson homeowners
+- [Contact](https://roofwithsunrise.com/contact): Request a free roof inspection or estimate
+
+## Roofing Services
+
+- [Roof Repair](https://roofwithsunrise.com/roof-repair): Fast, reliable repairs for leaks, storm damage, and wear
+- [Roof Replacement](https://roofwithsunrise.com/roof-replacement): Full tear-off and replacement for tile, shingle, and more
+- [Roof Installation](https://roofwithsunrise.com/roof-installation): New roof installation with Arizona-tested materials
+- [Roof Inspection](https://roofwithsunrise.com/roof-inspection): Comprehensive inspections with honest assessments and free estimates
+- [Emergency Roof Repair](https://roofwithsunrise.com/emergency-roof-repair): 24/7 same-day response, tarping/dry-in, and permanent storm repairs
+- [Gutter Installation](https://roofwithsunrise.com/gutter-installation): Seamless gutter installation and replacement
+- [Skylight Installation](https://roofwithsunrise.com/skylight-installation): Skylight installation, replacement, and leak repair
+
+## Roof Types
+
+- [Metal Roofing](https://roofwithsunrise.com/metal-roofing): Energy-efficient metal roofs that cut cooling costs and last 50+ years
+- [Tile Roofing](https://roofwithsunrise.com/tile-roofing): Concrete and clay tile installation and repair for Arizona's climate
+- [Shingle Roofing](https://roofwithsunrise.com/shingle-roofing): Asphalt shingle installation using GAF, Owens Corning, and CertainTeed
+- [Flat Roofing](https://roofwithsunrise.com/flat-roofing): Flat roof coatings, TPO, and restoration for low-slope roofs
+- [Foam Roofing](https://roofwithsunrise.com/foam-roofing): Seamless reflective spray polyurethane foam (SPF) roofing and recoating
+- [Roof Coatings](https://roofwithsunrise.com/roof-coatings): Protective elastomeric and reflective roof coating systems
 
 ## Service Areas
-- Tucson, AZ (Primary)
-- Catalina Foothills
-- Oro Valley
-- Marana
-- Sahuarita
-- Green Valley
-- Vail
-- Rita Ranch
 
-## Key Certifications & Partnerships
-- GAF Certified
-- BBB Accredited
-- Licensed, bonded, and insured
-- Manufacturer-certified installers
-
-## Website Structure
-- Homepage: https://roofwithsunrise.com/
-- Services Overview: https://roofwithsunrise.com/#services
-- About Us: https://roofwithsunrise.com/about
-- Contact: https://roofwithsunrise.com/contact
-- Gallery: https://roofwithsunrise.com/portfolio
-- Why Choose Us: https://roofwithsunrise.com/about
-- Press & Media Kit: https://roofwithsunrise.com/
-
-## Service-Specific Pages
-- Residential Roofing Services: https://roofwithsunrise.com/residential-roofing
-- Arizona Roof Replacement: https://roofwithsunrise.com/roof-installation
-- Shingle Roof Replacement: https://roofwithsunrise.com/shingle-roofing
-- Concrete Tile Roof Replacement: https://roofwithsunrise.com/roof-replacement
-- Metal Roofing: https://roofwithsunrise.com/metal-roofing
-- Flat Roof Coating & TPO Roofing: https://roofwithsunrise.com/flat-roofing
-- Roof Repair: https://roofwithsunrise.com/roof-repair
-- Emergency Roof Repair (24/7): https://roofwithsunrise.com/emergency-roof-repair
-- Tile Roof Repair: https://roofwithsunrise.com/tile-roofing
-- Foam (SPF) Roofing: https://roofwithsunrise.com/foam-roofing
-- Roof Inspection: https://roofwithsunrise.com/roof-inspection
-
-## Location-Specific Pages
-- Tucson Roofing Services: https://roofwithsunrise.com/roofing-tucson
-- Catalina Foothills Roofing: https://roofwithsunrise.com/roofing-tucson
-- Oro Valley Roofing: https://roofwithsunrise.com/roofing-oro-valley
-- Marana Roofing: https://roofwithsunrise.com/roofing-marana
-- Sahuarita Roofing: https://roofwithsunrise.com/roofing-sahuarita-green-valley
-- Green Valley Roofing: https://roofwithsunrise.com/roofing-sahuarita-green-valley
-- Vail Roofing: https://roofwithsunrise.com/roofing-vail-az
-- Rita Ranch Roofing: https://roofwithsunrise.com/roofing-tucson
+- [Roofing in Tucson](https://roofwithsunrise.com/roofing-tucson): Primary service area across the Tucson metro
+- [Roofing in Oro Valley](https://roofwithsunrise.com/roofing-oro-valley): Roofing services for Oro Valley, AZ
+- [Roofing in Marana](https://roofwithsunrise.com/roofing-marana): Roofing services for Marana, AZ
+- [Roofing in Sahuarita & Green Valley](https://roofwithsunrise.com/roofing-sahuarita-green-valley): Roofing services for Sahuarita and Green Valley, AZ
+- [Roofing in Vail](https://roofwithsunrise.com/roofing-vail-az): Roofing services for Vail, AZ
+- [Residential Roofing](https://roofwithsunrise.com/residential-roofing): Roofing for Tucson homeowners
+- [Commercial Roofing](https://roofwithsunrise.com/commercial-roofing): Roofing for Tucson businesses and property managers
 
 ## Roofing Cost Guides (Tucson, 2026)
-- Roof Coating Cost: https://roofwithsunrise.com/blog/roof-coating-cost
-- Tile Roof Underlayment Replacement Cost: https://roofwithsunrise.com/blog/tile-roof-underlayment-replacement-cost
-- Shingle Roof Replacement Cost: https://roofwithsunrise.com/blog/shingle-roof-replacement-cost
 
-## Business Features
-- Free estimates and consultations
-- Emergency service available
-- Same-day emergency repairs
-- Licensed, bonded, and insured (ROC #358079)
-- Manufacturer warranties on materials
-- Workmanship guarantees
-- Financing options available
-- 20+ years of roofing expertise
+- [Roof Coating Cost](https://roofwithsunrise.com/blog/roof-coating-cost): What roof coatings cost in Tucson
+- [Tile Roof Underlayment Replacement Cost](https://roofwithsunrise.com/blog/tile-roof-underlayment-replacement-cost): Cost to replace tile roof underlayment
+- [Shingle Roof Replacement Cost](https://roofwithsunrise.com/blog/shingle-roof-replacement-cost): Cost to replace a shingle roof
+- [Blog](https://roofwithsunrise.com/blog): Roofing guides, maintenance tips, and local advice
 
-## Climate Specialization
-Arizona's unique climate demands specialized roofing solutions:
-- Extreme heat resistance (120°F+ summer temperatures)
-- UV protection and reflective coatings
-- Monsoon wind and hail resistance
-- Energy-efficient solutions to reduce cooling costs
-- Materials rated for desert environments
+## Business Details
 
-## Contact Information
-Website: https://roofwithsunrise.com
-Phone: 520-753-1758
-Email: sunriseroofer@outlook.com
-Address: 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741
-Primary Service Area: Tucson, AZ and surrounding communities (40-mile radius): Catalina Foothills, Oro Valley, Marana, Sahuarita, Green Valley, Vail, and Rita Ranch
-Hours: Mon-Fri: 7:00 AM-6:00 PM, Sat: 8:00 AM-4:00 PM, Sun: Closed
-License: AZ ROC #358079 (Licensed, Bonded & Insured)
-
-## Additional Resources
-- Project Gallery: View completed roofing projects
-- Educational Content: Information about roofing materials and maintenance
-- Free Estimates: Available for all services
-- Emergency Services: Available for urgent repairs
+- License: AZ ROC #358079 (Licensed, Bonded & Insured)
+- Certifications: GAF Certified, BBB Accredited, manufacturer-certified installers
+- Phone: 520-753-1758
+- Email: sunriseroofer@outlook.com
+- Address: 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741
+- Hours: Mon–Fri 7:00 AM–6:00 PM, Sat 8:00 AM–4:00 PM, Sun Closed
+- Service radius: Tucson, AZ and surrounding communities within ~40 miles (Catalina Foothills, Oro Valley, Marana, Sahuarita, Green Valley, Vail, Rita Ranch)
+- Climate specialization: 120°F+ heat resistance, UV-reflective coatings, monsoon wind/hail resistance, energy-efficient desert-rated materials
 
 ---
 Last Updated: 2026-06-23
-

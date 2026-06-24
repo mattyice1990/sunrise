@@ -91,7 +91,8 @@ function ServiceCardGrid() {
     className: "svc-card__desc"
   }, c.d), /*#__PURE__*/React.createElement("a", {
     className: "link-arrow",
-    href: svcUrl(c.slug)
+    href: svcUrl(c.slug),
+    "aria-label": `Learn more about ${c.t} in Tucson`
   }, "Learn More ", /*#__PURE__*/React.createElement(Icon, {
     name: "arrow"
   }))))))));
