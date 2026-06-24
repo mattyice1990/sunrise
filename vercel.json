@@ -23,7 +23,7 @@
     { "source": "/about-our-roofing-contractors-in-tucson", "destination": "/about", "permanent": true },
     { "source": "/why-choose-sunrise-roofers-in-tucson", "destination": "/about", "permanent": true },
 
-    { "source": "/roofing-services", "destination": "/", "permanent": true },
+    { "source": "/roofing-services", "destination": "/roofing-tucson", "permanent": true },
     { "source": "/tucson-roofing-services", "destination": "/roofing-tucson", "permanent": true },
     { "source": "/roofing-services/roof-inspection", "destination": "/roof-inspection", "permanent": true },
     { "source": "/roofing-services/roof-repair-tucson", "destination": "/roof-repair", "permanent": true },
@@ -47,6 +47,8 @@
 
     { "source": "/gallery", "destination": "/portfolio", "permanent": true },
     { "source": "/press", "destination": "/", "permanent": true },
+    { "source": "/services", "destination": "/roofing-tucson", "permanent": true },
+    { "source": "/reviews", "destination": "/#reviews", "permanent": true },
 
     { "source": "/:path*.html", "destination": "/:path*", "permanent": true }
   ],
