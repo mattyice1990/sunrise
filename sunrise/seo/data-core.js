@@ -5,7 +5,7 @@ Object.assign(window.SEO, {
   "about": {
     slug: "about", cat: "core", crumb: "Company",
     title: "About Sunrise Roofers — Tucson Roofing Contractor",
-    desc: "Sunrise Roofers LLC is a licensed, family-run Tucson roofing contractor (ROC #358079) — honest assessments, quality workmanship and roofs built for the desert.",
+    desc: "Sunrise Roofers LLC is a licensed, family-run Tucson roofing contractor (ROC #358079) — honest assessments, quality work and roofs built for the desert.",
     kw: { primary: "tucson roofing company", vol: 30, kd: 24, cpc: 12 },
     secondary: ["roofers tucson", "best roofers in tucson", "roofing contractors tucson"],
     hero: {
@@ -70,7 +70,7 @@ Object.assign(window.SEO, {
   "resources": {
     slug: "resources", cat: "core", crumb: "Company",
     title: "Roofing Resources & Guides — Sunrise Roofers",
-    desc: "Tucson roofing resources: how often to replace your roof, signs you need a new roof, the best roofing materials for Arizona, storm-damage and insurance guidance.",
+    desc: "Tucson roofing resources: how often to replace your roof, signs you need a new roof, best Arizona roofing materials, plus storm and insurance guidance.",
     kw: { primary: "best roofing material for arizona", vol: 70, kd: 0, cpc: 3 },
     secondary: ["signs you need a new roof", "how often should you replace your roof", "roof repair cost", "storm damage roof repair"],
     hero: {
@@ -136,7 +136,7 @@ Object.assign(window.SEO, {
   "contact": {
     slug: "contact", cat: "core", crumb: "Company",
     title: "Contact Sunrise Roofers — Free Tucson Estimate",
-    desc: "Contact Sunrise Roofers LLC for a free roof estimate in Tucson. Call or text 520-753-1758, email sunriseroofer@outlook.com, or request your free inspection online.",
+    desc: "Contact Sunrise Roofers LLC for a free roof estimate in Tucson. Call or text 520-753-1758, or request your free inspection online.",
     kw: { primary: "roofing contractors tucson", vol: 150, kd: 37, cpc: 1.1 },
     secondary: ["roofers tucson", "tucson roofing company", "free roof inspection"],
     hero: {

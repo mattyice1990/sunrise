@@ -58,7 +58,7 @@ Object.assign(window.SEO, {
   "roofing-tucson": areaPage({
     slug: "roofing-tucson", city: "Tucson",
     h1: "Roofing in Tucson, AZ",
-    desc: "Trusted roofing contractor in Tucson, AZ. Roof repair, replacement, tile, metal, foam and commercial roofing built for the desert. Free estimate: 520-753-1758.",
+    desc: "Trusted roofing contractor in Tucson, AZ. Roof repair, replacement, tile, metal, foam and commercial roofing built for the desert.",
     kw: { primary: "roofing contractors tucson", vol: 150, kd: 37, cpc: 1.1 },
     secondary: ["roofers tucson", "roofing tucson", "roofing companies tucson", "roof repair tucson"],
     sub: "From the Foothills to the west side, Tucson roofs catch the full brunt of the sun and the monsoons. We keep them watertight with repairs, replacements, tile work and commercial systems.",
@@ -121,7 +121,7 @@ Object.assign(window.SEO, {
   "roofing-sahuarita-green-valley": areaPage({
     slug: "roofing-sahuarita-green-valley", city: "Sahuarita & Green Valley",
     h1: "Roofing in Sahuarita & Green Valley, AZ",
-    desc: "Roofing contractor serving Sahuarita and Green Valley, AZ. Roof repair, replacement and inspections for homes, retirees and businesses. Free estimate: 520-753-1758.",
+    desc: "Roofing contractor serving Sahuarita and Green Valley, AZ. Roof repair, replacement and inspections for homes, retirees and businesses.",
     kw: { primary: "roofing green valley az", vol: null, kd: null, cpc: 13 },
     secondary: ["roofing sahuarita", "roof repair sahuarita", "roofers green valley az", "sahuarita roofing companies"],
     sub: "We cover the Sahuarita and Green Valley communities south of Tucson, from Rancho Sahuarita's family neighborhoods to the established retirement communities in Green Valley. Honest roofing, done right.",

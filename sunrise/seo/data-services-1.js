@@ -7,7 +7,7 @@ Object.assign(window.SEO, {
   "roof-repair": {
     slug: "roof-repair", cat: "service", crumb: "Services",
     title: "Roof Repair in Tucson, AZ — Sunrise Roofers",
-    desc: "Trusted roof repair in Tucson for leaks, storm damage, cracked tile and worn flashing. Free inspections, honest assessments and lasting fixes. Call 520-753-1758.",
+    desc: "Trusted roof repair in Tucson for leaks, storm damage, cracked tile and worn flashing. Free inspections, honest assessments and lasting fixes.",
     kw: { primary: "roof repair tucson", vol: 300, kd: 40, cpc: 11 },
     secondary: ["roof repair near me", "roof leak repair tucson", "flat roof repair", "roof repair cost"],
     hero: {
@@ -136,7 +136,7 @@ Object.assign(window.SEO, {
   "roof-installation": {
     slug: "roof-installation", cat: "service", crumb: "Services",
     title: "New Roof Installation in Tucson — Sunrise Roofers",
-    desc: "Expert new roof installation in Tucson for new construction and re-roofs. Tile, shingle, metal and foam systems, financing available. Free quote: 520-753-1758.",
+    desc: "Expert new roof installation in Tucson for new construction and re-roofs. Tile, shingle, metal and foam systems, financing available.",
     kw: { primary: "roof installation tucson", vol: 100, kd: null, cpc: null },
     secondary: ["roofing companies near me", "roofing financing", "how long do tile roofs last", "new roof tucson"],
     hero: {
@@ -192,7 +192,7 @@ Object.assign(window.SEO, {
   "roof-inspection": {
     slug: "roof-inspection", cat: "service", crumb: "Services",
     title: "Free Roof Inspection in Tucson — Sunrise Roofers",
-    desc: "Free, documented roof inspection in Tucson. Storm and hail damage assessments, pre-purchase inspections and honest reports with photos. Book now: 520-753-1758.",
+    desc: "Free, documented roof inspection in Tucson. Storm and hail damage assessments, pre-purchase inspections and honest reports with photos.",
     kw: { primary: "roof inspection tucson", vol: 100, kd: 9, cpc: 10 },
     secondary: ["free roof inspection", "storm damage roof repair", "hail damage roof repair", "monsoon roof damage"],
     hero: {
@@ -312,7 +312,7 @@ Object.assign(window.SEO, {
   "tile-roofing": {
     slug: "tile-roofing", cat: "service", crumb: "Services",
     title: "Tile Roofing in Tucson, AZ — Sunrise Roofers",
-    desc: "Tucson tile roofing experts — tile roof repair, underlayment replacement and new tile installation. Concrete & clay, built to last. Free estimate: 520-753-1758.",
+    desc: "Tucson tile roofing experts — tile roof repair, underlayment replacement and new tile installation. Concrete & clay, built to last.",
     kw: { primary: "tile roof repair tucson", vol: 150, kd: 0, cpc: 10 },
     secondary: ["tile roof repair", "how long do tile roofs last", "tile roof underlayment replacement", "when to replace tile roof"],
     hero: {

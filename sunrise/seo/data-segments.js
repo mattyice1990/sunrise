@@ -5,7 +5,7 @@ Object.assign(window.SEO, {
   "residential-roofing": {
     slug: "residential-roofing", cat: "segment", crumb: "Property Type",
     title: "Residential Roofing in Tucson — Sunrise Roofers",
-    desc: "Residential roofing in Tucson for homes, HOAs and multi-family. Repair, replacement, tile, shingle, metal and foam — built for the desert. Free estimate: 520-753-1758.",
+    desc: "Residential roofing in Tucson for homes, HOAs and multi-family. Repair, replacement, tile, shingle, metal and foam — built for the desert.",
     kw: { primary: "residential roofing tucson", vol: 70, kd: null, cpc: 6 },
     secondary: ["roofers near me", "best roofing material for arizona", "new roof tucson", "roofing tucson"],
     hero: {
@@ -64,7 +64,7 @@ Object.assign(window.SEO, {
   "commercial-roofing": {
     slug: "commercial-roofing", cat: "segment", crumb: "Property Type",
     title: "Commercial Roofing in Tucson — Sunrise Roofers",
-    desc: "Commercial roofing in Tucson — TPO, foam (SPF), coatings and flat-roof systems for offices, retail, warehouse and industrial buildings. Free estimate: 520-753-1758.",
+    desc: "Commercial roofing in Tucson — TPO, foam (SPF), coatings and flat-roof systems for offices, retail, warehouse and industrial buildings.",
     kw: { primary: "commercial roofing tucson", vol: 90, kd: 20, cpc: 20 },
     secondary: ["tpo roofing", "commercial flat roof", "silicone roof coating", "roof maintenance tucson"],
     hero: {
