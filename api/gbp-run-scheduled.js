@@ -60,7 +60,12 @@ export default async function handler(req, res) {
       try {
         const draft = await generateDraft(post.mediaUrls, post.note);
         const chosen = (draft.recommendedMediaIndexes || []).map((i) => post.mediaUrls[i]).filter(Boolean);
-        const mediaUrls = chosen.length ? chosen : post.mediaUrls;
+        let mediaUrls = chosen.length ? chosen : post.mediaUrls;
+        const src = post.mediaUrls || [];
+        if (Array.isArray(draft.beforeAfterOrder) && draft.beforeAfterOrder.length === src.length) {
+          const ordered = draft.beforeAfterOrder.map((i) => src[i]).filter(Boolean);
+          if (ordered.length === src.length) mediaUrls = ordered;
+        }
         const badPhotos = draft.qualityFlags && draft.qualityFlags.needsResend;
 
         // Full auto-publish: when enabled and photos are usable, publish now

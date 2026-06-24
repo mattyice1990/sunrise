@@ -29,7 +29,15 @@ export default async function handler(req, res) {
     const chosen = (draft.recommendedMediaIndexes || [])
       .map((i) => post.mediaUrls[i])
       .filter(Boolean);
-    const mediaUrls = chosen.length ? chosen : post.mediaUrls;
+    let mediaUrls = chosen.length ? chosen : post.mediaUrls;
+
+    // If Claude judged the before/after order of a pair, arrange the photos as
+    // [before, after] so the stitched composite comes out correct by default.
+    const src = post.mediaUrls || [];
+    if (Array.isArray(draft.beforeAfterOrder) && draft.beforeAfterOrder.length === src.length) {
+      const ordered = draft.beforeAfterOrder.map((i) => src[i]).filter(Boolean);
+      if (ordered.length === src.length) mediaUrls = ordered;
+    }
 
     const updated = await withPosts((arr) => {
       const p = arr.find((x) => x.id === id);

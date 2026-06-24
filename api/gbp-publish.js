@@ -45,7 +45,8 @@ export default async function handler(req, res) {
         p.finalCopy = finalCopy;
         p.ctaType = ctaType;
         p.ctaUrl = ctaUrl;
-        if (edits.mediaUrls) p.mediaUrls = edits.mediaUrls;
+        // Do NOT overwrite p.mediaUrls with the composite — keep the two source
+        // photos so the post stays a pair and Swap / re-stitch stay available.
         p.status = 'scheduled';
         p.scheduledFor = when.toISOString();
         p.channels = edits.channels || { gbp: true };
@@ -73,7 +74,6 @@ export default async function handler(req, res) {
       p.ctaType = ctaType;
       p.ctaUrl = ctaUrl;
       // Keep source photos intact; the published image is tracked via compositeUrl/publishedMedia.
-      if (edits.mediaUrls) p.mediaUrls = edits.mediaUrls;
       p.publishedMedia = mediaUrls[0] || null;
       p.status = status;
       p.gbpPostId = gbpPostId;
