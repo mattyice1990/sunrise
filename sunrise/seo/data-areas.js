@@ -57,7 +57,7 @@ function areaPage(o) {
 Object.assign(window.SEO, {
   "roofing-tucson": areaPage({
     slug: "roofing-tucson", city: "Tucson",
-    h1: "Roofing in Tucson, AZ",
+    h1: "Roofing Services Across Tucson, AZ",
     desc: "Trusted roofing contractor in Tucson, AZ. Roof repair, replacement, tile, metal, foam and commercial roofing built for the desert.",
     kw: { primary: "roofing contractors tucson", vol: 150, kd: 37, cpc: 1.1 },
     secondary: ["roofers tucson", "roofing tucson", "roofing companies tucson", "roof repair tucson"],
