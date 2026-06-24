@@ -1,12 +1,11 @@
 [
   {
     "id": "1782260603170-a66b06",
-    "status": "draft",
+    "status": "scheduled",
     "from": "whatsapp:+15207531758",
     "note": "Just finished a GAF natural shadow shingle System with a silver pledge #Warranty here in the trails West community!!",
     "mediaUrls": [
-      "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/0.jpg",
-      "https://roofwithsunrise.com/gbp-media/1782260603694-tvkxk5/0.jpg"
+      "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/composite-mqrc62a5.jpg"
     ],
     "type": "job",
     "draftCopy": "Just wrapped up a complete roof replacement in Tucson's Trails West community with GAF Natural Shadow shingles. Our crew installed a full system for long-lasting protection under the Arizona sun. If your roof is showing its age, give Sunrise Roofing a call—we'll get you covered right.",
@@ -23,7 +22,12 @@
       "needsResend": false,
       "reason": null
     },
-    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/composite-mqrc62a5.jpg"
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/composite-mqrc62a5.jpg",
+    "scheduledFor": "2026-06-24T16:00:00.000Z",
+    "channels": {
+      "gbp": true,
+      "blog": true
+    }
   },
   {
     "id": "1782152562488-ttxdwq",
