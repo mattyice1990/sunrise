@@ -1,18 +1,18 @@
 [
   {
     "id": "1782310765373-meii2y",
-    "status": "draft",
+    "status": "published",
     "from": "whatsapp:+17194826976",
     "note": "Master certified with Tucson Rubberized and why Primer is important on all coating jobs",
     "mediaUrls": [
-      "https://roofwithsunrise.com/gbp-media/1782310765373-meii2y/0.jpg"
+      "https://roofwithsunrise.com/gbp-media/1782310765373-meii2y/composite-mqsa51kt.jpg"
     ],
     "type": "educational",
     "draftCopy": "Primer makes all the difference on a flat roof coating job in Tucson. Our crew is Tucson Rubberized master certified, and we never skip this step—it ensures the topcoat bonds properly and lasts for years. If you're considering a flat roof coating, give us a call and we'll walk you through the process.",
-    "finalCopy": "Primer makes all the difference on a flat roof coating job in Tucson. Our crew is Tucson Rubberized master certified, and we never skip this step—it ensures the topcoat bonds properly and lasts for years. If you're considering a flat roof coating, give us a call and we'll walk you through the process.",
+    "finalCopy": "Primer makes all the difference on a flat roof coating job in Tucson. Our crew is Tucson Rubberized master certified, and we never skip this step! We ensure the topcoat bonds properly and lasts for years. If you're considering a flat roof coating or check up on your existing - give us a cal!",
     "ctaType": "CALL",
     "ctaUrl": null,
-    "gbpPostId": null,
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/3681061533338416211",
     "error": null,
     "createdAt": "2026-06-24T14:19:27.296Z",
     "updatedAt": "2026-06-24T16:20:37.107Z",
@@ -23,7 +23,9 @@
       "reason": null
     },
     "autoDrafted": true,
-    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782310765373-meii2y/composite-mqsa51kt.jpg"
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782310765373-meii2y/composite-mqsa51kt.jpg",
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1782310765373-meii2y/composite-mqsa51kt.jpg",
+    "publishedAt": "2026-06-24T16:27:52.388Z"
   },
   {
     "id": "1782260603170-a66b06",
