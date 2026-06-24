@@ -373,54 +373,55 @@ function generateBlogPostHTML(article) {
                 
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
-                    
+
                     <li class="dropdown">
                         <div class="dropdown-header">
-                            <a href="/about-our-roofing-contractors-in-tucson" class="dropdown-link">About</a>
+                            <a href="/about" class="dropdown-link">About</a>
                             <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
                         </div>
                         <div class="dropdown-content">
-                            <a href="/why-choose-sunrise-roofers-in-tucson">Why Choose Us</a>
-                            <a href="/gallery">Project Gallery</a>
-                            <a href="/#testimonials">Customer Reviews</a>
+                            <a href="/about">Why Choose Us</a>
+                            <a href="/portfolio">Project Gallery</a>
+                            <a href="/reviews">Customer Reviews</a>
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <div class="dropdown-header">
-                            <a href="/roofing-services" class="dropdown-link">Services</a>
+                            <a href="/roofing-tucson" class="dropdown-link">Services</a>
                             <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
                         </div>
                         <div class="dropdown-content">
-                            <a href="/residential-roofing-tucson">Residential Roofing</a>
-                            <a href="/roofing-services/roof-repair-tucson">Roof Repair</a>
-                            <a href="/roofing-services/roof-inspection">Roof Inspection</a>
-                            <a href="/roofing-services/new-roof-tucson">Roof Replacement</a>
-                            <a href="/roofing-services/shingle-roof-replacement-tucson">Shingle Roofing</a>
-                            <a href="/roofing-services/concrete-tile-roof-replacement">Tile Roofing</a>
-                            <a href="/roofing-services/metal-roofing-tucson">Metal Roofing</a>
-                            <a href="/roofing-services/flat-roof-coating-tucson">Flat Roof Coating</a>
+                            <a href="/residential-roofing">Residential Roofing</a>
+                            <a href="/roof-repair">Roof Repair</a>
+                            <a href="/roof-inspection">Roof Inspection</a>
+                            <a href="/roof-replacement">Roof Replacement</a>
+                            <a href="/shingle-roofing">Shingle Roofing</a>
+                            <a href="/tile-roofing">Tile Roofing</a>
+                            <a href="/metal-roofing">Metal Roofing</a>
+                            <a href="/flat-roofing">Flat Roof Coating</a>
+                            <a href="/foam-roofing">Foam Roofing</a>
+                            <a href="/emergency-roof-repair">Emergency Roof Repair</a>
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <div class="dropdown-header">
                             <span class="dropdown-label">Service Areas</span>
                             <button class="dropdown-toggle" aria-label="Toggle dropdown menu"><span class="dropdown-arrow">▼</span></button>
                         </div>
                         <div class="dropdown-content">
-                            <a href="/tucson-roofing-services">Tucson</a>
-                            <a href="/marana-roofing">Marana</a>
-                            <a href="/oro-valley-roofing">Oro Valley</a>
-                            <a href="/catalina-foothills-roofing">Catalina Foothills</a>
-                            <a href="/sahuarita-roofing">Sahuarita</a>
-                            <a href="/green-valley-roofing">Green Valley</a>
+                            <a href="/roofing-tucson">Tucson</a>
+                            <a href="/roofing-marana">Marana</a>
+                            <a href="/roofing-oro-valley">Oro Valley</a>
+                            <a href="/roofing-sahuarita-green-valley">Sahuarita &amp; Green Valley</a>
+                            <a href="/roofing-vail-az">Vail</a>
                         </div>
                     </li>
-                    
+
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    
+
                     <li><a href="/contact#estimate" class="cta-button">Free Estimate</a></li>
                 </ul>
             </div>
@@ -454,7 +455,7 @@ function generateBlogPostHTML(article) {
                 <hr style="margin: 50px 0; border: none; border-top: 2px solid #E8E8E8;">
 
                 <p style="font-size: 18px; line-height: 1.8; color: #333; margin-bottom: 25px;">
-                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="${PHONE_TEL_E164}" style="color: #F5A623; text-decoration: underline;">${PHONE_DISPLAY}</a>. Related pages: <a href="/roofing-services/roof-repair-tucson" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roofing-services/new-roof-tucson" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/tucson-roofing-services" style="color: #F5A623; text-decoration: underline;">Service Areas</a>.
+                    <strong>Need roofing services in Tucson?</strong> <a href="/contact" style="color: #F5A623; text-decoration: underline;">Request a free inspection</a> or call <a href="${PHONE_TEL_E164}" style="color: #F5A623; text-decoration: underline;">${PHONE_DISPLAY}</a>. Related pages: <a href="/roof-repair" style="color: #F5A623; text-decoration: underline;">Roof Repair</a> · <a href="/roof-replacement" style="color: #F5A623; text-decoration: underline;">Roof Replacement</a> · <a href="/roofing-tucson" style="color: #F5A623; text-decoration: underline;">Tucson Roofing</a>.
                 </p>
 
                 <!-- Author Bio -->
@@ -481,8 +482,9 @@ function generateBlogPostHTML(article) {
                 <h3>Quick Links</h3>
                 <ul class="footer-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about-our-roofing-contractors-in-tucson">About</a></li>
-                    <li><a href="/roofing-services">Services</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/roofing-tucson">Services</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -512,7 +514,7 @@ function generateBlogPostHTML(article) {
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="/" style="color: #D0D0D0; text-decoration: underline;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #D77A00; text-decoration: underline; font-weight: 600;">Pursuit Analytics</a></p>
+            <p>&copy; ${date.getFullYear()} Sunrise Roofers LLC. All rights reserved. | Licensed & Insured Roofing Contractor | <a href="/" style="color: #D0D0D0; text-decoration: underline;">Home</a> | Built by <a href="https://pursuitanalytics.com" target="_blank" style="color: #D77A00; text-decoration: underline; font-weight: 600;">Pursuit Analytics</a></p>
         </div>
     </footer>
 
