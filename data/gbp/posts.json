@@ -1,5 +1,25 @@
 [
   {
+    "id": "1782341678535-vau2ds",
+    "status": "new",
+    "from": "library",
+    "note": "",
+    "mediaUrls": [
+      "https://roofwithsunrise.com/gbp-media/1782152562488-ttxdwq/0.jpg",
+      "https://roofwithsunrise.com/gbp-media/1782260603170-a66b06/0.jpg"
+    ],
+    "type": null,
+    "draftCopy": null,
+    "finalCopy": null,
+    "ctaType": null,
+    "ctaUrl": null,
+    "gbpPostId": null,
+    "error": null,
+    "createdAt": "2026-06-24T22:54:38.535Z",
+    "updatedAt": "2026-06-24T22:54:38.535Z",
+    "fromLibrary": true
+  },
+  {
     "id": "1782310765373-meii2y",
     "status": "published",
     "from": "whatsapp:+17194826976",
