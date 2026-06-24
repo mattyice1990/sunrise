@@ -131,7 +131,7 @@ function Hero() {
         {/* Big centered brand intro — fades + scales away on scroll */}
         <div className="hero__brand" ref={brandRef}>
           <img className="hero__logo" src={(window.__resources && window.__resources.logoCream) || "sunrise-assets/logo-cream.png"} alt="Sunrise Roofers LLC" />
-          <p className="hero__tagline">Tucson's Trusted Roofing Experts</p>
+          <p className="hero__tagline">Roofing Done Right by a Tucson Family</p>
           <div className="hero__actions">
             <a className="btn btn--primary btn--xl" href="#contact">Get a Free Estimate <Icon name="arrow" /></a>
             <a className="btn btn--on-dark btn--xl" href="tel:5207531758"><Icon name="phone" /> Call 520-753-1758</a>
@@ -142,12 +142,14 @@ function Hero() {
         {/* Hero message — rises into view as the logo exits */}
         <div className="hero__inner" ref={textRef} style={{ opacity: 0 }}>
           <div className="container">
-            <p className="eyebrow hero__eyebrow">Tucson's Trusted Roofing Experts</p>
+            <p className="eyebrow hero__eyebrow">Family-Owned by Eddie &amp; Viky Guillen · ROC #358079</p>
             <h1 className="h-display">Roof Repair, Replacement &amp; <em>Metal Roof</em> Installation in Tucson</h1>
             <p className="hero__body">
-              Built for our heat, our monsoons, and the long haul. Quick leak or a
-              full tear-off, you get clean work, straight talk, and a roof that
-              finally quits leaking.
+              Sunrise is Eddie and Viky Guillen &mdash; a Tucson family, not a call
+              center. Eddie's been on these roofs 20-plus years and runs every job
+              like his name's on it, because it is. Leak or full tear-off, you get a
+              straight answer, clean work, and a roof that finally quits leaking. No
+              pressure, no closers, no sign-today games.
             </p>
             <div className="hero__cta">
               <a className="btn btn--primary" href="#contact">Get a Free Roof Estimate <Icon name="arrow" /></a>

@@ -169,7 +169,7 @@ function Hero() {
     alt: "Sunrise Roofers LLC"
   }), /*#__PURE__*/React.createElement("p", {
     className: "hero__tagline"
-  }, "Tucson's Trusted Roofing Experts"), /*#__PURE__*/React.createElement("div", {
+  }, "Roofing Done Right by a Tucson Family"), /*#__PURE__*/React.createElement("div", {
     className: "hero__actions"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary btn--xl",
@@ -195,11 +195,11 @@ function Hero() {
     className: "container"
   }, /*#__PURE__*/React.createElement("p", {
     className: "eyebrow hero__eyebrow"
-  }, "Tucson's Trusted Roofing Experts"), /*#__PURE__*/React.createElement("h1", {
+  }, "Family-Owned by Eddie & Viky Guillen · ROC #358079"), /*#__PURE__*/React.createElement("h1", {
     className: "h-display"
   }, "Roof Repair, Replacement & ", /*#__PURE__*/React.createElement("em", null, "Metal Roof"), " Installation in Tucson"), /*#__PURE__*/React.createElement("p", {
     className: "hero__body"
-  }, "Built for our heat, our monsoons, and the long haul. Quick leak or a full tear-off, you get clean work, straight talk, and a roof that finally quits leaking."), /*#__PURE__*/React.createElement("div", {
+  }, "Sunrise is Eddie and Viky Guillen — a Tucson family, not a call center. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Leak or full tear-off, you get a straight answer, clean work, and a roof that finally quits leaking. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
     className: "hero__cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",

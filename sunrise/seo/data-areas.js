@@ -13,7 +13,7 @@ function areaPage(o) {
       eyebrow: `Roofing · ${o.city}, AZ`,
       h1: o.h1,
       sub: o.sub,
-      chips: ["Local Tucson-area roofers", "Free inspections", "Licensed & Insured · ROC #358079", "Tile, shingle, metal & flat"],
+      chips: ["Family-owned — the Guillens", "Free, no-pressure inspections", "Licensed & Insured · ROC #358079", "Tile, shingle, metal & flat"],
     },
     intro: {
       kicker: `Serving ${o.city}`,
@@ -22,35 +22,35 @@ function areaPage(o) {
       bullets: ["Repairs, replacements & new roofs", "Tile, shingle, metal, foam & flat", "Storm & monsoon damage response", "Free, documented inspections"],
     },
     highlights: [
-      { ic: "pin", t: `${o.city} Local`, d: `We know ${o.city}'s neighborhoods, HOAs and the way desert roofs age out here.` },
-      { ic: "alert", t: "Storm Response", d: "Fast monsoon and storm damage response with emergency tarping and claim support." },
-      { ic: "badge", t: "Licensed & Insured", d: "ROC #358079 — fully licensed, bonded and insured for your protection." },
+      { ic: "pin", t: "We actually work here", d: `We're on ${o.city} roofs just about every week — we know the neighborhoods, the HOA rules, and the way our sun and monsoons wear a desert roof down.` },
+      { ic: "alert", t: "We pick up when it's leaking", d: "Monsoon peel part of your roof back? We tarp it fast, document the damage for your claim, and get you dried in — day or night." },
+      { ic: "badge", t: "Our name's on it", d: "ROC #358079 — licensed, bonded and insured. If something's not right, we own it and make it right. No excuses, no runaround." },
     ],
     sections: [
       {
         kicker: "Full Service", h: `Everything ${o.city} roofs need`,
         p: [
-          `From the first little leak all the way to a full replacement, we handle whatever ${o.city} roofs need, here and in the towns around it. Tile underlayment, shingle and metal installs, flat-roof coatings, emergency repairs, all from one local roofer you can actually count on.`,
-          o.neigh ? `We're out in ${o.neigh} and the areas around them all the time, so we know the HOA rules and the kind of homes you tend to see around ${o.city}.` : "",
+          `From the first little drip to a full tear-off, we handle whatever ${o.city} roofs throw at us — tile underlayment, shingle and metal installs, flat-roof coatings, emergency repairs. One local family, not a different sub crew every time.`,
+          o.neigh ? `You'll spot our trucks around ${o.neigh} regularly, so we already know the HOA rules and the kind of homes ${o.city} is built from.` : "",
         ].filter(Boolean),
         cards: [
-          { ic: "wrench", t: "Roof Repair", d: "Leaks, cracked tile, flashing and storm damage fixed to last." },
-          { ic: "hammer", t: "Replacement", d: "Full re-roofs in tile, shingle, metal and foam." },
-          { ic: "search", t: "Inspections", d: "Free, photo-documented condition reports and claim help." },
-          { ic: "building", t: "Commercial", d: "Flat-roof systems and maintenance for local businesses." },
+          { ic: "wrench", t: "Roof Repair", d: "Leaks, cracked tile, flashing and storm damage — fixed to actually last." },
+          { ic: "hammer", t: "Replacement", d: "Full re-roofs in tile, shingle, metal and foam, done by our own crew." },
+          { ic: "search", t: "Free Inspections", d: "We get up on the roof, take photos, and tell you straight — repair or replace." },
+          { ic: "building", t: "Commercial", d: `Flat-roof systems and maintenance for ${o.city} businesses.` },
         ],
       },
     ],
     process: [
-      { t: "Call or Book", d: `Reach us at 520-753-1758 to schedule your free ${o.city} roof inspection.` },
-      { t: "Inspection", d: "We document the roof's condition with photos and clear findings." },
-      { t: "Written Estimate", d: "Itemized pricing and honest repair-vs-replace guidance, with financing options." },
-      { t: "Quality Work", d: "Our own crews, clean job sites and warranty-backed workmanship." },
+      { t: "Call or text Eddie", d: `Get us at 520-753-1758 and we'll set up your free ${o.city} roof look — no obligation, no closer in a polo.` },
+      { t: "We climb up and look", d: "We get on the roof, take photos, and tell you what's really going on — not whatever rings up the biggest." },
+      { t: "Honest written estimate", d: "Itemized pricing, real repair-vs-replace advice, and financing if you want it. No scare tactics." },
+      { t: "We do it right", d: "Our own crew, a clean job site, and a warranty that means we come back if it ever needs us." },
     ],
     faqs: o.faqs,
     related: ["roof-repair", "roof-replacement", "tile-roofing", "roof-inspection"],
     ctaH: `Need a roofer in ${o.city}?`,
-    ctaSub: `Free inspection and an honest estimate from a licensed local roofer who works ${o.city} and the rest of Pima County.`,
+    ctaSub: `Free inspection and a straight estimate from a licensed Tucson family that actually works ${o.city} and the rest of Pima County. You call, you get Eddie.`,
   };
 }
 
