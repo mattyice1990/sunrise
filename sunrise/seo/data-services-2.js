@@ -6,6 +6,7 @@ Object.assign(window.SEO, {
     slug: "foam-roofing", cat: "service", crumb: "Services",
     title: "Foam Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Spray polyurethane foam (SPF) roofing in Tucson — seamless, energy-efficient flat-roof systems plus foam roof repair and recoats.",
+    guide: { url: "/blog/foam-roof-repair", label: "Read our guide: How to Repair a Foam Roof in Tucson" },
     kw: { primary: "foam roofing tucson", vol: 50, kd: 1, cpc: 5 },
     secondary: ["polyurethane foam roofing", "foam roof repair", "silicone roof coating", "roof coating cost"],
     hero: {

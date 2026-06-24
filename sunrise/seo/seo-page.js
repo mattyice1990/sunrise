@@ -219,7 +219,14 @@ function Intro({
     key: b
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "check"
-  }), " ", b))), /*#__PURE__*/React.createElement("div", {
+  }), " ", b))), p.guide && /*#__PURE__*/React.createElement("p", {
+    className: "sintro__guide"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "link-arrow",
+    href: p.guide.url
+  }, p.guide.label, " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "sintro__actions"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",

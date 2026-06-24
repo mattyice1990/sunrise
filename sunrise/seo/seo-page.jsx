@@ -145,6 +145,9 @@ function Intro({ p }) {
               {p.intro.bullets.map((b) => <li key={b}><Icon name="check" /> {b}</li>)}
             </ul>
           )}
+          {p.guide && (
+            <p className="sintro__guide"><a className="link-arrow" href={p.guide.url}>{p.guide.label} <Icon name="arrow" /></a></p>
+          )}
           <div className="sintro__actions">
             <a className="btn btn--primary" href={U("contact")}>Request Free Estimate <Icon name="arrow" /></a>
             <a className="btn btn--ghost" href={window.SUNRISE.PHONE_HREF}>Call {window.SUNRISE.PHONE}</a>
