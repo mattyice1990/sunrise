@@ -79,6 +79,75 @@ async function commitToGitHub(filePath, content, message) {
   return await response.json();
 }
 
+// ── Source fix: humanize outrank.so content before it's ever published ──────
+// Removes the worst "AI tells" deterministically, then (if ANTHROPIC_API_KEY is
+// set in the Vercel env) rewrites the prose in Sunrise's owner voice. Always
+// falls back to the deterministic-cleaned original so it can NEVER block a post.
+
+// Cheap, zero-dependency cleanup of the filler phrases AI detectors flag most.
+function deAiFiller(html) {
+  if (!html) return html;
+  const swaps = [
+    [/\bIn (?:today's|todays) (?:fast-paced |modern )?world,?\s*/gi, ''],
+    [/\bIt(?:'|’)s (?:important|worth|crucial|essential) to (?:note|remember|understand) that\s*/gi, ''],
+    [/\bWhen it comes to\b/gi, 'With'],
+    [/\bAt the end of the day,?\s*/gi, ''],
+    [/\bRest assured,?\s*/gi, ''],
+    [/\bplays? a (?:crucial|vital|key|pivotal|significant) role in\b/gi, 'matters for'],
+    [/\bthe first step toward(?:s)? a successful outcome\b/gi, 'a good start'],
+    [/\bthe foundation for all (?:quality )?[A-Za-z ]+? (?:services|roofing)\b/gi, 'good roofing'],
+    [/\bLook no further\b[.,!]?\s*/gi, ''],
+    [/\bWhether you(?:'|’)?re looking to\b/gi, 'If you want to'],
+    [/\b(?:Moreover|Furthermore|Additionally),?\s*/gi, ''],
+    [/\bnot only\b([^,.]*?)\bbut also\b/gi, '$1 and'],
+    [/\bIn conclusion,?\s*/gi, ''],
+    [/\ba recipe for\b/gi, 'a fast track to'],
+  ];
+  let out = html;
+  for (const [re, to] of swaps) out = out.replace(re, to);
+  // tidy any double spaces / orphaned capitalization the swaps introduced
+  return out.replace(/  +/g, ' ').replace(/>\s+</g, '><');
+}
+
+const HUMANIZE_PROMPT = `You are editing one blog article for Sunrise Roofers, a family-owned Tucson roofing company (owners Eddie & Viky Guillen, ROC #358079). Rewrite the article body so it reads like a real Tucson roofer wrote it, not AI.
+
+VOICE: first-person where natural ("we", sometimes Eddie speaking), plain-spoken, confident, a little personality. Contractions. Vary sentence length hard — mix three-word sentences with longer ones. Concrete and specific over generic. No sales fluff, no hype.
+
+CUT every AI tell: "plays a crucial role", "peace of mind", "when it comes to", "rest assured", "in today's world", "the first step toward", "look no further", "moreover/furthermore", "not only X but also Y", tricolons, uniform paragraph lengths.
+
+HARD RULES — do not break these:
+- Return ONLY the rewritten article body HTML. No preamble, no markdown fences.
+- Keep ALL existing HTML tags and structure: every <h2>/<h3> heading, <img> (exact src/alt), <table>, <ul>/<li>, <a href> link (exact href). Do not add, remove, or reorder images, tables, or links.
+- Keep roughly the same length and the same headings/sections in the same order.
+- Do NOT invent fake specifics (no made-up job stories, customer names, prices, dates, stats). Keep all factual claims as-is; only change wording/rhythm/voice.
+- Keep it accurate to roofing and to Tucson's climate.`;
+
+async function humanizeArticleHtml(contentHtml) {
+  const cleaned = deAiFiller(contentHtml);
+  const KEY = process.env.ANTHROPIC_API_KEY;
+  if (!KEY || !cleaned) return cleaned;
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'x-api-key': KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 16000,
+        messages: [{ role: 'user', content: `${HUMANIZE_PROMPT}\n\n<article>\n${cleaned}\n</article>` }],
+      }),
+    });
+    if (!resp.ok) { console.error('humanize: API', resp.status); return cleaned; }
+    const data = await resp.json();
+    const out = (data && data.content && data.content[0] && data.content[0].text || '').trim();
+    // Sanity gate: must still be substantial HTML, else keep the cleaned original.
+    if (out.length > cleaned.length * 0.5 && /<(p|h2|h3|ul|li|table)/i.test(out)) return out;
+    return cleaned;
+  } catch (e) {
+    console.error('humanize failed:', e.message);
+    return cleaned;
+  }
+}
+
 // Static, crawlable blog-index card. MUST stay in sync with the card() markup in
 // scripts/build-blog-index.mjs so manual rebuilds and webhook updates match.
 function escHtml(s) {
@@ -650,12 +719,15 @@ export default async function handler(req, res) {
         const readTime = estimateReadTime(article.content_markdown || article.content_html);
         const category = article.tags && article.tags[0] ? article.tags[0] : 'Blog';
         const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
-        
+
+        // Humanize the AI-generated body before it's ever published (source fix).
+        const humanizedHtml = await humanizeArticleHtml(article.content_html);
+
         const processedArticle = {
           id: article.id,
           title: article.title,
           slug: article.slug,
-          content_html: article.content_html,
+          content_html: humanizedHtml,
           meta_description: article.meta_description,
           image_url: article.image_url,
           imageAlt: article.title,
