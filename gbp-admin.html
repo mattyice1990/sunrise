@@ -140,6 +140,10 @@ async function load(){
       if(p.status==='draft'||p.status==='failed'||p.status==='scheduled'){
         wire(p.id);
         if((p.mediaUrls||[]).length>=1) setupComposite(p);
+      }else if(p.status==='published'&&(p.mediaUrls||[]).length>=2){
+        // Published before/after pair: load the composite so the order can be
+        // flipped (Swap) and the corrected image re-posted via Republish.
+        setupComposite(p);
       }
     });
     focusFromHash();
@@ -193,10 +197,15 @@ function render(p){
       '<div class="actions" style="margin-top:10px"><button class="btn" id="sch-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="openScheduler(\''+p.id+'\')">🗓 Schedule for later…</button>'+
       (p.status==='scheduled'&&p.scheduledFor?'<span class="meta" style="align-self:center">📅 '+new Date(p.scheduledFor).toLocaleString()+'</span>':'')+'</div>';
   }else if(p.status==='published'){
+    const swapCtrls = isPair
+      ? '<p class="note" id="comp-status-'+p.id+'">Loading image…</p>'+
+        '<div class="actions"><button class="btn" id="swap-'+p.id+'" onclick="swapBA(\''+p.id+'\')">⇄ Swap before / after</button></div>'
+      : '';
     right='<p class="ok">✅ Published to Google Business Profile'+(p.publishedAt?' · '+new Date(p.publishedAt).toLocaleString():'')+'</p>'+
       (p.gbpPostId?'<p class="meta">'+esc(p.gbpPostId)+'</p>':'')+
+      swapCtrls+
       '<div class="actions" style="margin-top:12px"><button class="btn" id="repub-'+p.id+'" onclick="republish(\''+p.id+'\',this)">♻ Republish to GBP</button></div>'+
-      '<p class="note">Posts a fresh copy to Google using the same text & photo. Use this if the Google post was deleted.</p>';
+      '<p class="note">'+(isPair?'If the before/after order is wrong, hit Swap, wait for "ready ✓", then Republish to post the corrected image. ':'')+'Republish posts a fresh copy to Google using the same text &amp; photo (also use it if the Google post was deleted).</p>';
   }
 
   return '<div class="card" id="card-'+p.id+'"><div class="cardhead"><strong>'+esc(p.type||'submission')+'</strong>'+
@@ -457,9 +466,10 @@ function setStatus(id,msg,cls){
   const el=document.getElementById('comp-status-'+id);
   if(el){el.textContent=msg;el.className=(cls||'note');}
 }
-// Enable/disable the Publish + Schedule buttons together.
+// Enable/disable the Publish + Schedule + Republish buttons together
+// (Republish stays disabled while a swap re-stitches, so it can't post the old image).
 function setReady(id,on){
-  ['pub-','sch-'].forEach(pfx=>{const b=document.getElementById(pfx+id);if(b)b.disabled=!on;});
+  ['pub-','sch-','repub-'].forEach(pfx=>{const b=document.getElementById(pfx+id);if(b)b.disabled=!on;});
 }
 
 // For a before/after post: show composite, upload it, wait until live, enable publish.
