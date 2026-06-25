@@ -144,9 +144,9 @@ Current system is **single-tenant** ("client #1", hardcoded to Sunrise, repo-as-
 
 ---
 
-## 6. Facebook integration — ✅ code built 2026-06-24 (dormant until token set)
+## 6. Facebook integration — ✅ LIVE (token + env vars set in Vercel 2026-06-24)
 
-Posts the Sunrise **Facebook Page** as a new `facebook` channel, using the same job content already going to GBP/blog. Built behind the channel flag + env vars, so nothing posts until you turn it on.
+Posts the Sunrise **Facebook Page** as a new `facebook` channel, using the same job content already going to GBP/blog. `FB_PAGE_ID` + `FB_PAGE_ACCESS_TOKEN` (a non-expiring Business System User token) are set in Vercel. Each post still opts in via the Facebook checkbox, so nothing posts to FB unless you tick it — on either "Publish now" or "Schedule for later".
 
 **What's done (code):**
 - `lib/gbp/facebook.js` — `publishToFacebook({ message, mediaUrls, link })` via Meta Graph API. 0 photos → `/feed`; 1 photo → `/photos` (caption); 2+ → upload unpublished then one `/feed` album post. Returns `{id, url}`; skips a bad photo rather than failing the whole post.
