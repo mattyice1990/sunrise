@@ -30,6 +30,14 @@ export const GBP = {
   doNotPostRules:
     'Never quote specific prices. No customer faces, house numbers, or full addresses. No guarantees/warranty claims. Keep it local and factual.',
 
+  // Facebook Page channel (Meta Graph API). Token + page id live in Vercel env
+  // (FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN — use a Business System User token so it
+  // doesn't expire). Off by default: a post must opt into the `facebook` channel,
+  // and nothing posts unless the env vars are also set.
+  facebook: {
+    defaultOn: false,
+  },
+
   // Default weekly content cadence (tunable). Filler types need no photos.
   weeklyCadence: {
     sun: 'job',

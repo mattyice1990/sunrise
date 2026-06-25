@@ -276,7 +276,9 @@ function channelsRow(p){
   return '<div style="margin-top:16px;border-top:1px solid var(--bd);padding-top:12px">'+
     '<div class="meta" style="margin-bottom:8px">Also post to</div>'+
     '<div class="actions">'+blog+
-    '<button class="btn" disabled title="Coming soon — activates once your Meta app is approved">📘 Facebook (soon)</button>'+
+    (p.fbUrl
+      ? '<a class="btn" href="'+esc(p.fbUrl)+'" target="_blank" rel="noopener">📘 View on Facebook ↗</a>'
+      : '<button class="btn" disabled title="Tick \'Facebook Page\' when you schedule this post to publish it to Facebook">📘 Facebook</button>')+
     '<button class="btn" disabled title="Coming soon — activates once your Meta app is approved">📸 Instagram (soon)</button>'+
     '</div></div>';
 }
@@ -358,7 +360,7 @@ function renderCalendar(){
       '<div style="display:flex;flex-direction:column;gap:6px;margin-top:6px;font-size:13px">'+
       '<label><input type="checkbox" id="ch-gbp" checked> Google Business Profile</label>'+
       '<label><input type="checkbox" id="ch-blog"> Blog article</label>'+
-      '<label style="opacity:.5"><input type="checkbox" disabled> Facebook (soon)</label>'+
+      '<label><input type="checkbox" id="ch-facebook"> Facebook Page</label>'+
       '<label style="opacity:.5"><input type="checkbox" disabled> Instagram (soon)</label>'+
       '</div>'+
       '<div class="meta" style="margin-top:10px">Already scheduled on '+SCHED.sel+':</div>'+
@@ -383,7 +385,7 @@ async function confirmSchedule(btn){
   const ctaType=(document.getElementById('cta-'+id)||{}).value||'NONE';
   const ctaUrl=(document.getElementById('ctaurl-'+id)||{}).value||null;
   btn.disabled=true;btn.textContent='Scheduling…';
-  const channels={ gbp:(document.getElementById('ch-gbp')||{checked:true}).checked, blog:(document.getElementById('ch-blog')||{checked:false}).checked };
+  const channels={ gbp:(document.getElementById('ch-gbp')||{checked:true}).checked, blog:(document.getElementById('ch-blog')||{checked:false}).checked, facebook:(document.getElementById('ch-facebook')||{checked:false}).checked };
   const body={id,finalCopy:copy,ctaType,ctaUrl,scheduledFor:when.toISOString(),channels};
   const cu=COMP[id]&&COMP[id].compositeUrl; if(cu) body.mediaUrls=[cu];
   try{ await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)}); closeScheduler(); await load(); }

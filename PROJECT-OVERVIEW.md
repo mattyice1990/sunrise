@@ -108,6 +108,7 @@ Secrets live in Vercel env vars (never in the repo).
 | **Twilio (WhatsApp)** | `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_WHATSAPP_NUMBER`, `TWILIO_DAILY_PROMPT_TEMPLATE_SID` | Photo intake + daily prompt. |
 | **Email** | `RESEND_API_KEY`, `GBP_EMAIL_FROM`, `GBP_NOTIFY_TO` | Operator notifications. |
 | **YouTube** | `YOUTUBE_API_KEY`, `YT_CHANNEL_ID`, `YT_CHANNEL_HANDLE` | Finds + embeds relevant channel videos in blog posts. |
+| **Facebook (Meta)** | `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN`, `FB_GRAPH_VERSION` (optional) | Posts to the FB Page (`lib/gbp/facebook.js`). Use a Business **System User** token so it never expires. **Code is built but dormant until these are set + a post opts into the `facebook` channel.** |
 | **Admin / cron auth** | `GBP_ACCESS_TOKEN`, `CRON_SECRET`, `GBP_AUTO_PUBLISH`, `APP_BASE_URL` | Bearer for admin endpoints; cron authorization; auto-publish toggle. |
 
 ---
@@ -143,15 +144,24 @@ Current system is **single-tenant** ("client #1", hardcoded to Sunrise, repo-as-
 
 ---
 
-## 6. Next up — Facebook integration (starting scope)
+## 6. Facebook integration — ✅ code built 2026-06-24 (dormant until token set)
 
-First concrete step toward the above. Rough scope to flesh out:
-- **Goal:** post to the Sunrise **Facebook Page** automatically as a new channel (start with the same job content already going to GBP/blog).
-- **API:** Meta Graph API — a Page access token (long-lived) for the Sunrise Page; `/{page-id}/feed` for text/link posts, `/{page-id}/photos` for images, `/{page-id}/videos` (or Reels endpoint) for video.
-- **Auth/setup:** Meta app + Page access token + the right permissions (`pages_manage_posts`, `pages_read_engagement`); IG posting later reuses the same Business account linkage.
-- **Code shape:** add `lib/gbp/facebook.js` (mirrors `google.js`), add `facebook` to the post `channels`, publish it from `gbp-run-scheduled.js` alongside GBP.
-- **Env vars to add:** `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN` (+ Meta app id/secret if doing OAuth refresh).
-- Note: the site already loads the Meta Pixel on blog posts (`connect.facebook.net`) — that's tracking, separate from posting.
+Posts the Sunrise **Facebook Page** as a new `facebook` channel, using the same job content already going to GBP/blog. Built behind the channel flag + env vars, so nothing posts until you turn it on.
+
+**What's done (code):**
+- `lib/gbp/facebook.js` — `publishToFacebook({ message, mediaUrls, link })` via Meta Graph API. 0 photos → `/feed`; 1 photo → `/photos` (caption); 2+ → upload unpublished then one `/feed` album post. Returns `{id, url}`; skips a bad photo rather than failing the whole post.
+- `config/gbp.js` — `facebook: { defaultOn: false }`.
+- `api/gbp-run-scheduled.js` — a `ch.facebook` block alongside `ch.gbp`/`ch.blog` (independent try/catch — a FB failure never blocks the others); stores `fbPostId`/`fbUrl` on the post.
+- `gbp-admin.html` — a real **Facebook Page** checkbox in the scheduler + a "View on Facebook ↗" link on each published post.
+
+**What unblocks it (YOUR part — the real work):** a durable Page token.
+- Recommended: a Business **System User** token with `pages_manage_posts`, `pages_read_engagement`, `pages_show_list` (non-expiring, no app review for assets your Business owns).
+- Then set Vercel env vars `FB_PAGE_ID` + `FB_PAGE_ACCESS_TOKEN` (optional `FB_GRAPH_VERSION`, default `v21.0`).
+- Page is `Sunrise-Roofers-LLC` (id likely `61580211666613`); your Meta Business already exists (Pixel `1351630159967766`).
+
+**Next phases:** v2 auto-publish FB on the auto path · v3 video/Reels · v4 Instagram (IG Business account linked to the Page, reuses the Graph API).
+
+Note: the Meta **Pixel** already on blog posts (`connect.facebook.net`) is tracking — separate from this posting integration.
 
 ---
 

@@ -8,6 +8,7 @@ import { gbpTarget } from '../config/gbp.js';
 import { cronAuthorized } from '../lib/gbp/auth.js';
 import { readPosts, withPosts } from '../lib/gbp/store.js';
 import { publishLocalPost, listLocalPosts } from '../lib/gbp/google.js';
+import { publishToFacebook } from '../lib/gbp/facebook.js';
 import { generateDraft } from '../lib/gbp/claude.js';
 import { generateBlogArticle } from '../lib/gbp/blog.js';
 import { emailConfigured, sendEmail, buildReviewEmail } from '../lib/gbp/email.js';
@@ -177,6 +178,8 @@ export default async function handler(req, res) {
     let error = null;
     let status = 'published';
     let blogUrl = post.blogUrl || null;
+    let fbPostId = null;
+    let fbUrl = post.fbUrl || null;
 
     // Channel: Google Business Profile (default on)
     if (ch.gbp !== false) {
@@ -203,6 +206,22 @@ export default async function handler(req, res) {
       }
     }
 
+    // Channel: Facebook Page (independent — a FB failure never blocks GBP/blog)
+    if (ch.facebook) {
+      if (!summary && !mediaUrls.length) {
+        error = (error ? error + '; ' : '') + 'facebook: nothing to post';
+      } else {
+        try {
+          const fb = await publishToFacebook({ message: summary, mediaUrls });
+          fbPostId = fb.id;
+          fbUrl = fb.url;
+        } catch (e) {
+          error = (error ? error + '; ' : '') + 'facebook: ' + e.message;
+          if (ch.gbp === false && !ch.blog) status = 'failed'; // facebook-only schedule that failed
+        }
+      }
+    }
+
     await withPosts((arr) => {
       const p = arr.find((x) => x.id === post.id);
       if (!p) return null;
@@ -212,10 +231,12 @@ export default async function handler(req, res) {
       p.publishedMedia = mediaUrls[0] || null;
       p.publishedAt = status === 'published' ? new Date().toISOString() : null;
       if (blogUrl) p.blogUrl = blogUrl;
+      p.fbPostId = fbPostId;
+      if (fbUrl) p.fbUrl = fbUrl;
       return p;
     }, `gbp: scheduled publish ${post.id} (${status})`);
 
-    results.push({ id: post.id, status, error, blogUrl });
+    results.push({ id: post.id, status, error, blogUrl, fbUrl });
   }
 
   return res.status(200).json({ action: 'run', count: results.length, results });
