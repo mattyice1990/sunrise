@@ -278,10 +278,20 @@ function channelsRow(p){
     '<div class="meta" style="margin-bottom:8px">Also post to</div>'+
     '<div class="actions">'+blog+
     (p.fbUrl
-      ? '<a class="btn" href="'+esc(p.fbUrl)+'" target="_blank" rel="noopener">📘 View on Facebook ↗</a>'
-      : '<button class="btn" disabled title="Tick \'Facebook Page\' when you schedule this post to publish it to Facebook">📘 Facebook</button>')+
+      ? '<a class="btn" href="'+esc(p.fbUrl)+'" target="_blank" rel="noopener">📘 View on Facebook ↗</a>'+
+        '<button class="btn" id="fb-'+p.id+'" onclick="fbPost(\''+p.id+'\',this)">↻ Re-post to Facebook</button>'
+      : '<button class="btn" id="fb-'+p.id+'" onclick="fbPost(\''+p.id+'\',this)">📘 Post to Facebook</button>')+
     '<button class="btn" disabled title="Coming soon — activates once your Meta app is approved">📸 Instagram (soon)</button>'+
     '</div></div>';
+}
+async function fbPost(id,btn){
+  if(!confirm('Post this to your Facebook Page now?'))return;
+  btn.disabled=true;btn.textContent='Posting…';
+  var body={id};
+  var copyEl=document.getElementById('copy-'+id); // present on editable cards; absent once published
+  if(copyEl) body.finalCopy=copyEl.value;
+  try{ const r=await api('/api/gbp-fb-post',{method:'POST',body:JSON.stringify(body)}); await load(); }
+  catch(e){ alert(e.message); btn.disabled=false; btn.textContent='📘 Post to Facebook'; }
 }
 async function delPost(id){
   if(!confirm('Delete this submission? Removes it from the queue and the website recent-work feed.\\n(It does NOT delete an already-published Google post — that lives on Google.)'))return;
