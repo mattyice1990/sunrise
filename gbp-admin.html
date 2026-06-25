@@ -249,6 +249,7 @@ function render(p){
     '<div style="display:flex;align-items:center;gap:10px"><span class="badge '+p.status+'">'+p.status+'</span>'+
     '<button class="btn" style="padding:6px 10px" title="Delete this submission" onclick="delPost(\''+p.id+'\')">🗑</button></div></div>'+
     '<p class="note">"'+esc(p.note||'(no note)')+'" · '+new Date(p.createdAt).toLocaleString()+'</p>'+flag+
+    (p.geo?'<p class="note" style="color:#7fae7f">📍 '+esc(p.geo.area||'')+' · '+(p.geo.source==='photo'?'from photo (job site)':'live (confirm if sent later)')+(p.geo.mapUrl?' · <a href="'+esc(p.geo.mapUrl)+'" target="_blank" rel="noopener" style="color:#F0801C">map ↗</a>':'')+'</p>':'')+
     '<div class="cols"><div class="col"><h3>Preview on Google</h3>'+previewCard(p.id,img,copy,p.ctaType||'NONE',isPair)+'</div>'+
     '<div class="col"><h3>'+(p.status==='published'?'Status':'Edit & publish')+'</h3>'+right+'</div></div>'+
     channelsRow(p)+'</div>';

@@ -108,7 +108,8 @@ Secrets live in Vercel env vars (never in the repo).
 | **Twilio (WhatsApp)** | `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_WHATSAPP_NUMBER`, `TWILIO_DAILY_PROMPT_TEMPLATE_SID` | Photo intake + daily prompt. |
 | **Email** | `RESEND_API_KEY`, `GBP_EMAIL_FROM`, `GBP_NOTIFY_TO` | Operator notifications. |
 | **YouTube** | `YOUTUBE_API_KEY`, `YT_CHANNEL_ID`, `YT_CHANNEL_HANDLE` | Finds + embeds relevant channel videos in blog posts. |
-| **Facebook (Meta)** | `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN`, `FB_GRAPH_VERSION` (optional) | Posts to the FB Page (`lib/gbp/facebook.js`). Use a Business **System User** token so it never expires. **Code is built but dormant until these are set + a post opts into the `facebook` channel.** |
+| **Facebook (Meta)** | `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN`, `FB_GRAPH_VERSION` (optional) | Posts to the FB Page (`lib/gbp/facebook.js`). Use a Business **System User** token so it never expires. Live as of 2026-06-24. |
+| **Crew upload page** | `GBP_UPLOAD_KEY`, `GOOGLE_GEOCODING_API_KEY` (optional, falls back to `GOOGLE_PLACES_API_KEY`) | Auth key for the `/job-upload` page + reverse-geocoding for `api/gbp-upload.js`. |
 | **Admin / cron auth** | `GBP_ACCESS_TOKEN`, `CRON_SECRET`, `GBP_AUTO_PUBLISH`, `APP_BASE_URL` | Bearer for admin endpoints; cron authorization; auto-publish toggle. |
 
 ---
@@ -162,6 +163,16 @@ Posts the Sunrise **Facebook Page** as a new `facebook` channel, using the same 
 **Next phases:** v2 auto-publish FB on the auto path · v3 video/Reels · v4 Instagram (IG Business account linked to the Page, reuses the Graph API).
 
 Note: the Meta **Pixel** already on blog posts (`connect.facebook.net`) is tracking — separate from this posting integration.
+
+## 7. Crew GPS upload page — ✅ built 2026-06-24
+
+A second intake path alongside WhatsApp, built to capture **job location automatically** (WhatsApp strips photo EXIF/GPS; verified on a real received photo — zero metadata survives).
+
+- **`job-upload.html`** (served at `/job-upload?k=<GBP_UPLOAD_KEY>`, noindex): mobile page the crew adds to their home screen. Reads each photo's **embedded GPS via `exifr` entirely on-device** (the *capture* location — works even if uploaded later), falling back to live `navigator.geolocation` (only accurate if sent from the site). Shows the crew which one it got. Downscales photos client-side (1280px) before upload.
+- **`api/gbp-upload.js`**: key-protected; commits photos to `gbp-media/`, reverse-geocodes the coords to an address, and creates a `new` submission in `data/gbp/posts.json` with a `geo` field — same pipeline as WhatsApp, so drafting/GBP/Facebook work unchanged.
+- **Admin**: each card shows `📍 <area> · from photo / live · map ↗`.
+- **iPhone caveat:** whether Safari preserves EXIF on web upload varies by iOS version — the page doubles as the test (open on the crew's actual phones; a "📍 from photo" badge = it works). Requires camera Location Services on (one-time).
+- **Setup:** set `GBP_UPLOAD_KEY` in Vercel, enable the Google **Geocoding API** on the Maps/Places key, share `https://roofwithsunrise.com/job-upload?k=<key>` with the crew.
 
 ---
 
