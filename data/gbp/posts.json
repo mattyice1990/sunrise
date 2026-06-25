@@ -1,21 +1,28 @@
 [
   {
     "id": "1782356969779-5ssjl8",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Roof inspection in Sonoita, AZ. Incorrect underlayment installed. Synthetic underlayment are designed for shingle roofing system and not tile roofs.",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1782356969779-5ssjl8/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "educational",
+    "draftCopy": "This is what we found on a recent roof inspection out in Sonoita — synthetic underlayment installed under a tile roof. That's a problem. Synthetic underlayment is designed for shingle systems, not tile. Tile roofs need a specific underlayment that can handle the weight, heat, and movement of clay or concrete tile. The wrong product under there means water intrusion is only a matter of time. If your tile roof hasn't been looked at in a while, it's worth a call. We serve Tucson and the surrounding communities and we'll tell you straight what's going on up there.",
+    "finalCopy": "This is what we found on a recent roof inspection out in Sonoita — synthetic underlayment installed under a tile roof. That's a problem. Synthetic underlayment is designed for shingle systems, not tile. Tile roofs need a specific underlayment that can handle the weight, heat, and movement of clay or concrete tile. The wrong product under there means water intrusion is only a matter of time. If your tile roof hasn't been looked at in a while, it's worth a call. We serve Tucson and the surrounding communities and we'll tell you straight what's going on up there.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-25T03:09:31.824Z",
-    "updatedAt": "2026-06-25T03:10:52.851Z"
+    "updatedAt": "2026-06-25T03:10:52.851Z",
+    "city": "Sonoita",
+    "serviceType": "Roof Inspection",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    },
+    "autoDrafted": true
   },
   {
     "id": "1782310765373-meii2y",
