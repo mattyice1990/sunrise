@@ -227,6 +227,7 @@ function render(p){
       '<input id="ctaurl-'+p.id+'" placeholder="CTA link (optional)" value="'+esc(p.ctaUrl||'')+'"></div>'+
       pairCtrls+
       (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
+      '<label class="meta" style="display:inline-flex;align-items:center;gap:7px;margin:2px 0 4px"><input type="checkbox" id="alsoblog-'+p.id+'" style="width:auto"'+(p.blogUrl?' checked':'')+'> 📝 Also publish a blog post</label>'+
       '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
       '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button>'+
       '<label class="meta" style="align-self:center;display:inline-flex;gap:5px;align-items:center"><input type="checkbox" id="pub-fb-'+p.id+'"> also post to Facebook</label></div>'+
@@ -316,11 +317,20 @@ async function publish(id,btn){
   const copy=document.getElementById('copy-'+id).value;
   const ctaType=document.getElementById('cta-'+id).value;
   const ctaUrl=document.getElementById('ctaurl-'+id).value||null;
+  const alsoBlog=(document.getElementById('alsoblog-'+id)||{}).checked;
   btn.disabled=true;btn.textContent='Publishing…';
   const body={id,finalCopy:copy,ctaType,ctaUrl,channels:{gbp:true,facebook:alsoFb}};
   const cu=COMP[id]&&COMP[id].compositeUrl;
   if(cu) body.mediaUrls=[cu];
-  try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
+  try{
+    await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});
+    if(alsoBlog){
+      btn.textContent='Writing blog…';
+      try{ await api('/api/gbp-blog',{method:'POST',body:JSON.stringify({id})}); }
+      catch(e){ alert('Posted to Google ✓ — but the blog post failed: '+e.message); }
+    }
+    await load();
+  }
   catch(e){alert(e.message);btn.disabled=false;btn.textContent='✅ Approve & Publish now';}
 }
 // Re-post an already-published job to GBP (e.g. the Google post got deleted).
