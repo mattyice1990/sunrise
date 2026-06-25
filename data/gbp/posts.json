@@ -15,14 +15,15 @@
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-25T03:09:31.824Z",
-    "updatedAt": "2026-06-25T03:10:52.851Z",
+    "updatedAt": "2026-06-25T14:27:12.502Z",
     "city": "Sonoita",
     "serviceType": "Roof Inspection",
     "qualityFlags": {
       "needsResend": false,
       "reason": null
     },
-    "autoDrafted": true
+    "autoDrafted": true,
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782356969779-5ssjl8/composite-mqtlj260.jpg"
   },
   {
     "id": "1782310765373-meii2y",
