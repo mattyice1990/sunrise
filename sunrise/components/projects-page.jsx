@@ -91,6 +91,7 @@ function ProjectsPage() {
         <ProjectsHero />
         <PortfolioFeature ctaHref="#all-projects" ctaLabel="Browse All Projects" />
         <BAGallery />
+        <RecentWork max={6} />
         <ProjectsGrid />
         <ProjectsCTA />
       </main>

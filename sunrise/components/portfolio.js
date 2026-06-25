@@ -139,13 +139,13 @@ const PROJECTS = [{
   ph: "Tile roof project"
 }, {
   cat: "Flat & Coatings",
-  t: "Foam Roof Recoat",
+  t: "Flat Roof Coating Restoration",
   loc: "Midtown Tucson",
-  sys: "SPF foam + elastomeric coat",
-  prob: "Ponding water and blisters sealed with a fresh foam-and-coat system.",
+  sys: "Silicone restoration coating",
+  prob: "Ponding water and worn seams sealed with a fresh elastomeric coating system.",
   slot: "pf3",
   src: "uploads/pf-foam-recoat.jpg",
-  ph: "Foam / flat roof project"
+  ph: "Flat roof coating project"
 }, {
   cat: "Commercial",
   t: "Retail Plaza TPO System",
@@ -257,10 +257,99 @@ function ProjectsGrid() {
     name: "arrow"
   }))))))));
 }
+
+/* Live "Recent Work" — real published jobs from /recent-work.json, in the site's
+   style. Each card links to its service + area page (the local-SEO payload), so
+   this is fresh, auto-updating proof on a page that's already in the nav. Renders
+   nothing until there are published jobs; the crawlable backbone stays at
+   /recent-work, linked at the bottom. */
+function RecentWork({
+  max
+}) {
+  const [items, setItems] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    fetch("/recent-work.json").then(r => r.ok ? r.json() : []).then(data => {
+      const list = Array.isArray(data) ? data : data && data.items || [];
+      if (alive) setItems(list.slice(0, max || 6));
+    }).catch(() => {
+      if (alive) setItems([]);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+  if (!items || !items.length) return null; // nothing published yet — hide cleanly
+  const clip = s => {
+    s = s || "";
+    return s.length > 165 ? s.slice(0, 165).trim() + "…" : s;
+  };
+  return /*#__PURE__*/React.createElement("section", {
+    className: "section",
+    id: "recent-work"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "section-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "eyebrow"
+  }, "Fresh From the Field"), /*#__PURE__*/React.createElement("h2", {
+    className: "h2"
+  }, "Recent Jobs Around Tucson")), /*#__PURE__*/React.createElement("div", {
+    className: "pf-grid"
+  }, items.map(it => /*#__PURE__*/React.createElement("article", {
+    className: "pf-card",
+    key: it.id || it.title
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "pf-card__media"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "pf-card__tags"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "pf-pill pf-pill--terra"
+  }, it.service_type)), /*#__PURE__*/React.createElement("img", {
+    src: it.image_url,
+    alt: `${it.service_type} in ${it.city}, AZ — Sunrise Roofers`,
+    loading: "lazy",
+    style: {
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      display: "block"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "pf-card__body"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "pf-card__loc"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "pin"
+  }), " ", it.location_page_url ? /*#__PURE__*/React.createElement("a", {
+    href: it.location_page_url
+  }, it.city, ", AZ") : `${it.city}, AZ`), /*#__PURE__*/React.createElement("h3", {
+    className: "pf-card__title"
+  }, it.title), /*#__PURE__*/React.createElement("p", {
+    className: "pf-card__meta"
+  }, clip(it.short_description)), /*#__PURE__*/React.createElement("a", {
+    className: "link-arrow",
+    href: it.service_page_url || it.cta_url || "#contact"
+  }, it.cta_text || "Learn more", " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  })))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      marginTop: 28
+    }
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "btn btn--ghost btn--sm",
+    href: "/recent-work"
+  }, "View all recent work ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  })))));
+}
 Object.assign(window, {
   BACompare,
   PortfolioFeature,
   ProjectsGrid,
+  RecentWork,
   PROJECTS,
   FILTERS
 });

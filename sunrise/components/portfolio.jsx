@@ -60,7 +60,7 @@ const FILTERS = ["All Projects", "Metal Roofing", "Tile Roofing", "Shingle Roofi
 const PROJECTS = [
   { cat: "Metal Roofing", t: "Standing-Seam Ranch Reroof", loc: "Oro Valley", sys: "24-ga standing-seam metal", prob: "Aging shingles failing under UV; upgraded to a 40-year metal system.", slot: "pf1", src: "uploads/aerial-metal.jpg", ph: "Metal roof project" },
   { cat: "Tile Roofing", t: "Concrete Tile Re-Felt", loc: "Sahuarita", sys: "Tile lift & new underlayment", prob: "Original 1998 underlayment cracked; tiles salvaged and re-laid.", slot: "pf2", src: "uploads/pf-tile-refelt.jpg", ph: "Tile roof project" },
-  { cat: "Flat & Coatings", t: "Foam Roof Recoat", loc: "Midtown Tucson", sys: "SPF foam + elastomeric coat", prob: "Ponding water and blisters sealed with a fresh foam-and-coat system.", slot: "pf3", src: "uploads/pf-foam-recoat.jpg", ph: "Foam / flat roof project" },
+  { cat: "Flat & Coatings", t: "Flat Roof Coating Restoration", loc: "Midtown Tucson", sys: "Silicone restoration coating", prob: "Ponding water and worn seams sealed with a fresh elastomeric coating system.", slot: "pf3", src: "uploads/pf-foam-recoat.jpg", ph: "Flat roof coating project" },
   { cat: "Commercial", t: "Retail Plaza TPO System", loc: "East Tucson", sys: "60-mil TPO membrane", prob: "Leaking built-up roof replaced with no disruption to open storefronts.", slot: "pf4", src: "uploads/pf-flat-tpo.jpg", ph: "Commercial roof project" },
   { cat: "Shingle Roofing", t: "Architectural Shingle Reroof", loc: "Marana", sys: "Class-4 impact shingles", prob: "Storm-damaged roof rebuilt with impact-rated architectural shingles.", slot: "pf5", src: "uploads/pf-shingle.jpg", ph: "Shingle roof project" },
   { cat: "Roof Repairs", t: "Monsoon Leak Repair", loc: "Vail", sys: "Flashing & valley rebuild", prob: "Emergency leak traced to failed valley flashing; repaired in one visit.", slot: "pf6", src: "uploads/pf-repair.jpg", ph: "Repair project" },
@@ -108,4 +108,60 @@ function ProjectsGrid() {
   );
 }
 
-Object.assign(window, { BACompare, PortfolioFeature, ProjectsGrid, PROJECTS, FILTERS });
+/* Live "Recent Work" — real published jobs from /recent-work.json, in the site's
+   style. Each card links to its service + area page (the local-SEO payload), so
+   this is fresh, auto-updating proof on a page that's already in the nav. Renders
+   nothing until there are published jobs; the crawlable backbone stays at
+   /recent-work, linked at the bottom. */
+function RecentWork({ max }) {
+  const [items, setItems] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    fetch("/recent-work.json")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((data) => {
+        const list = Array.isArray(data) ? data : (data && data.items) || [];
+        if (alive) setItems(list.slice(0, max || 6));
+      })
+      .catch(() => { if (alive) setItems([]); });
+    return () => { alive = false; };
+  }, []);
+  if (!items || !items.length) return null; // nothing published yet — hide cleanly
+  const clip = (s) => { s = s || ""; return s.length > 165 ? s.slice(0, 165).trim() + "…" : s; };
+  return (
+    <section className="section" id="recent-work">
+      <div className="container">
+        <div className="section-head">
+          <p className="eyebrow">Fresh From the Field</p>
+          <h2 className="h2">Recent Jobs Around Tucson</h2>
+        </div>
+        <div className="pf-grid">
+          {items.map((it) => (
+            <article className="pf-card" key={it.id || it.title}>
+              <div className="pf-card__media">
+                <div className="pf-card__tags">
+                  <span className="pf-pill pf-pill--terra">{it.service_type}</span>
+                </div>
+                <img src={it.image_url} alt={`${it.service_type} in ${it.city}, AZ — Sunrise Roofers`} loading="lazy"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
+              <div className="pf-card__body">
+                <p className="pf-card__loc"><Icon name="pin" /> {it.location_page_url
+                  ? <a href={it.location_page_url}>{it.city}, AZ</a>
+                  : `${it.city}, AZ`}</p>
+                <h3 className="pf-card__title">{it.title}</h3>
+                <p className="pf-card__meta">{clip(it.short_description)}</p>
+                <a className="link-arrow" href={it.service_page_url || it.cta_url || "#contact"}>{it.cta_text || "Learn more"} <Icon name="arrow" /></a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div style={{ textAlign: "center", marginTop: 28 }}>
+          <a className="btn btn--ghost btn--sm" href="/recent-work">View all recent work <Icon name="arrow" /></a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { BACompare, PortfolioFeature, ProjectsGrid, RecentWork, PROJECTS, FILTERS });

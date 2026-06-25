@@ -130,7 +130,9 @@ function ProjectsPage() {
   }, /*#__PURE__*/React.createElement(ProjectsHero, null), /*#__PURE__*/React.createElement(PortfolioFeature, {
     ctaHref: "#all-projects",
     ctaLabel: "Browse All Projects"
-  }), /*#__PURE__*/React.createElement(BAGallery, null), /*#__PURE__*/React.createElement(ProjectsGrid, null), /*#__PURE__*/React.createElement(ProjectsCTA, null)), /*#__PURE__*/React.createElement(Footer, null));
+  }), /*#__PURE__*/React.createElement(BAGallery, null), /*#__PURE__*/React.createElement(RecentWork, {
+    max: 6
+  }), /*#__PURE__*/React.createElement(ProjectsGrid, null), /*#__PURE__*/React.createElement(ProjectsCTA, null)), /*#__PURE__*/React.createElement(Footer, null));
 }
 Object.assign(window, {
   ProjectsPage
