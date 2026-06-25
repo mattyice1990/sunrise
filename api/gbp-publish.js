@@ -6,6 +6,7 @@
 import { validateBearer } from '../lib/gbp/auth.js';
 import { readPosts, withPosts } from '../lib/gbp/store.js';
 import { publishLocalPost } from '../lib/gbp/google.js';
+import { publishToFacebook } from '../lib/gbp/facebook.js';
 import { gbpTarget } from '../config/gbp.js';
 
 export default async function handler(req, res) {
@@ -67,6 +68,20 @@ export default async function handler(req, res) {
       error = e.message;
     }
 
+    // Extra channel on immediate publish: Facebook Page (opt-in via channels.facebook).
+    // Independent of GBP — a Facebook failure is recorded but doesn't undo the GBP post.
+    let fbPostId = null;
+    let fbUrl = post.fbUrl || null;
+    if (edits.channels && edits.channels.facebook) {
+      try {
+        const fb = await publishToFacebook({ message: finalCopy, mediaUrls });
+        fbPostId = fb.id;
+        fbUrl = fb.url;
+      } catch (e) {
+        error = (error ? error + '; ' : '') + 'facebook: ' + e.message;
+      }
+    }
+
     const updated = await withPosts((arr) => {
       const p = arr.find((x) => x.id === id);
       if (!p) return null;
@@ -77,6 +92,8 @@ export default async function handler(req, res) {
       p.publishedMedia = mediaUrls[0] || null;
       p.status = status;
       p.gbpPostId = gbpPostId;
+      p.fbPostId = fbPostId;
+      if (fbUrl) p.fbUrl = fbUrl;
       p.error = error;
       p.publishedAt = status === 'published' ? new Date().toISOString() : null;
       return p;

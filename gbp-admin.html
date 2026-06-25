@@ -228,7 +228,8 @@ function render(p){
       pairCtrls+
       (p.error?'<p class="err">'+esc(p.error)+'</p>':'')+
       '<div class="actions"><button class="btn green" id="pub-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="publish(\''+p.id+'\',this)">✅ Approve &amp; Publish now</button>'+
-      '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button></div>'+
+      '<button class="btn" onclick="gen(\''+p.id+'\',this)">↻ Regenerate</button>'+
+      '<label class="meta" style="align-self:center;display:inline-flex;gap:5px;align-items:center"><input type="checkbox" id="pub-fb-'+p.id+'"> also post to Facebook</label></div>'+
       '<div class="actions" style="margin-top:10px"><button class="btn" id="sch-'+p.id+'"'+(hasPhotos?' disabled':'')+' onclick="openScheduler(\''+p.id+'\')">🗓 Schedule for later…</button>'+
       '<button class="btn" onclick="openLibrary(\'replace\',\''+p.id+'\')" title="Swap, add, or remove photos from the library">🖼 Change photos</button>'+
       (p.status==='scheduled'&&p.scheduledFor?'<span class="meta" style="align-self:center">📅 '+new Date(p.scheduledFor).toLocaleString()+'</span>':'')+'</div>';
@@ -299,12 +300,13 @@ async function gen(id,btn){
   catch(e){alert(e.message);btn.disabled=false;btn.textContent='✨ Generate draft';}
 }
 async function publish(id,btn){
-  if(!confirm('Publish this post to your live Google Business Profile?'))return;
+  const alsoFb=(document.getElementById('pub-fb-'+id)||{}).checked;
+  if(!confirm('Publish this post to your live Google Business Profile'+(alsoFb?' AND your Facebook Page':'')+'?'))return;
   const copy=document.getElementById('copy-'+id).value;
   const ctaType=document.getElementById('cta-'+id).value;
   const ctaUrl=document.getElementById('ctaurl-'+id).value||null;
   btn.disabled=true;btn.textContent='Publishing…';
-  const body={id,finalCopy:copy,ctaType,ctaUrl};
+  const body={id,finalCopy:copy,ctaType,ctaUrl,channels:{gbp:true,facebook:alsoFb}};
   const cu=COMP[id]&&COMP[id].compositeUrl;
   if(cu) body.mediaUrls=[cu];
   try{await api('/api/gbp-publish',{method:'POST',body:JSON.stringify(body)});await load();}
