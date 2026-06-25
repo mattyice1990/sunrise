@@ -388,9 +388,6 @@ function Footer() {
     t: "Flat Roofing",
     s: "flat-roofing"
   }, {
-    t: "Foam Roofing",
-    s: "foam-roofing"
-  }, {
     t: "Roof Coatings",
     s: "roof-coatings"
   }]), col("Service Areas", [{

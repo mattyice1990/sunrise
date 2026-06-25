@@ -501,7 +501,6 @@ function generateBlogPostHTML(article) {
                             <a href="/tile-roofing">Tile Roofing</a>
                             <a href="/metal-roofing">Metal Roofing</a>
                             <a href="/flat-roofing">Flat Roof Coating</a>
-                            <a href="/foam-roofing">Foam Roofing</a>
                             <a href="/emergency-roof-repair">Emergency Roof Repair</a>
                         </div>
                     </li>

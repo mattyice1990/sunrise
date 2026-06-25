@@ -120,7 +120,7 @@ Object.assign(window.SEO, {
       { q: "Do you offer commercial roof maintenance?", a: "We do. The maintenance programs cover scheduled inspections, documentation, and getting ahead of small repairs, which stretches the roof's life and keeps you out of emergency-repair territory." },
       { q: "Should we coat or replace our commercial flat roof?", a: "If the roof's still solid underneath, a reflective coating seals it up and buys you years for not much money. If the membrane's actually failing, replacing it is the better long-term value. We'll survey it and give you an honest answer." },
     ],
-    related: ["flat-roofing", "foam-roofing", "roof-coatings", "roof-inspection"],
+    related: ["flat-roofing", "roof-coatings", "roof-inspection"],
     ctaH: "Protect your building & your bottom line",
     ctaSub: "Free commercial roof survey and a clear answer, repair, recoat or replace, done on your schedule.",
   },

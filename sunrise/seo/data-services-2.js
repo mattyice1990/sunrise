@@ -2,61 +2,6 @@
 window.SEO = window.SEO || {};
 Object.assign(window.SEO, {
 
-  "foam-roofing": {
-    slug: "foam-roofing", cat: "service", crumb: "Services",
-    title: "Foam Roofing in Tucson, AZ — Sunrise Roofers",
-    desc: "Spray polyurethane foam (SPF) roofing in Tucson — seamless, energy-efficient flat-roof systems plus foam roof repair and recoats.",
-    guide: { url: "/blog/foam-roof-repair", label: "Read our guide: How to Repair a Foam Roof in Tucson" },
-    kw: { primary: "foam roofing tucson", vol: 50, kd: 1, cpc: 5 },
-    secondary: ["polyurethane foam roofing", "foam roof repair", "silicone roof coating", "roof coating cost"],
-    hero: {
-      eyebrow: "Foam Roofing · Tucson, AZ",
-      h1: "Spray Foam (SPF) Roofing in Tucson",
-      sub: "Spray foam is one of the best flat-roof systems you can put on out here. It goes down as one solid sheet with no seams, adds real insulation, and gets a reflective coat on top that knocks the heat down.",
-      chips: ["New SPF foam roofs", "Foam roof repair & recoat", "Energy-efficient & seamless", "Residential & commercial"],
-    },
-    intro: {
-      kicker: "SPF Specialists",
-      h: "One solid layer, nothing to leak through",
-      lead: [
-        "Spray foam goes on as a liquid and puffs up into one continuous layer across the whole roof. No seams, no screws, no weak spots, and it wraps itself right up around every vent and pipe sticking through, so there's nowhere for water to sneak in.",
-        "On top of that the foam adds real R-value, and we finish it with a reflective coat, which is why so many Tucson buildings use it to knock down the cooling bill.",
-      ],
-      bullets: ["Seamless, self-flashing waterproofing", "High insulation R-value", "Reflective top coat cuts cooling costs", "Lightweight — adds little load"],
-    },
-    highlights: [
-      { ic: "droplet", t: "Seamless Foam", d: "A single continuous membrane with no seams or fasteners to fail." },
-      { ic: "sun", t: "Energy Savings", d: "Insulating foam plus a reflective coat noticeably reduces heat gain." },
-      { ic: "shield", t: "Repair & Recoat", d: "Existing foam roofs renewed with fresh silicone or elastomeric coating." },
-    ],
-    sections: [
-      {
-        kicker: "Maintenance", h: "Foam roof repair & recoating",
-        p: [
-          "Foam roofs are tough, but that reflective coating up top slowly wears down in the sun and needs redone every so often. A recoat every few years keeps the foam protected and the roof watertight, and it's cheap next to replacing anything.",
-          "We patch damaged foam, build up the low spots where water's pooling, and lay fresh silicone or elastomeric coating back over it to get it performing again.",
-        ],
-        bullets: ["Coating renewal & recoats", "Foam repair & re-spray", "Ponding-area correction", "Silicone & elastomeric finishes"],
-      },
-    ],
-    process: [
-      { t: "Roof Assessment", d: "We evaluate whether a new SPF system, repair, or recoat is the right call." },
-      { t: "Surface Prep", d: "Clean, dry and prep the substrate so the foam bonds correctly." },
-      { t: "Foam & Coat", d: "Spray-applied foam built to proper thickness, then a reflective top coating." },
-      { t: "Inspection", d: "Quality check and guidance on the simple recoat schedule that maximizes life." },
-    ],
-    faqs: [
-      { q: "What is polyurethane foam roofing?", a: "It's a liquid foam we spray right onto the roof. It expands into one seamless, insulating, waterproof layer, then we seal it with a reflective coat. Works great on flat and low-slope roofs out here." },
-      { q: "How long does a foam roof last?", a: "With a recoat every so often, a foam roof'll last decades. The foam itself is real durable. It's the coating on top that needs refreshing every few years to keep the sun off it." },
-      { q: "How much does it cost to recoat a foam roof?", a: "Depends on the size and which coating you go with, but it's way cheaper than replacing the roof and adds a good chunk of life. Estimates are free." },
-      { q: "Can you repair my existing foam roof?", a: "Yep. We fix damaged foam, build up the spots where water ponds, and put fresh silicone or elastomeric coating on foam roofs that have lost their top layer." },
-      { q: "Is foam roofing good for energy efficiency?", a: "Real good, actually. The foam adds R-value and the reflective coat bounces the sun off instead of soaking it up, which can put a noticeable dent in your cooling bill out here." },
-    ],
-    related: ["roof-coatings", "flat-roofing", "commercial-roofing", "roof-inspection"],
-    ctaH: "Considering a foam roof?",
-    ctaSub: "New foam roof, a repair, or a recoat, we'll give you a clear, free price either way.",
-  },
-
   "roof-coatings": {
     slug: "roof-coatings", cat: "service", crumb: "Services",
     title: "Roof Coatings in Tucson, AZ — Sunrise Roofers",
@@ -106,7 +51,7 @@ Object.assign(window.SEO, {
       { q: "Do roof coatings really lower cooling bills?", a: "Yeah, they do. A reflective 'cool roof' coating bounces the sun off instead of soaking it in, so the roof runs cooler and your AC doesn't have to work as hard out here." },
       { q: "What kind of roofs can be coated?", a: "Flat and low-slope roofs mostly, foam (SPF), built-up, modified bitumen, even metal, all take a coating well. We'll confirm yours on a free inspection." },
     ],
-    related: ["foam-roofing", "flat-roofing", "commercial-roofing", "roof-inspection"],
+    related: ["flat-roofing", "commercial-roofing", "roof-inspection"],
     ctaH: "Renew your roof for less",
     ctaSub: "A reflective coating might buy your roof years. Get a free inspection and an honest recommendation.",
   },

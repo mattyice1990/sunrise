@@ -86,7 +86,6 @@ export const GBP = {
     { service: 'Concrete Tile Roof Replacement', keywords: ['concrete tile'], page: '/roof-replacement' },
     { service: 'Shingle Roof Replacement', keywords: ['shingle'], page: '/shingle-roofing' },
     { service: 'Flat Roof Coating', keywords: ['flat roof', 'roof coating', 'elastomeric', 'recoat'], page: '/flat-roofing' },
-    { service: 'Foam Roofing', keywords: ['foam', 'spf'], page: '/foam-roofing' },
     { service: 'Metal Roofing', keywords: ['metal roof', 'standing seam'], page: '/metal-roofing' },
     { service: 'Emergency Roof Repair', keywords: ['emergency', 'storm damage', 'leak emergency'], page: '/emergency-roof-repair' },
     { service: 'Roof Inspection', keywords: ['inspection', 'inspect'], page: '/roof-inspection' },

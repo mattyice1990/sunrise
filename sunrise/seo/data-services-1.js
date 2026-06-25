@@ -414,7 +414,7 @@ Object.assign(window.SEO, {
       { q: "Can you fix a commercial flat roof?", a: "Yep. Residential and commercial both, TPO, modified bitumen, built-up, coatings, and we'll work around your business hours so we're not in your way." },
       { q: "Is a coating or a new roof better for my flat roof?", a: "If the roof underneath is still solid, a reflective coating seals it up and stretches its life for not much money. If the membrane's actually failing, replacing it is the better deal long-term. We'll tell you which way we'd go." },
     ],
-    related: ["roof-coatings", "foam-roofing", "commercial-roofing", "roof-repair"],
+    related: ["roof-coatings", "commercial-roofing", "roof-repair"],
     ctaH: "Flat roof ponding or leaking?",
     ctaSub: "We'll find the real cause and tell you whether to repair, recoat or replace it, with a free written estimate.",
   },

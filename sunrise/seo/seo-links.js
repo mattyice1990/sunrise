@@ -23,7 +23,6 @@
     { slug: "emergency-roof-repair",t: "Emergency & Storm Damage",ic: "alert",   d: "24/7 response, tarping & insurance support",  grp: "Repair & Restore" },
     { slug: "tile-roofing",         t: "Tile Roofing",           ic: "layers",   d: "Repair, re-felt, underlayment & install",     grp: "Roof Types" },
     { slug: "flat-roofing",         t: "Flat Roofing",           ic: "ruler",    d: "TPO, modified bitumen & built-up systems",    grp: "Roof Types" },
-    { slug: "foam-roofing",         t: "Foam Roofing (SPF)",     ic: "droplet",  d: "Seamless spray foam for flat & low-slope",    grp: "Roof Types" },
     { slug: "roof-coatings",        t: "Roof Coatings",          ic: "shield",   d: "Elastomeric & silicone reflective coatings",  grp: "Roof Types" },
     { slug: "metal-roofing",        t: "Metal Roofing",          ic: "factory",  d: "Standing seam, durable & energy-efficient",   grp: "Roof Types" },
     { slug: "shingle-roofing",      t: "Shingle Roofing",        ic: "home",     d: "Architectural asphalt shingle systems",       grp: "Roof Types" },

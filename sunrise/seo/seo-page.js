@@ -17,7 +17,6 @@ const HERO_IMG = {
   "emergency-roof-repair": "uploads/wind-damage.jpg",
   "tile-roofing": "uploads/pf-tile-refelt.jpg",
   "flat-roofing": "uploads/pf-flat-tpo.jpg",
-  "foam-roofing": "uploads/pf-foam-recoat.jpg",
   "roof-coatings": "uploads/prop-retail.jpg",
   "metal-roofing": "uploads/aerial-metal.jpg",
   "shingle-roofing": "uploads/pf-shingle.jpg",

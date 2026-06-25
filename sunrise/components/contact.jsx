@@ -209,7 +209,6 @@ function Footer() {
             { t: "Tile Roofing", s: "tile-roofing" },
             { t: "Shingle Roofing", s: "shingle-roofing" },
             { t: "Flat Roofing", s: "flat-roofing" },
-            { t: "Foam Roofing", s: "foam-roofing" },
             { t: "Roof Coatings", s: "roof-coatings" },
           ])}
           {col("Service Areas", [
