@@ -433,6 +433,9 @@ function generateBlogPostHTML(article) {
       }
     }
     </script>
+
+    <!-- Ahrefs Web Analytics -->
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="GJ2sUDypOiqsbFRXrikraQ" async></script>
 </head>
 <body>
     <!-- Inline SVG Icon Sprites -->
