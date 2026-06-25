@@ -8,7 +8,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/feed.xml", "destination": "/api/feed" },
-    { "source": "/recent-work.json", "destination": "/api/recent-work?format=json" }
+    { "source": "/recent-work.json", "destination": "/api/recent-work?format=json" },
+    { "source": "/recent-work", "destination": "/api/recent-work?format=html" }
   ],
   "redirects": [
     {

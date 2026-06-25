@@ -421,6 +421,9 @@ function Footer() {
     t: "Roofing Projects",
     s: "portfolio"
   }, {
+    t: "Recent Work",
+    href: "/recent-work"
+  }, {
     t: "Reviews",
     s: "reviews"
   }, {
