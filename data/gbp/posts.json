@@ -1,21 +1,28 @@
 [
   {
     "id": "1782490609488-speu04",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Installing new double demo acrylic, energy, efficiency, heat shielded skylights in northeast Tucson",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1782490609488-speu04/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Just wrapped up a skylight replacement on a flat roof in northeast Tucson. The homeowner had old, leaking units — we swapped them out for new double-dome acrylic skylights with heat-shield glazing. Out here in the Sonoran Desert, that extra thermal protection makes a real difference when summer temps push past 110. If your skylights are leaking, fogged up, or just letting too much heat in, give us a call.",
+    "finalCopy": "Just wrapped up a skylight replacement on a flat roof in northeast Tucson. The homeowner had old, leaking units — we swapped them out for new double-dome acrylic skylights with heat-shield glazing. Out here in the Sonoran Desert, that extra thermal protection makes a real difference when summer temps push past 110. If your skylights are leaking, fogged up, or just letting too much heat in, give us a call.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-26T16:16:51.504Z",
-    "updatedAt": "2026-06-26T16:16:52.609Z"
+    "updatedAt": "2026-06-26T16:16:52.609Z",
+    "city": "Tucson",
+    "serviceType": "Skylight Replacement",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    },
+    "autoDrafted": true
   },
   {
     "id": "1782356969779-5ssjl8",
