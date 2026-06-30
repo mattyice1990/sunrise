@@ -30,14 +30,15 @@
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-06-26T16:16:51.504Z",
-    "updatedAt": "2026-06-26T16:16:52.609Z",
+    "updatedAt": "2026-06-30T16:45:38.510Z",
     "city": "Tucson",
     "serviceType": "Skylight Replacement",
     "qualityFlags": {
       "needsResend": false,
       "reason": null
     },
-    "autoDrafted": true
+    "autoDrafted": true,
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782490609488-speu04/composite-mr0vocku.jpg"
   },
   {
     "id": "1782356969779-5ssjl8",
