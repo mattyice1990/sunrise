@@ -1,18 +1,24 @@
 [
   {
     "id": "1782501406811-5nu3mr",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Revised: Installing new double dome acrylic, energy efficient heat shielded skylights in northeast Tucson",
     "mediaUrls": [],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "We just finished swapping out a pair of old skylights for new double-dome acrylic units up in northeast Tucson. These are heat-shielded and energy-efficient — a real difference-maker in a Tucson summer when the sun is hammering your ceiling all day. If your skylights are leaking, yellowed, or just turning your living room into an oven, give us a call and we'll take a look.",
+    "finalCopy": "We just finished swapping out a pair of old skylights for new double-dome acrylic units up in northeast Tucson. These are heat-shielded and energy-efficient — a real difference-maker in a Tucson summer when the sun is hammering your ceiling all day. If your skylights are leaking, yellowed, or just turning your living room into an oven, give us a call and we'll take a look.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
-    "createdAt": "2026-06-26T19:16:47.006Z"
+    "createdAt": "2026-06-26T19:16:47.006Z",
+    "city": "Tucson",
+    "serviceType": "Skylight Replacement",
+    "qualityFlags": {
+      "needsResend": true,
+      "reason": "photos couldn't be processed — please resend them as JPEG"
+    }
   },
   {
     "id": "1782490609488-speu04",
