@@ -1,7 +1,7 @@
 [
   {
     "id": "1782920657618-56xbsk",
-    "status": "draft",
+    "status": "published",
     "from": "whatsapp:+17194826976",
     "note": "Just finished a GAF HDZ Shakewood Shingles System with a silver pledge #Warranty. We switched out three turbines for 3 green Machine GAF Solar attic vent fans with high heat temperatures in Tucson, Arizona. You definitely want something that moves out hot air out of attic.",
     "mediaUrls": [
@@ -13,7 +13,7 @@
     "finalCopy": "Just wrapped up a full roof replacement in Tucson using GAF HDZ Shakewood shingles — and we made a smart upgrade while we were up there. The homeowner had three old turbine vents, so we swapped them out for three GAF solar-powered attic fans. In Tucson summers, attic temps can hit extreme levels, and turbines just don't move enough air to keep up. These solar fans run on their own and push that hot air out constantly — no electricity cost, no moving parts to fail. If your roof is due and you want ventilation that actually works in the desert heat, give us a call.",
     "ctaType": "CALL",
     "ctaUrl": null,
-    "gbpPostId": null,
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/169594838747940896",
     "error": null,
     "createdAt": "2026-07-01T15:44:20.195Z",
     "updatedAt": "2026-07-04T15:09:49.998Z",
@@ -24,7 +24,11 @@
       "reason": null
     },
     "autoDrafted": true,
-    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782920657618-56xbsk/composite-mr6i0jo0.jpg"
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1782920657618-56xbsk/composite-mr6i0jo0.jpg",
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1782920657618-56xbsk/composite-mr6i0jo0.jpg",
+    "fbPostId": "701657633041629_122137056561007055",
+    "fbUrl": "https://www.facebook.com/701657633041629_122137056561007055",
+    "publishedAt": "2026-07-04T15:10:33.108Z"
   },
   {
     "id": "1782501406811-5nu3mr",
