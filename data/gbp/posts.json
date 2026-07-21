@@ -1,7 +1,7 @@
 [
   {
     "id": "1783780334486-sge8rj",
-    "status": "draft",
+    "status": "published",
     "from": "whatsapp:+17194826976",
     "note": "New construction tile reroof in Rio Rico. Roofnado laplock PSU lifetime warranty.",
     "mediaUrls": [
@@ -13,7 +13,7 @@
     "finalCopy": "New construction roof going up in Rio Rico, and the view from up there is something else. We're laying Roofnado LapLock PSU underlayment before the tile goes on — this is the stuff that goes under the tile and does a lot of the heavy lifting against our monsoon moisture. Fresh decking, solid underlayment, concrete block work set — every layer done right before the next one starts. If you've got a new build or need a roof replacement in the area, give us a call and let's talk it through.",
     "ctaType": "CALL",
     "ctaUrl": "tel:5207531758",
-    "gbpPostId": null,
+    "gbpPostId": "accounts/110373298861863638936/locations/4511048488465081808/localPosts/3898441282315255577",
     "error": null,
     "createdAt": "2026-07-11T14:32:16.240Z",
     "updatedAt": "2026-07-21T04:46:58.032Z",
@@ -24,7 +24,11 @@
       "reason": null
     },
     "autoDrafted": true,
-    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1783780334486-sge8rj/composite-mru690b2.jpg"
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1783780334486-sge8rj/composite-mru690b2.jpg",
+    "publishedMedia": "https://roofwithsunrise.com/gbp-media/1783780334486-sge8rj/composite-mru690b2.jpg",
+    "fbPostId": "701657633041629_122138210667007055",
+    "fbUrl": "https://www.facebook.com/701657633041629_122138210667007055",
+    "publishedAt": "2026-07-21T04:47:42.587Z"
   },
   {
     "id": "1782920657618-56xbsk",
