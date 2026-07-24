@@ -1,21 +1,28 @@
 [
   {
     "id": "1784855686985-7gx83q",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Tile repair in 84742. Installing roofnado spyder peel and stick underlayment. 30 year manufacturer warranty. Leak occurred in valley.",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1784855686985-7gx83q/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
-    "ctaUrl": null,
+    "type": "job",
+    "draftCopy": "Tile repair job in Marana this week. The valley was letting water in, so we pulled the affected tiles, laid down Roofnado Spyder peel-and-stick underlayment, and set everything back in place tight. Tucson's monsoons don't forgive a weak valley, and we're not in the business of shortcuts. If your tile roof has a leak or you just want eyes on it before the storms roll in, give us a call.",
+    "finalCopy": "Tile repair job in Marana this week. The valley was letting water in, so we pulled the affected tiles, laid down Roofnado Spyder peel-and-stick underlayment, and set everything back in place tight. Tucson's monsoons don't forgive a weak valley, and we're not in the business of shortcuts. If your tile roof has a leak or you just want eyes on it before the storms roll in, give us a call.",
+    "ctaType": "CALL",
+    "ctaUrl": "tel:5207531758",
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-07-24T01:14:49.167Z",
-    "updatedAt": "2026-07-24T01:15:45.541Z"
+    "updatedAt": "2026-07-24T01:15:45.541Z",
+    "city": "Marana",
+    "serviceType": "Tile Roof Repair",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    },
+    "autoDrafted": true
   },
   {
     "id": "1783780334486-sge8rj",
