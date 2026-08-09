@@ -69,14 +69,15 @@
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-07-24T01:14:49.167Z",
-    "updatedAt": "2026-07-24T01:15:45.541Z",
+    "updatedAt": "2026-08-09T16:29:25.031Z",
     "city": "Marana",
     "serviceType": "Tile Roof Repair",
     "qualityFlags": {
       "needsResend": false,
       "reason": null
     },
-    "autoDrafted": true
+    "autoDrafted": true,
+    "compositeUrl": "https://roofwithsunrise.com/gbp-media/1784855686985-7gx83q/composite-msm0pi8i.jpg"
   },
   {
     "id": "1783780334486-sge8rj",
