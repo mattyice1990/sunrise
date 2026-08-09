@@ -1,24 +1,29 @@
 [
   {
     "id": "1786291103228-d5z94g",
-    "status": "new",
+    "status": "draft",
     "from": "whatsapp:+17194826976",
     "note": "Tucson Rubberized peel and seal system. 27 year warranty. System consist of peeling stick base and cap sheet, followed by a full restoration system (Primer, polyester fabric, primer, 2 coats of commercial grade Tucson rubberized 10000 roof coating. New construction Green Valley.",
     "mediaUrls": [
       "https://roofwithsunrise.com/gbp-media/1786291103228-d5z94g/0.jpg",
-      "https://roofwithsunrise.com/gbp-media/1786291103871-xkseam/0.jpg",
-      "https://roofwithsunrise.com/gbp-media/1786291104718-g2xyur/0.jpg",
       "https://roofwithsunrise.com/gbp-media/1786291104668-eigrbb/0.jpg"
     ],
-    "type": null,
-    "draftCopy": null,
-    "finalCopy": null,
-    "ctaType": null,
+    "type": "job",
+    "draftCopy": "Just finished a new construction flat roof out in Green Valley with a full rubberized peel-and-stick system — base sheet, cap sheet, polyester fabric reinforcement, and two coats of commercial-grade Tucson Rubberized 10000 coating on top. That's a multi-layer flat roof coating built to handle monsoon season and the brutal desert sun we get out here. If you're building new or your flat roof is giving you trouble in the Tucson area, give us a call and we'll take a look.",
+    "finalCopy": "Just finished a new construction flat roof out in Green Valley with a full rubberized peel-and-stick system — base sheet, cap sheet, polyester fabric reinforcement, and two coats of commercial-grade Tucson Rubberized 10000 coating on top. That's a multi-layer flat roof coating built to handle monsoon season and the brutal desert sun we get out here. If you're building new or your flat roof is giving you trouble in the Tucson area, give us a call and we'll take a look.",
+    "ctaType": "CALL",
     "ctaUrl": null,
     "gbpPostId": null,
     "error": null,
     "createdAt": "2026-08-09T15:58:25.244Z",
-    "updatedAt": "2026-08-09T16:01:28.993Z"
+    "updatedAt": "2026-08-09T16:01:28.993Z",
+    "city": "Green Valley",
+    "serviceType": "Flat Roof Coating",
+    "qualityFlags": {
+      "needsResend": false,
+      "reason": null
+    },
+    "autoDrafted": true
   },
   {
     "id": "1786288682109-jvgnc0",
