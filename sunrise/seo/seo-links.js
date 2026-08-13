@@ -21,6 +21,7 @@
     { slug: "roof-installation",    t: "New Roof Installation",  ic: "home",     d: "New-build & re-roof systems, done right",     grp: "Replace & Install" },
     { slug: "roof-inspection",      t: "Roof Inspection",        ic: "search",   d: "Free, documented condition reports",          grp: "Repair & Restore" },
     { slug: "emergency-roof-repair",t: "Emergency & Storm Damage",ic: "alert",   d: "24/7 response, tarping & insurance support",  grp: "Repair & Restore" },
+    { slug: "storm-damage-roof-repair-tucson", t: "Storm Damage Repair", ic: "alert", d: "Monsoon, wind & hail damage, documented", grp: "Repair & Restore" },
     { slug: "tile-roofing",         t: "Tile Roofing",           ic: "layers",   d: "Repair, re-felt, underlayment & install",     grp: "Roof Types" },
     { slug: "flat-roofing",         t: "Flat Roofing",           ic: "ruler",    d: "TPO, modified bitumen & built-up systems",    grp: "Roof Types" },
     { slug: "roof-coatings",        t: "Roof Coatings",          ic: "shield",   d: "Elastomeric & silicone reflective coatings",  grp: "Roof Types" },

@@ -272,4 +272,106 @@ Object.assign(window.SEO, {
     ctaSub: "Leak-free skylights and solar tubes, put in by actual roofers. Ask us for a free skylight estimate.",
   },
 
+  "storm-damage-roof-repair-tucson": {
+    slug: "storm-damage-roof-repair-tucson", cat: "service", crumb: "Services",
+    title: "Storm Damage Roof Repair in Tucson — Sunrise Roofers",
+    desc: "Storm damage roof repair in Tucson. Emergency tarping, leaks stopped, and dated photo documentation for your insurance claim. Family-owned, ROC #358079. Call 520-753-1758.",
+    kw: { primary: "storm damage roof repair tucson", vol: null, kd: null, cpc: null },
+    secondary: ["roof leak after storm", "monsoon roof damage tucson", "wind damage roof repair", "hail damage roof repair tucson", "emergency roof tarping tucson"],
+    hero: {
+      eyebrow: "Storm Damage Roof Repair · Tucson, AZ",
+      h1: "Storm Damage Roof Repair in Tucson",
+      sub: "Leak after a storm? Wind got under your tile? Call and we come out, tarp it so the water stops, and photograph every bit of the damage for your claim. Tucson, Marana, Oro Valley, Vail, Sahuarita and Green Valley.",
+      chips: ["Emergency tarping", "Monsoon, wind & hail damage", "Documented for your insurance claim", "Licensed & insured · ROC #358079"],
+    },
+    intro: {
+      kicker: "Storm Response",
+      h: "Leak after the storm? Let's get it stopped today.",
+      lead: [
+        "A monsoon rolls through, the wind gets under a tile or peels back a piece of flashing, and by the time you notice it there's water coming through the ceiling. That's the call I get twenty times a season.",
+        "Tarp it, document it, fix it. In that order. The tarp protects your house right now, the photos protect you when you file, and the repair is what keeps you from doing this again next August.",
+      ],
+      bullets: ["Same-day emergency tarping", "Monsoon, wind & hail damage", "Dated photos for your claim", "Permanent repair, not just a patch"],
+    },
+    highlights: [
+      { ic: "clock", t: "Fast After a Storm", d: "Active leaks and blown-open roofs go to the top of the schedule." },
+      { ic: "shield", t: "Tarped & Stopped", d: "Emergency tarping that holds until we can do the permanent repair right." },
+      { ic: "doc", t: "Claim Documentation", d: "Dated photos, a written scope, and we'll meet your adjuster on the roof." },
+    ],
+    sections: [
+      {
+        kicker: "Know What You're Looking At", h: "What storm damage looks like on a Tucson roof",
+        p: [
+          "Most of it doesn't look like a hole. After a monsoon blows through, the damage is small and quiet — a tile that slid two inches, a flashing edge the wind got under, a coating that split at a seam. You won't see any of that from the driveway. You'll see it three weeks later as a brown ring spreading across the ceiling.",
+          "Here's what I'm up there checking for after a storm.",
+        ],
+        cards: [
+          { ic: "layers", t: "Cracked & Slipped Tile", d: "Wind lifts a tile and sets it back down crooked. The underlayment underneath takes the next rain straight on." },
+          { ic: "wrench", t: "Lifted Flashing", d: "Wall flashing, valleys and pipe boots pull loose in high wind. That's where most post-storm leaks start." },
+          { ic: "droplet", t: "Ponding on Flat Roofs", d: "Blown debris plugs a scupper, water sits for days, and the seams start to go." },
+          { ic: "alert", t: "Torn or Blistered Coating", d: "Hail and driven gravel chew up an elastomeric coat. Once it's split, rain has a path underneath it." },
+        ],
+      },
+      {
+        kicker: "First 24 Hours", h: "Tarping, and why it can't wait",
+        p: [
+          "A tarp isn't the repair. It's the tourniquet. The whole point is stopping water before it soaks your insulation and drops your ceiling, because drywall, paint and insulation usually cost more to put back than the roof work does.",
+          "We tarp it properly — fastened and sealed at the edges, not a blue sheet held down with two bricks that'll be in your neighbor's yard by the next gust. Then we come back and do the permanent fix once the weather lets us.",
+        ],
+        bullets: ["Same-day emergency tarping", "Leak traced back to the real source", "Interior protected before it spreads", "Permanent repair scheduled, not forgotten"],
+      },
+      {
+        kicker: "Insurance Claims", h: "We document it. Your carrier decides.",
+        p: [
+          "Let me be straight with you, because the storm-chaser crews working your street this week won't be: I can't tell you whether your claim gets approved. I don't work for your insurance company, and neither does anybody knocking on your door promising you a brand new roof. What your policy covers is between you and your carrier.",
+          "What I can do is hand your adjuster a file that's hard to argue with. Dated photos, wide shots and close-ups, where the damage sits on the roof, what caused it, and what it takes to fix. If your adjuster wants to walk the roof, I'll meet them up there and we'll go over it together.",
+        ],
+        bullets: ["Dated photo documentation, inside and out", "Written scope of the damage", "We meet your adjuster on site", "Itemized repair estimate for the file"],
+      },
+      {
+        kicker: "Who Shows Up", h: "You call, you get Eddie",
+        p: [
+          "This is a family business. My wife Viky and I run it, roofing is the trade our family works in, and I've been on Tucson roofs for more than 20 years. No commission reps, no closers. The guy who looks at your roof is the guy doing the work on it.",
+          "Licensed and insured, Arizona ROC #358079, GAF Certified+. After a big storm, half the trucks in town have a magnet sign and an out-of-state plate. We'll still be here next monsoon season, and the season after that. I won't put anything up there I wouldn't put on my own house.",
+        ],
+        bullets: ["Family-owned — Eddie & Viky Guillen", "Arizona ROC #358079, licensed & insured", "GAF Certified+ contractor", "20+ years on Tucson roofs"],
+      },
+    ],
+    options: {
+      kicker: "Service Area", h: "Where we respond after a storm",
+      sub: "A monsoon cell doesn't hit the whole valley the same. Wherever it caught you, we cover it.",
+      items: [
+        { ic: "pin", t: "Tucson", d: "Midtown, east side, west side and everything in between." },
+        { ic: "pin", t: "Marana", d: "Wide-open ground out here, so wind damage hits harder." },
+        { ic: "pin", t: "Oro Valley", d: "Tile roofs and steep pitches — our everyday work." },
+        { ic: "pin", t: "Casas Adobes", d: "Older roofs with underlayment that's already tired." },
+        { ic: "pin", t: "Catalina Foothills", d: "Foothills storms come off the mountain hard and fast." },
+        { ic: "pin", t: "Vail", d: "Vail and Corona de Tucson, same response." },
+        { ic: "pin", t: "Sahuarita", d: "Newer builds still lose tile and flashing in a blow." },
+        { ic: "pin", t: "Green Valley", d: "Flat and low-slope roofs where water likes to sit." },
+      ],
+    },
+    processH: "How Storm Response Works",
+    process: [
+      { t: "Call or Text", d: "Reach us at 520-753-1758 and tell me what you're seeing. Water coming inside goes to the front of the line." },
+      { t: "We Get Out and Look", d: "Free storm-damage inspection. I go up on the roof, into the attic if I need to, and I show you the photos." },
+      { t: "Stop the Water", d: "Emergency tarping and leak control, same visit when the roof is actively letting rain in." },
+      { t: "Document the Damage", d: "Dated photos, a written scope and an itemized estimate you can hand straight to your adjuster." },
+      { t: "Repair It for Real", d: "Tile reset, flashing rebuilt, underlayment replaced, coating patched — whatever the roof actually needs." },
+    ],
+    faqH: "Storm Damage Questions, Answered",
+    faqs: [
+      { q: "There's water coming through my ceiling right now. What do I do?", a: "Move whatever's under it and get a bucket down. If the ceiling is bulging with trapped water and you can reach it safely from a step ladder, a small hole in the middle lets it drain in one spot instead of coming down all at once. Then call us at 520-753-1758. Don't climb up on a wet roof to look — that's how people get hurt, and it's our job anyway." },
+      { q: "Do you tarp the same day?", a: "If the roof is actively leaking, that's the plan. Call early in the day if you can. During a bad monsoon week we're stacked up, but live water inside somebody's house jumps ahead of everything else on the schedule." },
+      { q: "Will my insurance cover the storm damage?", a: "I honestly can't tell you. That's your carrier's call and it comes down to your policy, your deductible and what the adjuster finds. Anybody who tells you over the phone that you're getting a new roof out of it is guessing. What I do is document the damage properly and work with your adjuster — the decision is theirs, not mine." },
+      { q: "What's in the documentation you give my adjuster?", a: "Dated photos: wide shots of the whole roof, close-ups of every damaged area, and interior shots of the ceiling or wall damage. Then a written scope of what's wrong and an itemized estimate to repair it. If your adjuster wants to walk the roof with me, I'll be there." },
+      { q: "How do I know the storm hurt my roof? I don't see anything from the ground.", a: "You usually can't see it from the ground. Slipped tile, a lifted flashing edge, a split in a coating — they all look like nothing from the driveway and every one of them leaks. After a hard blow, have somebody get up there and look. It takes me under an hour." },
+      { q: "Do you charge for the storm damage inspection?", a: "No. Free inspection, you get the photos either way, and you get a straight answer. If your roof came through the storm fine, I'll tell you it came through fine. I'd rather you call me in five years when you actually need something." },
+      { q: "Is this a temporary fix or a real repair?", a: "Both, in that order. The tarp is temporary and it's there to protect the house. The repair is the real one — tile reset on new underlayment, flashing rebuilt, seams redone. We schedule it once the weather clears and the scope is settled." },
+    ],
+    related: ["emergency-roof-repair", "roof-repair", "roof-inspection", "roof-replacement"],
+    ctaH: "Storm hit your roof? Let's get it stopped.",
+    ctaSub: "Call or text 520-753-1758. We'll tarp it, document it and fix it right — Tucson, Marana, Oro Valley, Vail, Sahuarita and Green Valley.",
+  },
+
 });

@@ -201,6 +201,7 @@ function Footer() {
             { t: "Roof Installation", s: "roof-installation" },
             { t: "Roof Inspection", s: "roof-inspection" },
             { t: "Emergency Repair", s: "emergency-roof-repair" },
+            { t: "Storm Damage Repair", s: "storm-damage-roof-repair-tucson" },
             { t: "Gutter Installation", s: "gutter-installation" },
             { t: "Skylight Installation", s: "skylight-installation" },
           ])}

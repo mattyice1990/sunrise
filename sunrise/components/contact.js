@@ -370,6 +370,9 @@ function Footer() {
     t: "Emergency Repair",
     s: "emergency-roof-repair"
   }, {
+    t: "Storm Damage Repair",
+    s: "storm-damage-roof-repair-tucson"
+  }, {
     t: "Gutter Installation",
     s: "gutter-installation"
   }, {
