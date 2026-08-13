@@ -256,14 +256,14 @@ Object.assign(window.SEO, {
   "emergency-roof-repair": {
     slug: "emergency-roof-repair", cat: "service", crumb: "Services",
     title: "Emergency Roof Repair in Tucson — Sunrise Roofers",
-    desc: "24/7 emergency roof repair in Tucson. Fast tarping, monsoon and storm damage repair, leak control and insurance help. Call now: 520-753-1758.",
+    desc: "24/7 emergency roof repair in Tucson. Fast response, emergency tarping and leak control to stop the water tonight. Call now: 520-753-1758.",
     kw: { primary: "emergency roof repair tucson", vol: 80, kd: null, cpc: null },
-    secondary: ["roof leak repair tucson", "storm damage roof repair", "hail damage roof repair", "monsoon roof damage"],
+    secondary: ["roof leak repair tucson", "24 hour roof repair tucson", "same day roof repair tucson", "roof leaking right now tucson"],
     hero: {
       eyebrow: "Emergency Roof Repair · Tucson, AZ",
-      h1: "24/7 Emergency & Storm Damage Roof Repair",
-      sub: "When a monsoon rips your roof open or a leak's coming through the ceiling, every minute counts. We get out fast, tarp it and stop the water before it wrecks any more of your house.",
-      chips: ["24/7 emergency line", "Fast tarping & leak control", "Storm & monsoon damage", "Insurance-claim support"],
+      h1: "24/7 Emergency Roof Repair in Tucson",
+      sub: "When there's water coming through the ceiling, every minute counts. We get out fast, tarp it and stop the water before it wrecks any more of your house.",
+      chips: ["24/7 emergency line", "Fast tarping & leak control", "Same-day response", "Insurance-claim support"],
     },
     intro: {
       kicker: "Rapid Response",
@@ -281,8 +281,8 @@ Object.assign(window.SEO, {
     ],
     sections: [
       {
-        kicker: "We Handle", h: "Storm damage we respond to",
-        p: ["Storms out here tend to do a few specific kinds of damage. We're set up to handle all of it, fast."],
+        kicker: "We Handle", h: "Emergencies we respond to",
+        p: ["Most roof emergencies out here come down to a handful of things. We're set up to handle all of it, fast."],
         cards: [
           { ic: "alert", t: "Monsoon Damage", d: "Wind-lifted tile, torn underlayment and driven-rain leaks from monsoon storms." },
           { ic: "droplet", t: "Active Leaks", d: "Emergency tarping and leak control to protect interiors right away." },

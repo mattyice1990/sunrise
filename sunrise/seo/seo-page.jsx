@@ -13,7 +13,7 @@ const HERO_IMG = {
   "roof-replacement": "uploads/aerial-home.jpg",
   "roof-installation": "uploads/prop-new.webp",
   "roof-inspection": "uploads/sunrise-crew.webp",
-  "emergency-roof-repair": "uploads/wind-damage.jpg",
+  "emergency-roof-repair": "uploads/pf-clay-repair.jpg",
   "storm-damage-roof-repair-tucson": "uploads/wind-damage.jpg",
   "tile-roofing": "uploads/pf-tile-refelt.jpg",
   "flat-roofing": "uploads/pf-flat-tpo.jpg",
