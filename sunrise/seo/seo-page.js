@@ -93,11 +93,11 @@ function injectSeoHead(p) {
   }, {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((c, i) => ({
+    itemListElement: crumbs.filter(c => c.slug).map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: c.name,
-      item: c.slug ? base + window.SUNRISE.url(c.slug) : undefined
+      item: base + window.SUNRISE.url(c.slug)
     }))
   }];
   if (p.faqs && p.faqs.length) {
