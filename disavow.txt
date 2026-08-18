@@ -1,18 +1,32 @@
 # Google Search Console disavow file for roofwithsunrise.com
-# Generated: 2026-06-10 (regenerated from LIVE Ahrefs data — all domains below are
-# flagged is_spam by Ahrefs, or are part of the same link-seller networks)
+# Regenerated: 2026-08-18 from live Ahrefs referring-domain data.
+# The previous list (2026-06-10) was stale: an automated link-spam network has
+# kept adding roughly 3 domains PER DAY since, with new ones first seen the same
+# day this file was regenerated. Expect to refresh this periodically.
 # Upload at: https://search.google.com/search-console/disavow-links
-# NOTE: uploading replaces any previous disavow file — this is the complete list.
-# Legitimate domains intentionally excluded: bbb.org, gaf.com, gaf.ca,
-# superpages.com, arizonaroofers.com, and real local-business links.
+# NOTE: uploading REPLACES any previous file - this is the complete list.
+#
+# Deliberately NOT disavowed (legitimate): bbb.org, gaf.com, gaf.ca,
+# dexknows.com, superpages.com, arizonaroofers.com, and real local links.
+# Needs a human eye before adding (roofing directories / unclear, left out):
+#   archive-hu.com, blogerreviewers.com, dupurgeniefr.com, fieseros.com, igolocal.app, portailorange.net, quotesblom.com, sahammurah.com, toplikevideo.com, united-local.com, wecelebrities.com
 
 domain:123webshop.shop
+domain:advanced-saas-seo-directory-outrank-hq.store
+domain:advanced-search-rank-and-niche-edit-depot.store
+domain:advanced-search-seoexpress-pros.store
 domain:advanced-seo-firm-seoexpress.store
+domain:advanced-traffic-surge-and-keyword-rank-bureau.store
 domain:analyticshaven.top
+domain:anchor-text-and-index-rate-trusted-syndicate.store
 domain:atomizelink.icu
 domain:authentic-seoexpress-keyword-firm.store
 domain:authoritybacklinks.shop
+domain:backlinkengine.shop
 domain:backlinker.shop
+domain:backlinkmasters.shop
+domain:backlinkpartners.shop
+domain:backlinkshop.site
 domain:best-keyword-seoexpress-portal.store
 domain:blogsphere.top
 domain:buybacklinks.agency
@@ -20,6 +34,11 @@ domain:byteshort.xyz
 domain:certified-link-building-seoexpress.store
 domain:certified-seoexpress-organic-services.store
 domain:creativeposts.top
+domain:dailymusings.top
+domain:digital-pr-and-domain-rating-premium-experts.store
+domain:domainrankexperts.shop
+domain:domainrankexpress.shop
+domain:domainrankpartners.shop
 domain:ekenkoshop.shop
 domain:elite-authority-marketplace-seoexpress.store
 domain:elite-high-da-center-seoexpress.store
@@ -30,42 +49,104 @@ domain:expert-domain-seoexpress-specialists.store
 domain:expert-organic-seoexpress.store
 domain:expert-search-seoexpress-team.store
 domain:fiverr-cost-effective-seo.site
+domain:flagship-niche-edit-and-link-building-services.store
 domain:global-authority-seoexpress-group.store
+domain:googleseoauthority.shop
+domain:googleseocompany.shop
+domain:googleseocraft.shop
+domain:googleseoexperts.shop
+domain:googleseopoint.shop
+domain:guestpostlinks.shop
+domain:high-seoexpress-organic-team.store
 domain:highseo.shop
 domain:highseoranking.shop
 domain:instant-webpage-seoexpress-consultants.store
 domain:itxoft-professional-seo-services.site
 domain:jake.eu
 domain:kawaiishop.shop
+domain:keyword-rank-backlink-pro-and-keyword-rank-depot.store
 domain:kmoshops.shop
+domain:leading-hub-for-page-rank-and-contextual-link.store
+domain:link-juice-traffic-surge-and-traffic-surge-collective.store
+domain:linkgrowthauthority.shop
+domain:linkgrowthcompany.shop
 domain:linkrankboost.shop
 domain:linkrankpro.shop
+domain:linkseoauthority.shop
+domain:linkseoinsights.shop
+domain:linkseonetwork.shop
 domain:linkseopro.shop
+domain:linksjump.info
 domain:lixil-reformshop.shop
 domain:luxury-seoexpress-tier-1-house.store
+domain:master-seoexpress-content-consultants.store
 domain:master-seoexpress-search-agency.store
+domain:modern-guest-post-consultants-seoexpress.store
 domain:modern-organic-group-seoexpress.store
 domain:mysky-shop.shop
+domain:newsblogsports.site
+domain:nexusnext.agency
 domain:official-domain-seoexpress.store
+domain:official-on-page-link-baron-division.store
 domain:optimize-instant.website
 domain:optimizeflow.top
+domain:organicrankexpress.shop
+domain:organicranknetwork.shop
+domain:organicrankservice.shop
+domain:organicranksystems.shop
+domain:pageseocollective.shop
+domain:pageseomasters.shop
+domain:pageseoresults.shop
+domain:pageseoservice.shop
+domain:pageseosystems.shop
 domain:pbnseolinks.shop
+domain:powerful-link-building-hub-seoexpress.store
+domain:premium-studio-for-white-hat-and-index-rate.store
 domain:premium-tier-1-company-seoexpress.store
 domain:premiumseolinks.shop
+domain:prime-depot-for-digital-pr-and-ranking-signal.store
 domain:prime-high-da-seoexpress.store
 domain:professional-seoexpress-high-da-partners.store
 domain:quero.party
 domain:rank-top.click
 domain:rank-your.website
+domain:rankbox.shop
+domain:rankcollective.shop
+domain:rankgrowthagency.shop
+domain:rankgrowthboost.shop
+domain:rankgrowthinsights.shop
+domain:rankgrowthservice.shop
+domain:rankgrowthsolutions.shop
 domain:rankinghighseo.shop
 domain:rankingseohigh.shop
 domain:ranklinkerpro.shop
 domain:ranklinkpro.shop
+domain:rankloot.shop
+domain:rankongoogle.agency
+domain:rankpicks.shop
+domain:rankpilot.shop
+domain:rankseoalliance.shop
+domain:rankseopartners.shop
+domain:rankseoprovider.shop
+domain:rankseoservice.shop
+domain:rankseotoolkit.shop
 domain:rankxlinks.shop
 domain:rankyour.website
 domain:rent-a-shop.shop
+domain:searchrankcentral.shop
+domain:searchrankexperts.shop
+domain:searchrankinsights.shop
+domain:searchrankpipeline.shop
+domain:searchranksolutions.shop
 domain:seo-high-ranking.shop
 domain:seoagency.sale
+domain:seobazaar.shop
+domain:seoboostacademy.shop
+domain:seoboostalliance.shop
+domain:seoboostcompany.shop
+domain:seoboostexchange.shop
+domain:seoboostresults.shop
+domain:seobox.shop
 domain:seodaro.com
 domain:seoexpress-anchor-text-experts.store
 domain:seoexpress-authority-portal.store
@@ -73,7 +154,9 @@ domain:seoexpress-backlink-hub.store
 domain:seoexpress-best-seo-firm.store
 domain:seoexpress-dr-90-group.store
 domain:seoexpress-leading-dofollow-pros.store
+domain:seoexpress-marketing-exchange.store
 domain:seoexpress-off-page-solutions.store
+domain:seoexpress-pbn-company.store
 domain:seoexpress.online
 domain:seoexpress.org
 domain:seoexpress.shop
@@ -81,13 +164,27 @@ domain:seoexpress.site
 domain:seoexpress.store
 domain:seoexpress.website
 domain:seogeko.shop
+domain:seogrowthalliance.shop
+domain:seogrowthengine.shop
+domain:seogrowthprovider.shop
+domain:seogrowthresults.shop
+domain:seogrowthstudio.shop
 domain:seohighranking.shop
+domain:seolinkexpress.shop
 domain:seolinkpro.shop
+domain:seonexi.com
+domain:seoprobox.click
+domain:seoprobox.xyz
 domain:seorankinghigh.shop
+domain:seowarez.shop
+domain:seozino.com
 domain:seozora.com
 domain:shop-inframe.shop
 domain:shopbetreiber-blog.shop
 domain:simplywebshop.shop
+domain:siterankexpress.shop
+domain:siterankprovider.shop
+domain:siteranktoolkit.shop
 domain:smart-indexer-seoexpress.store
 domain:smart-marketing-seoexpress.store
 domain:smart-seoexpress-webpage-experts.store
@@ -105,8 +202,20 @@ domain:theseohighranking.shop
 domain:theseomasterhigh.shop
 domain:theseorankinghigh.shop
 domain:thetoprankingseo.shop
+domain:tier-one-and-domain-rating-trusted-exchange.store
 domain:toplinkranker.shop
+domain:toprankalliance.shop
+domain:toprankauthority.shop
+domain:toprankmasters.shop
+domain:toprankpartners.shop
+domain:toprankprovider.shop
+domain:toprankresults.shop
+domain:traffic-surge-and-backlink-pro-leading-consortium.store
 domain:trusted-dofollow-team-seoexpress.store
 domain:trusted-off-page-pros-seoexpress.store
+domain:trusted-organic-traffic-and-link-building-central.store
 domain:trusted-seoexpress-backlink-experts.store
+domain:ultimate-depot-for-search-rank-and-content-marketing.store
 domain:verified-seoexpress-search-directory.store
+domain:webrankresults.shop
+domain:webranksystems.shop
