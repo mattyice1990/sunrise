@@ -151,7 +151,7 @@ Object.assign(window.SEO, {
       },
     ],
     faqs: [
-      { q: "How often should you replace your roof in Tucson?", a: "Shingle roofs usually run 15 to 25 years here. Tile can go 50-plus, though the underlayment under it needs redoing every 20 to 25. Good metal'll last 40 to 70. The heat and UV speed everything up, so without solid ventilation and underlayment you're looking at the shorter end of those numbers." },
+      { q: "How often does a roof need to be replaced in Tucson?", a: "Shingle roofs usually run 15 to 25 years here. Tile can go 50-plus, though the underlayment under it needs redoing every 20 to 25. Good metal'll last 40 to 70. The heat and UV speed everything up, so without solid ventilation and underlayment you're looking at the shorter end of those numbers." },
       { q: "What are the clearest signs I need a new roof?", a: "Leaks in a few different spots, cracked or slipped tile all over, shingles losing granules and curling, and moisture or daylight in the attic. A free inspection tells you whether a repair or a replacement is the smarter call." },
       { q: "What's the best roofing material for Arizona?", a: "Depends on your house and budget. Tile and metal last the longest and handle the heat great, shingle's the value pick, and foam and reflective coatings are the move on flat roofs. We'll point you to the best fit for your place." },
       { q: "How much does roof repair cost?", a: "Small repairs run a few hundred bucks; bigger water-intrusion or underlayment work costs more. The inspection's free and the estimate's itemized in writing, so you know before we start anything." },
