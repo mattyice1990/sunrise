@@ -3,10 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "img:process:matt-sarah": "node scripts/process-matt-sarah-images.mjs"
+    "img:process:matt-sarah": "node scripts/process-matt-sarah-images.mjs",
+    "build:jsx": "node scripts/build-jsx.mjs",
+    "check:nap": "node scripts/check-nap.mjs",
+    "citations": "node scripts/citation-pack.mjs --write"
   },
   "dependencies": {
     "sharp": "^0.33.4"
   }
 }
-

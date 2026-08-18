@@ -1,0 +1,49 @@
+{
+  "_comment": "Canonical NAP for Sunrise Roofers LLC. Single source of truth for every citation, directory listing and schema block. If a value changes here it must change everywhere - run `node scripts/check-nap.mjs` to verify.",
+  "name": "Sunrise Roofers LLC",
+  "dba": "Sunrise Roofers",
+  "address": {
+    "street": "7320 N La Cholla Blvd Ste 154-276",
+    "city": "Tucson",
+    "state": "AZ",
+    "postalCode": "85741",
+    "country": "US",
+    "oneLine": "7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741"
+  },
+  "phone": {
+    "display": "(520) 753-1758",
+    "e164": "+15207531758",
+    "dashed": "520-753-1758",
+    "_note": "Destination line. CallRail swaps this dynamically on the site. NEVER use 520-783-3976 (GBP-bound) in paid ads; the ads call asset is 520-210-5284."
+  },
+  "email": "eddie@roofwithsunrise.com",
+  "website": "https://roofwithsunrise.com",
+  "license": "ROC #358079",
+  "foundingDate": "2025",
+  "owners": ["Eddie Guillen", "Viky Guillen"],
+  "hours": "Mo-Fr 07:00-18:00, Sa 08:00-16:00",
+  "categories": {
+    "primary": "Roofing Contractor",
+    "secondary": ["Roof Repair Service", "Commercial Roofing", "Gutter Service"]
+  },
+  "serviceAreas": ["Tucson", "Marana", "Oro Valley", "Sahuarita", "Green Valley", "Vail"],
+  "descriptions": {
+    "short": "Licensed Tucson roofing contractor (ROC #358079) handling tile, shingle, flat and foam roofs across Pima County.",
+    "medium": "Sunrise Roofers LLC is a licensed and bonded roofing contractor serving Tucson, Marana, Oro Valley, Sahuarita, Green Valley and Vail. Owners Eddie and Viky Guillen handle tile roof repair, shingle and metal roof replacement, flat roof coatings, foam roofing, skylights and gutters, with free inspections and honest estimates. ROC #358079."
+  },
+  "profiles": {
+    "google": "https://www.google.com/maps?cid=2878962440155556072",
+    "facebook": "https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/",
+    "instagram": "https://www.instagram.com/sunriseroofersllc/",
+    "youtube": "https://www.youtube.com/@Sunriseroofers520",
+    "yelp": "https://www.yelp.com/biz/sunrise-roofers-tucson",
+    "bbb": "https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900"
+  },
+  "forbiddenVariants": {
+    "_comment": "Strings that must never reappear. check-nap.mjs fails the build if it finds them.",
+    "sunriseroofer@outlook.com": "old public email - Web3Forms delivery inbox only, never displayed",
+    "Sunrise Roofing": "wrong business name - the entity is Sunrise Roofers LLC",
+    "520-783-3976": "CallRail number bound to GBP; misattributes paid calls if used in ads",
+    "(520) 555-0123": "placeholder - only valid as a form input placeholder attribute"
+  }
+}

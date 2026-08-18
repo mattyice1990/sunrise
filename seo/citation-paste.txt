@@ -1,0 +1,40 @@
+SUNRISE ROOFERS LLC - CITATION PASTE PACK
+Generated from seo/nap.json. Do not edit by hand.
+================================================================
+
+Business name    : Sunrise Roofers LLC
+Address line 1   : 7320 N La Cholla Blvd Ste 154-276
+City             : Tucson
+State            : AZ
+ZIP              : 85741
+Full address     : 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741
+Phone            : (520) 753-1758
+Phone (digits)   : 520-753-1758
+Email            : eddie@roofwithsunrise.com
+Website          : https://roofwithsunrise.com
+License          : ROC #358079
+Year established : 2025
+Hours            : Mo-Fr 07:00-18:00, Sa 08:00-16:00
+Primary category : Roofing Contractor
+Other categories : Roof Repair Service, Commercial Roofing, Gutter Service
+Service areas    : Tucson, Marana, Oro Valley, Sahuarita, Green Valley, Vail
+Owners           : Eddie Guillen & Viky Guillen
+
+SHORT DESCRIPTION (112 chars)
+Licensed Tucson roofing contractor (ROC #358079) handling tile, shingle, flat and foam roofs across Pima County.
+
+LONG DESCRIPTION (338 chars)
+Sunrise Roofers LLC is a licensed and bonded roofing contractor serving Tucson, Marana, Oro Valley, Sahuarita, Green Valley and Vail. Owners Eddie and Viky Guillen handle tile roof repair, shingle and metal roof replacement, flat roof coatings, foam roofing, skylights and gutters, with free inspections and honest estimates. ROC #358079.
+
+EXISTING PROFILES (link these as 'social' / 'other' wherever a field exists)
+  google     https://www.google.com/maps?cid=2878962440155556072
+  facebook   https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/
+  instagram  https://www.instagram.com/sunriseroofersllc/
+  youtube    https://www.youtube.com/@Sunriseroofers520
+  yelp       https://www.yelp.com/biz/sunrise-roofers-tucson
+  bbb        https://www.bbb.org/us/az/tucson/profile/roofing-contractors/sunrise-roofers-llc-1286-20125900
+
+RULES
+  - Paste the address EXACTLY as above. No comma before 'Ste'.
+  - Never use 520-783-3976 (GBP-bound) or 520-210-5284 (ads-only) in a citation.
+  - If a directory forces a different format, record it in seo/citations.md.

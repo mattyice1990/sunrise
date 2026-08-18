@@ -9,7 +9,7 @@ const SA = {
   radiusMiles: 40,
   business: {
     title: "Sunrise Roofers LLC",
-    address1: "7320 N La Cholla Blvd, Ste 154-276",
+    address1: "7320 N La Cholla Blvd Ste 154-276",
     address2: "Tucson, AZ 85741",
     coords: { lat: 32.3399923325422, lng: -111.0119592071643 },
   },

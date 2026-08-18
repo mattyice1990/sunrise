@@ -1,4 +1,4 @@
-// Dynamic RSS Feed Generator for Sunrise Roofing Blog
+// Dynamic RSS Feed Generator for Sunrise Roofers Blog
 // Auto-generates feed from blog-posts.json
 
 import { readFileSync } from 'fs';
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     const rssXML = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Sunrise Roofing Blog</title>
+  <title>Sunrise Roofers Blog</title>
   <link>https://roofwithsunrise.com/blog/</link>
   <description>Expert roofing advice and project updates from Tucson's trusted contractors</description>
   <language>en-US</language>
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
     const errorXML = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>Sunrise Roofing Blog</title>
+  <title>Sunrise Roofers Blog</title>
   <link>https://roofwithsunrise.com/blog/</link>
   <description>Error loading blog posts</description>
 </channel>

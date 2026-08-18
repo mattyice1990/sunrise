@@ -8,7 +8,7 @@
 
 export const GBP = {
   // Business identity (used in Claude prompts).
-  businessName: 'Sunrise Roofing',
+  businessName: 'Sunrise Roofers',
   businessType: 'Roofing contractor (residential + commercial), Tucson AZ',
   serviceArea: 'Tucson, Oro Valley, Marana, Catalina Foothills, Green Valley, Vail',
 

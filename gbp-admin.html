@@ -194,7 +194,7 @@ function previewCard(id,img,text,cta,isPair){
   const imgHtml = '<img class="ph'+(isPair?' contain':'')+'" id="pv-img-'+id+'" src="'+esc(img||'')+'" alt="" style="'+(img?'':'display:none')+'">'+
     '<div class="noimg" id="pv-noimg-'+id+'" style="'+(img?'display:none':'')+'">No photo</div>';
   return '<div class="gbp">'+imgHtml+
-    '<div class="body"><div class="biz"><div class="dot">S</div><div><b>Sunrise Roofing</b><br><span>Tucson, AZ · Roofing</span></div></div>'+
+    '<div class="body"><div class="biz"><div class="dot">S</div><div><b>Sunrise Roofers</b><br><span>Tucson, AZ · Roofing</span></div></div>'+
     '<p class="txt" id="pv-txt-'+id+'">'+esc(text||'')+'</p>'+ctaHtml+'</div></div>';
 }
 
