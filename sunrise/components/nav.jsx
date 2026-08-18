@@ -22,7 +22,7 @@ function TopbarTickerRun() {
     <React.Fragment>
       <a className="ti" href="tel:5207531758"><Icon name="phone" /> 520-753-1758</a>
       <span className="ti topbar__emergency"><span className="dot"></span> 24/7 Emergency Roof Repair</span>
-      <a className="ti" href="mailto:sunriseroofer@outlook.com"><Icon name="mail" /> sunriseroofer@outlook.com</a>
+      <a className="ti" href="mailto:eddie@roofwithsunrise.com"><Icon name="mail" /> eddie@roofwithsunrise.com</a>
       <span className="ti"><Icon name="badge" /> ROC #358079 · Licensed &amp; Insured</span>
       <span className="topbar__socials">
         <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener" aria-label="Facebook"><Icon name="fb" /></a>
@@ -40,7 +40,7 @@ function TopBar() {
       <div className="container topbar__row">
         <div className="topbar__left">
           <a className="ti" href="tel:5207531758"><Icon name="phone" /> 520-753-1758</a>
-          <a className="ti ti--hide" href="mailto:sunriseroofer@outlook.com"><Icon name="mail" /> sunriseroofer@outlook.com</a>
+          <a className="ti ti--hide" href="mailto:eddie@roofwithsunrise.com"><Icon name="mail" /> eddie@roofwithsunrise.com</a>
           <span className="ti topbar__emergency"><span className="dot"></span> 24/7 Emergency Roof Repair</span>
         </div>
         <div className="topbar__right">

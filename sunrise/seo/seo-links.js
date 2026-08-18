@@ -7,7 +7,7 @@
   S.HOME = "/";
   S.PHONE = "520-753-1758";
   S.PHONE_HREF = "tel:5207531758";
-  S.EMAIL = "sunriseroofer@outlook.com";
+  S.EMAIL = "eddie@roofwithsunrise.com";
 
   // slug -> page URL. "home" is special. Absolute + extensionless to match Vercel
   // cleanUrls, the sitemap, canonicals and the static boot-splash links (so every

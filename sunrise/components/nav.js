@@ -30,10 +30,10 @@ function TopbarTickerRun() {
     className: "dot"
   }), " 24/7 Emergency Roof Repair"), /*#__PURE__*/React.createElement("a", {
     className: "ti",
-    href: "mailto:sunriseroofer@outlook.com"
+    href: "mailto:eddie@roofwithsunrise.com"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "mail"
-  }), " sunriseroofer@outlook.com"), /*#__PURE__*/React.createElement("span", {
+  }), " eddie@roofwithsunrise.com"), /*#__PURE__*/React.createElement("span", {
     className: "ti"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "badge"
@@ -76,10 +76,10 @@ function TopBar() {
     name: "phone"
   }), " 520-753-1758"), /*#__PURE__*/React.createElement("a", {
     className: "ti ti--hide",
-    href: "mailto:sunriseroofer@outlook.com"
+    href: "mailto:eddie@roofwithsunrise.com"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "mail"
-  }), " sunriseroofer@outlook.com"), /*#__PURE__*/React.createElement("span", {
+  }), " eddie@roofwithsunrise.com"), /*#__PURE__*/React.createElement("span", {
     className: "ti topbar__emergency"
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"

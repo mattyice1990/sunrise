@@ -71,7 +71,8 @@ function ContactForm() {
       }
     } catch (err) {}
 
-    // Web3Forms → emails sunriseroofer@outlook.com. This is the same backend
+    // Web3Forms → still delivers to sunriseroofer@outlook.com (the inbox tied to
+    // the access key below; change it in the Web3Forms dashboard, not here).
     // the original roofwithsunrise.com contact form used and is what actually
     // delivers the lead. Only show success when the email truly goes out.
     try {
@@ -166,7 +167,7 @@ function ContactForm() {
     style: {
       display: "block"
     }
-  }, "sunriseroofer@outlook.com"))), /*#__PURE__*/React.createElement("div", {
+  }, "eddie@roofwithsunrise.com"))), /*#__PURE__*/React.createElement("div", {
     className: "contact__row"
   }, /*#__PURE__*/React.createElement("span", {
     className: "ic"

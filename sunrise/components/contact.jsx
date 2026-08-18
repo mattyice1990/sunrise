@@ -43,7 +43,8 @@ function ContactForm() {
       }
     } catch (err) {}
 
-    // Web3Forms → emails sunriseroofer@outlook.com. This is the same backend
+    // Web3Forms → still delivers to sunriseroofer@outlook.com (the inbox tied to
+    // the access key below; change it in the Web3Forms dashboard, not here).
     // the original roofwithsunrise.com contact form used and is what actually
     // delivers the lead. Only show success when the email truly goes out.
     try {
@@ -94,7 +95,7 @@ function ContactForm() {
               </div>
               <div className="contact__row">
                 <span className="ic"><Icon name="mail" /></span>
-                <span><span className="k">Email</span><span className="v" style={{ display: "block" }}>sunriseroofer@outlook.com</span></span>
+                <span><span className="k">Email</span><span className="v" style={{ display: "block" }}>eddie@roofwithsunrise.com</span></span>
               </div>
               <div className="contact__row">
                 <span className="ic"><Icon name="pin" /></span>

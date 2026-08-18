@@ -13,19 +13,19 @@ const BA_GALLERY = [{
   loc: "Oro Valley",
   sys: "24-ga Standing Seam",
   slot: "recent-metal",
-  src: "uploads/aerial-metal.jpg"
+  src: "uploads/metal-roofing-tucson-aerial.jpg"
 }, {
   t: "Flat Roof Coating & Restoration",
   loc: "Midtown Tucson",
   sys: "Foam + Elastomeric Coat",
   slot: "recent-flat",
-  src: "uploads/aerial-commercial.jpg"
+  src: "uploads/commercial-roofing-tucson-aerial.jpg"
 }, {
   t: "Concrete Tile Roof Replacement",
   loc: "Catalina Foothills",
   sys: "Tile Lift & New Underlayment",
   slot: "recent-tile",
-  src: "uploads/aerial-home.jpg"
+  src: "uploads/residential-roofing-tucson-aerial.jpg"
 }];
 function ProjectsHero() {
   return /*#__PURE__*/React.createElement("section", {

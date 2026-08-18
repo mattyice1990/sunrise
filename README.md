@@ -192,7 +192,7 @@ The `.gitignore` file ensures that:
 
 **Sunrise Roofers LLC**
 - 📱 Phone: 520-753-1758
-- 📧 Email: sunriseroofer@outlook.com
+- 📧 Email: eddie@roofwithsunrise.com
 - 🌐 Website: https://www.sunriseroofersaz.com
 - 📍 Location: 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741
 
