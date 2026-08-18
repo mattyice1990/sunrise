@@ -52,7 +52,7 @@ function injectSeoHead(p) {
   setMeta("og:title", p.title, "property");
   setMeta("og:description", p.desc, "property");
   setMeta("og:type", "website", "property");
-  const base = "https://roofwithsunrise.com/";
+  const base = "https://roofwithsunrise.com"; // no trailing slash: SUNRISE.url() already returns a leading "/"
   const shortHere = window.SUNRISE.ALL[p.slug] && window.SUNRISE.ALL[p.slug].t || p.hero.h1;
   const crumbs = [{
     name: "Home",
@@ -66,7 +66,24 @@ function injectSeoHead(p) {
     name: shortHere,
     slug: p.slug
   });
-  const ld = [{
+
+  // Core pages are not services. Typing About/Contact/Resources as Service told
+  // Google that "About Us" was a product called "tucson roofing company".
+  const CORE_TYPE = {
+    about: "AboutPage",
+    contact: "ContactPage",
+    resources: "CollectionPage"
+  };
+  const primary = CORE_TYPE[p.slug] ? {
+    "@context": "https://schema.org",
+    "@type": CORE_TYPE[p.slug],
+    name: p.hero.h1,
+    description: p.desc,
+    url: base + window.SUNRISE.url(p.slug),
+    publisher: {
+      "@id": base + "/#business"
+    }
+  } : {
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: p.kw && p.kw.primary,
@@ -76,23 +93,34 @@ function injectSeoHead(p) {
       name: "Tucson",
       "@id": "https://www.wikidata.org/wiki/Q5712"
     },
+    // @id ties every service page's provider back to the single canonical
+    // business node on the homepage instead of minting a new partial entity
+    // per page. Address must stay complete + identical to GBP for NAP parity.
     provider: {
       "@type": "RoofingContractor",
+      "@id": base + "/#business",
       name: "Sunrise Roofers LLC",
       telephone: window.SUNRISE.PHONE,
       email: window.SUNRISE.EMAIL,
       address: {
         "@type": "PostalAddress",
+        streetAddress: "7320 N La Cholla Blvd Ste 154-276",
         addressLocality: "Tucson",
         addressRegion: "AZ",
+        postalCode: "85741",
         addressCountry: "US"
       },
       areaServed: "Tucson & Pima County, AZ"
     },
     description: p.desc
-  }, {
+  };
+  const ld = [primary, {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    // Only linked crumbs go in the JSON-LD: Google requires "item" on every
+    // ListItem except the last, and an undefined item is dropped by
+    // JSON.stringify, which fails validation. The unlinked middle label
+    // ("Services", "Service Areas", ...) still renders in <Crumb> below.
     itemListElement: crumbs.filter(c => c.slug).map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
