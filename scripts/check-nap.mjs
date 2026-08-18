@@ -15,6 +15,10 @@ const ALLOW = [
   // Greyed-out example in the phone input, never presented as the business number.
   { file: "sunrise/components/contact.", variant: "(520) 555-0123" },
   { file: "seo/nap.json", variant: "*" },
+  // One-way mirror of live Google Business Profile post copy. The cron re-syncs
+  // from Google, so editing it here just churns; fix the post ON Google instead.
+  // Served with X-Robots-Tag: noindex, so it carries no SEO weight.
+  { file: "data/gbp/posts.json", variant: "Sunrise Roofing" },
   // Generated pack quotes the forbidden numbers inside its own warning text.
   { file: "seo/citation-paste.txt", variant: "*" },
   { file: "seo/citations.md", variant: "*" },
