@@ -24,7 +24,7 @@ function AboutSection() {
     className: "about__media"
   }, /*#__PURE__*/React.createElement(Slot, {
     id: "about-crew",
-    src: "uploads/sunrise-crew.webp",
+    src: "uploads/sunrise-roofers-team-tucson.webp",
     ph: "Crew / founder photo",
     alt: "Sunrise Roofers family-owned crew in Tucson, AZ",
     radius: "16"

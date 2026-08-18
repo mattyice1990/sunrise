@@ -23,7 +23,7 @@ function MeetOwner() {
     className: "owner__photo"
   }, /*#__PURE__*/React.createElement(Slot, {
     id: "owner-eddie",
-    src: "uploads/Roof%20Installation_edited.jpg",
+    src: "uploads/roof-installation-tucson.jpg",
     ph: "Eddie on a roof",
     alt: "Eddie Guillen, owner of Sunrise Roofers, working on a roof in Tucson, AZ"
   }))), /*#__PURE__*/React.createElement("div", {

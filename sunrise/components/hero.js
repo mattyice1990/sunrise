@@ -148,13 +148,13 @@ function Hero() {
     muted: true,
     playsInline: true,
     preload: "auto",
-    poster: "uploads/aerial-home.jpg"
+    poster: "uploads/residential-roofing-tucson-aerial.jpg"
   }), /*#__PURE__*/React.createElement("video", {
     ref: bRef,
     muted: true,
     playsInline: true,
     preload: "auto",
-    poster: "uploads/aerial-home.jpg",
+    poster: "uploads/residential-roofing-tucson-aerial.jpg",
     style: {
       opacity: 0
     }

@@ -36,8 +36,8 @@ function PortfolioFeature({ ctaHref, ctaLabel }) {
             beforePh="BEFORE — worn roof" afterPh="AFTER — new install"
             beforeAlt="Worn, leaking clay tile roof before replacement — Catalina Foothills, Tucson AZ"
             afterAlt="New concrete tile roof after replacement by Sunrise Roofers — Catalina Foothills, Tucson AZ"
-            beforeSrc={(window.__resources && window.__resources.baBefore) || "uploads/Clay%20Tile%20Before.jpg"}
-            afterSrc={(window.__resources && window.__resources.baAfter) || "uploads/Concrete%20Tile%20After.jpg"}
+            beforeSrc={(window.__resources && window.__resources.baBefore) || "uploads/clay-tile-roof-before-tucson.jpg"}
+            afterSrc={(window.__resources && window.__resources.baAfter) || "uploads/concrete-tile-roof-after-tucson.jpg"}
           />
           <div className="ba-info">
             <span className="tag" style={{ marginBottom: 14 }}>Featured Project</span>
@@ -58,15 +58,15 @@ function PortfolioFeature({ ctaHref, ctaLabel }) {
 
 const FILTERS = ["All Projects", "Metal Roofing", "Tile Roofing", "Shingle Roofing", "Flat & Coatings", "Commercial", "Roof Repairs"];
 const PROJECTS = [
-  { cat: "Metal Roofing", t: "Standing-Seam Ranch Reroof", loc: "Oro Valley", sys: "24-ga standing-seam metal", prob: "Aging shingles failing under UV; upgraded to a 40-year metal system.", slot: "pf1", src: "uploads/aerial-metal.jpg", ph: "Metal roof project" },
-  { cat: "Tile Roofing", t: "Concrete Tile Re-Felt", loc: "Sahuarita", sys: "Tile lift & new underlayment", prob: "Original 1998 underlayment cracked; tiles salvaged and re-laid.", slot: "pf2", src: "uploads/pf-tile-refelt.jpg", ph: "Tile roof project" },
-  { cat: "Flat & Coatings", t: "Flat Roof Coating Restoration", loc: "Midtown Tucson", sys: "Silicone restoration coating", prob: "Ponding water and worn seams sealed with a fresh elastomeric coating system.", slot: "pf3", src: "uploads/pf-foam-recoat.jpg", ph: "Flat roof coating project" },
-  { cat: "Commercial", t: "Retail Plaza TPO System", loc: "East Tucson", sys: "60-mil TPO membrane", prob: "Leaking built-up roof replaced with no disruption to open storefronts.", slot: "pf4", src: "uploads/pf-flat-tpo.jpg", ph: "Commercial roof project" },
-  { cat: "Shingle Roofing", t: "Architectural Shingle Reroof", loc: "Marana", sys: "Class-4 impact shingles", prob: "Storm-damaged roof rebuilt with impact-rated architectural shingles.", slot: "pf5", src: "uploads/pf-shingle.jpg", ph: "Shingle roof project" },
-  { cat: "Roof Repairs", t: "Monsoon Leak Repair", loc: "Vail", sys: "Flashing & valley rebuild", prob: "Emergency leak traced to failed valley flashing; repaired in one visit.", slot: "pf6", src: "uploads/pf-repair.jpg", ph: "Repair project" },
-  { cat: "Metal Roofing", t: "Modern Home Metal Accent", loc: "Catalina Foothills", sys: "Mixed metal & flat", prob: "New-build roofline combining metal slopes with a coated flat section.", slot: "pf7", src: "uploads/pf-metal.jpg", ph: "Metal accent project" },
-  { cat: "Commercial", t: "Warehouse Coating Restoration", loc: "South Tucson", sys: "Silicone restoration coat", prob: "30,000 sq ft warehouse roof restored without a costly tear-off.", slot: "pf8", src: "uploads/pf-warehouse-coat.jpg", ph: "Warehouse roof project" },
-  { cat: "Tile Roofing", t: "Clay Tile Repair & Match", loc: "Civano", sys: "Clay tile repair", prob: "Cracked tiles replaced with period-matched clay after a wind event.", slot: "pf9", src: "uploads/pf-clay-repair.jpg", ph: "Clay tile project" },
+  { cat: "Metal Roofing", t: "Standing-Seam Ranch Reroof", loc: "Oro Valley", sys: "24-ga standing-seam metal", prob: "Aging shingles failing under UV; upgraded to a 40-year metal system.", slot: "pf1", src: "uploads/metal-roofing-tucson-aerial.jpg", ph: "Metal roof project" },
+  { cat: "Tile Roofing", t: "Concrete Tile Re-Felt", loc: "Sahuarita", sys: "Tile lift & new underlayment", prob: "Original 1998 underlayment cracked; tiles salvaged and re-laid.", slot: "pf2", src: "uploads/tile-roof-underlayment-tucson.jpg", ph: "Tile roof project" },
+  { cat: "Flat & Coatings", t: "Flat Roof Coating Restoration", loc: "Midtown Tucson", sys: "Silicone restoration coating", prob: "Ponding water and worn seams sealed with a fresh elastomeric coating system.", slot: "pf3", src: "uploads/foam-roof-recoating-tucson.jpg", ph: "Flat roof coating project" },
+  { cat: "Commercial", t: "Retail Plaza TPO System", loc: "East Tucson", sys: "60-mil TPO membrane", prob: "Leaking built-up roof replaced with no disruption to open storefronts.", slot: "pf4", src: "uploads/flat-roof-tpo-tucson.jpg", ph: "Commercial roof project" },
+  { cat: "Shingle Roofing", t: "Architectural Shingle Reroof", loc: "Marana", sys: "Class-4 impact shingles", prob: "Storm-damaged roof rebuilt with impact-rated architectural shingles.", slot: "pf5", src: "uploads/shingle-roof-installation-tucson.jpg", ph: "Shingle roof project" },
+  { cat: "Roof Repairs", t: "Monsoon Leak Repair", loc: "Vail", sys: "Flashing & valley rebuild", prob: "Emergency leak traced to failed valley flashing; repaired in one visit.", slot: "pf6", src: "uploads/roof-repair-tucson.jpg", ph: "Repair project" },
+  { cat: "Metal Roofing", t: "Modern Home Metal Accent", loc: "Catalina Foothills", sys: "Mixed metal & flat", prob: "New-build roofline combining metal slopes with a coated flat section.", slot: "pf7", src: "uploads/metal-roof-installation-tucson.jpg", ph: "Metal accent project" },
+  { cat: "Commercial", t: "Warehouse Coating Restoration", loc: "South Tucson", sys: "Silicone restoration coat", prob: "30,000 sq ft warehouse roof restored without a costly tear-off.", slot: "pf8", src: "uploads/warehouse-roof-coating-tucson.jpg", ph: "Warehouse roof project" },
+  { cat: "Tile Roofing", t: "Clay Tile Repair & Match", loc: "Civano", sys: "Clay tile repair", prob: "Cracked tiles replaced with period-matched clay after a wind event.", slot: "pf9", src: "uploads/clay-tile-roof-repair-tucson.jpg", ph: "Clay tile project" },
 ];
 
 function ProjectsGrid() {

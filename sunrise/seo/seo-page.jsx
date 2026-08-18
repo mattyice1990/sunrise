@@ -9,29 +9,58 @@ const U = (slug) => window.SUNRISE.url(slug);
 /* Per-page hero background photo (real roofing job shots). Falls back to the
    CSS gradient when a slug has no mapping. */
 const HERO_IMG = {
-  "roof-repair": "uploads/pf-repair.jpg",
-  "roof-replacement": "uploads/aerial-home.jpg",
-  "roof-installation": "uploads/prop-new.webp",
-  "roof-inspection": "uploads/sunrise-crew.webp",
-  "emergency-roof-repair": "uploads/pf-clay-repair.jpg",
-  "storm-damage-roof-repair-tucson": "uploads/wind-damage.jpg",
-  "tile-roofing": "uploads/pf-tile-refelt.jpg",
-  "flat-roofing": "uploads/pf-flat-tpo.jpg",
-  "roof-coatings": "uploads/prop-retail.jpg",
-  "metal-roofing": "uploads/aerial-metal.jpg",
-  "shingle-roofing": "uploads/pf-shingle.jpg",
-  "gutter-installation": "uploads/Roofing%20on%20Steep%20Roof%20Pitch.jpeg",
-  "skylight-installation": "uploads/skylight.jpg",
-  "roofing-tucson": "uploads/aerial-home.jpg",
-  "roofing-oro-valley": "uploads/pf-tile-refelt.jpg",
-  "roofing-marana": "uploads/pf-shingle.jpg",
-  "roofing-sahuarita-green-valley": "uploads/Tile%20Roof%20Replacement%20in%20Marana.jpg",
-  "roofing-vail-az": "uploads/Roofing%20on%20Steep%20Roof%20Pitch.jpeg",
-  "residential-roofing": "uploads/aerial-home.jpg",
-  "commercial-roofing": "uploads/aerial-commercial.jpg",
-  "about": "uploads/sunrise-crew.webp",
-  "contact": "uploads/aerial-home.jpg",
-  "resources": "uploads/Roof%20Coating.jpeg",
+  "roof-repair": "uploads/roof-repair-tucson.jpg",
+  "roof-replacement": "uploads/residential-roofing-tucson-aerial.jpg",
+  "roof-installation": "uploads/new-construction-roofing-tucson.webp",
+  "roof-inspection": "uploads/sunrise-roofers-team-tucson.webp",
+  "emergency-roof-repair": "uploads/clay-tile-roof-repair-tucson.jpg",
+  "storm-damage-roof-repair-tucson": "uploads/storm-damage-roof-tucson.jpg",
+  "tile-roofing": "uploads/tile-roof-underlayment-tucson.jpg",
+  "flat-roofing": "uploads/flat-roof-tpo-tucson.jpg",
+  "roof-coatings": "uploads/retail-roof-coating-tucson.jpg",
+  "metal-roofing": "uploads/metal-roofing-tucson-aerial.jpg",
+  "shingle-roofing": "uploads/shingle-roof-installation-tucson.jpg",
+  "gutter-installation": "uploads/steep-pitch-roofing-tucson.jpeg",
+  "skylight-installation": "uploads/skylight-installation-tucson.jpg",
+  "roofing-tucson": "uploads/residential-roofing-tucson-aerial.jpg",
+  "roofing-oro-valley": "uploads/tile-roof-underlayment-tucson.jpg",
+  "roofing-marana": "uploads/shingle-roof-installation-tucson.jpg",
+  "roofing-sahuarita-green-valley": "uploads/tile-roof-replacement-marana.jpg",
+  "roofing-vail-az": "uploads/steep-pitch-roofing-tucson.jpeg",
+  "residential-roofing": "uploads/residential-roofing-tucson-aerial.jpg",
+  "commercial-roofing": "uploads/commercial-roofing-tucson-aerial.jpg",
+  "about": "uploads/sunrise-roofers-team-tucson.webp",
+  "contact": "uploads/residential-roofing-tucson-aerial.jpg",
+  "resources": "uploads/roof-coating-application-tucson.jpeg",
+};
+
+/* Alt text for the hero photo. Describes what the image actually shows and
+   carries the service + city keyword, so the hero is indexable in Google Images
+   instead of being an unreachable CSS background. */
+const HERO_ALT = {
+  "roof-repair": "Sunrise Roofers technician repairing a cracked tile roof in Tucson, AZ",
+  "roof-replacement": "Aerial view of a completed roof replacement on a Tucson, AZ home",
+  "roof-installation": "New roof installation on a newly built home in Tucson, AZ",
+  "roof-inspection": "Sunrise Roofers crew carrying out a free roof inspection in Tucson, AZ",
+  "emergency-roof-repair": "Emergency clay tile roof repair on a Tucson, AZ home",
+  "storm-damage-roof-repair-tucson": "Wind and monsoon storm damage on a Tucson, AZ roof before repair",
+  "tile-roofing": "Tile roof underlayment replacement on a Tucson, AZ home",
+  "flat-roofing": "TPO flat roof installation on a Tucson, AZ building",
+  "roof-coatings": "Reflective elastomeric roof coating applied to a flat roof in Tucson, AZ",
+  "metal-roofing": "Standing seam metal roof on a Tucson, AZ property",
+  "shingle-roofing": "Asphalt shingle roof installation in Tucson, AZ",
+  "gutter-installation": "Seamless gutter and steep-pitch roofing work in Tucson, AZ",
+  "skylight-installation": "Skylight installed during a roof replacement in Tucson, AZ",
+  "roofing-tucson": "Aerial view of a Tucson, AZ home roofed by Sunrise Roofers",
+  "roofing-oro-valley": "Tile roof work on an Oro Valley, AZ home",
+  "roofing-marana": "Shingle roof replacement on a Marana, AZ home",
+  "roofing-sahuarita-green-valley": "Tile roof replacement near Sahuarita and Green Valley, AZ",
+  "roofing-vail-az": "Steep-pitch roofing work on a home in Vail, AZ",
+  "residential-roofing": "Residential tile roof on a Tucson, AZ home",
+  "commercial-roofing": "Commercial flat roof on a Tucson, AZ building",
+  "about": "The Sunrise Roofers crew on a job site in Tucson, AZ",
+  "contact": "Tucson, AZ home with a new roof installed by Sunrise Roofers",
+  "resources": "Roof coating being applied on a Tucson, AZ roof",
 };
 
 /* ---------- head: <title>, meta description, JSON-LD ---------- */
@@ -136,7 +165,11 @@ function SeoHero({ p }) {
   const kw = p.kw || {};
   return (
     <header className="shero">
-      <div className="shero__bg" style={HERO_IMG[p.slug] ? { backgroundImage: "linear-gradient(160deg, rgba(20,17,14,.82) 0%, rgba(12,10,8,.66) 100%), url('" + HERO_IMG[p.slug] + "')", backgroundSize: "cover", backgroundPosition: "center" } : undefined}></div>
+      {HERO_IMG[p.slug] && (
+        <img className="shero__photo" src={HERO_IMG[p.slug]}
+             alt={HERO_ALT[p.slug] || p.hero.h1} fetchPriority="high" decoding="async" />
+      )}
+      <div className="shero__bg" style={HERO_IMG[p.slug] ? { backgroundImage: "linear-gradient(160deg, rgba(20,17,14,.82) 0%, rgba(12,10,8,.66) 100%)" } : undefined}></div>
       <div className="shero__scrim"></div>
       <div className="container shero__inner">
         <Crumb p={p} />

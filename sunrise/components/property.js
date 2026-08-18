@@ -8,7 +8,7 @@ const PROP_DATA = [{
   p: "From a surprise leak to a roof that's just plain done, we give homeowners honest answers and clear options, never a sales pitch.",
   b: ["Free, fully-documented roof inspections", "Repair-first guidance to avoid premature replacement", "Energy-efficient metal & tile upgrades for AZ heat", "Flexible financing on approved credit"],
   slot: "prop-home",
-  src: "uploads/aerial-home.jpg"
+  src: "uploads/residential-roofing-tucson-aerial.jpg"
 }, {
   ic: "users",
   t: "HOAs & Property Managers",
@@ -16,7 +16,7 @@ const PROP_DATA = [{
   p: "We take the guesswork out of multi-unit roofing, clear scheduling, clean paperwork, and one person who's accountable across every building.",
   b: ["Phased scheduling across multiple units", "Detailed service logs & condition reports", "Budget planning & reserve-study support", "Proactive maintenance to extend roof life"],
   slot: "prop-hoa",
-  src: "uploads/prop-hoa.webp"
+  src: "uploads/hoa-roofing-tucson.webp"
 }, {
   ic: "building",
   t: "Commercial Buildings",
@@ -24,7 +24,7 @@ const PROP_DATA = [{
   p: "Offices and facilities need a roof that protects what goes on under it. We work around your hours and keep the building dry and running.",
   b: ["Flat-roof coatings & restoration vs. tear-off", "Leak prevention & drainage correction", "Scheduled maintenance programs", "Emergency response for active leaks"],
   slot: "prop-comm",
-  src: "uploads/aerial-commercial.jpg"
+  src: "uploads/commercial-roofing-tucson-aerial.jpg"
 }, {
   ic: "factory",
   t: "Multi-Family Communities",
@@ -32,7 +32,7 @@ const PROP_DATA = [{
   p: "Apartments and condos take real coordination. We keep tenants safe and stay out of everyone's way across big roof areas.",
   b: ["Phased roofing to keep units occupied", "Tenant-safety planning & site protection", "Rapid monsoon-damage response", "Preventative maintenance contracts"],
   slot: "prop-multi",
-  src: "uploads/prop-multi.jpg"
+  src: "uploads/multifamily-roofing-tucson.jpg"
 }, {
   ic: "store",
   t: "Retail Centers & Plazas",
@@ -40,7 +40,7 @@ const PROP_DATA = [{
   p: "Retail roofing can't shut stores down. We schedule and stage the work so customers keep coming and tenants stay happy.",
   b: ["Work staged to keep stores open", "Minimized noise & disruption windows", "Drainage & ponding-water solutions", "Fast leak response for tenants"],
   slot: "prop-retail",
-  src: "uploads/prop-retail.jpg"
+  src: "uploads/retail-roof-coating-tucson.jpg"
 }, {
   ic: "truck",
   t: "New Construction",
@@ -48,7 +48,7 @@ const PROP_DATA = [{
   p: "Developers and GCs get a roofer who hits the schedule, works off the plans, and hands over a clean, inspected roof.",
   b: ["On-time coordination with the build schedule", "Plan & material spec coordination", "Inspections & code compliance", "Clean handoff & warranty documentation"],
   slot: "prop-new",
-  src: "uploads/prop-new.webp"
+  src: "uploads/new-construction-roofing-tucson.webp"
 }];
 function PropertyTypeSection() {
   const [i, setI] = useState(0);
@@ -59,7 +59,7 @@ function PropertyTypeSection() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "prop-sec__bg",
     style: {
-      backgroundImage: "url('uploads/Tile%20Roof%20Replacement%20in%20Marana.jpg')"
+      backgroundImage: "url('uploads/tile-roof-replacement-marana.jpg')"
     },
     "aria-hidden": "true"
   }), /*#__PURE__*/React.createElement("div", {

@@ -12,7 +12,7 @@ function AboutSection() {
     <section className="section" id="about">
       <div className="container about">
         <div className="about__media">
-          <Slot id="about-crew" src="uploads/sunrise-crew.webp" ph="Crew / founder photo" alt="Sunrise Roofers family-owned crew in Tucson, AZ" radius="16" />
+          <Slot id="about-crew" src="uploads/sunrise-roofers-team-tucson.webp" ph="Crew / founder photo" alt="Sunrise Roofers family-owned crew in Tucson, AZ" radius="16" />
           <div className="about__badge">
             <div className="n">100%</div>
             <div className="t">Locally owned &amp; operated</div>

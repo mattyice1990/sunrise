@@ -8,7 +8,7 @@ const SVC_CARDS = [{
   d: "Leaks, busted flashing, storm damage, cracked tile — we track down what's actually wrong and fix it fast.",
   slot: "svc-repair",
   ph: "Roof repair photo",
-  src: "uploads/svc-repair.webp"
+  src: "uploads/roof-repair-service-tucson.webp"
 }, {
   tag: "Replacement",
   t: "Roof Replacement",
@@ -16,7 +16,7 @@ const SVC_CARDS = [{
   d: "Full tear-offs and new roofs built to take Arizona's sun and last decades, not just a few seasons.",
   slot: "svc-replace",
   ph: "Replacement photo",
-  src: "uploads/svc-replace.webp"
+  src: "uploads/roof-replacement-service-tucson.webp"
 }, {
   tag: "Metal",
   t: "Metal Roof Installation",
@@ -24,7 +24,7 @@ const SVC_CARDS = [{
   d: "Standing-seam metal that bounces the heat and shrugs off monsoons — for Tucson homes and businesses alike.",
   slot: "svc-metal",
   ph: "Metal roof photo",
-  src: "uploads/svc-metal.webp"
+  src: "uploads/metal-roofing-service-tucson.webp"
 }, {
   tag: "Tile",
   t: "Tile Roofing",
@@ -32,7 +32,7 @@ const SVC_CARDS = [{
   d: "Concrete and clay tile — repairs, re-felts, new underlayment, and upkeep that keeps it watertight.",
   slot: "svc-tile",
   ph: "Tile roof photo",
-  src: "uploads/svc-tile.webp"
+  src: "uploads/tile-roofing-service-tucson.webp"
 }, {
   tag: "Flat / Foam",
   t: "Flat Roof & Coatings",
@@ -40,7 +40,7 @@ const SVC_CARDS = [{
   d: "Foam roofs, elastomeric coatings, and fixing the spots where water pools before they turn into leaks.",
   slot: "svc-flat",
   ph: "Flat roof / coating photo",
-  src: "uploads/svc-flat.webp"
+  src: "uploads/flat-roofing-service-tucson.webp"
 }, {
   tag: "Commercial",
   t: "Commercial Roofing",
@@ -48,7 +48,7 @@ const SVC_CARDS = [{
   d: "Offices, retail, warehouses and multi-family — roofs we work around your hours, not the other way around.",
   slot: "svc-comm",
   ph: "Commercial roof photo",
-  src: "uploads/svc-comm.webp"
+  src: "uploads/commercial-roofing-service-tucson.webp"
 }];
 const svcUrl = slug => window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug;
 function ServiceCardGrid() {
@@ -133,7 +133,7 @@ function WhyChooseUs() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "whyx__bg",
     style: {
-      backgroundImage: "url('uploads/Tile%20Roof%20Replacement%20in%20Marana.jpg')"
+      backgroundImage: "url('uploads/tile-roof-replacement-marana.jpg')"
     },
     "aria-hidden": "true"
   }), /*#__PURE__*/React.createElement("div", {
@@ -148,7 +148,7 @@ function WhyChooseUs() {
     ph: "Crew / founder photo",
     alt: "Sunrise Roofers owner-led crew on a roof in Tucson, AZ",
     radius: "16",
-    src: "uploads/about-crew.webp"
+    src: "uploads/sunrise-roofers-crew-tucson.webp"
   }), /*#__PURE__*/React.createElement("div", {
     className: "about__badge"
   }, /*#__PURE__*/React.createElement("div", {

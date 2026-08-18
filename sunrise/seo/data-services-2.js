@@ -275,7 +275,7 @@ Object.assign(window.SEO, {
   "storm-damage-roof-repair-tucson": {
     slug: "storm-damage-roof-repair-tucson", cat: "service", crumb: "Services",
     title: "Storm Damage Roof Repair in Tucson — Sunrise Roofers",
-    desc: "Storm damage roof repair in Tucson. Emergency tarping, leaks stopped, and dated photo documentation for your insurance claim. Family-owned, ROC #358079. Call 520-753-1758.",
+    desc: "Storm damage roof repair in Tucson. Monsoon leak stopped fast, emergency tarping, and dated photo documentation for your insurance claim. ROC #358079.",
     kw: { primary: "storm damage roof repair tucson", vol: null, kd: null, cpc: null },
     secondary: ["roof leak after storm", "monsoon roof damage tucson", "wind damage roof repair", "hail damage roof repair tucson", "emergency roof tarping tucson"],
     hero: {
