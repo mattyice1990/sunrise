@@ -19,7 +19,7 @@ function areaPage(o) {
       kicker: `Serving ${o.city}`,
       h: `Your local roofer in ${o.city}`,
       lead: o.lead,
-      bullets: ["Repairs, replacements & new roofs", "Tile, shingle, metal, foam & flat", "Storm & monsoon damage response", "Free, documented inspections"],
+      bullets: ["Repairs, replacements & new roofs", "Tile, shingle, metal & flat", "Storm & monsoon damage response", "Free, documented inspections"],
     },
     highlights: [
       { ic: "pin", t: "We actually work here", d: `We're on ${o.city} roofs just about every week — we know the neighborhoods, the HOA rules, and the way our sun and monsoons wear a desert roof down.` },
@@ -35,7 +35,7 @@ function areaPage(o) {
         ].filter(Boolean),
         cards: [
           { ic: "wrench", t: "Roof Repair", d: "Leaks, cracked tile, flashing and storm damage — fixed to actually last." },
-          { ic: "hammer", t: "Replacement", d: "Full re-roofs in tile, shingle, metal and foam, done by our own crew." },
+          { ic: "hammer", t: "Replacement", d: "Full re-roofs in tile, shingle and metal, done by our own crew." },
           { ic: "search", t: "Free Inspections", d: "We get up on the roof, take photos, and tell you straight — repair or replace." },
           { ic: "building", t: "Commercial", d: `Flat-roof systems and maintenance for ${o.city} businesses.` },
         ],
@@ -58,18 +58,18 @@ Object.assign(window.SEO, {
   "roofing-tucson": areaPage({
     slug: "roofing-tucson", city: "Tucson",
     h1: "Roofing Services Across Tucson, AZ",
-    desc: "Trusted roofing contractor in Tucson, AZ. Roof repair, replacement, tile, metal, foam and commercial roofing built for the desert.",
+    desc: "Trusted roofing contractor in Tucson, AZ. Roof repair, replacement, tile, metal and commercial roofing built for the desert.",
     kw: { primary: "roofing contractors tucson", vol: 150, kd: 37, cpc: 1.1 },
     secondary: ["roofers tucson", "roofing tucson", "roofing companies tucson", "roof repair tucson"],
     sub: "From the Foothills to the west side, Tucson roofs catch the full brunt of the sun and the monsoons. We keep them watertight with repairs, replacements, tile work and commercial systems.",
     lead: [
       "Tucson's home base for us, and we know exactly how roofs wear out here. Underlayment baked brittle by the sun, tile that looks perfect but leaks, flat roofs that pond up after every monsoon. We've seen it and fixed it all over town.",
-      "Being a local Tucson outfit, we do all of it under one roof: repairs, full replacements, tile underlayment, metal and foam, coatings, commercial flat roofs. Honest assessments, and the work's backed by warranty.",
+      "Being a local Tucson outfit, we do all of it under one roof: repairs, full replacements, tile underlayment, metal, coatings, commercial flat roofs. Honest assessments, and the work's backed by warranty.",
     ],
     neigh: "the Catalina Foothills, Midtown, the east and west sides, Rita Ranch and downtown Tucson",
     faqs: [
       { q: "What areas of Tucson do you serve?", a: "All of it. Midtown, the Foothills, east and west Tucson, downtown, Rita Ranch and everything around them, plus the rest of Pima County, Oro Valley, Marana, Vail, Sahuarita." },
-      { q: "What roofing services do you offer in Tucson?", a: "Roof repair, full replacements, tile underlayment, shingle, metal and foam installs, flat-roof coatings, gutters, skylights, commercial roofing, and 24/7 emergency storm response." },
+      { q: "What roofing services do you offer in Tucson?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, gutters, skylights, commercial roofing, and 24/7 emergency storm response." },
       { q: "My Tucson tile roof looks fine but leaks — why?", a: "The tile can go 50-plus years, but the waterproof underlayment under it usually gives out around 20 to 25. That's almost always why a good-looking tile roof leaks. We pull your tile, lay new underlayment, and set the same tile back down, way cheaper than a whole new roof." },
       { q: "How fast can you respond to a roof leak in Tucson?", a: "Live leaks jump the line, same-week appointments and 24/7 tarping through monsoon season. Call 520-753-1758 and we'll give you a real window." },
       { q: "Are you a licensed Tucson roofing contractor?", a: "Yep. Sunrise Roofers LLC is licensed, bonded and insured under ROC #358079, and we're based right here in Tucson." },

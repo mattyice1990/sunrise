@@ -5,7 +5,7 @@ const SVC_CARDS = [
   { tag: "Replacement", t: "Roof Replacement", slug: "roof-replacement", d: "Full tear-offs and new roofs built to take Arizona's sun and last decades, not just a few seasons.", slot: "svc-replace", ph: "Replacement photo", src: "uploads/roof-replacement-service-tucson.webp" },
   { tag: "Metal", t: "Metal Roof Installation", slug: "metal-roofing", d: "Standing-seam metal that bounces the heat and shrugs off monsoons — for Tucson homes and businesses alike.", slot: "svc-metal", ph: "Metal roof photo", src: "uploads/metal-roofing-service-tucson.webp" },
   { tag: "Tile", t: "Tile Roofing", slug: "tile-roofing", d: "Concrete and clay tile — repairs, re-felts, new underlayment, and upkeep that keeps it watertight.", slot: "svc-tile", ph: "Tile roof photo", src: "uploads/tile-roofing-service-tucson.webp" },
-  { tag: "Flat / Foam", t: "Flat Roof & Coatings", slug: "flat-roofing", d: "Foam roofs, elastomeric coatings, and fixing the spots where water pools before they turn into leaks.", slot: "svc-flat", ph: "Flat roof / coating photo", src: "uploads/flat-roofing-service-tucson.webp" },
+  { tag: "Flat / Coatings", t: "Flat Roof & Coatings", slug: "flat-roofing", d: "Elastomeric coatings and fixing the spots where water pools before they turn into leaks.", slot: "svc-flat", ph: "Flat roof / coating photo", src: "uploads/flat-roofing-service-tucson.webp" },
   { tag: "Commercial", t: "Commercial Roofing", slug: "commercial-roofing", d: "Offices, retail, warehouses and multi-family — roofs we work around your hours, not the other way around.", slot: "svc-comm", ph: "Commercial roof photo", src: "uploads/commercial-roofing-service-tucson.webp" },
 ];
 const svcUrl = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug);

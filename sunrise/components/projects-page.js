@@ -17,7 +17,7 @@ const BA_GALLERY = [{
 }, {
   t: "Flat Roof Coating & Restoration",
   loc: "Midtown Tucson",
-  sys: "Foam + Elastomeric Coat",
+  sys: "Silicone + Elastomeric Coat",
   slot: "recent-flat",
   src: "uploads/commercial-roofing-tucson-aerial.jpg"
 }, {

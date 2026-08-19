@@ -23,7 +23,7 @@ Object.assign(window.SEO, {
         "A small leak around here almost never stays small. Between the UV, the monsoon rains that show up out of nowhere, and underlayment that's been baking up there 20-plus years, a little crack turns into stained drywall, soggy insulation and mold in a season or two.",
         "So we start by getting up there and actually looking, taking photos, showing you what's going on and why. Then you get a written price with no pressure and nothing sneaky tacked on later.",
       ],
-      bullets: ["Tile, foam, flat, metal & shingle repairs", "Leak detection & moisture mapping", "Flashing, valley & penetration sealing", "Insurance-claim documentation"],
+      bullets: ["Tile, flat, metal & shingle repairs", "Leak detection & moisture mapping", "Flashing, valley & penetration sealing", "Insurance-claim documentation"],
     },
     highlights: [
       { ic: "search", t: "We Find the Source", d: "Most leaks show up feet away from the actual failure. We trace it to the root instead of guessing." },
@@ -59,7 +59,7 @@ Object.assign(window.SEO, {
     faqs: [
       { q: "How much does it cost to repair a roof in Tucson?", a: "Cracked tiles or a flashing reseal, you're usually looking at a few hundred dollars. Once water's gotten in and we've got to pull and replace underlayment, it costs more. Either way the inspection's free and you get an itemized price in writing, so nothing blindsides you." },
       { q: "Can you fix a roof leak fast?", a: "Yep. We keep room in the schedule for same-week repairs, and if you've got water coming in right now we'll get out and tarp it 24/7 so the damage stops while we line up the real fix." },
-      { q: "Do you repair flat roofs and foam roofs?", a: "For sure. Flat, foam (SPF), tile, metal, shingle, we work on all of it. Ponding, blisters, split seams, cracked tile, coatings that have given out, that's everyday stuff for us." },
+      { q: "Do you repair flat roofs?", a: "For sure. Flat, tile, metal, shingle, we work on all of it. Ponding, blisters, split seams, cracked tile, coatings that have given out, that's everyday stuff for us." },
       { q: "Does homeowners insurance cover roof leaks?", a: "If a storm or hail did it, a lot of the time it is. We photograph and document everything while we're up there so you've got what you need to back up the claim." },
       { q: "Should I repair or replace my roof?", a: "Comes down to how old the roof is and how much of it's going. We'll get up there, take a look, and give it to you straight. If a repair's the smart move, that's what we'll quote you, not a whole new roof you don't need yet." },
     ],
@@ -71,14 +71,14 @@ Object.assign(window.SEO, {
   "roof-replacement": {
     slug: "roof-replacement", cat: "service", crumb: "Services",
     title: "Roof Replacement in Tucson, AZ — Sunrise Roofers",
-    desc: "Professional roof replacement in Tucson — tile, shingle, metal and foam. Built for desert heat, with financing and warranties. Free estimate: 520-753-1758.",
+    desc: "Professional roof replacement in Tucson — tile, shingle and metal. Built for desert heat, with financing and warranties. Free estimate: 520-753-1758.",
     kw: { primary: "roof replacement tucson", vol: 100, kd: 40, cpc: 2.5 },
     secondary: ["shingle roof replacement", "how often should you replace your roof", "signs you need a new roof", "when to replace tile roof"],
     hero: {
       eyebrow: "Roof Replacement · Tucson, AZ",
       h1: "Roof Replacement Built for the Arizona Desert",
       sub: "When patching it up stops making sense, a new roof buys you decades of not thinking about it. We handle the whole thing, tear-off to the last nail swept out of the driveway, with materials picked for the heat and sun out here.",
-      chips: ["Tile, shingle, metal & foam", "Financing available", "Manufacturer warranties", "Free replacement estimate"],
+      chips: ["Tile, shingle & metal", "Financing available", "Manufacturer warranties", "Free replacement estimate"],
     },
     intro: {
       kicker: "Re-Roof Specialists",
@@ -87,7 +87,7 @@ Object.assign(window.SEO, {
         "The sun out here is hard on a roof. Even a good one wears out eventually. The underlayment dries up, shingles lose their grit, and a tile roof gets to where there are just too many bad spots to keep chasing one at a time.",
         "A full replacement basically resets the clock with newer, heat-rated material and an install that's done to code and done clean. We'll lay out every option and what each one costs and let you make the call.",
       ],
-      bullets: ["Complete tear-off & disposal", "New underlayment & flashing", "Shingle, tile, metal & foam systems", "Workmanship + manufacturer warranties"],
+      bullets: ["Complete tear-off & disposal", "New underlayment & flashing", "Shingle, tile & metal systems", "Workmanship + manufacturer warranties"],
     },
     highlights: [
       { ic: "hammer", t: "Done Properly", d: "Full tear-off, fresh underlayment and correct flashing — not a layer over old problems." },
@@ -106,12 +106,12 @@ Object.assign(window.SEO, {
         ],
       },
       {
-        kicker: "Your Options", h: "Shingle, tile, metal or foam — we install them all", alt: true,
+        kicker: "Your Options", h: "Shingle, tile or metal — we install them all", alt: true,
         p: [
-          "Different houses need different roofs. Shingle's the cheapest and goes on the fastest. Tile lasts forever and has that classic Southwest look. Metal and foam each have their place depending on the roof's shape and what you want out of your power bill.",
+          "Different houses need different roofs. Shingle's the cheapest and goes on the fastest. Tile lasts forever and has that classic Southwest look. Metal and coatings each have their place depending on the roof's shape and what you want out of your power bill.",
           "We'll look at your slope, how the roof's built, and what you want to spend, then tell you what actually fits. We're not going to push you into something fancier than you need.",
         ],
-        bullets: ["Architectural asphalt shingles", "Concrete & clay tile", "Standing-seam metal", "Spray foam (SPF) for flat sections"],
+        bullets: ["Architectural asphalt shingles", "Concrete & clay tile", "Standing-seam metal", "Reflective coatings for flat sections"],
       },
     ],
     process: [
@@ -136,7 +136,7 @@ Object.assign(window.SEO, {
   "roof-installation": {
     slug: "roof-installation", cat: "service", crumb: "Services",
     title: "New Roof Installation in Tucson — Sunrise Roofers",
-    desc: "Expert new roof installation in Tucson for new construction and re-roofs. Tile, shingle, metal and foam systems, financing available.",
+    desc: "Expert new roof installation in Tucson for new construction and re-roofs. Tile, shingle and metal systems, financing available.",
     kw: { primary: "roof installation tucson", vol: 100, kd: null, cpc: null },
     secondary: ["roofing companies near me", "roofing financing", "how long do tile roofs last", "new roof tucson"],
     hero: {
@@ -179,7 +179,7 @@ Object.assign(window.SEO, {
     ],
     faqs: [
       { q: "Do you install roofs on new construction?", a: "Yep. New houses, additions, casitas, shops, we do all of it, and we work around your builder's schedule and inspections." },
-      { q: "Which roofing system should I install?", a: "Depends on your slope, your budget, and what you care about on the energy side. Shingle's cheap and quick, tile lasts and looks great, metal's tough and efficient, and foam's the move on flat sections. We'll point you to what fits best." },
+      { q: "Which roofing system should I install?", a: "Depends on your slope, your budget, and what you care about on the energy side. Shingle's cheap and quick, tile lasts and looks great, metal's tough and efficient, and coatings are the move on flat sections. We'll point you to what fits best." },
       { q: "How long does a tile roof last in Arizona?", a: "Good concrete or clay tile will go 50 years, sometimes more. It's the underlayment underneath that usually needs redoing around 20 to 25 years. The tile itself holds up great out here." },
       { q: "Do you offer financing for a new roof?", a: "We do, on jobs that qualify, so you don't have to pay it all up front to get started." },
       { q: "Why choose a local Tucson roofer over a national company?", a: "We know this climate, the local codes, and the exact ways desert roofs go bad. And you get a real local crew you can actually get on the phone, not some call center three states away." },
@@ -243,7 +243,7 @@ Object.assign(window.SEO, {
     ],
     faqs: [
       { q: "Is the roof inspection really free?", a: "Yep, our standard inspection's free, no strings. You get the report with photos whether you ever hire us or not." },
-      { q: "What do roof inspectors look for?", a: "We check the field material, whether that's tile, shingle, foam or metal, plus the flashing, the valleys, anything poking through the roof, the drainage, and we get in the attic looking for signs water's been getting in. Then we photograph all of it." },
+      { q: "What do roof inspectors look for?", a: "We check the field material, whether that's tile, shingle or metal, plus the flashing, the valleys, anything poking through the roof, the drainage, and we get in the attic looking for signs water's been getting in. Then we photograph all of it." },
       { q: "Can you inspect for storm or hail damage?", a: "Yes, that's a big part of what we do. Storm, wind, hail, monsoon damage, we'll assess it and get you the photo documentation the insurance company wants." },
       { q: "Do you do pre-purchase roof inspections?", a: "We do. If you're buying a house here, get the roof looked at so you know exactly what you're walking into before you close." },
       { q: "How long does an inspection take?", a: "Usually 30 to 60 minutes for a house, depending on how big and how cut-up the roof is." },

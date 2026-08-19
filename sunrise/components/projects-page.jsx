@@ -9,7 +9,7 @@ const contactHref = HOME_HREF + "#contact";
    before/after slider above carries the one matched before/after pair. */
 const BA_GALLERY = [
   { t: "Standing-Seam Metal Reroof", loc: "Oro Valley", sys: "24-ga Standing Seam", slot: "recent-metal", src: "uploads/metal-roofing-tucson-aerial.jpg" },
-  { t: "Flat Roof Coating & Restoration", loc: "Midtown Tucson", sys: "Foam + Elastomeric Coat", slot: "recent-flat", src: "uploads/commercial-roofing-tucson-aerial.jpg" },
+  { t: "Flat Roof Coating & Restoration", loc: "Midtown Tucson", sys: "Silicone + Elastomeric Coat", slot: "recent-flat", src: "uploads/commercial-roofing-tucson-aerial.jpg" },
   { t: "Concrete Tile Roof Replacement", loc: "Catalina Foothills", sys: "Tile Lift & New Underlayment", slot: "recent-tile", src: "uploads/residential-roofing-tucson-aerial.jpg" },
 ];
 

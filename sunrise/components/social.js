@@ -61,7 +61,7 @@ const FAQS = [{
   a: "For sure, standing-seam metal is one of our specialties. It reflects the heat, shrugs off UV and monsoon rain, and'll go 40-plus years out here."
 }, {
   q: "What roofing material is best for Arizona heat?",
-  a: "Metal and tile both hold up great against the heat and UV, and foam-and-coating systems are the move on flat roofs. We'll match the right one to your building, budget and goals."
+  a: "Metal and tile both hold up great against the heat and UV, and coating systems are the move on flat roofs. We'll match the right one to your building, budget and goals."
 }, {
   q: "How long does a roof replacement take?",
   a: "Most houses take 2 to 4 days depending on size, material and weather. We give you a real timeline up front and keep you posted every day."

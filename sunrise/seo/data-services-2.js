@@ -11,14 +11,14 @@ Object.assign(window.SEO, {
     hero: {
       eyebrow: "Roof Coatings · Tucson, AZ",
       h1: "Reflective Roof Coatings in Tucson",
-      sub: "A good roof coating seals up minor leaks, bounces the desert sun off, and adds years to a flat or foam roof for a fraction of what replacing it costs. We put down elastomeric and silicone systems made for Arizona.",
+      sub: "A good roof coating seals up minor leaks, bounces the desert sun off, and adds years to a flat roof for a fraction of what replacing it costs. We put down elastomeric and silicone systems made for Arizona.",
       chips: ["Elastomeric & silicone", "Seals leaks & seams", "Cuts cooling costs", "Extends roof life"],
     },
     intro: {
       kicker: "Restore, Don't Replace",
       h: "Buy your roof more years for less money",
       lead: [
-        "If your flat or foam roof is still solid underneath but looking tired, chalky, faded, a couple little leaks, a reflective coating can bring it back without the cost and mess of tearing it off and starting over.",
+        "If your flat roof is still solid underneath but looking tired, chalky, faded, a couple little leaks, a reflective coating can bring it back without the cost and mess of tearing it off and starting over.",
         "The coating goes on as a seamless, reflective skin that seals up seams and small penetrations, throws the sun's heat back to cut your cooling bill, and keeps UV off the roof underneath. Pound for pound it's one of the smartest moves in desert roofing.",
       ],
       bullets: ["Seamless reflective membrane", "Seals seams & minor leaks", "Lowers roof surface temperature", "Far cheaper than replacement"],
@@ -50,7 +50,7 @@ Object.assign(window.SEO, {
       { q: "Will a coating fix my roof leak?", a: "On a roof that's still solid, a coating'll seal up seams, small penetrations and minor leaks. If it's got bigger problems than that, we'll be straight with you and point you toward a repair or replacement instead." },
       { q: "Do roof coatings really lower cooling bills?", a: "Yeah, they do. A reflective 'cool roof' coating bounces the sun off instead of soaking it in, so the roof runs cooler and your AC doesn't have to work as hard out here." },
       { q: "How long does roof coating last in Arizona?", a: "A good elastomeric or silicone system usually gives you somewhere around 10 to 15 years before it wants a recoat, depending on the product and how much sun that roof takes. Recoating is a lot cheaper than tearing off, which is the whole point of staying on top of it." },
-      { q: "What kind of roofs can be coated?", a: "Flat and low-slope roofs mostly, foam (SPF), built-up, modified bitumen, even metal, all take a coating well. We'll confirm yours on a free inspection." },
+      { q: "What kind of roofs can be coated?", a: "Flat and low-slope roofs mostly, built-up, modified bitumen, even metal, all take a coating well. We'll confirm yours on a free inspection." },
     ],
     related: ["flat-roofing", "commercial-roofing", "roof-inspection"],
     ctaH: "Renew your roof for less",

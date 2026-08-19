@@ -21,7 +21,7 @@ Object.assign(window.SEO, {
         "We've built Sunrise Roofers one honest job at a time — clear estimates, clean work, and a roofer who actually picks up the phone. The reviews below are pulled live from our Google Business Profile.",
         "Had a good experience with us? We'd be grateful if you left a review — it helps your neighbors find an honest local roofer.",
       ],
-      bullets: ["Verified Google reviews", "5.0-star average rating", "Owner-led, family-owned crew", "Repairs, replacements, tile, metal, foam & flat"],
+      bullets: ["Verified Google reviews", "5.0-star average rating", "Owner-led, family-owned crew", "Repairs, replacements, tile, metal & flat"],
     },
     faqs: [
       { q: "Where can I read Sunrise Roofers reviews?", a: "Right here — the reviews on this page are pulled live from our Google Business Profile, and you can read them all on Google too. We're rated 5.0 stars by Tucson-area homeowners and property managers." },
@@ -74,7 +74,7 @@ Object.assign(window.SEO, {
         kicker: "Built for the Desert", h: "Roofing knowledge specific to Tucson", alt: true,
         p: [
           "Roofing in the desert isn't like roofing anywhere else. The UV bakes underlayment and shingles right out, the monsoons test every flashing and seam you've got, and tile roofs hide old worn-out felt under tile that still looks great.",
-          "That's exactly what we deal with day in and day out, tile underlayment, reflective foam and coatings, heat-rated shingle and metal, and quick storm response when the monsoon hits, so your roof's actually built for where it sits.",
+          "That's exactly what we deal with day in and day out, tile underlayment, reflective coatings, heat-rated shingle and metal, and quick storm response when the monsoon hits, so your roof's actually built for where it sits.",
         ],
         bullets: ["Tile underlayment expertise", "Reflective, heat-smart systems", "Monsoon & storm response", "Materials rated for desert UV"],
       },
@@ -89,7 +89,7 @@ Object.assign(window.SEO, {
       { q: "Is Sunrise Roofers licensed and insured?", a: "Yep. Sunrise Roofers LLC is licensed, bonded and insured in Arizona under ROC #358079, so you're covered on every job." },
       { q: "What areas do you serve?", a: "Tucson and all of Pima County, Oro Valley, Marana, Vail, Corona de Tucson, Sahuarita and Green Valley." },
       { q: "What makes you different from other Tucson roofers?", a: "Honest, no-pressure inspections, our own trained crews instead of whoever's cheapest that week, clear written estimates, and work that's backed by warranty. Most of our business walks in through referrals and repeat customers." },
-      { q: "What roof types do you work on?", a: "All of them, tile, shingle, metal, foam (SPF) and flat, on both homes and commercial buildings." },
+      { q: "What roof types do you work on?", a: "All of them, tile, shingle, metal and flat, on both homes and commercial buildings." },
       { q: "Do you offer free estimates?", a: "Yep. The inspection and the estimate are both free, no obligation." },
     ],
     related: ["portfolio", "residential-roofing", "commercial-roofing", "contact"],
@@ -120,7 +120,7 @@ Object.assign(window.SEO, {
       bullets: ["Desert-specific material advice", "Honest cost expectations", "Repair-vs-replace guidance", "Storm-damage & insurance basics"],
     },
     highlights: [
-      { ic: "layers", t: "Material Guides", d: "Tile vs. shingle vs. metal vs. foam — what actually works in Arizona." },
+      { ic: "layers", t: "Material Guides", d: "Tile vs. shingle vs. metal — what actually works in Arizona." },
       { ic: "clock", t: "Lifespan & Timing", d: "How long roofs last here and when replacement makes sense." },
       { ic: "alert", t: "Storm & Insurance", d: "What to do after monsoon or hail damage, and how claims work." },
     ],
@@ -129,9 +129,9 @@ Object.assign(window.SEO, {
         kicker: "Guide", h: "Best roofing materials for Arizona",
         p: [
           "There's no across-the-board best, just the best fit for your house, budget and goals. Tile lasts and looks classic, but the underlayment under it needs redoing every 20 to 25 years. Shingle's the cheap, fast option as long as it goes on with heat-rated products and good ventilation.",
-          "Metal reflects the heat and'll go 40 to 70 years with barely any upkeep. Foam (SPF) and reflective coatings are great on flat and low-slope roofs, they add insulation and knock down the cooling bill. We'll help you weigh them for your particular house.",
+          "Metal reflects the heat and'll go 40 to 70 years with barely any upkeep. Reflective coatings are great on flat and low-slope roofs, they add insulation and knock down the cooling bill. We'll help you weigh them for your particular house.",
         ],
-        bullets: ["Tile: longevity + Southwest looks", "Shingle: value + speed", "Metal: durability + reflectivity", "Foam/coatings: flat-roof efficiency"],
+        bullets: ["Tile: longevity + Southwest looks", "Shingle: value + speed", "Metal: durability + reflectivity", "Coatings: flat-roof efficiency"],
       },
       {
         kicker: "Guide", h: "Signs you need a new roof", alt: true,
@@ -153,7 +153,7 @@ Object.assign(window.SEO, {
     faqs: [
       { q: "How often does a roof need to be replaced in Tucson?", a: "Shingle roofs usually run 15 to 25 years here. Tile can go 50-plus, though the underlayment under it needs redoing every 20 to 25. Good metal'll last 40 to 70. The heat and UV speed everything up, so without solid ventilation and underlayment you're looking at the shorter end of those numbers." },
       { q: "What are the clearest signs I need a new roof?", a: "Leaks in a few different spots, cracked or slipped tile all over, shingles losing granules and curling, and moisture or daylight in the attic. A free inspection tells you whether a repair or a replacement is the smarter call." },
-      { q: "What's the best roofing material for Arizona?", a: "Depends on your house and budget. Tile and metal last the longest and handle the heat great, shingle's the value pick, and foam and reflective coatings are the move on flat roofs. We'll point you to the best fit for your place." },
+      { q: "What's the best roofing material for Arizona?", a: "Depends on your house and budget. Tile and metal last the longest and handle the heat great, shingle's the value pick, and reflective coatings are the move on flat roofs. We'll point you to the best fit for your place." },
       { q: "How much does roof repair cost?", a: "Small repairs run a few hundred bucks; bigger water-intrusion or underlayment work costs more. The inspection's free and the estimate's itemized in writing, so you know before we start anything." },
       { q: "Is storm or monsoon roof damage covered by insurance?", a: "Sudden storm, wind, hail and monsoon damage usually is. Document everything and get it professionally inspected, we'll get you the photo documentation your claim needs and work with your adjuster." },
     ],

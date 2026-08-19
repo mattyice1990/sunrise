@@ -144,7 +144,7 @@ const PROJECTS = [{
   sys: "Silicone restoration coating",
   prob: "Ponding water and worn seams sealed with a fresh elastomeric coating system.",
   slot: "pf3",
-  src: "uploads/foam-roof-recoating-tucson.jpg",
+  src: "uploads/flat-roof-coating-restoration-tucson.jpg",
   ph: "Flat roof coating project"
 }, {
   cat: "Commercial",

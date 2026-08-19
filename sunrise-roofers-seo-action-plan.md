@@ -1,6 +1,6 @@
 # Sunrise Roofers (roofwithsunrise.com) — SEO/AIO/GEO Implementation Plan
 **Prepared for:** Pursuit Analytics coding agents
-**Date:** June 9, 2026
+**Date:** June 9, 2026 · _amended 2026-08-18: all foam roofing scope retired — Sunrise does not do foam work._
 **Data sources:** Ahrefs (June 2026), live site crawl, SERP analysis
 Each task below is written as a self-contained ticket. Hand tasks to agents in priority order (P0 → P4). Tasks marked **[HUMAN]** cannot be done in code and belong to the account manager / business owner — they're listed at the end so nothing falls through.
 **Global rules for all agents working on this site:**
@@ -51,9 +51,9 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 1. Title tag → `Flat Roof Coating & Repair in Tucson | Sunrise Roofers LLC` (≤60 chars)
 2. H1 → `Flat Roof Coating & Repair in Tucson`
 3. Add an H2 section "Flat Roof Repair in Tucson" (~250 words: ponding water, seam splits, monsoon damage, elastomeric/silicone recoat vs. repair decision)
-4. Add an H2 "How Much Does Roof Coating Cost in Tucson?" with a 3-row cost-range table (acrylic / silicone / foam recoat, per sq ft ranges) — sourced ranges, conservative, with "every roof is different; free inspection" disclaimer
+4. Add an H2 "How Much Does Roof Coating Cost in Tucson?" with a 3-row cost-range table (acrylic / silicone recoat, per sq ft ranges) — sourced ranges, conservative, with "every roof is different; free inspection" disclaimer
 5. Add 4-item FAQPage JSON-LD targeting conversational queries: "How long does a roof coating last in Arizona?", "Do roof coatings work in Tucson heat?", "Can you repair a flat roof without replacing it?", "How much does flat roof repair cost in Tucson?"
-6. Internal links: from homepage services grid (already exists), from `/tucson-roofing-services`, and from the foam roof repair blog post.
+6. Internal links: from homepage services grid (already exists), from `/tucson-roofing-services`.
 **Acceptance criteria:** New title/H1 live; cost table renders; FAQ schema validates; ≥3 internal inlinks.
 ### TASK-004: Localize the roof inspection page ✅ DONE [2026-06-10]
 **File:** `/roofing-services/roof-inspection`
@@ -108,7 +108,8 @@ Ensure the homepage org schema has `"@id": "https://roofwithsunrise.com/#organiz
    - Tile types we service (concrete, clay, sandcast)
 3. Cross-link in BOTH directions with `/roofing-services/concrete-tile-roof-replacement` ("Need full replacement instead?" / "Just need a repair?"). Add to nav dropdown, services hub, footer, sitemap.
 4. Service schema (TASK-006 template, serviceType "Tile Roof Repair") + 5-item FAQ schema: cost per tile, can you match my tile, walk on tile roof, underlayment lifespan in Arizona, insurance coverage for monsoon tile damage.
-### TASK-008: Foam Roofing Tucson page (new) ✅ DONE [2026-06-10]
+### TASK-008: Foam Roofing Tucson page ❌ RETIRED [2026-08-18]
+**Retired:** Sunrise does not do foam roofing. Page deleted; `/roofing-services/foam-roofing-tucson` 301s to `/flat-roofing`. Original ticket kept below for history only — do not re-implement.
 **New URL:** `/roofing-services/foam-roofing-tucson`
 **Data:** "foam roofing tucson" 50/mo KD 1. The blog already ranks #4 nationally for "foam roof repair" (400/mo) — this captures the local commercial intent that authority has earned.
 **Implementation:**
@@ -116,7 +117,8 @@ Ensure the homepage org schema has `"@id": "https://roofwithsunrise.com/#organiz
 2. Outline (~800 words): why foam suits Tucson flat roofs (R-value, seamless, reflective) → installation → repair & maintenance → recoating schedule (every 5–10 yrs) → cost factors → FAQ.
 3. **Critical internal link:** add a prominent CTA block inside `/blog/foam-roof-repair` (top third of the post): "Need foam roof repair in Tucson? We're local, licensed (ROC #358079), and offer free inspections → [Tucson Foam Roofing Services]". Also link from `/roofing-services/flat-roof-coating-tucson` and the services hub.
 4. Service + FAQ schema as above.
-### TASK-009: Refresh & defend the foam roof repair blog post ✅ DONE [2026-06-10]
+### TASK-009: Foam roof repair blog post ❌ RETIRED [2026-08-18]
+**Retired:** post deleted, 301s to `/flat-roofing`. It was the site's top organic page but at only ~17 visits/mo, ranking #9 for the national term "foam roof repair" — traffic for a service Sunrise does not sell. Original ticket kept below for history only.
 **File:** `/blog/foam-roof-repair` (drives ~93% of current organic traffic — protect it)
 **Implementation:**
 1. Update the visible published/updated date and `dateModified` in Article schema to current.
@@ -163,7 +165,7 @@ Run Lighthouse on homepage + top 3 service pages. Known candidates: `SunriseLogo
 |-------|-------|----------|-----------------|
 | P0 | 001–002 | Day 1 | False claims removed from crawlable content; visible BBB wording corrected; consistent entity data for Google + AI |
 | P1 | 003–006 | Week 1 | "roof coating tucson", "roof inspection tucson", "emergency roof repair tucson" entering top 10 within 30–45 days |
-| P2 | 007–009 | Weeks 2–4 | "tile roof repair tucson" (KD 0) top 3 in 60–90 days; foam local capture; flagship post defended |
+| P2 | 007–009 | Weeks 2–4 | "tile roof repair tucson" (KD 0) top 3 in 60–90 days; flagship post retired (see TASK-008/009) |
 | P3 | 010–013 | Months 2–3 | Cost cluster builds authority for KD 35–40 head terms + AI Overview citations |
 | P4 + HUMAN | 014–016, all | Ongoing | Map pack movement as reviews compound; DR climbs on real links |
 **KPIs to track monthly (Ahrefs + GSC + GBP Insights):** keywords in top 3 / top 10, organic clicks, GBP calls + direction requests, review count & velocity, referring domains (real vs spam ratio).

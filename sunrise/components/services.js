@@ -34,10 +34,10 @@ const SVC_CARDS = [{
   ph: "Tile roof photo",
   src: "uploads/tile-roofing-service-tucson.webp"
 }, {
-  tag: "Flat / Foam",
+  tag: "Flat / Coatings",
   t: "Flat Roof & Coatings",
   slug: "flat-roofing",
-  d: "Foam roofs, elastomeric coatings, and fixing the spots where water pools before they turn into leaks.",
+  d: "Elastomeric coatings and fixing the spots where water pools before they turn into leaks.",
   slot: "svc-flat",
   ph: "Flat roof / coating photo",
   src: "uploads/flat-roofing-service-tucson.webp"

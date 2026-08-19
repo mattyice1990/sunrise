@@ -61,6 +61,7 @@
     { "source": "/flat-roof-coating-tucson", "destination": "/flat-roofing", "permanent": true },
     { "source": "/foam-roofing-tucson", "destination": "/flat-roofing", "permanent": true },
     { "source": "/foam-roofing", "destination": "/flat-roofing", "permanent": true },
+    { "source": "/blog/foam-roof-repair", "destination": "/flat-roofing", "permanent": true },
     { "source": "/emergency-roof-repair-tucson", "destination": "/emergency-roof-repair", "permanent": true },
     { "source": "/roof-inspection-tucson", "destination": "/roof-inspection", "permanent": true },
     { "source": "/why-choose-sunrise-roofers", "destination": "/about", "permanent": true },

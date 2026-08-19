@@ -8,7 +8,7 @@ function botReply(text) {
     return "That sounds urgent — for active leaks call our 24/7 line at 520-753-1758 and we'll get a crew out fast. Want us to schedule an emergency inspection?";
   if (/(estimate|quote|price|cost|how much)/.test(t))
     return "Happy to help with a free estimate! What's the property address, and is it residential or commercial? You can also tap \"Free Roof Estimate\" up top to send photos.";
-  if (/(metal|tile|shingle|flat|foam|coating)/.test(t))
+  if (/(metal|tile|shingle|flat|coating)/.test(t))
     return "Great choice — we install and repair that system across Tucson. What's the approximate age and size of your roof?";
   if (/(hoa|commercial|property manager|multi)/.test(t))
     return "We do a lot of HOA, commercial, and multi-family work with phased scheduling and detailed service logs. What property are we looking at?";
