@@ -7,7 +7,7 @@ Each task below is written as a self-contained ticket. Hand tasks to agents in p
 - Preserve existing URL structure. Never change a live URL without adding a 301 redirect.
 - All new pages must: be added to `sitemap.xml`, be internally linked from at least 2 existing pages, include exactly one H1, and carry appropriate JSON-LD.
 - NAP must appear identically everywhere: `Sunrise Roofers LLC | 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741 | 520-753-1758`
-- Canonical hours (use everywhere, including schema): Mon–Fri 7:00 AM–6:00 PM, Sat 8:00 AM–4:00 PM, Sun closed.
+- Canonical hours (use everywhere, including schema): Mon–Fri 6:00 AM–6:00 PM, Sat 8:00 AM–4:00 PM, Sun closed.
 - Brand voice: plain-English, no-pressure, communication-first ("daily photos and updates"), family-owned, Tucson/monsoon-specific. Match the tone of the existing homepage.
 - Factual guardrails: company founded January 2025 by Eddie & Viky Guillen; Eddie has 20+ years of experience. BBB rating is **A−**, accredited April 2025. GAF-certified. AZ ROC #358079. Never state or imply company awards, ratings, or history that contradict these facts.
 ---
