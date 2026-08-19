@@ -193,7 +193,7 @@ function ContactForm() {
     style: {
       display: "block"
     }
-  }, "Mon–Fri 7–6 · Sat 8–4 · 24/7 Emergency")))), /*#__PURE__*/React.createElement("div", {
+  }, "Mon–Fri 6–6 · Sat 8–4 · 24/7 Emergency")))), /*#__PURE__*/React.createElement("div", {
     className: "contact__trust"
   }, /*#__PURE__*/React.createElement("span", {
     className: "ti"

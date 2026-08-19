@@ -103,7 +103,7 @@ function ContactForm() {
               </div>
               <div className="contact__row">
                 <span className="ic"><Icon name="clock" /></span>
-                <span><span className="k">Hours</span><span className="v" style={{ display: "block" }}>Mon–Fri 7–6 · Sat 8–4 · 24/7 Emergency</span></span>
+                <span><span className="k">Hours</span><span className="v" style={{ display: "block" }}>Mon–Fri 6–6 · Sat 8–4 · 24/7 Emergency</span></span>
               </div>
             </div>
             <div className="contact__trust">
