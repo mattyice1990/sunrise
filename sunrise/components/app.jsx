@@ -6,7 +6,6 @@ function App() {
       <HeaderNav />
       <main>
         <Hero />
-        <TrustBar />
         <MeetOwner />
         <ServiceCardGrid />
         <WhyChooseUs />

@@ -5,13 +5,11 @@
    next (no fade/flash) via a preloaded dual-video buffer, then loops the
    whole sequence forever. Add/remove clips here. */
 const HERO_CLIPS = ["uploads/AdobeStock_1831107909_compressed.mp4", "uploads/AdobeStock_1879827039_compressed.mp4", "uploads/AdobeStock_786610596_compressed.mp4", "uploads/AdobeStock_353379036_compressed.mp4"];
-/* Liability coverage shown in the hero. Kept as one constant so the real
-   policy figure is a one-line swap. Deliberately NOT a number until the
-   amount is confirmed — the site must never state coverage we can't back up.
-   When confirmed, this becomes e.g. { big: "$2M", small: "Liability Insured" }. */
+/* Liability coverage shown in the hero. Kept as one constant so the figure is
+   a one-line change if the policy ever does. Confirmed by Matt 2026-08-20. */
 const HERO_INSURANCE = {
-  big: "Fully",
-  small: "Insured & Bonded"
+  big: "$2M",
+  small: "Liability Insured"
 };
 
 /* Proof shown in the first hero state, before any scrolling. These replace the
@@ -178,6 +176,7 @@ function Hero() {
   const brandRef = useRef(null);
   const textRef = useRef(null);
   const asideRef = useRef(null);
+  const trustRef = useRef(null);
 
   /* ---- Scroll-reveal choreography ----------------------------------
      The hero is a tall scroll track with a pinned stage. As you scroll,
@@ -188,7 +187,19 @@ function Hero() {
       brand = brandRef.current,
       text = textRef.current;
     const aside = asideRef.current;
+    const trust = trustRef.current;
     if (!hero || !brand || !text) return;
+
+    /* The stage is height:100vh but starts below the 45px topbar, so at
+       scrollY 0 its bottom sits that far under the fold and anything pinned
+       to bottom:0 is clipped — exactly the load-in view we want the trust
+       strip visible in. Measure the overflow each frame instead of hardcoding
+       a topbar height: it resolves to 0 as soon as the topbar scrolls away. */
+    const seatTrust = () => {
+      if (!trust) return;
+      const over = Math.max(0, brand.getBoundingClientRect().bottom - window.innerHeight);
+      trust.style.bottom = over + "px";
+    };
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
@@ -201,7 +212,9 @@ function Hero() {
         aside.style.opacity = "1";
         aside.style.transform = "none";
       }
-      return;
+      seatTrust();
+      window.addEventListener("resize", seatTrust);
+      return () => window.removeEventListener("resize", seatTrust);
     }
     let raf = 0;
     const apply = () => {
@@ -224,6 +237,7 @@ function Hero() {
         aside.style.opacity = String(ap);
         aside.style.pointerEvents = ap < 0.15 ? "none" : "";
       }
+      seatTrust();
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(apply);
@@ -368,10 +382,9 @@ function Hero() {
   }, "Get a Free Estimate ", /*#__PURE__*/React.createElement(Icon, {
     name: "arrow"
   })), /*#__PURE__*/React.createElement("div", {
-    className: "hero__scroll"
-  }, /*#__PURE__*/React.createElement("span", null, "Scroll"), /*#__PURE__*/React.createElement("span", {
-    className: "mouse"
-  }))), /*#__PURE__*/React.createElement("div", {
+    className: "hero__trustbar",
+    ref: trustRef
+  }, /*#__PURE__*/React.createElement(TrustBar, null))), /*#__PURE__*/React.createElement("div", {
     className: "hero__inner",
     ref: textRef,
     style: {

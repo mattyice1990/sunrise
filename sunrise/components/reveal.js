@@ -128,7 +128,12 @@
 
   function initCountUp() {
     if (REDUCE) return;
-    var nodes = document.querySelectorAll(".stat-card .n, .trust-item__big");
+    /* Skip the hero's trust strip. It is on screen at load and sits flush with
+       the bottom edge of the viewport, which is inside this observer's
+       rootMargin dead zone ("0px 0px -8% 0px"), so it never fires — leaving the
+       number stuck on its "0+" start value. It needs no count-up anyway. */
+    var nodes = [].slice.call(document.querySelectorAll(".stat-card .n, .trust-item__big"))
+      .filter(function (el) { return !(el.closest && el.closest(".hero__trustbar")); });
     var obs = makeObserver(function (el) {
       var info = el.__stat;
       if (info) animateCount(el, info);

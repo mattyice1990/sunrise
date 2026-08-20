@@ -419,3 +419,55 @@ body.brand-real .header--over .logo__pimg--light {
   .heroform__sub, .heroform__head { display: none; }
   .heroform__field input, .heroform__field select { padding: 9px 12px; font-size: 14px; }
 }
+
+/* ---- trust strip nested at the base of the hero ----
+   .trustbar is themed for a light band (--sand-deep). Inside the hero it sits
+   on video, so everything is re-themed for a dark surface here rather than
+   changing the shared component. */
+.hero__trustbar {
+  position: absolute; z-index: 1; left: 0; right: 0; bottom: 0;
+  padding-bottom: 6px;
+  /* Ground the strip so the badges stay legible over moving footage. */
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.42) 38%, rgba(0,0,0,.68) 100%);
+  pointer-events: none;
+}
+.hero__trustbar .trustbar {
+  background: transparent; border-bottom: 0;
+}
+.hero__trustbar .trustbar__label {
+  padding-top: 14px; font-size: 11.5px; letter-spacing: .17em;
+  color: rgba(255,255,255,.72); text-shadow: 0 1px 10px rgba(0,0,0,.8);
+}
+.hero__trustbar .trustbar__row { padding: 10px 0 14px; gap: 0; }
+.hero__trustbar .trust-item { padding: 6px 22px; gap: 10px; }
+.hero__trustbar .trust-item + .trust-item::before {
+  background: rgba(255,255,255,.2); height: 30px;
+}
+.hero__trustbar .trust-item__lbl {
+  color: rgba(255,255,255,.86); font-size: 12px; text-shadow: 0 1px 10px rgba(0,0,0,.85);
+}
+.hero__trustbar .trust-item__big { color: #fff; font-size: 24px; }
+.hero__trustbar .trust-item__logo { color: #fff; }
+.hero__trustbar .trust-item .stars { color: var(--terra-300); }
+
+/* The BBB / GAF marks are drawn for light backgrounds; lift them slightly so
+   they don't read as dead rectangles on the dark strip. */
+.hero__trustbar .trust-item svg,
+.hero__trustbar .trust-item .gaf-badge {
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.6));
+}
+
+/* Desktop: stop short of the form rail. */
+@media (min-width: 1024px) {
+  .hero__trustbar { right: 0; }
+}
+
+/* Not enough vertical room to show a logo, proof row, CTA and a trust strip. */
+@media (max-height: 780px) {
+  .hero__trustbar { display: none; }
+}
+@media (max-width: 700px) {
+  .hero__trustbar .trustbar__label { font-size: 10px; padding-top: 10px; }
+  .hero__trustbar .trust-item { padding: 4px 12px; gap: 8px; }
+  .hero__trustbar .trust-item__lbl { font-size: 10.5px; max-width: 12ch; }
+}

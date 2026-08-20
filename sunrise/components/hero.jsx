@@ -9,11 +9,9 @@ const HERO_CLIPS = [
   "uploads/AdobeStock_786610596_compressed.mp4",
   "uploads/AdobeStock_353379036_compressed.mp4",
 ];
-/* Liability coverage shown in the hero. Kept as one constant so the real
-   policy figure is a one-line swap. Deliberately NOT a number until the
-   amount is confirmed — the site must never state coverage we can't back up.
-   When confirmed, this becomes e.g. { big: "$2M", small: "Liability Insured" }. */
-const HERO_INSURANCE = { big: "Fully", small: "Insured & Bonded" };
+/* Liability coverage shown in the hero. Kept as one constant so the figure is
+   a one-line change if the policy ever does. Confirmed by Matt 2026-08-20. */
+const HERO_INSURANCE = { big: "$2M", small: "Liability Insured" };
 
 /* Proof shown in the first hero state, before any scrolling. These replace the
    old Get-a-Free-Estimate / Call button pair: the estimate CTA now lives in the
@@ -158,6 +156,7 @@ function Hero() {
   const brandRef = useRef(null);
   const textRef = useRef(null);
   const asideRef = useRef(null);
+  const trustRef = useRef(null);
 
   /* ---- Scroll-reveal choreography ----------------------------------
      The hero is a tall scroll track with a pinned stage. As you scroll,
@@ -166,7 +165,19 @@ function Hero() {
   useEffect(() => {
     const hero = heroRef.current, brand = brandRef.current, text = textRef.current;
     const aside = asideRef.current;
+    const trust = trustRef.current;
     if (!hero || !brand || !text) return;
+
+    /* The stage is height:100vh but starts below the 45px topbar, so at
+       scrollY 0 its bottom sits that far under the fold and anything pinned
+       to bottom:0 is clipped — exactly the load-in view we want the trust
+       strip visible in. Measure the overflow each frame instead of hardcoding
+       a topbar height: it resolves to 0 as soon as the topbar scrolls away. */
+    const seatTrust = () => {
+      if (!trust) return;
+      const over = Math.max(0, brand.getBoundingClientRect().bottom - window.innerHeight);
+      trust.style.bottom = over + "px";
+    };
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
@@ -174,7 +185,9 @@ function Hero() {
       brand.style.opacity = "0"; brand.style.visibility = "hidden";
       text.style.opacity = "1"; text.style.transform = "none";
       if (aside) { aside.style.opacity = "1"; aside.style.transform = "none"; }
-      return;
+      seatTrust();
+      window.addEventListener("resize", seatTrust);
+      return () => window.removeEventListener("resize", seatTrust);
     }
     let raf = 0;
     const apply = () => {
@@ -197,6 +210,7 @@ function Hero() {
         aside.style.opacity = String(ap);
         aside.style.pointerEvents = ap < 0.15 ? "none" : "";
       }
+      seatTrust();
     };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(apply); };
     apply();
@@ -305,7 +319,11 @@ function Hero() {
           <a className="btn btn--primary btn--xl hero__mobile-cta" href="#contact">
             Get a Free Estimate <Icon name="arrow" />
           </a>
-          <div className="hero__scroll"><span>Scroll</span><span className="mouse"></span></div>
+          {/* Trust strip pinned to the base of the first hero state. Lives inside
+              hero__brand so it belongs to the load-in view and fades out with
+              it; left/right:0 resolve against the padding box, so on desktop it
+              stops short of the form rail instead of sliding underneath it. */}
+          <div className="hero__trustbar" ref={trustRef}><TrustBar /></div>
         </div>
 
         {/* Hero message — rises into view as the logo exits */}
