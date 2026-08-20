@@ -5,15 +5,179 @@
    next (no fade/flash) via a preloaded dual-video buffer, then loops the
    whole sequence forever. Add/remove clips here. */
 const HERO_CLIPS = ["uploads/AdobeStock_1831107909_compressed.mp4", "uploads/AdobeStock_1879827039_compressed.mp4", "uploads/AdobeStock_786610596_compressed.mp4", "uploads/AdobeStock_353379036_compressed.mp4"];
+/* Liability coverage shown in the hero. Kept as one constant so the real
+   policy figure is a one-line swap. Deliberately NOT a number until the
+   amount is confirmed — the site must never state coverage we can't back up.
+   When confirmed, this becomes e.g. { big: "$2M", small: "Liability Insured" }. */
+const HERO_INSURANCE = {
+  big: "Fully",
+  small: "Insured & Bonded"
+};
+
+/* Proof shown in the first hero state, before any scrolling. These replace the
+   old Get-a-Free-Estimate / Call button pair: the estimate CTA now lives in the
+   form to the right, and the phone stays as a text link underneath, because
+   calls remain the dominant lead channel (16 of 17 last week came by phone).
+   "1,000+ Roofs in 20+ Years" is framed as Eddie's career, not the LLC's, so it
+   does not contradict foundingDate 2025 in seo/nap.json. */
+const HERO_TRUST = [{
+  big: "Lifetime",
+  small: "Guarantee"
+}, HERO_INSURANCE, {
+  big: "1,000+",
+  small: "Roofs in 20+ Years"
+}];
+const HERO_SERVICES = ["Roof Repair", "Roof Replacement", "Metal Roof Installation", "Tile Roofing", "Flat Roof / Coatings", "Commercial Roofing", "Roof Inspection", "Storm / Monsoon Damage"];
 const CLIP_MIN = 4; // seconds — minimum time on a clip (+1s after dropping the fire clip)
 const CLIP_MAX = 7; // seconds — maximum time on a clip (+1s after dropping the fire clip)
 
+/* Compact three-field version of the main contact form, pinned beside the hero
+   on desktop. Posts to the same Web3Forms key and fires the same generate_lead
+   key event, tagged form_id "hero-form" so GA4 can tell the two apart.
+
+   NOTE: the access key is duplicated from contact.jsx. If it ever changes in the
+   Web3Forms dashboard it must be updated in BOTH files. Left duplicated on
+   purpose rather than refactoring the live, already-verified contact form. */
+function HeroForm() {
+  const [vals, setVals] = useState({
+    name: "",
+    phone: "",
+    service: ""
+  });
+  const [errs, setErrs] = useState({});
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [submitErr, setSubmitErr] = useState("");
+  const set = k => e => setVals(v => ({
+    ...v,
+    [k]: e.target.value
+  }));
+  const submit = async e => {
+    e.preventDefault();
+    const er = {};
+    if (!vals.name.trim()) er.name = "Your name";
+    if (!/^[\d\s()+-]{7,}$/.test(vals.phone)) er.phone = "Valid phone";
+    if (!vals.service) er.service = "Pick one";
+    setErrs(er);
+    if (Object.keys(er).length > 0) return;
+    setSending(true);
+    setSubmitErr("");
+    try {
+      if (window.PursuitAttribution) {
+        window.PursuitAttribution.submit({
+          name: vals.name,
+          phone: vals.phone,
+          service: vals.service,
+          source: "hero-form"
+        });
+      }
+    } catch (err) {}
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "bb31a1fd-2cf0-4ea5-8920-18cad8059ed4",
+          subject: "New Roofing Estimate Request (Hero) - Sunrise Roofers",
+          from_name: "Sunrise Roofers Website",
+          name: vals.name,
+          phone: vals.phone,
+          service: vals.service
+        })
+      });
+      const result = await res.json();
+      if (result.success) {
+        try {
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", {
+              form_id: "hero-form",
+              page_location: window.location.href
+            });
+          }
+        } catch (err) {}
+        setSent(true);
+      } else {
+        setSubmitErr(result.message || "Couldn't send. Call or text 520-753-1758.");
+      }
+    } catch (err) {
+      setSubmitErr("Couldn't send right now. Call or text 520-753-1758.");
+    } finally {
+      setSending(false);
+    }
+  };
+  if (sent) {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "heroform heroform--done",
+      role: "status"
+    }, /*#__PURE__*/React.createElement(Icon, {
+      name: "check-c"
+    }), /*#__PURE__*/React.createElement("h3", null, "Got it — thank you."), /*#__PURE__*/React.createElement("p", null, "Eddie will reach out shortly. Need us sooner? Call or text ", /*#__PURE__*/React.createElement("a", {
+      href: "tel:5207531758"
+    }, "520-753-1758"), "."));
+  }
+  return /*#__PURE__*/React.createElement("form", {
+    className: "heroform",
+    onSubmit: submit,
+    noValidate: true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "heroform__head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "heroform__eyebrow"
+  }, "Free · No Pressure"), /*#__PURE__*/React.createElement("h3", {
+    className: "heroform__title"
+  }, "Get Your Free Roof Estimate"), /*#__PURE__*/React.createElement("p", {
+    className: "heroform__sub"
+  }, "Most estimates come back within a day.")), /*#__PURE__*/React.createElement("label", {
+    className: "heroform__field"
+  }, /*#__PURE__*/React.createElement("span", null, "Name"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: vals.name,
+    onChange: set("name"),
+    placeholder: "Jane Doe",
+    "aria-label": "Full name"
+  }), errs.name && /*#__PURE__*/React.createElement("em", null, errs.name)), /*#__PURE__*/React.createElement("label", {
+    className: "heroform__field"
+  }, /*#__PURE__*/React.createElement("span", null, "Phone"), /*#__PURE__*/React.createElement("input", {
+    type: "tel",
+    value: vals.phone,
+    onChange: set("phone"),
+    placeholder: "(520) 555-0123",
+    "aria-label": "Phone number"
+  }), errs.phone && /*#__PURE__*/React.createElement("em", null, errs.phone)), /*#__PURE__*/React.createElement("label", {
+    className: "heroform__field"
+  }, /*#__PURE__*/React.createElement("span", null, "Service Needed"), /*#__PURE__*/React.createElement("select", {
+    value: vals.service,
+    onChange: set("service"),
+    "aria-label": "Service needed"
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, "Select a service…"), HERO_SERVICES.map(sv => /*#__PURE__*/React.createElement("option", {
+    key: sv,
+    value: sv
+  }, sv))), errs.service && /*#__PURE__*/React.createElement("em", null, errs.service)), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn--primary heroform__submit",
+    type: "submit",
+    disabled: sending
+  }, sending ? "Sending\u2026" : "Request My Free Estimate", " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  })), submitErr && /*#__PURE__*/React.createElement("p", {
+    className: "heroform__err"
+  }, submitErr), /*#__PURE__*/React.createElement("p", {
+    className: "heroform__fine"
+  }, "Or call/text ", /*#__PURE__*/React.createElement("a", {
+    href: "tel:5207531758"
+  }, "520-753-1758"), " · ROC #358079"));
+}
 function Hero() {
   const aRef = useRef(null);
   const bRef = useRef(null);
   const heroRef = useRef(null);
   const brandRef = useRef(null);
   const textRef = useRef(null);
+  const asideRef = useRef(null);
 
   /* ---- Scroll-reveal choreography ----------------------------------
      The hero is a tall scroll track with a pinned stage. As you scroll,
@@ -23,6 +187,7 @@ function Hero() {
     const hero = heroRef.current,
       brand = brandRef.current,
       text = textRef.current;
+    const aside = asideRef.current;
     if (!hero || !brand || !text) return;
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -32,6 +197,10 @@ function Hero() {
       brand.style.visibility = "hidden";
       text.style.opacity = "1";
       text.style.transform = "none";
+      if (aside) {
+        aside.style.opacity = "1";
+        aside.style.transform = "none";
+      }
       return;
     }
     let raf = 0;
@@ -48,6 +217,13 @@ function Hero() {
       text.style.opacity = String(tp);
       text.style.transform = "translateY(" + 46 * (1 - tp) + "px)";
       text.style.pointerEvents = tp > 0.4 ? "" : "none";
+      // Rail holds full opacity until the hero is nearly done, then fades out
+      // over the last 12%. Pointer events stay on for as long as it is visible.
+      if (aside) {
+        const ap = 1 - clamp((p - 0.88) / 0.12, 0, 1);
+        aside.style.opacity = String(ap);
+        aside.style.pointerEvents = ap < 0.15 ? "none" : "";
+      }
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(apply);
@@ -160,7 +336,10 @@ function Hero() {
     }
   })), /*#__PURE__*/React.createElement("div", {
     className: "hero__scrim"
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("aside", {
+    className: "hero__aside",
+    ref: asideRef
+  }, /*#__PURE__*/React.createElement(HeroForm, null)), /*#__PURE__*/React.createElement("div", {
     className: "hero__brand",
     ref: brandRef
   }, /*#__PURE__*/React.createElement("img", {
@@ -169,19 +348,26 @@ function Hero() {
     alt: "Sunrise Roofers LLC"
   }), /*#__PURE__*/React.createElement("p", {
     className: "hero__tagline"
-  }, "Roofing Done Right by a Tucson Family"), /*#__PURE__*/React.createElement("div", {
-    className: "hero__actions"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "btn btn--primary btn--xl",
-    href: "#contact"
-  }, "Get a Free Estimate ", /*#__PURE__*/React.createElement(Icon, {
-    name: "arrow"
-  })), /*#__PURE__*/React.createElement("a", {
-    className: "btn btn--on-dark btn--xl",
+  }, "Roofing Done Right by a Tucson Family"), /*#__PURE__*/React.createElement("ul", {
+    className: "hero__trust"
+  }, HERO_TRUST.map(t => /*#__PURE__*/React.createElement("li", {
+    className: "hero__trust-item",
+    key: t.big + t.small
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "hero__trust-big"
+  }, t.big), /*#__PURE__*/React.createElement("span", {
+    className: "hero__trust-small"
+  }, t.small)))), /*#__PURE__*/React.createElement("a", {
+    className: "hero__tel",
     href: "tel:5207531758"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "phone"
-  }), " Call 520-753-1758")), /*#__PURE__*/React.createElement("div", {
+  }), " Call or text 520-753-1758"), /*#__PURE__*/React.createElement("a", {
+    className: "btn btn--primary btn--xl hero__mobile-cta",
+    href: "#contact"
+  }, "Get a Free Estimate ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  })), /*#__PURE__*/React.createElement("div", {
     className: "hero__scroll"
   }, /*#__PURE__*/React.createElement("span", null, "Scroll"), /*#__PURE__*/React.createElement("span", {
     className: "mouse"

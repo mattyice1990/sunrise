@@ -20,6 +20,8 @@ const ALLOW = [
   { file: "sunrise/components/contact.", variant: "sunriseroofer@outlook.com" },
   // Greyed-out example in the phone input, never presented as the business number.
   { file: "sunrise/components/contact.", variant: "(520) 555-0123" },
+  // Same placeholder in the hero's compact estimate form.
+  { file: "sunrise/components/hero.", variant: "(520) 555-0123" },
   { file: "seo/nap.json", variant: "*" },
   // One-way mirror of live Google Business Profile post copy. The cron re-syncs
   // from Google, so editing it here just churns; fix the post ON Google instead.

@@ -9,8 +9,147 @@ const HERO_CLIPS = [
   "uploads/AdobeStock_786610596_compressed.mp4",
   "uploads/AdobeStock_353379036_compressed.mp4",
 ];
+/* Liability coverage shown in the hero. Kept as one constant so the real
+   policy figure is a one-line swap. Deliberately NOT a number until the
+   amount is confirmed — the site must never state coverage we can't back up.
+   When confirmed, this becomes e.g. { big: "$2M", small: "Liability Insured" }. */
+const HERO_INSURANCE = { big: "Fully", small: "Insured & Bonded" };
+
+/* Proof shown in the first hero state, before any scrolling. These replace the
+   old Get-a-Free-Estimate / Call button pair: the estimate CTA now lives in the
+   form to the right, and the phone stays as a text link underneath, because
+   calls remain the dominant lead channel (16 of 17 last week came by phone).
+   "1,000+ Roofs in 20+ Years" is framed as Eddie's career, not the LLC's, so it
+   does not contradict foundingDate 2025 in seo/nap.json. */
+const HERO_TRUST = [
+  { big: "Lifetime", small: "Guarantee" },
+  HERO_INSURANCE,
+  { big: "1,000+", small: "Roofs in 20+ Years" },
+];
+
+const HERO_SERVICES = [
+  "Roof Repair", "Roof Replacement", "Metal Roof Installation", "Tile Roofing",
+  "Flat Roof / Coatings", "Commercial Roofing", "Roof Inspection", "Storm / Monsoon Damage",
+];
+
 const CLIP_MIN = 4;   // seconds — minimum time on a clip (+1s after dropping the fire clip)
 const CLIP_MAX = 7;   // seconds — maximum time on a clip (+1s after dropping the fire clip)
+
+/* Compact three-field version of the main contact form, pinned beside the hero
+   on desktop. Posts to the same Web3Forms key and fires the same generate_lead
+   key event, tagged form_id "hero-form" so GA4 can tell the two apart.
+
+   NOTE: the access key is duplicated from contact.jsx. If it ever changes in the
+   Web3Forms dashboard it must be updated in BOTH files. Left duplicated on
+   purpose rather than refactoring the live, already-verified contact form. */
+function HeroForm() {
+  const [vals, setVals] = useState({ name: "", phone: "", service: "" });
+  const [errs, setErrs] = useState({});
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [submitErr, setSubmitErr] = useState("");
+  const set = (k) => (e) => setVals((v) => ({ ...v, [k]: e.target.value }));
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const er = {};
+    if (!vals.name.trim()) er.name = "Your name";
+    if (!/^[\d\s()+-]{7,}$/.test(vals.phone)) er.phone = "Valid phone";
+    if (!vals.service) er.service = "Pick one";
+    setErrs(er);
+    if (Object.keys(er).length > 0) return;
+
+    setSending(true);
+    setSubmitErr("");
+
+    try {
+      if (window.PursuitAttribution) {
+        window.PursuitAttribution.submit({
+          name: vals.name, phone: vals.phone, service: vals.service, source: "hero-form",
+        });
+      }
+    } catch (err) {}
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "bb31a1fd-2cf0-4ea5-8920-18cad8059ed4",
+          subject: "New Roofing Estimate Request (Hero) - Sunrise Roofers",
+          from_name: "Sunrise Roofers Website",
+          name: vals.name, phone: vals.phone, service: vals.service,
+        }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        try {
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", { form_id: "hero-form", page_location: window.location.href });
+          }
+        } catch (err) {}
+        setSent(true);
+      } else {
+        setSubmitErr(result.message || "Couldn't send. Call or text 520-753-1758.");
+      }
+    } catch (err) {
+      setSubmitErr("Couldn't send right now. Call or text 520-753-1758.");
+    } finally {
+      setSending(false);
+    }
+  };
+
+  if (sent) {
+    return (
+      <div className="heroform heroform--done" role="status">
+        <Icon name="check-c" />
+        <h3>Got it — thank you.</h3>
+        <p>Eddie will reach out shortly. Need us sooner? Call or text <a href="tel:5207531758">520-753-1758</a>.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="heroform" onSubmit={submit} noValidate>
+      <div className="heroform__head">
+        <p className="heroform__eyebrow">Free · No Pressure</p>
+        <h3 className="heroform__title">Get Your Free Roof Estimate</h3>
+        <p className="heroform__sub">Most estimates come back within a day.</p>
+      </div>
+
+      <label className="heroform__field">
+        <span>Name</span>
+        <input type="text" value={vals.name} onChange={set("name")} placeholder="Jane Doe" aria-label="Full name" />
+        {errs.name && <em>{errs.name}</em>}
+      </label>
+
+      <label className="heroform__field">
+        <span>Phone</span>
+        <input type="tel" value={vals.phone} onChange={set("phone")} placeholder="(520) 555-0123" aria-label="Phone number" />
+        {errs.phone && <em>{errs.phone}</em>}
+      </label>
+
+      <label className="heroform__field">
+        <span>Service Needed</span>
+        <select value={vals.service} onChange={set("service")} aria-label="Service needed">
+          <option value="">Select a service…</option>
+          {HERO_SERVICES.map((sv) => <option key={sv} value={sv}>{sv}</option>)}
+        </select>
+        {errs.service && <em>{errs.service}</em>}
+      </label>
+
+      <button className="btn btn--primary heroform__submit" type="submit" disabled={sending}>
+        {sending ? "Sending\u2026" : "Request My Free Estimate"} <Icon name="arrow" />
+      </button>
+
+      {submitErr && <p className="heroform__err">{submitErr}</p>}
+
+      <p className="heroform__fine">
+        Or call/text <a href="tel:5207531758">520-753-1758</a> · ROC #358079
+      </p>
+    </form>
+  );
+}
 
 function Hero() {
   const aRef = useRef(null);
@@ -18,6 +157,7 @@ function Hero() {
   const heroRef = useRef(null);
   const brandRef = useRef(null);
   const textRef = useRef(null);
+  const asideRef = useRef(null);
 
   /* ---- Scroll-reveal choreography ----------------------------------
      The hero is a tall scroll track with a pinned stage. As you scroll,
@@ -25,6 +165,7 @@ function Hero() {
      copy and CTAs rise into view. Reduced-motion shows the text state. */
   useEffect(() => {
     const hero = heroRef.current, brand = brandRef.current, text = textRef.current;
+    const aside = asideRef.current;
     if (!hero || !brand || !text) return;
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -32,6 +173,7 @@ function Hero() {
       hero.classList.add("hero--static");
       brand.style.opacity = "0"; brand.style.visibility = "hidden";
       text.style.opacity = "1"; text.style.transform = "none";
+      if (aside) { aside.style.opacity = "1"; aside.style.transform = "none"; }
       return;
     }
     let raf = 0;
@@ -48,6 +190,13 @@ function Hero() {
       text.style.opacity = String(tp);
       text.style.transform = "translateY(" + (46 * (1 - tp)) + "px)";
       text.style.pointerEvents = tp > 0.4 ? "" : "none";
+      // Rail holds full opacity until the hero is nearly done, then fades out
+      // over the last 12%. Pointer events stay on for as long as it is visible.
+      if (aside) {
+        const ap = 1 - clamp((p - 0.88) / 0.12, 0, 1);
+        aside.style.opacity = String(ap);
+        aside.style.pointerEvents = ap < 0.15 ? "none" : "";
+      }
     };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(apply); };
     apply();
@@ -128,14 +277,34 @@ function Hero() {
         </div>
         <div className="hero__scrim"></div>
 
-        {/* Big centered brand intro — fades + scales away on scroll */}
+        {/* Form rail — deliberately OUTSIDE hero__brand so it keeps its own
+            opacity curve and stays interactive while the stage is pinned.
+            Putting it inside the brand layer would fade it (and kill pointer
+            events) the moment someone scrolled while typing. */}
+        <aside className="hero__aside" ref={asideRef}>
+          <HeroForm />
+        </aside>
+
+        {/* Brand intro — fades + scales away on scroll */}
         <div className="hero__brand" ref={brandRef}>
           <img className="hero__logo" src={(window.__resources && window.__resources.logoCream) || "sunrise-assets/logo-cream.png"} alt="Sunrise Roofers LLC" />
           <p className="hero__tagline">Roofing Done Right by a Tucson Family</p>
-          <div className="hero__actions">
-            <a className="btn btn--primary btn--xl" href="#contact">Get a Free Estimate <Icon name="arrow" /></a>
-            <a className="btn btn--on-dark btn--xl" href="tel:5207531758"><Icon name="phone" /> Call 520-753-1758</a>
-          </div>
+          <ul className="hero__trust">
+            {HERO_TRUST.map((t) => (
+              <li className="hero__trust-item" key={t.big + t.small}>
+                <span className="hero__trust-big">{t.big}</span>
+                <span className="hero__trust-small">{t.small}</span>
+              </li>
+            ))}
+          </ul>
+          <a className="hero__tel" href="tel:5207531758">
+            <Icon name="phone" /> Call or text 520-753-1758
+          </a>
+          {/* Desktop gets the form in the rail to the right; on phones the rail
+              is hidden (a 100vh stage can't hold both), so keep a real CTA. */}
+          <a className="btn btn--primary btn--xl hero__mobile-cta" href="#contact">
+            Get a Free Estimate <Icon name="arrow" />
+          </a>
           <div className="hero__scroll"><span>Scroll</span><span className="mouse"></span></div>
         </div>
 
