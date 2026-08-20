@@ -471,3 +471,58 @@ body.brand-real .header--over .logo__pimg--light {
   .hero__trustbar .trust-item { padding: 4px 12px; gap: 8px; }
   .hero__trustbar .trust-item__lbl { font-size: 10.5px; max-width: 12ch; }
 }
+
+/* ============================================================
+   HERO v2 — the estimate panel becomes part of the hero rather than a
+   card floating on it: a full-height right column, edge to edge, with the
+   video occupying the left. Overrides the earlier floating-card rules.
+   ============================================================ */
+:root { --hero-rail: clamp(350px, calc(18vw + 180px), 620px); }
+
+@media (min-width: 1024px) {
+  /* Full-height structural column, not a card. */
+  .hero__aside {
+    top: 0; bottom: 0; right: 0; transform: none;
+    width: var(--hero-rail); height: auto;
+    display: flex; align-items: center; justify-content: center;
+    padding: calc(var(--nav-h) + 14px) clamp(22px, 2vw, 32px) 28px;
+    /* Sunrise rising up the panel, over graphite. Opaque enough to read as
+       structure; the video stops at its edge. */
+    background:
+      radial-gradient(125% 62% at 50% 104%, rgba(var(--terra-rgb), .46) 0%, rgba(var(--terra-rgb), .17) 34%, rgba(var(--terra-rgb), .04) 58%, rgba(0,0,0,0) 78%),
+      linear-gradient(180deg, rgba(24,25,29,.93) 0%, rgba(16,17,20,.95) 55%, rgba(11,12,14,.97) 100%);
+    backdrop-filter: blur(8px) saturate(115%);
+    -webkit-backdrop-filter: blur(8px) saturate(115%);
+    box-shadow: -22px 0 60px rgba(0,0,0,.45);
+  }
+  /* Sunrise seam where the panel meets the video. */
+  .hero__aside::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--terra-300) 28%, var(--terra) 62%, rgba(0,0,0,0) 100%);
+  }
+
+  /* The panel now carries the treatment, so the form itself goes flat. */
+  .heroform {
+    width: 100%; padding: 0; border: 0; border-radius: 0;
+    background: none; box-shadow: none;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    gap: 14px;
+  }
+  .heroform::before { display: none; }
+
+  /* Left column centres in the space the panel leaves. */
+  .hero__brand { padding-right: calc(var(--hero-rail) + clamp(18px, 2vw, 34px)); }
+  .hero__stage .hero__inner .container { padding-right: calc(var(--hero-rail) + clamp(18px, 2vw, 34px)); }
+
+  /* Trust strip spans the video side only — it should not run under the panel. */
+  .hero__trustbar { right: var(--hero-rail); }
+}
+
+/* Lift the badges off the very bottom edge. The gradient still reaches the
+   fold so the strip stays grounded; only its contents move up. */
+.hero__trustbar { padding-bottom: clamp(18px, 2.4vh, 34px); }
+
+@media (max-width: 1023px) {
+  /* No panel below 1024, so nothing to reserve space for. */
+  .hero__trustbar { right: 0; }
+}
