@@ -339,8 +339,8 @@ function Hero() {
             <p className="eyebrow hero__eyebrow">Family-Owned by Eddie &amp; Viky Guillen · ROC #358079</p>
             <h1 className="h-display">Roof Repair, Replacement &amp; <em>Metal Roof</em> Installation in Tucson</h1>
             <p className="hero__body">
-              Sunrise is Eddie and Viky Guillen &mdash; a Tucson family, not a call
-              center. Eddie's been on these roofs 20-plus years and runs every job
+              Sunrise is Eddie and Viky Guillen &mdash; a Tucson family business.
+              Eddie's been on these roofs 20-plus years and runs every job
               like his name's on it, because it is. Leak or full tear-off, you get a
               straight answer, clean work, and a roof that finally quits leaking. No
               pressure, no closers, no sign-today games.

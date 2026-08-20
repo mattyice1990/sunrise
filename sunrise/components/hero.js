@@ -405,7 +405,7 @@ function Hero() {
     className: "h-display"
   }, "Roof Repair, Replacement & ", /*#__PURE__*/React.createElement("em", null, "Metal Roof"), " Installation in Tucson"), /*#__PURE__*/React.createElement("p", {
     className: "hero__body"
-  }, "Sunrise is Eddie and Viky Guillen — a Tucson family, not a call center. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Leak or full tear-off, you get a straight answer, clean work, and a roof that finally quits leaking. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
+  }, "Sunrise is Eddie and Viky Guillen — a Tucson family business. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Leak or full tear-off, you get a straight answer, clean work, and a roof that finally quits leaking. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
     className: "hero__cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",

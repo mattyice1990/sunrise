@@ -182,7 +182,7 @@ Object.assign(window.SEO, {
       { q: "Which roofing system should I install?", a: "Depends on your slope, your budget, and what you care about on the energy side. Shingle's cheap and quick, tile lasts and looks great, metal's tough and efficient, and coatings are the move on flat sections. We'll point you to what fits best." },
       { q: "How long does a tile roof last in Arizona?", a: "Good concrete or clay tile will go 50 years, sometimes more. It's the underlayment underneath that usually needs redoing around 20 to 25 years. The tile itself holds up great out here." },
       { q: "Do you offer financing for a new roof?", a: "We do, on jobs that qualify, so you don't have to pay it all up front to get started." },
-      { q: "Why choose a local Tucson roofer over a national company?", a: "We know this climate, the local codes, and the exact ways desert roofs go bad. And you get a real local crew you can actually get on the phone, not some call center three states away." },
+      { q: "Why choose a local Tucson roofer over a national company?", a: "We know this climate, the local codes, and the exact ways desert roofs go bad. And you get a real local crew you can actually get on the phone, working out of Tucson rather than an office three states away." },
     ],
     related: ["roof-replacement", "tile-roofing", "metal-roofing", "shingle-roofing"],
     ctaH: "Planning a new roof?",
