@@ -526,3 +526,79 @@ body.brand-real .header--over .logo__pimg--light {
   /* No panel below 1024, so nothing to reserve space for. */
   .hero__trustbar { right: 0; }
 }
+
+/* ============================================================
+   HERO — responsive corrections
+   The trust strip carries five badges. Beside the estimate panel there is
+   only (viewport - panel) of room for them: 683px at a 1067px viewport, where
+   five items need roughly 930px. They wrapped to three rows, the strip grew to
+   212px tall, and it collided with the proof row above it — the overlap
+   reported on smaller browsers.
+   ============================================================ */
+
+/* Never wrap. A wrapped strip grows upward into the content above it. */
+.hero__trustbar .trustbar__row { flex-wrap: nowrap; }
+
+/* Under ~1400px, show only the three third-party marks (Google, GAF, BBB).
+   The two dropped ones are already stated in the hero itself — ROC/licensed
+   sits in the topbar and in the "$2M Liability Insured" badge, and "20+ years"
+   is in the "1,000+ Roofs in 20+ Years" badge — so nothing is actually lost. */
+@media (max-width: 1400px) {
+  .hero__trustbar .trust-item:nth-child(n + 4) { display: none; }
+  .hero__trustbar .trust-item { padding: 6px clamp(10px, 1.4vw, 20px); gap: 8px; }
+  .hero__trustbar .trust-item__lbl { font-size: 11px; max-width: 13ch; }
+}
+
+/* Tighter still where the panel is widest relative to the space it leaves. */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .hero__trustbar .trustbar__label { font-size: 10px; letter-spacing: .12em; padding-top: 10px; }
+  .hero__trustbar .trustbar__row { padding: 8px 0 10px; }
+  .hero__trustbar .trust-item__lbl { font-size: 10.5px; max-width: 12ch; }
+}
+
+/* The old cutoff hid the strip below 780px of viewport height, which is most
+   laptops once browser chrome is subtracted — the badges would simply never
+   appear. With three items it fits far shorter, so only drop it when the stage
+   genuinely cannot hold logo + proof row + CTA + strip. */
+@media (max-height: 780px) { .hero__trustbar { display: block; } }
+@media (max-height: 620px) { .hero__trustbar { display: none; } }
+
+/* Reclaim vertical room before hiding anything. */
+@media (max-height: 760px) {
+  .hero__trustbar { padding-bottom: 10px; }
+  .hero__trustbar .trustbar__label { padding-top: 8px; }
+  .hero__trustbar .trustbar__row { padding: 6px 0 8px; }
+  .hero__trustbar .trust-item { padding-block: 4px; }
+}
+
+/* The brand logo is sized purely off viewport WIDTH (up to 660px), so on a
+   wide-but-short window it eats the vertical budget and the column overflows
+   its reserved space, running the phone link into the trust strip. Scale it
+   off height as well. */
+@media (max-height: 900px) {
+  .hero__logo { width: clamp(260px, 44vw, 540px); }
+  .hero__brand { gap: clamp(12px, 1.8vw, 20px); }
+}
+@media (max-height: 800px) {
+  .hero__logo { width: clamp(240px, 38vw, 450px); }
+  .hero__brand { gap: clamp(10px, 1.5vw, 16px); }
+  .hero__trust-big { font-size: clamp(21px, 2.6vw, 32px); }
+  .hero__tagline { font-size: clamp(11px, 1.2vw, 13px); }
+}
+@media (max-height: 700px) {
+  .hero__logo { width: clamp(210px, 31vw, 360px); }
+  .hero__brand { gap: 9px; }
+  .hero__trust-big { font-size: clamp(19px, 2.2vw, 26px); }
+  .hero__tel { font-size: clamp(14px, 1.4vw, 16px); }
+}
+
+/* The short-window rule that hides the form's heading was written for the
+   floating card, where a 760px-tall window left no room for it. The panel is
+   full-height now and has space to spare, so a headless form there just looks
+   unfinished — restore it and only trim the sizing. */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .heroform__head { display: flex; }
+  .heroform__sub { display: block; font-size: 12px; }
+  .heroform__title { font-size: clamp(19px, 1.7vw, 24px); }
+  .heroform { padding: 0; gap: 11px; }
+}

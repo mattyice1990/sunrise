@@ -177,6 +177,13 @@ function Hero() {
       if (!trust) return;
       const over = Math.max(0, brand.getBoundingClientRect().bottom - window.innerHeight);
       trust.style.bottom = over + "px";
+      /* hero__brand centres its column over the whole stage, which at shorter
+         viewports runs the phone link straight into the trust strip below it.
+         Reserve the strip's height (plus the off-screen overhang) as padding so
+         the column centres in the space ABOVE the strip instead. Measured, not
+         hardcoded — the strip's height changes with breakpoint and badge count. */
+      const shown = window.getComputedStyle(trust).display !== "none";
+      brand.style.paddingBottom = shown ? (over + trust.offsetHeight) + "px" : "";
     };
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
