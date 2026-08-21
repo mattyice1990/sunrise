@@ -6,9 +6,9 @@
    whole sequence forever. Add/remove clips here. */
 const HERO_CLIPS = ["uploads/AdobeStock_1831107909_compressed.mp4", "uploads/AdobeStock_1879827039_compressed.mp4", "uploads/AdobeStock_786610596_compressed.mp4", "uploads/AdobeStock_353379036_compressed.mp4"];
 /* Liability coverage shown in the hero. Kept as one constant so the figure is
-   a one-line change if the policy ever does. Confirmed by Matt 2026-08-20. */
+   a one-line change if the policy ever does. Confirmed by Matt 2026-08-20 (corrected from $2M same day). */
 const HERO_INSURANCE = {
-  big: "$2M",
+  big: "$1M",
   small: "Liability Insured"
 };
 

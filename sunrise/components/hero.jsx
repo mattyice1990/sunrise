@@ -10,8 +10,8 @@ const HERO_CLIPS = [
   "uploads/AdobeStock_353379036_compressed.mp4",
 ];
 /* Liability coverage shown in the hero. Kept as one constant so the figure is
-   a one-line change if the policy ever does. Confirmed by Matt 2026-08-20. */
-const HERO_INSURANCE = { big: "$2M", small: "Liability Insured" };
+   a one-line change if the policy ever does. Confirmed by Matt 2026-08-20 (corrected from $2M same day). */
+const HERO_INSURANCE = { big: "$1M", small: "Liability Insured" };
 
 /* Proof shown in the first hero state, before any scrolling. These replace the
    old Get-a-Free-Estimate / Call button pair: the estimate CTA now lives in the
