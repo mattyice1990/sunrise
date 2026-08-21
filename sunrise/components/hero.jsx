@@ -350,7 +350,14 @@ function Hero() {
               <a className="btn btn--on-dark" href={(window.__projects || "Projects.html")}>View Roofing Projects</a>
             </div>
             <div className="hero__badges">
-              {["Licensed & Insured", "Local Tucson Company", "Free Roof Inspections", "Financing Available", "Residential & Commercial", "5-Star Rated on Google"].map((b) => (
+              {/* Three, not six. "Licensed & Insured" is already in the topbar
+                  (ROC #358079), the trust strip and the "$1M Liability Insured"
+                  proof point; "Local Tucson Company" is the tagline and the H1;
+                  "5-Star Rated on Google" is the trust strip, with real stars.
+                  Only these three say something the page does not already say —
+                  and six rows overflowed the 100vh stage on phones, where
+                  overflow:hidden clipped them. */}
+              {["Free Roof Inspections", "Financing Available", "Residential & Commercial"].map((b) => (
                 <span className="hero__badge" key={b}><Icon name="check-c" /> {b}</span>
               ))}
             </div>

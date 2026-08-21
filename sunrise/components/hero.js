@@ -417,7 +417,7 @@ function Hero() {
     href: window.__projects || "Projects.html"
   }, "View Roofing Projects")), /*#__PURE__*/React.createElement("div", {
     className: "hero__badges"
-  }, ["Licensed & Insured", "Local Tucson Company", "Free Roof Inspections", "Financing Available", "Residential & Commercial", "5-Star Rated on Google"].map(b => /*#__PURE__*/React.createElement("span", {
+  }, ["Free Roof Inspections", "Financing Available", "Residential & Commercial"].map(b => /*#__PURE__*/React.createElement("span", {
     className: "hero__badge",
     key: b
   }, /*#__PURE__*/React.createElement(Icon, {
