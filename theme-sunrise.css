@@ -602,3 +602,8 @@ body.brand-real .header--over .logo__pimg--light {
   .heroform__title { font-size: clamp(19px, 1.7vw, 24px); }
   .heroform { padding: 0; gap: 11px; }
 }
+
+/* No dividers between the hero proof points — the spacing separates them. */
+.hero__trust-item,
+.hero__trust-item:first-child { border-left: 0; }
+.hero__trust { gap: clamp(20px, 4.5vw, 56px); }
