@@ -379,12 +379,12 @@ function Hero() {
   }, t.big), /*#__PURE__*/React.createElement("span", {
     className: "hero__trust-small"
   }, t.small)))), /*#__PURE__*/React.createElement("a", {
-    className: "hero__tel",
+    className: "btn btn--primary btn--xl hero__tel",
     href: "tel:5207531758"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "phone"
-  }), " Call or text 520-753-1758"), /*#__PURE__*/React.createElement("a", {
-    className: "btn btn--primary btn--xl hero__mobile-cta",
+  }), " Call or Text 520-753-1758"), /*#__PURE__*/React.createElement("a", {
+    className: "btn btn--on-dark btn--xl hero__mobile-cta",
     href: "#contact"
   }, "Get a Free Estimate ", /*#__PURE__*/React.createElement(Icon, {
     name: "arrow"

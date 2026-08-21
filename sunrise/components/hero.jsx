@@ -318,12 +318,12 @@ function Hero() {
               </li>
             ))}
           </ul>
-          <a className="hero__tel" href="tel:5207531758">
-            <Icon name="phone" /> Call or text 520-753-1758
+          <a className="btn btn--primary btn--xl hero__tel" href="tel:5207531758">
+            <Icon name="phone" /> Call or Text 520-753-1758
           </a>
           {/* Desktop gets the form in the rail to the right; on phones the rail
               is hidden (a 100vh stage can't hold both), so keep a real CTA. */}
-          <a className="btn btn--primary btn--xl hero__mobile-cta" href="#contact">
+          <a className="btn btn--on-dark btn--xl hero__mobile-cta" href="#contact">
             Get a Free Estimate <Icon name="arrow" />
           </a>
           {/* Trust strip pinned to the base of the first hero state. Lives inside

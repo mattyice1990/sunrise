@@ -607,3 +607,13 @@ body.brand-real .header--over .logo__pimg--light {
 .hero__trust-item,
 .hero__trust-item:first-child { border-left: 0; }
 .hero__trust { gap: clamp(20px, 4.5vw, 56px); }
+
+/* The phone is a solid orange button again rather than an underlined text
+   link. btn--primary supplies the look, so the link treatment applied when it
+   was text has to be unwound or it renders a bordered, underlined button. */
+.hero__tel {
+  border-bottom: 0; padding-bottom: 0;
+  text-shadow: none; letter-spacing: .04em;
+}
+.hero__tel:hover { color: inherit; border-color: transparent; }
+.hero__tel svg { width: 19px; height: 19px; }
