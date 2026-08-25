@@ -28,6 +28,7 @@ function TopbarTickerRun() {
         <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener" aria-label="Facebook"><Icon name="fb" /></a>
         <a href="https://www.instagram.com/sunriseroofersllc/" target="_blank" rel="noopener" aria-label="Instagram"><Icon name="ig" /></a>
         <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener" aria-label="Google"><Icon name="google" /></a>
+        <a href="https://www.youtube.com/@Sunriseroofers520" target="_blank" rel="noopener" aria-label="YouTube"><Icon name="yt" /></a>
       </span>
     </React.Fragment>
   );
@@ -49,6 +50,7 @@ function TopBar() {
             <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener" aria-label="Facebook"><Icon name="fb" /></a>
             <a href="https://www.instagram.com/sunriseroofersllc/" target="_blank" rel="noopener" aria-label="Instagram"><Icon name="ig" /></a>
             <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener" aria-label="Google"><Icon name="google" /></a>
+        <a href="https://www.youtube.com/@Sunriseroofers520" target="_blank" rel="noopener" aria-label="YouTube"><Icon name="yt" /></a>
           </div>
         </div>
       </div>

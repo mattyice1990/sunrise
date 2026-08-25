@@ -60,7 +60,7 @@ function TopbarTickerRun() {
     "aria-label": "Google"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "google"
-  }))));
+  })), /*#__PURE__*/React.createElement("a", {href: "https://www.youtube.com/@Sunriseroofers520", target: "_blank", rel: "noopener", "aria-label": "YouTube"}, /*#__PURE__*/React.createElement(Icon, {name: "yt"}))));
 }
 function TopBar() {
   return /*#__PURE__*/React.createElement("div", {
@@ -112,7 +112,7 @@ function TopBar() {
     "aria-label": "Google"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "google"
-  }))))), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("a", {href: "https://www.youtube.com/@Sunriseroofers520", target: "_blank", rel: "noopener", "aria-label": "YouTube"}, /*#__PURE__*/React.createElement(Icon, {name: "yt"}))))), /*#__PURE__*/React.createElement("div", {
     className: "topbar__ticker"
   }, /*#__PURE__*/React.createElement("div", {
     className: "topbar__track"
