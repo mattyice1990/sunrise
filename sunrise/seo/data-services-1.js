@@ -190,7 +190,15 @@ Object.assign(window.SEO, {
   },
 
   "roof-inspection": {
-    slug: "roof-inspection", cat: "service", crumb: "Services",
+    slug: "roof-inspection",
+    video: {
+      id: "0-LfkGFZj0I",
+      name: "What we actually check on a roof inspection",
+      heading: "What we actually check on a roof inspection",
+      desc: "Walking a spray foam roof and checking for the dips, bulges and air pockets that separate a good application from one that will fail.",
+      uploadDate: "2026-06-26T01:26:53-07:00",
+      duration: "PT5M5S",
+    }, cat: "service", crumb: "Services",
     title: "Free Roof Inspection in Tucson — Sunrise Roofers",
     desc: "Free, documented roof inspection in Tucson. Storm and hail damage assessments, pre-purchase inspections and honest reports with photos.",
     kw: { primary: "roof inspection tucson", vol: 100, kd: 9, cpc: 10 },
@@ -311,7 +319,15 @@ Object.assign(window.SEO, {
   },
 
   "tile-roofing": {
-    slug: "tile-roofing", cat: "service", crumb: "Services",
+    slug: "tile-roofing",
+    video: {
+      id: "jJlrpaHVv5g",
+      name: "Wind and hail damage on a concrete tile roof",
+      heading: "Wind and hail damage on a concrete tile roof",
+      desc: "Tiles lifted clean off, battens torn up and thrown to the driveway, and one inch hail across the field and flashings.",
+      uploadDate: "2026-08-12T03:29:33-07:00",
+      duration: "PT3M40S",
+    }, cat: "service", crumb: "Services",
     title: "Tile Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Tucson tile roofing experts — tile roof repair, underlayment replacement and new tile installation. Concrete & clay, built to last.",
     kw: { primary: "tile roof repair tucson", vol: 150, kd: 0, cpc: 10 },
@@ -365,7 +381,15 @@ Object.assign(window.SEO, {
   },
 
   "flat-roofing": {
-    slug: "flat-roofing", cat: "service", crumb: "Services",
+    slug: "flat-roofing",
+    video: {
+      id: "-J_D3-czdEY",
+      name: "What delamination looks like on a flat roof",
+      heading: "What delamination looks like on a flat roof",
+      desc: "Splitting, soft spots, bubbling and water pooling because the scuppers sit too high to drain. Filmed on an aged built-up roof in Tucson.",
+      uploadDate: "2026-03-10T07:08:15-07:00",
+      duration: "PT3M22S",
+    }, cat: "service", crumb: "Services",
     title: "Flat Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Flat roof repair and installation in Tucson — TPO, modified bitumen, built-up and coatings. Stop ponding and leaks for good. Free estimate: 520-753-1758.",
     kw: { primary: "flat roof repair tucson", vol: 150, kd: 38, cpc: 11 },

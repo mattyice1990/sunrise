@@ -3,7 +3,15 @@ window.SEO = window.SEO || {};
 Object.assign(window.SEO, {
 
   "roof-coatings": {
-    slug: "roof-coatings", cat: "service", crumb: "Services",
+    slug: "roof-coatings",
+    video: {
+      id: "yHyO_VGrhvY",
+      name: "Why this second-storey walk deck is leaking",
+      heading: "Why this second-storey walk deck is leaking",
+      desc: "Missing stucco flashing, tile used where it should not be, and no cricket to move water toward the drain.",
+      uploadDate: "2026-05-18T20:57:21-07:00",
+      duration: "PT2M47S",
+    }, cat: "service", crumb: "Services",
     title: "Roof Coatings in Tucson, AZ — Sunrise Roofers",
     desc: "Reflective roof coatings in Tucson — elastomeric and silicone systems that seal leaks, cut heat and extend roof life. Free estimate: 520-753-1758.",
     kw: { primary: "roof coating tucson", vol: 100, kd: 12, cpc: 7 },
@@ -112,7 +120,15 @@ Object.assign(window.SEO, {
   },
 
   "shingle-roofing": {
-    slug: "shingle-roofing", cat: "service", crumb: "Services",
+    slug: "shingle-roofing",
+    video: {
+      id: "3YtAj9ykpfc",
+      name: "What hail damage actually looks like on shingles",
+      heading: "What hail damage actually looks like on shingles",
+      desc: "An Owens Corning architectural shingle roof peppered with hail impacts. You can see where the marks stop beneath the solar panel and pick back up past it.",
+      uploadDate: "2026-04-15T23:29:42-07:00",
+      duration: "PT7M43S",
+    }, cat: "service", crumb: "Services",
     title: "Shingle Roofing in Tucson, AZ — Sunrise Roofers",
     desc: "Asphalt shingle roofing in Tucson — architectural shingle installation and shingle roof replacement built for desert heat. Affordable & fast.",
     kw: { primary: "shingle roofing tucson", vol: 30, kd: null, cpc: null },
@@ -275,7 +291,15 @@ Object.assign(window.SEO, {
   },
 
   "storm-damage-roof-repair-tucson": {
-    slug: "storm-damage-roof-repair-tucson", cat: "service", crumb: "Services",
+    slug: "storm-damage-roof-repair-tucson",
+    video: {
+      id: "40IFI2sh69A",
+      name: "Severe hail damage on a Tucson roof",
+      heading: "Severe hail damage on a Tucson roof",
+      desc: "An Owens Corning Shasta White shingle roof after a severe hailstorm on the northwest side. Impact craters across the field, the kind of damage that is invisible from the ground.",
+      uploadDate: "2026-04-16T00:26:43-07:00",
+      duration: "PT5M14S",
+    }, cat: "service", crumb: "Services",
     title: "Storm Damage Roof Repair in Tucson — Sunrise Roofers",
     desc: "Storm damage roof repair in Tucson. Monsoon leak stopped fast, emergency tarping, and dated photo documentation for your insurance claim. ROC #358079.",
     kw: { primary: "storm damage roof repair tucson", vol: null, kd: null, cpc: null },

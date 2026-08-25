@@ -171,6 +171,28 @@ function injectSeoHead(p) {
       }))
     });
   }
+  /* VideoObject - only when the page also renders the player below. Schema
+     for a video that is not visible on the page is a Google policy
+     violation, so both are driven by the same p.video. */
+  if (p.video && p.video.id) {
+    const v = p.video;
+    ld.push({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: v.name || p.hero.h1,
+      description: v.desc || p.desc,
+      thumbnailUrl: [v.thumb || ("https://i.ytimg.com/vi/" + v.id + "/maxresdefault.jpg")],
+      uploadDate: v.uploadDate,
+      duration: v.duration,
+      embedUrl: "https://www.youtube.com/embed/" + v.id,
+      contentUrl: "https://www.youtube.com/watch?v=" + v.id,
+      publisher: {
+        "@type": "Organization",
+        name: "Sunrise Roofers LLC",
+        logo: { "@type": "ImageObject", url: base + "SunriseLogo.webp" }
+      }
+    });
+  }
   let s = document.getElementById("seo-jsonld");
   if (!s) {
     s = document.createElement("script");
@@ -404,6 +426,42 @@ function Process({
 }
 
 /* ---------- FAQ (always expanded for readability + SEO) ---------- */
+
+/* ---------- Video (real inspection footage, 9:16) ---------- */
+function ServiceVideo({ p }) {
+  const v = p.video;
+  if (!v || !v.id) return null;
+  return /*#__PURE__*/React.createElement("section", {
+    className: "section svideo",
+    id: "video",
+    "data-reveal": true
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container svideo__in"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "svideo__head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "eyebrow"
+  }, "From a real inspection"), /*#__PURE__*/React.createElement("h2", {
+    className: "h2"
+  }, v.heading || v.name), v.desc && /*#__PURE__*/React.createElement("p", {
+    className: "lead"
+  }, v.desc)), /*#__PURE__*/React.createElement("div", {
+    className: "svideo__frame",
+    style: {
+      position: "relative", paddingBottom: "177.78%", height: 0,
+      maxWidth: 380, margin: "24px auto 0", borderRadius: 14,
+      overflow: "hidden", background: "#0E2233"
+    }
+  }, /*#__PURE__*/React.createElement("iframe", {
+    src: "https://www.youtube-nocookie.com/embed/" + v.id,
+    title: v.name,
+    loading: "lazy",
+    allowFullScreen: true,
+    allow: "accelerometer; clipboard-write; encrypted-media; picture-in-picture",
+    style: { position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }
+  }))));
+}
+
 function Faqs({
   p
 }) {
@@ -555,6 +613,8 @@ function SeoPage() {
   }), /*#__PURE__*/React.createElement(Options, {
     p: PAGE
   }), /*#__PURE__*/React.createElement(Process, {
+    p: PAGE
+  }), /*#__PURE__*/React.createElement(ServiceVideo, {
     p: PAGE
   }), PAGE.reviews !== false && /*#__PURE__*/React.createElement(GoogleReviews, null), /*#__PURE__*/React.createElement(Faqs, {
     p: PAGE

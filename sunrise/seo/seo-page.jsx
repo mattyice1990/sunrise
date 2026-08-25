@@ -140,6 +140,28 @@ function injectSeoHead(p) {
       })),
     });
   }
+  /* VideoObject - only when the page also renders the player below. Schema
+     for a video that is not visible on the page is a Google policy
+     violation, so both are driven by the same p.video. */
+  if (p.video && p.video.id) {
+    const v = p.video;
+    ld.push({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: v.name || p.hero.h1,
+      description: v.desc || p.desc,
+      thumbnailUrl: [v.thumb || ("https://i.ytimg.com/vi/" + v.id + "/maxresdefault.jpg")],
+      uploadDate: v.uploadDate,
+      duration: v.duration,
+      embedUrl: "https://www.youtube.com/embed/" + v.id,
+      contentUrl: "https://www.youtube.com/watch?v=" + v.id,
+      publisher: {
+        "@type": "Organization",
+        name: "Sunrise Roofers LLC",
+        logo: { "@type": "ImageObject", url: base + "SunriseLogo.webp" }
+      }
+    });
+  }
   let s = document.getElementById("seo-jsonld");
   if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = "seo-jsonld"; document.head.appendChild(s); }
   s.textContent = JSON.stringify(ld);
@@ -314,6 +336,34 @@ function Process({ p }) {
 }
 
 /* ---------- FAQ (always expanded for readability + SEO) ---------- */
+
+/* ---------- Video (real inspection footage, 9:16) ---------- */
+function ServiceVideo({ p }) {
+  const v = p.video;
+  if (!v || !v.id) return null;
+  return (
+    <section className="section svideo" id="video" data-reveal>
+      <div className="container svideo__in">
+        <div className="svideo__head">
+          <p className="eyebrow">From a real inspection</p>
+          <h2 className="h2">{v.heading || v.name}</h2>
+          {v.desc && <p className="lead">{v.desc}</p>}
+        </div>
+        <div className="svideo__frame" style={{
+          position: "relative", paddingBottom: "177.78%", height: 0,
+          maxWidth: 380, margin: "24px auto 0", borderRadius: 14,
+          overflow: "hidden", background: "#0E2233" }}>
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${v.id}`}
+            title={v.name} loading="lazy" allowFullScreen
+            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Faqs({ p }) {
   if (!p.faqs) return null;
   return (
@@ -412,6 +462,7 @@ function SeoPage() {
         <Sections p={PAGE} />
         <Options p={PAGE} />
         <Process p={PAGE} />
+        <ServiceVideo p={PAGE} />
         {PAGE.reviews !== false && <GoogleReviews />}
         <Faqs p={PAGE} />
         <Related p={PAGE} />
