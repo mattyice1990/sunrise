@@ -6,6 +6,8 @@ Object.assign(window.SEO, {
     slug: "roof-coatings",
     video: {
       id: "yHyO_VGrhvY",
+      w: 1920,
+      h: 1080,
       name: "Why this second-storey walk deck is leaking",
       heading: "Why this second-storey walk deck is leaking",
       desc: "Missing stucco flashing, tile used where it should not be, and no cricket to move water toward the drain.",
@@ -123,6 +125,8 @@ Object.assign(window.SEO, {
     slug: "shingle-roofing",
     video: {
       id: "3YtAj9ykpfc",
+      w: 1920,
+      h: 1080,
       name: "What hail damage actually looks like on shingles",
       heading: "What hail damage actually looks like on shingles",
       desc: "An Owens Corning architectural shingle roof peppered with hail impacts. You can see where the marks stop beneath the solar panel and pick back up past it.",
@@ -294,6 +298,8 @@ Object.assign(window.SEO, {
     slug: "storm-damage-roof-repair-tucson",
     video: {
       id: "40IFI2sh69A",
+      w: 1920,
+      h: 1080,
       name: "Severe hail damage on a Tucson roof",
       heading: "Severe hail damage on a Tucson roof",
       desc: "An Owens Corning Shasta White shingle roof after a severe hailstorm on the northwest side. Impact craters across the field, the kind of damage that is invisible from the ground.",

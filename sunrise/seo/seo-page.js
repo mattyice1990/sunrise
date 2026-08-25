@@ -448,8 +448,11 @@ function ServiceVideo({ p }) {
   }, v.desc)), /*#__PURE__*/React.createElement("div", {
     className: "svideo__frame",
     style: {
-      position: "relative", paddingBottom: "177.78%", height: 0,
-      maxWidth: 380, margin: "24px auto 0", borderRadius: 14,
+      position: "relative",
+      width: "100%",
+      maxWidth: (v.w || 1920) >= (v.h || 1080) ? 880 : 400,
+      aspectRatio: (v.w || 1920) + " / " + (v.h || 1080),
+      margin: "24px auto 0", borderRadius: 14,
       overflow: "hidden", background: "#0E2233"
     }
   }, /*#__PURE__*/React.createElement("iframe", {

@@ -193,6 +193,8 @@ Object.assign(window.SEO, {
     slug: "roof-inspection",
     video: {
       id: "0-LfkGFZj0I",
+      w: 1920,
+      h: 1080,
       name: "What we actually check on a roof inspection",
       heading: "What we actually check on a roof inspection",
       desc: "Walking a spray foam roof and checking for the dips, bulges and air pockets that separate a good application from one that will fail.",
@@ -322,6 +324,8 @@ Object.assign(window.SEO, {
     slug: "tile-roofing",
     video: {
       id: "jJlrpaHVv5g",
+      w: 1920,
+      h: 1080,
       name: "Wind and hail damage on a concrete tile roof",
       heading: "Wind and hail damage on a concrete tile roof",
       desc: "Tiles lifted clean off, battens torn up and thrown to the driveway, and one inch hail across the field and flashings.",
@@ -384,6 +388,8 @@ Object.assign(window.SEO, {
     slug: "flat-roofing",
     video: {
       id: "-J_D3-czdEY",
+      w: 360,
+      h: 640,
       name: "What delamination looks like on a flat roof",
       heading: "What delamination looks like on a flat roof",
       desc: "Splitting, soft spots, bubbling and water pooling because the scuppers sit too high to drain. Filmed on an aged built-up roof in Tucson.",
