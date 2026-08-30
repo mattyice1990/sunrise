@@ -3,7 +3,7 @@
   "short_name": "Sunrise Roofers",
   "description": "Roofing contractor in Tucson, Arizona. Repair, replacement, tile, flat and foam roofs.",
   "start_url": "/",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#0E2233",
   "theme_color": "#F0801C",
   "icons": [
