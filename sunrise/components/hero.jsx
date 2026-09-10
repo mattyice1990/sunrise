@@ -234,10 +234,13 @@ function Hero() {
     const vids = [aRef.current, bRef.current];
     if (!vids[0] || !vids[1]) return;
     // Play the (now ~5MB total, 720p) hero video on mobile too. Still respect
-    // an explicit reduced-motion preference and data-saver — those users get
-    // the poster image instead.
+    // an explicit reduced-motion preference, data-saver, and a slow effective
+    // connection (2G/3G) — those users get the poster image instead, since two
+    // videos loading at once is real weight to put on a bad mobile connection
+    // right in the LCP window.
+    const conn = navigator.connection;
     const skipVideo = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      || (navigator.connection && navigator.connection.saveData);
+      || (conn && (conn.saveData || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || "")));
     if (skipVideo) return;
     vids.forEach((v) => { v.muted = true; v.playsInline = true; });
     let timer;
@@ -293,8 +296,8 @@ function Hero() {
     <section className="hero" id="top" ref={heroRef}>
       <div className="hero__stage">
         <div className="hero__media">
-          <video ref={aRef} muted playsInline preload="auto" poster="uploads/residential-roofing-tucson-aerial.jpg"></video>
-          <video ref={bRef} muted playsInline preload="auto" poster="uploads/residential-roofing-tucson-aerial.jpg" style={{ opacity: 0 }}></video>
+          <video ref={aRef} muted suppressHydrationWarning playsInline preload="auto" poster="uploads/residential-roofing-tucson-aerial.jpg"></video>
+          <video ref={bRef} muted suppressHydrationWarning playsInline preload="auto" poster="uploads/residential-roofing-tucson-aerial.jpg" style={{ opacity: 0 }}></video>
         </div>
         <div className="hero__scrim"></div>
 

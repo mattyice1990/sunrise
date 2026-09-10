@@ -1,4 +1,5 @@
 (function(){
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* contact.jsx — ContactForm (validation + success) + Footer */
 
 function Field({
@@ -71,10 +72,11 @@ function ContactForm() {
       }
     } catch (err) {}
 
-    // Web3Forms → still delivers to sunriseroofer@outlook.com (the inbox tied to
-    // the access key below; change it in the Web3Forms dashboard, not here).
-    // the original roofwithsunrise.com contact form used and is what actually
-    // delivers the lead. Only show success when the email truly goes out.
+    // Web3Forms → delivers to sunriseroofer@outlook.com (the inbox tied to the
+    // access key below; change it in the Web3Forms dashboard, not here) and CCs
+    // eddie@roofwithsunrise.com via ccemail. Note: ccemail is a Web3Forms PRO
+    // feature — confirm the account's plan supports it, or this field is a no-op.
+    // Only show success when the email truly goes out.
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -84,6 +86,7 @@ function ContactForm() {
         },
         body: JSON.stringify({
           access_key: "bb31a1fd-2cf0-4ea5-8920-18cad8059ed4",
+          ccemail: "eddie@roofwithsunrise.com",
           subject: "New Roofing Estimate Request - Sunrise Roofers",
           from_name: "Sunrise Roofers Website",
           property_type: type,
@@ -115,12 +118,11 @@ function ContactForm() {
       setSending(false);
     }
   };
-  const F = p => /*#__PURE__*/React.createElement(Field, {
-    ...p,
+  const F = p => /*#__PURE__*/React.createElement(Field, _extends({}, p, {
     value: vals[p.k],
     onChange: set(p.k),
     err: errs[p.k]
-  });
+  }));
   return /*#__PURE__*/React.createElement("section", {
     className: "section",
     id: "contact"
@@ -309,6 +311,16 @@ function ContactForm() {
   })))))))));
 }
 function Footer() {
+  // Load Google's Preferred Sources script only once the footer is in the DOM.
+  // publisher.js scans for [google-add-preferred-source-btn] when it loads, so a
+  // static async tag in <head> races React and silently no-ops on heavier pages.
+  React.useEffect(() => {
+    if (document.querySelector('script[src*="swg/js/v1/publisher.js"]')) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://news.google.com/swg/js/v1/publisher.js";
+    document.head.appendChild(s);
+  }, []);
   const U = slug => window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug;
   const col = (h, items) => /*#__PURE__*/React.createElement("div", {
     className: "footer__col"
@@ -355,7 +367,12 @@ function Footer() {
     "aria-label": "YouTube"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "yt"
-  })))), col("Roofing Services", [{
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "footer__prefsrc",
+    "google-add-preferred-source-btn": "",
+    "data-theme": "dark",
+    "data-lang": "en"
+  })), col("Roofing Services", [{
     t: "Roof Repair",
     s: "roof-repair"
   }, {
@@ -440,7 +457,11 @@ function Footer() {
     className: "footer__bottom"
   }, /*#__PURE__*/React.createElement("span", null, "© 2026 Sunrise Roofers LLC. All rights reserved."), /*#__PURE__*/React.createElement("div", {
     className: "lic"
-  }, /*#__PURE__*/React.createElement("span", null, "ROC #358079 · Licensed, Bonded & Insured"), /*#__PURE__*/React.createElement("span", null, "Tucson, Arizona")))));
+  }, /*#__PURE__*/React.createElement("span", null, "ROC #358079 · Licensed, Bonded & Insured"), /*#__PURE__*/React.createElement("span", null, "Tucson, Arizona"), /*#__PURE__*/React.createElement("span", {
+    className: "lic__alt"
+  }, "Alt. line · ", /*#__PURE__*/React.createElement("a", {
+    href: "tel:5202105284"
+  }, "520-210-5284"))))));
 }
 Object.assign(window, {
   ContactForm,

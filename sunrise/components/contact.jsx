@@ -43,16 +43,18 @@ function ContactForm() {
       }
     } catch (err) {}
 
-    // Web3Forms → still delivers to sunriseroofer@outlook.com (the inbox tied to
-    // the access key below; change it in the Web3Forms dashboard, not here).
-    // the original roofwithsunrise.com contact form used and is what actually
-    // delivers the lead. Only show success when the email truly goes out.
+    // Web3Forms → delivers to sunriseroofer@outlook.com (the inbox tied to the
+    // access key below; change it in the Web3Forms dashboard, not here) and CCs
+    // eddie@roofwithsunrise.com via ccemail. Note: ccemail is a Web3Forms PRO
+    // feature — confirm the account's plan supports it, or this field is a no-op.
+    // Only show success when the email truly goes out.
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: "bb31a1fd-2cf0-4ea5-8920-18cad8059ed4",
+          ccemail: "eddie@roofwithsunrise.com",
           subject: "New Roofing Estimate Request - Sunrise Roofers",
           from_name: "Sunrise Roofers Website",
           property_type: type,
@@ -174,6 +176,16 @@ function ContactForm() {
 }
 
 function Footer() {
+  // Load Google's Preferred Sources script only once the footer is in the DOM.
+  // publisher.js scans for [google-add-preferred-source-btn] when it loads, so a
+  // static async tag in <head> races React and silently no-ops on heavier pages.
+  React.useEffect(() => {
+    if (document.querySelector('script[src*="swg/js/v1/publisher.js"]')) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://news.google.com/swg/js/v1/publisher.js";
+    document.head.appendChild(s);
+  }, []);
   const U = (slug) => (window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug);
   const col = (h, items) => (
     <div className="footer__col">
@@ -195,6 +207,7 @@ function Footer() {
               <a href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener" aria-label="Google"><Icon name="google" /></a>
               <a href="https://www.youtube.com/@Sunriseroofers520" target="_blank" rel="noopener" aria-label="YouTube"><Icon name="yt" /></a>
             </div>
+            <div className="footer__prefsrc" google-add-preferred-source-btn="" data-theme="dark" data-lang="en"></div>
           </div>
           {col("Roofing Services", [
             { t: "Roof Repair", s: "roof-repair" },
@@ -237,6 +250,7 @@ function Footer() {
           <div className="lic">
             <span>ROC #358079 · Licensed, Bonded &amp; Insured</span>
             <span>Tucson, Arizona</span>
+            <span className="lic__alt">Alt. line · <a href="tel:5202105284">520-210-5284</a></span>
           </div>
         </div>
       </div>

@@ -264,9 +264,12 @@ function Hero() {
     const vids = [aRef.current, bRef.current];
     if (!vids[0] || !vids[1]) return;
     // Play the (now ~5MB total, 720p) hero video on mobile too. Still respect
-    // an explicit reduced-motion preference and data-saver — those users get
-    // the poster image instead.
-    const skipVideo = window.matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.connection && navigator.connection.saveData;
+    // an explicit reduced-motion preference, data-saver, and a slow effective
+    // connection (2G/3G) — those users get the poster image instead, since two
+    // videos loading at once is real weight to put on a bad mobile connection
+    // right in the LCP window.
+    const conn = navigator.connection;
+    const skipVideo = window.matchMedia("(prefers-reduced-motion: reduce)").matches || (conn && (conn.saveData || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || "")));
     if (skipVideo) return;
     vids.forEach(v => {
       v.muted = true;
@@ -343,12 +346,14 @@ function Hero() {
   }, /*#__PURE__*/React.createElement("video", {
     ref: aRef,
     muted: true,
+    suppressHydrationWarning: true,
     playsInline: true,
     preload: "auto",
     poster: "uploads/residential-roofing-tucson-aerial.jpg"
   }), /*#__PURE__*/React.createElement("video", {
     ref: bRef,
     muted: true,
+    suppressHydrationWarning: true,
     playsInline: true,
     preload: "auto",
     poster: "uploads/residential-roofing-tucson-aerial.jpg",
