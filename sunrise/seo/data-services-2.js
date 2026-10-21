@@ -70,6 +70,15 @@ Object.assign(window.SEO, {
           { url: "/flat-roofing", label: "Flat roof repair & replacement, when a coating isn't enough" },
         ],
       },
+      {
+        kicker: "Related Guides", h: "More roof coating guides",
+        p: ["Still weighing a coating? These answer the questions we get asked most: how long it lasts, when to recoat, and how to pick who sprays it."],
+        links: [
+          { url: "/blog/flat-roof-coating-tucson-what-homeowners-need-to-know", label: "Flat roof coating in Tucson: what homeowners need to know" },
+          { url: "/blog/flat-roof-coating-in-tucson-your-questions-answered", label: "How long a flat roof coating lasts in Tucson" },
+          { url: "/blog/roof-coating-specialist", label: "How to hire a Tucson roof coating specialist" },
+        ],
+      },
     ],
     process: [
       { t: "Inspection", d: "We confirm the roof is a good coating candidate and pick the right system." },
@@ -126,6 +135,15 @@ Object.assign(window.SEO, {
           "Metal looks great on the right house, too. We'll check your slope and style, walk you through the profiles and colors, and hand you a clear metal roof estimate, no pressure.",
         ],
         bullets: ["Reflects heat to cut cooling load", "Won't crack or dry out under UV", "Class-A fire resistance", "Wide range of colors & profiles"],
+      },
+      {
+        kicker: "Related Guides", h: "Metal roofing guides",
+        p: ["Want the details before you commit? These cover standing seam installs, costs and benefits in the desert, and metal on commercial buildings."],
+        links: [
+          { url: "/blog/metal-roof-installation-in-tucson-what-to-expect", label: "Metal roof installation in Tucson: what to expect" },
+          { url: "/blog/tucson-metal-roofing", label: "Tucson metal roofing: costs, benefits and options" },
+          { url: "/blog/metal-roofing-commercial-buildings", label: "Metal roofing for commercial buildings" },
+        ],
       },
     ],
     process: [
@@ -204,6 +222,16 @@ Object.assign(window.SEO, {
           { url: "/roof-replacement", label: "Replacing a tile or metal roof instead? Start here" },
         ],
       },
+      {
+        kicker: "Related Guides", h: "More shingle roof guides",
+        p: ["Planning a shingle job? These cover what it costs, when shingles are worn out, and why attic ventilation matters so much in the Tucson heat."],
+        links: [
+          { url: "/blog/shingle-roof-replacement-cost", label: "Shingle roof replacement cost in Tucson (2026)" },
+          { url: "/blog/shingle-roof-replacement-in-tucson-your-questions-answered", label: "How long shingles last in Arizona heat, and other questions" },
+          { url: "/blog/when-to-replace-roof-shingles", label: "When to replace roof shingles: the warning signs" },
+          { url: "/blog/new-shingle-roof-solar-attic-vents-in-tucson", label: "A new shingle roof with solar attic vents in Tucson" },
+        ],
+      },
     ],
     process: [
       { t: "Quote", d: "We assess your roof and provide a clear written shingle roofing estimate." },
@@ -257,6 +285,16 @@ Object.assign(window.SEO, {
           "We lay out the whole thing, gutter size, the slope, where the downspouts go and where they dump, so monsoon water ends up where it belongs, away from your house.",
         ],
         bullets: ["Protects foundation & landscaping", "Prevents wall staining & erosion", "Reduces roof-edge water damage", "Custom-fit to your roofline"],
+      },
+      {
+        kicker: "Related Guides", h: "Guides on gutters & drainage",
+        p: ["Gutters come up in a lot of what we write about roofs, because what ends up in them tells you plenty about the roof above. A few worth reading:"],
+        links: [
+          { url: "/blog/how-long-does-a-roof-last", label: "How clean gutters help a roof last longer" },
+          { url: "/blog/repairing-concrete-tile-roof", label: "Why clogged gutters cause leaks under concrete tile" },
+          { url: "/blog/signs-you-need-a-new-roof", label: "Granules in your gutters and other signs of a worn-out roof" },
+          { url: "/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az", label: "Scuppers and drainage on Tucson flat roofs" },
+        ],
       },
     ],
     process: [
@@ -312,6 +350,15 @@ Object.assign(window.SEO, {
           "We replace shot skylights with newer, energy-efficient units, and if the skylight itself is still fine we'll just redo the flashing.",
         ],
         bullets: ["Replace foggy or cracked units", "Re-flash leaking skylights", "Energy-efficient, low-E glazing", "Solar-tube alternatives where it fits"],
+      },
+      {
+        kicker: "Related Guides", h: "Skylight & flat roof guides",
+        p: ["Most skylight leaks come down to how the opening was flashed into the roof. These go further into replacement and sealing penetrations on flat roofs."],
+        links: [
+          { url: "/blog/skylight-replacement-on-flat-roofs-in-tucson", label: "Skylight replacement on flat roofs in Tucson" },
+          { url: "/blog/flat-roof-installation-near-me", label: "Sealing skylights and other flat roof penetrations" },
+          { url: "/blog/flat-roof-maintenance", label: "Flat roof maintenance around skylights, vents and drains" },
+        ],
       },
     ],
     process: [
@@ -405,6 +452,16 @@ Object.assign(window.SEO, {
           "Licensed and insured, Arizona ROC #358079, GAF Certified+. After a big storm, half the trucks in town have a magnet sign and an out-of-state plate. We'll still be here next monsoon season, and the season after that. I won't put anything up there I wouldn't put on my own house.",
         ],
         bullets: ["Family-owned — Eddie & Viky Guillen", "Arizona ROC #358079, licensed & insured", "GAF Certified+ contractor", "20+ years on Tucson roofs"],
+      },
+      {
+        kicker: "Related Guides", h: "Storm damage & insurance guides",
+        p: ["After a monsoon, these are the questions people ask us: what's covered, what to do first, and why a cracked tile can't sit until next season."],
+        links: [
+          { url: "/blog/roof-leaks-covered-by-homeowners-insurance", label: "Are storm leaks covered by homeowners insurance?" },
+          { url: "/blog/emergency-roof-repair-near-me", label: "What to do in the first hours after roof damage" },
+          { url: "/blog/why-fixing-broken-roof-tiles-arizona", label: "Why monsoon-broken roof tiles need fixing fast" },
+          { url: "/blog/flat-roof-maintenance", label: "Getting a flat roof ready for monsoon season" },
+        ],
       },
     ],
     options: {

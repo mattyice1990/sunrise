@@ -42,6 +42,16 @@ Object.assign(window.SEO, {
           { ic: "droplet", t: "Flat & Low-Slope", d: "Seamless coating systems for low-slope and flat areas." },
         ],
       },
+      {
+        kicker: "Related Guides", h: "Guides for Tucson homeowners",
+        p: ["Hiring a roofer for your house? These walk through vetting contractors, what to ask before you sign, and how long your roof should actually last."],
+        links: [
+          { url: "/blog/how-to-choose-a-roofing-contractor", label: "How to choose a roofing contractor in Tucson" },
+          { url: "/blog/questions-to-ask-roofing-contractor", label: "10 questions to ask a roofing contractor before you hire" },
+          { url: "/blog/roofing-companies-in-tucson", label: "Comparing roofing companies in Tucson" },
+          { url: "/blog/how-long-does-a-roof-last", label: "How long does a roof last? A homeowner's guide" },
+        ],
+      },
     ],
     process: [
       { t: "Free Inspection", d: "A documented look at your roof's condition with photos and clear findings." },
@@ -105,6 +115,16 @@ Object.assign(window.SEO, {
           "Our maintenance programs cover scheduled inspections, documentation, and knocking out the small repairs before they grow, so you can budget without surprises and get every year out of the roof.",
         ],
         bullets: ["Scheduled inspections", "Documented condition reports", "Proactive minor repairs", "Predictable budgeting"],
+      },
+      {
+        kicker: "Related Guides", h: "Guides for commercial property owners",
+        p: ["Managing a building? These cover inspections, leak repair and the roof systems we see most on Tucson commercial properties."],
+        links: [
+          { url: "/blog/commercial-roof-inspection-checklist", label: "Commercial roof inspection checklist" },
+          { url: "/blog/commercial-roof-leak-repair", label: "A guide to commercial roof leak repair" },
+          { url: "/blog/metal-roofing-commercial-buildings", label: "Metal roofing for commercial buildings" },
+          { url: "/blog/what-is-modified-bitumen-roofing", label: "Modified bitumen roofing for commercial buildings" },
+        ],
       },
     ],
     process: [

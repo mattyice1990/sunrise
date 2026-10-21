@@ -49,6 +49,16 @@ Object.assign(window.SEO, {
         ],
         bullets: ["Free, no-obligation inspection", "Itemized written estimates", "Financing available on larger work", "We'll tell you if repair isn't worth it"],
       },
+      {
+        kicker: "Related Guides", h: "Roof repair guides from our blog",
+        p: ["Want to dig into a specific problem before we come out? These are the repair questions we hear most, written up from jobs around Tucson."],
+        links: [
+          { url: "/blog/tile-roof-repair", label: "A homeowner's guide to tile roof repair" },
+          { url: "/blog/tile-roof-valley-repair-in-vail-az-common-issues-solutions", label: "Why tile roof valleys leak, and how we fix them" },
+          { url: "/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az", label: "Water pooling on a flat roof: scupper and drainage problems" },
+          { url: "/blog/roof-leaks-covered-by-homeowners-insurance", label: "Are roof leaks covered by homeowners insurance?" },
+        ],
+      },
     ],
     process: [
       { t: "Free Inspection", d: "We document the roof's condition with photos and pinpoint the source of the leak." },
@@ -130,6 +140,16 @@ Object.assign(window.SEO, {
           { url: "/roof-installation", label: "New construction roofing, if you're building rather than replacing" },
         ],
       },
+      {
+        kicker: "Related Guides", h: "More reading before you replace",
+        p: ["Still deciding whether it's time? These guides cover the warning signs, how long each roof type really lasts out here, and when to schedule the work."],
+        links: [
+          { url: "/blog/signs-you-need-a-new-roof", label: "Signs you need a new roof" },
+          { url: "/blog/how-long-does-a-roof-last", label: "How long asphalt, tile and metal roofs really last" },
+          { url: "/blog/best-time-of-year-for-roof-replacement", label: "The best time of year to replace a roof in Tucson" },
+          { url: "/blog/new-roof", label: "Your guide to getting a new roof in Tucson" },
+        ],
+      },
     ],
     process: [
       { t: "On-Site Assessment", d: "We evaluate the roof, structure and your goals, then present clear system options." },
@@ -198,6 +218,16 @@ Object.assign(window.SEO, {
         links: [
           { url: "/blog/new-construction-tile-roof-in-rio-rico-az", label: "A new-construction tile roof we put on in Rio Rico" },
           { url: "/roof-replacement", label: "Tearing off an existing roof instead? See roof replacement" },
+        ],
+      },
+      {
+        kicker: "Related Guides", h: "Installation guides from our blog",
+        p: ["Every roof type goes on a little differently. If you want to know what install day looks like for yours, start here."],
+        links: [
+          { url: "/blog/metal-roof-installation-in-tucson-what-to-expect", label: "Metal roof installation in Tucson: what to expect" },
+          { url: "/blog/flat-roof-installation-near-me", label: "Flat roof installation in Tucson: materials and costs" },
+          { url: "/blog/new-shingle-roof-solar-attic-vents-in-tucson", label: "Installing a new shingle roof with solar attic vents" },
+          { url: "/blog/roofing-in-tucson", label: "Choosing roofing materials for Tucson's climate" },
         ],
       },
     ],
@@ -275,6 +305,16 @@ Object.assign(window.SEO, {
         ],
         bullets: ["Hail & wind damage assessment", "Detailed photo documentation", "Adjuster meet-ups available", "Honest claim guidance"],
       },
+      {
+        kicker: "Related Guides", h: "Inspection checklists & guides",
+        p: ["Curious what we actually look at up there? These checklists walk through it for homebuyers, building owners and anyone keeping an eye on a flat roof."],
+        links: [
+          { url: "/blog/tucson-homebuyer-roof-inspection-checklist", label: "Tucson homebuyer roof inspection checklist" },
+          { url: "/blog/commercial-roof-inspection-checklist", label: "Commercial roof inspection checklist: 8 items to check" },
+          { url: "/blog/roof-inspection-report-template", label: "What a good roof inspection report should include" },
+          { url: "/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az", label: "How inspections catch flat roof drainage problems early" },
+        ],
+      },
     ],
     process: [
       { t: "Schedule Free Visit", d: "Call or book online — we'll find a time that works, usually within days." },
@@ -330,6 +370,15 @@ Object.assign(window.SEO, {
           { ic: "droplet", t: "Active Leaks", d: "Emergency tarping and leak control to protect interiors right away." },
           { ic: "layers", t: "Hail Damage", d: "Bruised shingles and cracked tile assessed and documented for claims." },
           { ic: "wrench", t: "Fallen Debris", d: "Damage from blown branches and debris cleared and repaired." },
+        ],
+      },
+      {
+        kicker: "Related Guides", h: "Emergency repair guides",
+        p: ["Water coming in and you want to know what to do next? These cover the first steps, the insurance side, and leaks on commercial buildings."],
+        links: [
+          { url: "/blog/emergency-roof-repair-near-me", label: "Emergency roof repair: what to do in the first hours" },
+          { url: "/blog/roof-leaks-covered-by-homeowners-insurance", label: "Does homeowners insurance cover a roof leak?" },
+          { url: "/blog/commercial-roof-leak-repair", label: "A guide to commercial roof leak repair" },
         ],
       },
     ],
@@ -419,6 +468,16 @@ Object.assign(window.SEO, {
           { url: "/roof-replacement", label: "Roof replacement in Tucson, all materials" },
         ],
       },
+      {
+        kicker: "Related Guides", h: "More tile roof guides",
+        p: ["Tile is most of what we do. These go deeper on how long concrete tile lasts and the repairs we run into most around Tucson, Marana and Vail."],
+        links: [
+          { url: "/blog/concrete-roof-tile-life-expectancy", label: "Concrete roof tile life expectancy and maintenance" },
+          { url: "/blog/tile-roof-repair", label: "A homeowner's guide to tile roof repair" },
+          { url: "/blog/tile-roof-repair-in-marana-what-homeowners-should-know", label: "Tile roof repair in Marana: what homeowners should know" },
+          { url: "/blog/tile-roof-valley-repair-in-vail-az-common-issues-solutions", label: "Tile roof valley repair in Vail: common issues and fixes" },
+        ],
+      },
     ],
     process: [
       { t: "Tile Inspection", d: "We assess tile condition and underlayment age to recommend repair, re-felt or replace." },
@@ -484,6 +543,16 @@ Object.assign(window.SEO, {
           { ic: "ruler", t: "Modified Bitumen", d: "Tough multi-layer asphalt system well-suited to foot traffic and repairs." },
           { ic: "shield", t: "Built-Up Roofing", d: "Classic multi-ply 'tar and gravel' systems for long-term durability." },
           { ic: "sun", t: "Coatings & Restoration", d: "Reflective elastomeric or silicone coatings to seal and renew an existing roof." },
+        ],
+      },
+      {
+        kicker: "Related Guides", h: "Flat roof guides from our blog",
+        p: ["Flat roofs live or die on drainage and upkeep. These guides cover installation, maintenance, ponding water and modified bitumen."],
+        links: [
+          { url: "/blog/flat-roof-installation-near-me", label: "Flat roof installation in Tucson: an expert guide" },
+          { url: "/blog/flat-roof-maintenance", label: "Flat roof maintenance in Arizona, season by season" },
+          { url: "/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az", label: "Fixing water pooling and scupper issues on Tucson flat roofs" },
+          { url: "/blog/what-is-modified-bitumen-roofing", label: "What is modified bitumen roofing?" },
         ],
       },
     ],
