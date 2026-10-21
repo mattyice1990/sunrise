@@ -18,6 +18,8 @@
       "destination": "https://roofwithsunrise.com/:path*",
       "permanent": true
     },
+    { "source": "/review", "destination": "https://g.page/r/CejoKf8VIfQnEBM/review", "permanent": false },
+    { "source": "/leave-a-review", "destination": "https://g.page/r/CejoKf8VIfQnEBM/review", "permanent": false },
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/Sunrise Roofers LLC.html", "destination": "/", "permanent": true },
 
