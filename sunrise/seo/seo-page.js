@@ -191,7 +191,7 @@ function injectSeoHead(p) {
         name: "Sunrise Roofers LLC",
         logo: {
           "@type": "ImageObject",
-          url: base + "SunriseLogo.webp"
+          url: base + "/SunriseLogo.webp"
         }
       }
     });

@@ -158,7 +158,7 @@ function injectSeoHead(p) {
       publisher: {
         "@type": "Organization",
         name: "Sunrise Roofers LLC",
-        logo: { "@type": "ImageObject", url: base + "SunriseLogo.webp" }
+        logo: { "@type": "ImageObject", url: base + "/SunriseLogo.webp" }
       }
     });
   }
