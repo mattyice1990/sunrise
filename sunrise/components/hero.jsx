@@ -337,7 +337,7 @@ function Hero() {
         <div className="hero__inner" ref={textRef} style={{ opacity: 0 }}>
           <div className="container">
             <p className="eyebrow hero__eyebrow">Family-Owned by Eddie &amp; Viky Guillen · ROC #358079</p>
-            <h1 className="h-display">Roof Repair, Replacement &amp; <em>Metal Roof</em> Installation in Tucson</h1>
+            <h1 className="h-display">Tucson Roofers for Roof Repair, Replacement &amp; <em>Metal Roof</em> Installation</h1>
             <p className="hero__body">
               Sunrise is Eddie and Viky Guillen &mdash; a Tucson family business.
               Eddie's been on these roofs 20-plus years and runs every job

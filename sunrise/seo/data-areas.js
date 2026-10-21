@@ -6,11 +6,11 @@ window.SEO = window.SEO || {};
 function areaPage(o) {
   return {
     slug: o.slug, cat: "area", crumb: "Service Areas",
-    title: `${o.city} Roofing Contractor — Sunrise Roofers`,
+    title: o.title || `${o.city} Roofing Contractor — Sunrise Roofers`,
     desc: o.desc,
     kw: o.kw, secondary: o.secondary,
     hero: {
-      eyebrow: `Roofing · ${o.city}, AZ`,
+      eyebrow: o.eyebrow || `Roofing · ${o.city}, AZ`,
       h1: o.h1,
       sub: o.sub,
       chips: ["Family-owned — the Guillens", "Free, no-pressure inspections", "Licensed & Insured · ROC #358079", "Tile, shingle, metal & flat"],
@@ -40,7 +40,7 @@ function areaPage(o) {
           { ic: "building", t: "Commercial", d: `Flat-roof systems and maintenance for ${o.city} businesses.` },
         ],
       },
-    ],
+    ].concat(o.extraSections || []),
     process: [
       { t: "Call or text Eddie", d: `Get us at 520-753-1758 and we'll set up your free ${o.city} roof look — no obligation, no closer in a polo.` },
       { t: "We climb up and look", d: "We get on the roof, take photos, and tell you what's really going on — not whatever rings up the biggest." },
@@ -48,19 +48,53 @@ function areaPage(o) {
       { t: "We do it right", d: "Our own crew, a clean job site, and a warranty that means we come back if it ever needs us." },
     ],
     faqs: o.faqs,
-    related: ["roof-repair", "roof-replacement", "tile-roofing", "roof-inspection"],
+    related: o.related || ["roof-repair", "roof-replacement", "tile-roofing", "roof-inspection"],
+    relatedH: o.relatedH,
     ctaH: `Need a roofer in ${o.city}?`,
     ctaSub: `Free inspection and a straight estimate from a licensed Tucson family that actually works ${o.city} and the rest of Pima County. You call, you get Eddie.`,
   };
 }
 
 Object.assign(window.SEO, {
+  /* The Tucson page is the SERVICE-AREA HUB, not a second homepage. Search
+     Console (90d to 2026-10-17) showed Google sending every head term — "tucson
+     roofers", "roofing companies tucson", "roofing contractors tucson" — to the
+     homepage while this page got 1–6 impressions for them, so the two were
+     splitting the same intent. The homepage now owns those terms; this page owns
+     "where in Tucson do you work" and routes to the four outlying area pages. */
   "roofing-tucson": areaPage({
     slug: "roofing-tucson", city: "Tucson",
+    title: "Tucson Roofing Service Areas & Neighborhoods — Sunrise Roofers",
+    eyebrow: "Service Areas · Tucson, AZ",
     h1: "Roofing Services Across Tucson, AZ",
-    desc: "Trusted roofing contractor in Tucson, AZ. Roof repair, replacement, tile, metal and commercial roofing built for the desert.",
-    kw: { primary: "roofing contractors tucson", vol: 150, kd: 37, cpc: 1.1 },
-    secondary: ["roofers tucson", "roofing tucson", "roofing companies tucson", "roof repair tucson"],
+    desc: "Where Sunrise Roofers works in Tucson: Catalina Foothills, Midtown, east and west sides, Rita Ranch, downtown, plus Oro Valley, Marana, Vail and Green Valley.",
+    kw: { primary: "roofing services tucson", vol: 100, kd: 37, cpc: 1.1 },
+    secondary: ["catalina foothills roofing", "midtown tucson roofer", "east tucson roofing", "rita ranch roofing"],
+    extraSections: [
+      {
+        kicker: "Neighborhoods", h: "Where in Tucson you'll find our trucks",
+        alt: true,
+        p: [
+          "We're based off La Cholla and Ina on the northwest side, and we work the whole metro from there. Here's where we're on roofs most weeks, and what those roofs tend to need.",
+        ],
+        cards: [
+          { ic: "pin", t: "Catalina Foothills", d: "Big tile roofs and HOA color rules. Mostly underlayment replacements and valley repairs." },
+          { ic: "pin", t: "Northwest · Casas Adobes & Marana", d: "Our home turf. Tile re-felts, shingle replacements and monsoon leak calls." },
+          { ic: "pin", t: "Midtown & Central", d: "Older homes with flat and foam roofs. Coatings, scupper and ponding fixes." },
+          { ic: "pin", t: "East Side · Rita Ranch & Civano", d: "Newer tile and shingle subdivisions. Wind-lift repairs and new-construction roofs." },
+          { ic: "pin", t: "West Side & Downtown", d: "Mixed flat and pitched roofs. Repairs, coatings and full replacements." },
+          { ic: "pin", t: "Oro Valley, Vail, Sahuarita & Green Valley", d: "Each has its own page below with what we see out there." },
+        ],
+        links: [
+          { url: "/roofing-oro-valley", label: "Roofing in Oro Valley" },
+          { url: "/roofing-marana", label: "Roofing in Marana" },
+          { url: "/roofing-vail-az", label: "Roofing in Vail & Corona de Tucson" },
+          { url: "/roofing-sahuarita-green-valley", label: "Roofing in Sahuarita & Green Valley" },
+        ],
+      },
+    ],
+    related: ["roofing-oro-valley", "roofing-marana", "roofing-sahuarita-green-valley", "roofing-vail-az"],
+    relatedH: "Roofing by Area",
     sub: "From the Foothills to the west side, Tucson roofs catch the full brunt of the sun and the monsoons. We keep them watertight with repairs, replacements, tile work and commercial systems.",
     lead: [
       "Tucson's home base for us, and we know exactly how roofs wear out here. Underlayment baked brittle by the sun, tile that looks perfect but leaks, flat roofs that pond up after every monsoon. We've seen it and fixed it all over town.",

@@ -181,7 +181,7 @@ function injectSeoHead(p) {
       "@type": "VideoObject",
       name: v.name || p.hero.h1,
       description: v.desc || p.desc,
-      thumbnailUrl: [v.thumb || ("https://i.ytimg.com/vi/" + v.id + "/maxresdefault.jpg")],
+      thumbnailUrl: [v.thumb || "https://i.ytimg.com/vi/" + v.id + "/maxresdefault.jpg"],
       uploadDate: v.uploadDate,
       duration: v.duration,
       embedUrl: "https://www.youtube.com/embed/" + v.id,
@@ -189,7 +189,10 @@ function injectSeoHead(p) {
       publisher: {
         "@type": "Organization",
         name: "Sunrise Roofers LLC",
-        logo: { "@type": "ImageObject", url: base + "SunriseLogo.webp" }
+        logo: {
+          "@type": "ImageObject",
+          url: base + "SunriseLogo.webp"
+        }
       }
     });
   }
@@ -357,7 +360,15 @@ function Sections({
     key: b
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "check"
-  }), " ", b)))), s.cards && /*#__PURE__*/React.createElement("div", {
+  }), " ", b))), s.links && s.links.length > 0 && /*#__PURE__*/React.createElement("p", {
+    className: "sbody__links"
+  }, s.links.map(l => /*#__PURE__*/React.createElement("a", {
+    className: "link-arrow",
+    key: l.url,
+    href: l.url
+  }, l.label, " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  }))))), s.cards && /*#__PURE__*/React.createElement("div", {
     className: "sbody__cards"
   }, s.cards.map(c => /*#__PURE__*/React.createElement("div", {
     className: "minicard",
@@ -428,7 +439,9 @@ function Process({
 /* ---------- FAQ (always expanded for readability + SEO) ---------- */
 
 /* ---------- Video (real inspection footage, 9:16) ---------- */
-function ServiceVideo({ p }) {
+function ServiceVideo({
+  p
+}) {
   const v = p.video;
   if (!v || !v.id) return null;
   return /*#__PURE__*/React.createElement("section", {
@@ -451,20 +464,27 @@ function ServiceVideo({ p }) {
       position: "relative",
       width: "100%",
       maxWidth: (v.w || 1920) >= (v.h || 1080) ? 880 : 400,
-      aspectRatio: (v.w || 1920) + " / " + (v.h || 1080),
-      margin: "24px auto 0", borderRadius: 14,
-      overflow: "hidden", background: "#0E2233"
+      aspectRatio: `${v.w || 1920} / ${v.h || 1080}`,
+      margin: "24px auto 0",
+      borderRadius: 14,
+      overflow: "hidden",
+      background: "#0E2233"
     }
   }, /*#__PURE__*/React.createElement("iframe", {
-    src: "https://www.youtube-nocookie.com/embed/" + v.id,
+    src: `https://www.youtube-nocookie.com/embed/${v.id}`,
     title: v.name,
     loading: "lazy",
     allowFullScreen: true,
     allow: "accelerometer; clipboard-write; encrypted-media; picture-in-picture",
-    style: { position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }
+    style: {
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      border: 0
+    }
   }))));
 }
-
 function Faqs({
   p
 }) {
@@ -483,7 +503,7 @@ function Faqs({
     className: "h2"
   }, p.faqH || "Roofing Questions, Answered"), /*#__PURE__*/React.createElement("p", {
     className: "lead"
-  }, "Still wondering about something? Call us at ", window.SUNRISE.PHONE, " — straight answers, no pressure."), /*#__PURE__*/React.createElement("a", {
+  }, "Still wondering about something? Call us at ", window.SUNRISE.PHONE, " \u2014 straight answers, no pressure."), /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",
     href: U("contact"),
     style: {
@@ -603,7 +623,7 @@ function SeoPage() {
         textAlign: "center",
         fontFamily: "sans-serif"
       }
-    }, "Page data not found for “", window.__page, "”.");
+    }, "Page data not found for \u201C", window.__page, "\u201D.");
   }
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TopBar, null), /*#__PURE__*/React.createElement(HeaderNav, null), /*#__PURE__*/React.createElement("main", {
     className: "seopage"

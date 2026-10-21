@@ -188,7 +188,7 @@ function Footer() {
         <div className="footer__main">
           <div className="footer__brand">
             <Logo />
-            <p>Tucson roofers, family-owned. Repair, replacement, metal, tile, flat roofs and commercial systems &mdash; all built for the desert.</p>
+            <p><a href="/">Tucson roofers</a>, family-owned. Repair, replacement, metal, tile, flat roofs and commercial systems &mdash; all built for the desert.</p>
             <div className="footer__socials">
               <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener" aria-label="Facebook"><Icon name="fb" /></a>
               <a href="https://www.instagram.com/sunriseroofersllc/" target="_blank" rel="noopener" aria-label="Instagram"><Icon name="ig" /></a>

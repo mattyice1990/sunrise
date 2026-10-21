@@ -70,13 +70,13 @@ Object.assign(window.SEO, {
 
   "roof-replacement": {
     slug: "roof-replacement", cat: "service", crumb: "Services",
-    title: "Roof Replacement in Tucson, AZ — Sunrise Roofers",
-    desc: "Professional roof replacement in Tucson — tile, shingle and metal. Built for desert heat, with financing and warranties. Free estimate: 520-753-1758.",
+    title: "Roof Replacement Tucson, AZ — Tile, Shingle & Metal | Sunrise Roofers",
+    desc: "Roof replacement in Tucson from a family-owned, licensed contractor. Full tear-off and a new tile, shingle or metal roof built for desert heat. Free estimate.",
     kw: { primary: "roof replacement tucson", vol: 100, kd: 40, cpc: 2.5 },
-    secondary: ["shingle roof replacement", "how often should you replace your roof", "signs you need a new roof", "when to replace tile roof"],
+    secondary: ["tucson roof replacement", "roof replacement cost tucson", "signs you need a new roof", "when to replace tile roof"],
     hero: {
       eyebrow: "Roof Replacement · Tucson, AZ",
-      h1: "Roof Replacement Built for the Arizona Desert",
+      h1: "Roof Replacement in Tucson, Built for the Arizona Desert",
       sub: "When patching it up stops making sense, a new roof buys you decades of not thinking about it. We handle the whole thing, tear-off to the last nail swept out of the driveway, with materials picked for the heat and sun out here.",
       chips: ["Tile, shingle & metal", "Financing available", "Manufacturer warranties", "Free replacement estimate"],
     },
@@ -112,6 +112,23 @@ Object.assign(window.SEO, {
           "We'll look at your slope, how the roof's built, and what you want to spend, then tell you what actually fits. We're not going to push you into something fancier than you need.",
         ],
         bullets: ["Architectural asphalt shingles", "Concrete & clay tile", "Standing-seam metal", "Reflective coatings for flat sections"],
+        links: [
+          { url: "/shingle-roofing", label: "Shingle roof replacement in Tucson" },
+          { url: "/tile-roofing", label: "Tile roof repair, underlayment & replacement" },
+          { url: "/metal-roofing", label: "Metal roofing in Tucson" },
+        ],
+      },
+      {
+        kicker: "Cost", h: "What roof replacement costs in Tucson",
+        p: [
+          "Three things set the price of a Tucson roof replacement: the size and pitch of the roof, the material you pick, and what we find when the old roof comes off. Shingle is the easiest on the wallet, tile and metal cost more up front and last far longer. Tear-off, disposal, new underlayment, flashing and the final cleanup are all part of our number, so the quote you get is the quote you pay.",
+          "We've written up the planning ranges we see around town so you can budget before we come out. The exact figure comes with a free, itemized estimate and financing if you want to spread it out. And if you're building new rather than replacing, that's a different job with its own page.",
+        ],
+        links: [
+          { url: "/blog/how-much-roof-replacement-cost", label: "How much does a roof replacement cost? The Tucson guide" },
+          { url: "/blog/tucson-roof-replacement", label: "What a Tucson roof replacement looks like, step by step" },
+          { url: "/roof-installation", label: "New construction roofing, if you're building rather than replacing" },
+        ],
       },
     ],
     process: [
@@ -127,6 +144,7 @@ Object.assign(window.SEO, {
       { q: "How long does it take to replace a roof?", a: "Most houses take somewhere between 2 and 5 days depending on size, material and the weather. We'll give you a real timeline before we ever start." },
       { q: "Do you replace just the tile underlayment?", a: "Yep, and a lot of the time that's all it needs. On plenty of tile roofs the tile's still fine and it's the underlayment that's shot. We pull the tile, lay down new underlayment, and stack the same tile back on. Way cheaper than buying all new tile." },
       { q: "Will you help with financing?", a: "We do. You can get the roof on now and pay it off over time." },
+      { q: "Can you replace a roof during monsoon season in Tucson?", a: "We do it all summer. We watch the forecast, tear off only what we can dry in the same day, and keep tarps on the truck. If a storm's rolling in that afternoon, we hold off on opening up more roof. It's slower some weeks, but your house never sits open overnight." },
     ],
     related: ["shingle-roofing", "tile-roofing", "metal-roofing", "roof-inspection"],
     ctaH: "Ready for a roof that lasts?",
@@ -135,15 +153,15 @@ Object.assign(window.SEO, {
 
   "roof-installation": {
     slug: "roof-installation", cat: "service", crumb: "Services",
-    title: "New Roof Installation in Tucson — Sunrise Roofers",
-    desc: "Expert new roof installation in Tucson for new construction and re-roofs. Tile, shingle and metal systems, financing available.",
-    kw: { primary: "roof installation tucson", vol: 100, kd: null, cpc: null },
-    secondary: ["roofing companies near me", "roofing financing", "how long do tile roofs last", "new roof tucson"],
+    title: "New Construction Roofing & Installation in Tucson — Sunrise Roofers",
+    desc: "New construction roofing in Tucson: roof installation for new homes, additions, casitas and shops, scheduled around your builder. Tile, shingle and metal.",
+    kw: { primary: "new construction roofing tucson", vol: 50, kd: null, cpc: null },
+    secondary: ["roof installation tucson", "new roof tucson", "roofing financing", "how long do tile roofs last"],
     hero: {
-      eyebrow: "New Roof Installation · Tucson, AZ",
-      h1: "New Roof Installation for Tucson Homes & Buildings",
-      sub: "New build or a full tear-off and re-roof, we put on roofing that's done to code and built for the desert. Clean job site, and you'll always know what's going on from start to finish.",
-      chips: ["New construction & re-roofs", "All major systems", "Financing available", "Licensed & Insured · ROC #358079"],
+      eyebrow: "New Construction Roofing · Tucson, AZ",
+      h1: "New Construction Roofing & Roof Installation in Tucson",
+      sub: "Building a house, an addition, a casita or a shop? We put the first roof on it, done to code, inspected, and built for the desert. (Replacing a roof that's already there? That's our roof replacement page.) Clean job site, and you'll always know what's going on from start to finish.",
+      chips: ["New homes, additions & casitas", "Works with your builder's schedule", "Financing available", "Licensed & Insured · ROC #358079"],
     },
     intro: {
       kicker: "Installation Done Right",
@@ -170,6 +188,18 @@ Object.assign(window.SEO, {
           { ic: "check-c", t: "Final Inspection", d: "Every install gets a documented quality check before we call it done." },
         ],
       },
+      {
+        kicker: "New Builds", h: "Roofing for new construction around Tucson", alt: true,
+        p: [
+          "New-construction roofing runs on somebody else's calendar: the framer has to be done, the city inspector has to sign off on the deck, and the stucco crew is usually waiting on us. We've done enough of these to show up when the builder needs us and get the roof dried in before the next trade is standing in the driveway.",
+          "We roof new homes, additions, casitas, garages and shops across Tucson and down to Rio Rico, in tile, shingle or metal, and we handle the paperwork the builder and the inspector want to see.",
+        ],
+        bullets: ["Custom homes & production builds", "Additions, casitas & guest houses", "Shops, garages & outbuildings", "Dry-in on the builder's schedule"],
+        links: [
+          { url: "/blog/new-construction-tile-roof-in-rio-rico-az", label: "A new-construction tile roof we put on in Rio Rico" },
+          { url: "/roof-replacement", label: "Tearing off an existing roof instead? See roof replacement" },
+        ],
+      },
     ],
     process: [
       { t: "Plan & Quote", d: "We review the project, recommend the right system, and provide a written quote." },
@@ -183,6 +213,7 @@ Object.assign(window.SEO, {
       { q: "How long does a tile roof last in Arizona?", a: "Good concrete or clay tile will go 50 years, sometimes more. It's the underlayment underneath that usually needs redoing around 20 to 25 years. The tile itself holds up great out here." },
       { q: "Do you offer financing for a new roof?", a: "We do, on jobs that qualify, so you don't have to pay it all up front to get started." },
       { q: "Why choose a local Tucson roofer over a national company?", a: "We know this climate, the local codes, and the exact ways desert roofs go bad. And you get a real local crew you can actually get on the phone, working out of Tucson rather than an office three states away." },
+      { q: "What's the difference between roof installation and roof replacement?", a: "Installation is the first roof on a new structure: a new house, an addition, a casita, a shop. Replacement is tearing an old roof off a building that already has one and putting a new system on. Same crew, same materials, but replacement includes the tear-off, disposal and deck repairs, so it's quoted differently. If your building already has a roof, you want our roof replacement page." },
     ],
     related: ["roof-replacement", "tile-roofing", "metal-roofing", "shingle-roofing"],
     ctaH: "Planning a new roof?",
@@ -332,13 +363,13 @@ Object.assign(window.SEO, {
       uploadDate: "2026-08-12T03:29:33-07:00",
       duration: "PT3M40S",
     }, cat: "service", crumb: "Services",
-    title: "Tile Roofing in Tucson, AZ — Sunrise Roofers",
-    desc: "Tucson tile roofing experts — tile roof repair, underlayment replacement and new tile installation. Concrete & clay, built to last.",
+    title: "Tile Roof Repair & Replacement in Tucson, AZ — Sunrise Roofers",
+    desc: "Tile roof repair, underlayment replacement and full tile roof replacement in Tucson. Concrete and clay tile from a licensed local contractor. Free estimate.",
     kw: { primary: "tile roof repair tucson", vol: 150, kd: 0, cpc: 10 },
-    secondary: ["tile roof repair", "how long do tile roofs last", "tile roof underlayment replacement", "when to replace tile roof"],
+    secondary: ["tile roof replacement tucson", "tile roofing tucson", "tile roof underlayment replacement", "concrete tile roof repair"],
     hero: {
       eyebrow: "Tile Roofing · Tucson, AZ",
-      h1: "Tile Roof Repair & Installation in Tucson",
+      h1: "Tile Roof Repair, Underlayment & Replacement in Tucson",
       sub: "Tile roofs are the Southwest, and they'll last for decades as long as the underlayment underneath gets kept up. We repair tile, re-felt it, and put on new concrete and clay tile roofs all over Tucson.",
       chips: ["Cracked & slipped tile repair", "Underlayment replacement", "Concrete & clay install", "Free tile roof estimate"],
     },
@@ -364,6 +395,29 @@ Object.assign(window.SEO, {
           "We pull your tile and stack it off to the side, tear off the old shot felt, lay down new high-temp underlayment rated for the heat, then set your same tile back down. You end up with a watertight roof for a fraction of what all-new tile costs.",
         ],
         bullets: ["Reuses your existing tile", "New desert-rated underlayment", "Watertight for another 20+ years", "A fraction of full tile-replacement cost"],
+        links: [
+          { url: "/blog/repairing-concrete-tile-roof", label: "Concrete tile roof repair: what you can check from the ground" },
+          { url: "/blog/tile-roof-underlayment-replacement-cost", label: "What tile underlayment replacement costs" },
+          { url: "/blog/wrong-underlayment-under-tile-roofs-a-tucson-warning", label: "The wrong underlayment under Tucson tile: a warning" },
+        ],
+      },
+      {
+        kicker: "Full Replacement", h: "When a tile roof in Tucson really needs replacing", alt: true,
+        p: [
+          "Sometimes it's not just the underlayment. Old clay gets brittle enough that it breaks when you walk it, a discontinued profile can't be matched any more, or a storm has taken out so much tile that re-laying what's left doesn't pencil out. That's when we talk about a full tile roof replacement: new tile, new underlayment, new flashing, the works.",
+          "We'll tell you which one you're actually looking at after we walk the roof. Most of the time it's the cheaper fix. When it isn't, we'll show you why, in photos, before you decide.",
+        ],
+        cards: [
+          { ic: "layers", t: "Brittle or crumbling tile", d: "Old clay that cracks under foot can't be lifted and re-laid." },
+          { ic: "alert", t: "Storm loss", d: "Wind or hail took enough tile that matching and re-setting isn't worth it." },
+          { ic: "search", t: "No match available", d: "Discontinued profiles or colors with nothing close enough to blend in." },
+          { ic: "home", t: "Changing the roof", d: "Going from tile to metal or shingle, or re-roofing an addition to match." },
+        ],
+        links: [
+          { url: "/blog/tile-roof-replacement-in-tucson-common-questions-answered", label: "Tile roof replacement in Tucson: common questions answered" },
+          { url: "/blog/why-fixing-broken-roof-tiles-arizona", label: "Why fixing broken tiles early matters in Arizona" },
+          { url: "/roof-replacement", label: "Roof replacement in Tucson, all materials" },
+        ],
       },
     ],
     process: [
@@ -378,6 +432,7 @@ Object.assign(window.SEO, {
       { q: "How much does tile roof repair cost in Tucson?", a: "Swapping a few cracked or slipped tiles is pretty cheap. Redoing the underlayment costs more since we've got to lift and re-lay all the tile, but it's still a lot less than a brand new tile roof. Estimates are free." },
       { q: "Can you match my existing tile?", a: "Usually, yeah. We track down replacement tile that matches your profile and color as close as we can, and when we redo underlayment we save and reuse your original tile." },
       { q: "Do you install new tile roofs?", a: "Yep. New concrete and clay tile roofs for new builds and full replacements, done with the right underlayment and flashing for this climate." },
+      { q: "How much does tile roof replacement cost in Tucson?", a: "A full tile replacement is the most expensive version of tile work because it's new tile, new underlayment and new flashing, not just the layer underneath. Size, pitch, and concrete versus clay are what move the number. Before you go there, let us check whether an underlayment replacement would do it, because most of the time it does and it costs a lot less. The estimate's free either way." },
     ],
     related: ["roof-repair", "roof-replacement", "roof-inspection", "flat-roofing"],
     ctaH: "Tile roof leaking or aging?",

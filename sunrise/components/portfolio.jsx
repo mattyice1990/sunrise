@@ -69,8 +69,22 @@ const PROJECTS = [
   { cat: "Tile Roofing", t: "Clay Tile Repair & Match", loc: "Civano", sys: "Clay tile repair", prob: "Cracked tiles replaced with period-matched clay after a wind event.", slot: "pf9", src: "uploads/clay-tile-roof-repair-tucson.jpg", ph: "Clay tile project" },
 ];
 
+// Which service page owns each portfolio category, so every project card hands
+// the reader (and Google) to the page that should rank for that work instead of
+// letting /portfolio compete with it for "tile roof repair tucson" etc.
+const CAT_PAGE = {
+  "Metal Roofing": { slug: "metal-roofing", t: "Metal roofing in Tucson" },
+  "Tile Roofing": { slug: "tile-roofing", t: "Tile roof repair & replacement in Tucson" },
+  "Shingle Roofing": { slug: "shingle-roofing", t: "Shingle roof replacement in Tucson" },
+  "Flat & Coatings": { slug: "roof-coatings", t: "Roof coating in Tucson" },
+  "Commercial": { slug: "commercial-roofing", t: "Commercial roofing in Tucson" },
+  "Roof Repairs": { slug: "roof-repair", t: "Roof repair in Tucson" },
+};
+
 function ProjectsGrid() {
   const [active, setActive] = useState("All Projects");
+  const svc = (cat) => CAT_PAGE[cat];
+  const svcUrl = (cat) => (window.SUNRISE ? window.SUNRISE.url(svc(cat).slug) : "/" + svc(cat).slug);
   const shown = active === "All Projects" ? PROJECTS : PROJECTS.filter((p) => p.cat === active);
   return (
     <section className="section" id="all-projects">
@@ -99,6 +113,9 @@ function ProjectsGrid() {
                 <h3 className="pf-card__title">{p.t}</h3>
                 <p className="pf-card__meta">{p.prob}</p>
                 <a className="link-arrow" href="#contact">See Project <Icon name="arrow" /></a>
+                {svc(p.cat) && (
+                  <a className="link-arrow pf-card__svc" href={svcUrl(p.cat)}>{svc(p.cat).t} <Icon name="arrow" /></a>
+                )}
               </div>
             </article>
           ))}

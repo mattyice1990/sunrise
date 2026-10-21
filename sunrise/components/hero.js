@@ -112,7 +112,7 @@ function HeroForm() {
       role: "status"
     }, /*#__PURE__*/React.createElement(Icon, {
       name: "check-c"
-    }), /*#__PURE__*/React.createElement("h3", null, "Got it — thank you."), /*#__PURE__*/React.createElement("p", null, "Eddie will reach out shortly. Need us sooner? Call or text ", /*#__PURE__*/React.createElement("a", {
+    }), /*#__PURE__*/React.createElement("h3", null, "Got it \u2014 thank you."), /*#__PURE__*/React.createElement("p", null, "Eddie will reach out shortly. Need us sooner? Call or text ", /*#__PURE__*/React.createElement("a", {
       href: "tel:5207531758"
     }, "520-753-1758"), "."));
   }
@@ -124,7 +124,7 @@ function HeroForm() {
     className: "heroform__head"
   }, /*#__PURE__*/React.createElement("p", {
     className: "heroform__eyebrow"
-  }, "Free · No Pressure"), /*#__PURE__*/React.createElement("h3", {
+  }, "Free \xB7 No Pressure"), /*#__PURE__*/React.createElement("h3", {
     className: "heroform__title"
   }, "Get Your Free Roof Estimate"), /*#__PURE__*/React.createElement("p", {
     className: "heroform__sub"
@@ -152,7 +152,7 @@ function HeroForm() {
     "aria-label": "Service needed"
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Select a service…"), HERO_SERVICES.map(sv => /*#__PURE__*/React.createElement("option", {
+  }, "Select a service\u2026"), HERO_SERVICES.map(sv => /*#__PURE__*/React.createElement("option", {
     key: sv,
     value: sv
   }, sv))), errs.service && /*#__PURE__*/React.createElement("em", null, errs.service)), /*#__PURE__*/React.createElement("button", {
@@ -167,7 +167,7 @@ function HeroForm() {
     className: "heroform__fine"
   }, "Or call/text ", /*#__PURE__*/React.createElement("a", {
     href: "tel:5207531758"
-  }, "520-753-1758"), " · ROC #358079"));
+  }, "520-753-1758"), " \xB7 ROC #358079"));
 }
 function Hero() {
   const aRef = useRef(null);
@@ -401,11 +401,11 @@ function Hero() {
     className: "container"
   }, /*#__PURE__*/React.createElement("p", {
     className: "eyebrow hero__eyebrow"
-  }, "Family-Owned by Eddie & Viky Guillen · ROC #358079"), /*#__PURE__*/React.createElement("h1", {
+  }, "Family-Owned by Eddie & Viky Guillen \xB7 ROC #358079"), /*#__PURE__*/React.createElement("h1", {
     className: "h-display"
-  }, "Roof Repair, Replacement & ", /*#__PURE__*/React.createElement("em", null, "Metal Roof"), " Installation in Tucson"), /*#__PURE__*/React.createElement("p", {
+  }, "Tucson Roofers for Roof Repair, Replacement & ", /*#__PURE__*/React.createElement("em", null, "Metal Roof"), " Installation"), /*#__PURE__*/React.createElement("p", {
     className: "hero__body"
-  }, "Sunrise is Eddie and Viky Guillen — a Tucson family business. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Leak or full tear-off, you get a straight answer, clean work, and a roof that finally quits leaking. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
+  }, "Sunrise is Eddie and Viky Guillen \u2014 a Tucson family business. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Leak or full tear-off, you get a straight answer, clean work, and a roof that finally quits leaking. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
     className: "hero__cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",
@@ -453,13 +453,13 @@ function TrustBar() {
     size: 46
   }), /*#__PURE__*/React.createElement("div", {
     className: "trust-item__lbl"
-  }, "A- Rated · BBB Accredited")), /*#__PURE__*/React.createElement("div", {
+  }, "A- Rated \xB7 BBB Accredited")), /*#__PURE__*/React.createElement("div", {
     className: "trust-item"
   }, /*#__PURE__*/React.createElement(PlaqueIcon, {
     size: 44
   }), /*#__PURE__*/React.createElement("div", {
     className: "trust-item__lbl"
-  }, "ROC #358079 · Licensed, Bonded & Insured")), /*#__PURE__*/React.createElement("div", {
+  }, "ROC #358079 \xB7 Licensed, Bonded & Insured")), /*#__PURE__*/React.createElement("div", {
     className: "trust-item"
   }, /*#__PURE__*/React.createElement(MedalIcon, {
     size: 44

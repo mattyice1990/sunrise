@@ -84,10 +84,10 @@ function PortfolioFeature({
   }, /*#__PURE__*/React.createElement(BACompare, {
     beforeSlot: "ba-before",
     afterSlot: "ba-after",
-    beforePh: "BEFORE — worn roof",
-    afterPh: "AFTER — new install",
-    beforeAlt: "Worn, leaking clay tile roof before replacement — Catalina Foothills, Tucson AZ",
-    afterAlt: "New concrete tile roof after replacement by Sunrise Roofers — Catalina Foothills, Tucson AZ",
+    beforePh: "BEFORE \u2014 worn roof",
+    afterPh: "AFTER \u2014 new install",
+    beforeAlt: "Worn, leaking clay tile roof before replacement \u2014 Catalina Foothills, Tucson AZ",
+    afterAlt: "New concrete tile roof after replacement by Sunrise Roofers \u2014 Catalina Foothills, Tucson AZ",
     beforeSrc: window.__resources && window.__resources.baBefore || "uploads/clay-tile-roof-before-tucson.jpg",
     afterSrc: window.__resources && window.__resources.baAfter || "uploads/concrete-tile-roof-after-tucson.jpg"
   }), /*#__PURE__*/React.createElement("div", {
@@ -111,7 +111,7 @@ function PortfolioFeature({
     style: {
       marginTop: 10
     }
-  }, "This old clay-tile roof was leaking every monsoon, so we rebuilt it with a new", /*#__PURE__*/React.createElement("b", null, " concrete tile system"), " over high-temp Polyglass underlayment — refreshing the home's look and ending the leaks for good. ", /*#__PURE__*/React.createElement("b", null, "Drag the slider to compare.")), /*#__PURE__*/React.createElement("a", {
+  }, "This old clay-tile roof was leaking every monsoon, so we rebuilt it with a new", /*#__PURE__*/React.createElement("b", null, " concrete tile system"), " over high-temp Polyglass underlayment \u2014 refreshing the home's look and ending the leaks for good. ", /*#__PURE__*/React.createElement("b", null, "Drag the slider to compare.")), /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary btn--sm",
     href: PROJECTS_URL
   }, ctaLabel || "See More Recent Projects", " ", /*#__PURE__*/React.createElement(Icon, {
@@ -201,8 +201,40 @@ const PROJECTS = [{
   src: "uploads/clay-tile-roof-repair-tucson.jpg",
   ph: "Clay tile project"
 }];
+
+// Which service page owns each portfolio category, so every project card hands
+// the reader (and Google) to the page that should rank for that work instead of
+// letting /portfolio compete with it for "tile roof repair tucson" etc.
+const CAT_PAGE = {
+  "Metal Roofing": {
+    slug: "metal-roofing",
+    t: "Metal roofing in Tucson"
+  },
+  "Tile Roofing": {
+    slug: "tile-roofing",
+    t: "Tile roof repair & replacement in Tucson"
+  },
+  "Shingle Roofing": {
+    slug: "shingle-roofing",
+    t: "Shingle roof replacement in Tucson"
+  },
+  "Flat & Coatings": {
+    slug: "roof-coatings",
+    t: "Roof coating in Tucson"
+  },
+  "Commercial": {
+    slug: "commercial-roofing",
+    t: "Commercial roofing in Tucson"
+  },
+  "Roof Repairs": {
+    slug: "roof-repair",
+    t: "Roof repair in Tucson"
+  }
+};
 function ProjectsGrid() {
   const [active, setActive] = useState("All Projects");
+  const svc = cat => CAT_PAGE[cat];
+  const svcUrl = cat => window.SUNRISE ? window.SUNRISE.url(svc(cat).slug) : "/" + svc(cat).slug;
   const shown = active === "All Projects" ? PROJECTS : PROJECTS.filter(p => p.cat === active);
   return /*#__PURE__*/React.createElement("section", {
     className: "section",
@@ -254,6 +286,11 @@ function ProjectsGrid() {
     className: "link-arrow",
     href: "#contact"
   }, "See Project ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow"
+  })), svc(p.cat) && /*#__PURE__*/React.createElement("a", {
+    className: "link-arrow pf-card__svc",
+    href: svcUrl(p.cat)
+  }, svc(p.cat).t, " ", /*#__PURE__*/React.createElement(Icon, {
     name: "arrow"
   }))))))));
 }

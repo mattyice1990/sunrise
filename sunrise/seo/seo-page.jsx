@@ -268,6 +268,16 @@ function Sections({ p }) {
                   {s.bullets.map((b) => <li key={b}><Icon name="check" /> {b}</li>)}
                 </ul>
               )}
+              {/* Optional contextual links ({ url, label }) so a section can hand
+                  the reader (and crawlers) to the page that owns that topic —
+                  the service page for a cluster, or a guide that goes deeper. */}
+              {s.links && s.links.length > 0 && (
+                <p className="sbody__links">
+                  {s.links.map((l) => (
+                    <a className="link-arrow" key={l.url} href={l.url}>{l.label} <Icon name="arrow" /></a>
+                  ))}
+                </p>
+              )}
             </div>
             {s.cards && (
               <div className="sbody__cards">

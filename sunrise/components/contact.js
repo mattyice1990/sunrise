@@ -1,4 +1,5 @@
 (function(){
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* contact.jsx — ContactForm (validation + success) + Footer */
 
 function Field({
@@ -115,12 +116,11 @@ function ContactForm() {
       setSending(false);
     }
   };
-  const F = p => /*#__PURE__*/React.createElement(Field, {
-    ...p,
+  const F = p => /*#__PURE__*/React.createElement(Field, _extends({}, p, {
     value: vals[p.k],
     onChange: set(p.k),
     err: errs[p.k]
-  });
+  }));
   return /*#__PURE__*/React.createElement("section", {
     className: "section",
     id: "contact"
@@ -139,7 +139,7 @@ function ContactForm() {
     }
   }, "Let's Take a Look at Your Roof"), /*#__PURE__*/React.createElement("p", {
     className: "lead"
-  }, "Tell me what's going on up there — a leak, storm damage, an old roof that's seen better days, or a full replacement — and we'll get you on the books for a free inspection."), /*#__PURE__*/React.createElement("div", {
+  }, "Tell me what's going on up there \u2014 a leak, storm damage, an old roof that's seen better days, or a full replacement \u2014 and we'll get you on the books for a free inspection."), /*#__PURE__*/React.createElement("div", {
     className: "contact__info"
   }, /*#__PURE__*/React.createElement("div", {
     className: "contact__row"
@@ -193,7 +193,7 @@ function ContactForm() {
     style: {
       display: "block"
     }
-  }, "Mon–Fri 6–6 · Sat 8–4 · 24/7 Emergency")))), /*#__PURE__*/React.createElement("div", {
+  }, "Mon\u2013Fri 6\u20136 \xB7 Sat 8\u20134 \xB7 24/7 Emergency")))), /*#__PURE__*/React.createElement("div", {
     className: "contact__trust"
   }, /*#__PURE__*/React.createElement("span", {
     className: "ti"
@@ -215,7 +215,7 @@ function ContactForm() {
     className: "ic"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "check-c"
-  })), /*#__PURE__*/React.createElement("h3", null, "Request Received"), /*#__PURE__*/React.createElement("p", null, "Thanks, ", vals.name.split(" ")[0] || "there", "! I'll get back to you within a business day to set up your free inspection. If it's leaking right now, don't wait on email — call or text 520-753-1758."), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/React.createElement("h3", null, "Request Received"), /*#__PURE__*/React.createElement("p", null, "Thanks, ", vals.name.split(" ")[0] || "there", "! I'll get back to you within a business day to set up your free inspection. If it's leaking right now, don't wait on email \u2014 call or text 520-753-1758."), /*#__PURE__*/React.createElement("button", {
     className: "btn btn--ghost btn--sm",
     style: {
       marginTop: 24
@@ -268,7 +268,7 @@ function ContactForm() {
     "aria-label": "Service Needed"
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Select a service…"), /*#__PURE__*/React.createElement("option", null, "Roof Repair"), /*#__PURE__*/React.createElement("option", null, "Roof Replacement"), /*#__PURE__*/React.createElement("option", null, "Metal Roof Installation"), /*#__PURE__*/React.createElement("option", null, "Tile Roofing"), /*#__PURE__*/React.createElement("option", null, "Flat Roof / Coatings"), /*#__PURE__*/React.createElement("option", null, "Commercial Roofing"), /*#__PURE__*/React.createElement("option", null, "Roof Inspection"), /*#__PURE__*/React.createElement("option", null, "Storm / Monsoon Damage")), errs.service && /*#__PURE__*/React.createElement("span", {
+  }, "Select a service\u2026"), /*#__PURE__*/React.createElement("option", null, "Roof Repair"), /*#__PURE__*/React.createElement("option", null, "Roof Replacement"), /*#__PURE__*/React.createElement("option", null, "Metal Roof Installation"), /*#__PURE__*/React.createElement("option", null, "Tile Roofing"), /*#__PURE__*/React.createElement("option", null, "Flat Roof / Coatings"), /*#__PURE__*/React.createElement("option", null, "Commercial Roofing"), /*#__PURE__*/React.createElement("option", null, "Roof Inspection"), /*#__PURE__*/React.createElement("option", null, "Storm / Monsoon Damage")), errs.service && /*#__PURE__*/React.createElement("span", {
     className: "field__err"
   }, errs.service)), /*#__PURE__*/React.createElement("div", {
     className: "field"
@@ -284,7 +284,7 @@ function ContactForm() {
   }, /*#__PURE__*/React.createElement("label", null, "Message"), /*#__PURE__*/React.createElement("textarea", {
     value: vals.message,
     onChange: set("message"),
-    placeholder: "Tell us what's going on with your roof…",
+    placeholder: "Tell us what's going on with your roof\u2026",
     "aria-label": "Message"
   })), /*#__PURE__*/React.createElement("div", {
     className: "field field--full"
@@ -325,7 +325,9 @@ function Footer() {
     className: "footer__main"
   }, /*#__PURE__*/React.createElement("div", {
     className: "footer__brand"
-  }, /*#__PURE__*/React.createElement(Logo, null), /*#__PURE__*/React.createElement("p", null, "Tucson roofers, family-owned. Repair, replacement, metal, tile, flat roofs and commercial systems — all built for the desert."), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(Logo, null), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("a", {
+    href: "/"
+  }, "Tucson roofers"), ", family-owned. Repair, replacement, metal, tile, flat roofs and commercial systems \u2014 all built for the desert."), /*#__PURE__*/React.createElement("div", {
     className: "footer__socials"
   }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/",
@@ -438,9 +440,9 @@ function Footer() {
     s: "contact"
   }])), /*#__PURE__*/React.createElement("div", {
     className: "footer__bottom"
-  }, /*#__PURE__*/React.createElement("span", null, "© 2026 Sunrise Roofers LLC. All rights reserved."), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Sunrise Roofers LLC. All rights reserved."), /*#__PURE__*/React.createElement("div", {
     className: "lic"
-  }, /*#__PURE__*/React.createElement("span", null, "ROC #358079 · Licensed, Bonded & Insured"), /*#__PURE__*/React.createElement("span", null, "Tucson, Arizona")))));
+  }, /*#__PURE__*/React.createElement("span", null, "ROC #358079 \xB7 Licensed, Bonded & Insured"), /*#__PURE__*/React.createElement("span", null, "Tucson, Arizona")))));
 }
 Object.assign(window, {
   ContactForm,

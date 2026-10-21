@@ -18,7 +18,7 @@
   S.SERVICES = [
     { slug: "roof-repair",          t: "Roof Repair",            ic: "wrench",   d: "Leaks, flashing, storm & cracked-tile fixes", grp: "Repair & Restore" },
     { slug: "roof-replacement",     t: "Roof Replacement",       ic: "hammer",   d: "Full tear-offs built for the long haul",      grp: "Replace & Install" },
-    { slug: "roof-installation",    t: "New Roof Installation",  ic: "home",     d: "New-build & re-roof systems, done right",     grp: "Replace & Install" },
+    { slug: "roof-installation",    t: "New Construction Roofing", ic: "home",   d: "First roofs on new homes, additions & shops", grp: "Replace & Install" },
     { slug: "roof-inspection",      t: "Roof Inspection",        ic: "search",   d: "Free, documented condition reports",          grp: "Repair & Restore" },
     { slug: "emergency-roof-repair",t: "Emergency & Storm Damage",ic: "alert",   d: "24/7 response, tarping & insurance support",  grp: "Repair & Restore" },
     { slug: "storm-damage-roof-repair-tucson", t: "Storm Damage Repair", ic: "alert", d: "Monsoon, wind & hail damage, documented", grp: "Repair & Restore" },
