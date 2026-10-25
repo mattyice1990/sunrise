@@ -7,8 +7,12 @@
 // Vercel env overrides the built-in ID.
 
 const DEFAULT_PLACE_ID = 'ChIJHXIqAP-aBkER6Ogp_xUh9Cc';
-const PHONE = '+15207531758';
+// The Maps CID never changes, so it is the identity check for any re-resolved
+// Place ID (there are other "Sunrise Roofing" companies in the index).
+const MAPS_CID = '2878962440155556072';
+const PHONES = ['+15207531758', '+15209753527'];
 const NAME_QUERY = 'Sunrise Roofers LLC Tucson AZ';
+const TUCSON_BIAS = 'circle:60000@32.2226,-110.9747';
 const PLACES = 'https://maps.googleapis.com/maps/api/place';
 
 let resolvedPlaceId = null;
@@ -22,19 +26,29 @@ async function placeDetails(placeId, key) {
   return response.json();
 }
 
-// Find the current Place ID — phone first (exact), then name. Only accept a
-// candidate that is actually Sunrise Roofers.
+// Does this Place ID belong to our Maps listing? Details `url` is
+// https://maps.google.com/?cid=<CID>.
+async function isOurPlace(placeId, key) {
+  const r = await fetch(`${PLACES}/details/json?place_id=${encodeURIComponent(placeId)}&fields=url&key=${key}`);
+  if (!r.ok) return false;
+  const d = await r.json();
+  return new RegExp(`[?&]cid=${MAPS_CID}(&|$)`).test(d.result?.url || '');
+}
+
+// Find the current Place ID — phone numbers first, then name near Tucson. A
+// candidate is only accepted if its Maps CID matches ours.
 async function findPlaceId(key) {
   const queries = [
-    `input=${encodeURIComponent(PHONE)}&inputtype=phonenumber`,
-    `input=${encodeURIComponent(NAME_QUERY)}&inputtype=textquery`,
+    ...PHONES.map((p) => `input=${encodeURIComponent(p)}&inputtype=phonenumber`),
+    `input=${encodeURIComponent(NAME_QUERY)}&inputtype=textquery&locationbias=${encodeURIComponent(TUCSON_BIAS)}`,
   ];
   for (const q of queries) {
-    const r = await fetch(`${PLACES}/findplacefromtext/json?${q}&fields=place_id,name&key=${key}`);
+    const r = await fetch(`${PLACES}/findplacefromtext/json?${q}&fields=place_id&key=${key}`);
     if (!r.ok) continue;
     const d = await r.json();
-    const hit = (d.candidates || []).find((c) => /sunrise roof/i.test(c.name || ''));
-    if (hit) return hit.place_id;
+    for (const c of d.candidates || []) {
+      if (await isOurPlace(c.place_id, key)) return c.place_id;
+    }
   }
   return null;
 }
