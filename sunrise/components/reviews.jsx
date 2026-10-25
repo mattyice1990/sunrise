@@ -9,18 +9,45 @@ const GoogleG = ({ size = 22 }) => (
   </svg>
 );
 
-const GStars = () => (
-  <div className="grev-stars">
+const GStars = ({ n = 5 }) => (
+  <div className="grev-stars" aria-label={n + " out of 5 stars"}>
     {Array.from({ length: 5 }).map((_, i) => (
-      <svg key={i} viewBox="0 0 24 24" width="17" height="17"><path fill="#FBBC05" d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 17l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5z"/></svg>
+      <svg key={i} viewBox="0 0 24 24" width="17" height="17"><path fill={i < n ? "#FBBC05" : "#DADCE0"} d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 17l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5z"/></svg>
     ))}
   </div>
 );
 
-// Real Google reviews (seed). GoogleReviews refreshes these live from
-// /api/reviews on mount so the carousel always reflects the current Google
-// Business Profile. Colors cycle through the Google palette for the avatars.
+// Real Google reviews (seed / offline fallback). GoogleReviews replaces these
+// on mount with the live feed from /api/gbp-reviews (Business Profile API —
+// every review, newest first). /api/reviews (Places API, capped at 5) is only a
+// backup. Colors cycle through the Google palette for the avatars.
 const GREV_COLORS = ["#4285F4", "#EA4335", "#34A853", "#FBBC05"];
+const GREV_SEED_TOTAL = 55;
+const GREV_MAX_CARDS = 20;
+
+function grevAgo(iso) {
+  const ms = Date.now() - new Date(iso).getTime();
+  if (!iso || isNaN(ms)) return "Google review";
+  const d = Math.floor(ms / 86400000);
+  if (d < 1) return "today";
+  if (d < 2) return "yesterday";
+  if (d < 7) return d + " days ago";
+  if (d < 30) { const w = Math.floor(d / 7); return w === 1 ? "a week ago" : w + " weeks ago"; }
+  if (d < 365) { const m = Math.floor(d / 30); return m === 1 ? "a month ago" : m + " months ago"; }
+  const y = Math.floor(d / 365); return y === 1 ? "a year ago" : y + " years ago";
+}
+
+// Live feed first; the Places endpoint is only a backup.
+function loadGoogleReviews() {
+  if (!window.__grevPromise) {
+    const get = (url) => fetch(url).then((r) => (r.ok ? r.json() : Promise.reject(r.status)));
+    window.__grevPromise = get("/api/gbp-reviews")
+      .then((d) => (d && d.reviews && d.reviews.length ? d : Promise.reject("empty")))
+      .catch(() => get("/api/reviews"))
+      .catch(() => null);
+  }
+  return window.__grevPromise;
+}
 const REVIEWS = [
   { n: "Julie McIntyre", c: "#4285F4", t: "a month ago", q: "Eddie and his crew were responsive, kind, and prompt. Eddie took time to come to my home on the edge of town and communicate about all the options. My second story pitch is steep with older tiles, and he and his crew were safety conscious and careful and they cleaned up the work site perfectly. Their knowledge and skill are reflected in the final outcome of my roof repair and I am very pleased!" },
   { n: "Maryfaith Marshall", c: "#EA4335", t: "2 months ago", q: "Eddie Guillen and all of the people with whom he works are outstanding: one thousand percent competent, and skilled, kind, generous, so clearly honest that I could just take a deep breath and trust whatever Eddie told me. They did a meticulous job on replacing our roof and it is beautiful. And he is very reasonably priced." },
@@ -40,7 +67,7 @@ function ReviewCard({ r }) {
         </div>
         <GoogleG size={20} />
       </div>
-      <GStars />
+      <GStars n={r.s || 5} />
       <p className="grev-card__q">{r.q && r.q.length > 230 ? r.q.slice(0, 220).trim() + "…" : r.q}</p>
     </article>
   );
@@ -49,21 +76,27 @@ function ReviewCard({ r }) {
 function GoogleReviews() {
   const [reviews, setReviews] = useState(REVIEWS);
   const [rating, setRating] = useState(5.0);
-  const [total, setTotal] = useState(41);
+  const [total, setTotal] = useState(GREV_SEED_TOTAL);
   useEffect(() => {
     let alive = true;
-    fetch("/api/reviews")
-      .then((r) => r.json())
-      .then((d) => {
-        if (!alive || !d) return;
-        const mapped = (d.reviews || [])
-          .filter((rv) => rv && rv.text && rv.rating >= 4)
-          .map((rv, i) => ({ n: rv.author_name, c: GREV_COLORS[i % 4], dark: GREV_COLORS[i % 4] === "#FBBC05", t: rv.relative_time_description || "Google review", q: rv.text }));
-        if (mapped.length) setReviews(mapped);
-        if (d.rating) setRating(d.rating);
-        if (d.totalReviews) setTotal(d.totalReviews);
-      })
-      .catch(() => {});
+    loadGoogleReviews().then((d) => {
+      if (!alive || !d) return;
+      const mapped = (d.reviews || [])
+        .filter((rv) => rv && rv.text && rv.rating >= 4)
+        .sort((a, b) => (b.create_time || "").localeCompare(a.create_time || ""))
+        .slice(0, GREV_MAX_CARDS)
+        .map((rv, i) => ({
+          n: rv.author_name,
+          c: GREV_COLORS[i % 4],
+          dark: GREV_COLORS[i % 4] === "#FBBC05",
+          s: rv.rating,
+          t: rv.create_time ? grevAgo(rv.create_time) : rv.relative_time_description || "Google review",
+          q: rv.text,
+        }));
+      if (mapped.length) setReviews(mapped);
+      if (d.rating) setRating(d.rating);
+      if (d.totalReviews) setTotal(d.totalReviews);
+    });
     return () => { alive = false; };
   }, []);
   const loop = reviews.concat(reviews);
@@ -76,9 +109,9 @@ function GoogleReviews() {
             <div>
               <div className="grev-rating__row">
                 <span className="grev-rating__num">{Number(rating).toFixed(1)}</span>
-                <GStars />
+                <GStars n={Math.round(rating)} />
               </div>
-              <p className="grev-rating__sub"><b>5-Star Rated</b> on Google · {total} reviews</p>
+              <p className="grev-rating__sub"><b>{Number(rating).toFixed(1)}-Star Rated</b> on Google · {total} reviews</p>
             </div>
           </div>
           <div className="grev-head__txt">
@@ -96,7 +129,7 @@ function GoogleReviews() {
         </div>
       </div>
       <div className="container grev-cta">
-        <span className="grev-cta__txt">Rated 5.0 across {total} Google reviews from Tucson homeowners &amp; property managers.</span>
+        <span className="grev-cta__txt">Rated {Number(rating).toFixed(1)} across {total} Google reviews from Tucson homeowners &amp; property managers.</span>
         <a className="grev-btn grev-btn--solid" href="https://www.google.com/maps?cid=2878962440155556072" target="_blank" rel="noopener">
           <GoogleG size={20} /> <span>Leave Us a Review</span>
         </a>
