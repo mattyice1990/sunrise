@@ -1,22 +1,59 @@
-// Vercel Serverless Function to fetch Google Reviews
-// This keeps your API key secure on the server side
+// Vercel Serverless Function to fetch Google Reviews (Places API — max 5 reviews).
+// Backup for /api/gbp-reviews. Keeps the API key server-side.
+//
+// Google retires Place IDs from time to time (Details then answers NOT_FOUND).
+// When that happens we re-resolve the ID by the business phone number / name and
+// keep using the fresh one for the life of the instance. GOOGLE_PLACE_ID in the
+// Vercel env overrides the built-in ID.
+
+const DEFAULT_PLACE_ID = 'ChIJHXIqAP-aBkER6Ogp_xUh9Cc';
+const PHONE = '+15207531758';
+const NAME_QUERY = 'Sunrise Roofers LLC Tucson AZ';
+const PLACES = 'https://maps.googleapis.com/maps/api/place';
+
+let resolvedPlaceId = null;
+
+async function placeDetails(placeId, key) {
+  const url = `${PLACES}/details/json?place_id=${encodeURIComponent(placeId)}&fields=place_id,reviews,rating,user_ratings_total&key=${key}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Google API HTTP Error ${response.status}: ${await response.text()}`);
+  }
+  return response.json();
+}
+
+// Find the current Place ID — phone first (exact), then name. Only accept a
+// candidate that is actually Sunrise Roofers.
+async function findPlaceId(key) {
+  const queries = [
+    `input=${encodeURIComponent(PHONE)}&inputtype=phonenumber`,
+    `input=${encodeURIComponent(NAME_QUERY)}&inputtype=textquery`,
+  ];
+  for (const q of queries) {
+    const r = await fetch(`${PLACES}/findplacefromtext/json?${q}&fields=place_id,name&key=${key}`);
+    if (!r.ok) continue;
+    const d = await r.json();
+    const hit = (d.candidates || []).find((c) => /sunrise roof/i.test(c.name || ''));
+    if (hit) return hit.place_id;
+  }
+  return null;
+}
 
 export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
-  
+
   // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const PLACE_ID = 'ChIJHXIqAP-aBkER6Ogp_xUh9Cc';
   const API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
   // Debug: Check if API key exists (without exposing it)
   if (!API_KEY) {
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'API key not configured',
       message: 'GOOGLE_PLACES_API_KEY environment variable is not set in Vercel',
       debug: 'Check Vercel Dashboard > Settings > Environment Variables'
@@ -24,18 +61,24 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Construct the URL
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=reviews,rating,user_ratings_total&key=${API_KEY}`;
-    
-    // Fetch reviews from Google Places API
-    const response = await fetch(url);
+    let placeId = resolvedPlaceId || process.env.GOOGLE_PLACE_ID || DEFAULT_PLACE_ID;
+    let data = await placeDetails(placeId, API_KEY);
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Google API HTTP Error ${response.status}: ${errorText}`);
+    // Stale / retired Place ID — look the business up again and retry once.
+    if (data.status === 'NOT_FOUND' || data.status === 'INVALID_REQUEST') {
+      const fresh = await findPlaceId(API_KEY);
+      if (fresh && fresh !== placeId) {
+        placeId = fresh;
+        data = await placeDetails(placeId, API_KEY);
+        if (data.status === 'OK') {
+          resolvedPlaceId = placeId;
+          console.warn(`Place ID ${DEFAULT_PLACE_ID} is stale; resolved to ${placeId}. Set GOOGLE_PLACE_ID or update DEFAULT_PLACE_ID.`);
+        }
+      }
+    } else if (data.result?.place_id && data.result.place_id !== placeId) {
+      // Google hands back the current ID when an old one still resolves.
+      resolvedPlaceId = data.result.place_id;
     }
-
-    const data = await response.json();
 
     // Check for API errors
     if (data.status === 'REQUEST_DENIED') {
@@ -56,20 +99,21 @@ export default async function handler(req, res) {
     }
 
     // Return the reviews
+    res.setHeader('Cache-Control', 'public, max-age=900, s-maxage=3600, stale-while-revalidate=86400');
     return res.status(200).json({
       reviews: data.result?.reviews || [],
       rating: data.result?.rating || 5.0,
       totalReviews: data.result?.user_ratings_total || 0,
+      placeId,
       status: 'success'
     });
 
   } catch (error) {
     console.error('Error fetching reviews:', error);
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'Server error',
       message: error.message,
       type: error.name
     });
   }
 }
-
