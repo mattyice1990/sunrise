@@ -594,6 +594,8 @@ body.brand-real .footer .logo__pimg--light { display: block; }
 .contact__row .ic svg { width: 21px; height: 21px; }
 .contact__row .k { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--on-dark-soft); font-family: var(--display); font-weight: 600; }
 .contact__row .v { font-size: 18px; color: #fff; font-weight: 500; }
+.contact__row a.v { text-decoration: none; }
+.contact__row a.v:hover { text-decoration: underline; }
 .contact__trust { margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.12); display: flex; gap: 22px; flex-wrap: wrap; }
 .contact__trust .ti { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--on-dark); }
 .contact__trust .ti svg { width: 16px; height: 16px; color: var(--terra-300); }

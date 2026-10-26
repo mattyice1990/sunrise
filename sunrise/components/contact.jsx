@@ -95,7 +95,7 @@ function ContactForm() {
               </div>
               <div className="contact__row">
                 <span className="ic"><Icon name="mail" /></span>
-                <span><span className="k">Email</span><span className="v" style={{ display: "block" }}>eddie@roofwithsunrise.com</span></span>
+                <span><span className="k">Email</span><a className="v" style={{ display: "block" }} href="mailto:eddie@roofwithsunrise.com">eddie@roofwithsunrise.com</a></span>
               </div>
               <div className="contact__row">
                 <span className="ic"><Icon name="pin" /></span>

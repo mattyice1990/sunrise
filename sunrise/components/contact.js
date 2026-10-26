@@ -162,11 +162,12 @@ function ContactForm() {
     name: "mail"
   })), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", {
     className: "k"
-  }, "Email"), /*#__PURE__*/React.createElement("span", {
+  }, "Email"), /*#__PURE__*/React.createElement("a", {
     className: "v",
     style: {
       display: "block"
-    }
+    },
+    href: "mailto:eddie@roofwithsunrise.com"
   }, "eddie@roofwithsunrise.com"))), /*#__PURE__*/React.createElement("div", {
     className: "contact__row"
   }, /*#__PURE__*/React.createElement("span", {

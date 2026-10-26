@@ -466,6 +466,7 @@ function generateBlogPostHTML(article) {
     
     <!-- Analytics Scripts -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXS7NL5W52"></script>
+    <script src="/js/contact-tracking.js" defer></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
