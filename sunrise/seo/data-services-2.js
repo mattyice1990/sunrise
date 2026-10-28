@@ -15,7 +15,7 @@ Object.assign(window.SEO, {
       duration: "PT2M47S",
     }, cat: "service", crumb: "Services",
     title: "Roof Coating Tucson, AZ — Elastomeric & Silicone | Sunrise Roofers",
-    desc: "Tucson roof coating contractor: elastomeric and silicone coatings that seal leaks, cut heat and add 10 to 15 years to a flat roof. Free estimate 520-753-1758.",
+    desc: "Tucson roof coating contractor: elastomeric and silicone coatings that seal leaks, cut heat and add 10 to 15 years to a flat roof. Free estimates.",
     kw: { primary: "roof coating tucson", vol: 150, kd: 12, cpc: 7 },
     secondary: ["elastomeric roof coating tucson", "tucson roof coating contractor", "commercial roof coating tucson", "roof coating cost"],
     hero: {
@@ -488,7 +488,7 @@ Object.assign(window.SEO, {
     ],
     faqH: "Storm Damage Questions, Answered",
     faqs: [
-      { q: "There's water coming through my ceiling right now. What do I do?", a: "Move whatever's under it and get a bucket down. If the ceiling is bulging with trapped water and you can reach it safely from a step ladder, a small hole in the middle lets it drain in one spot instead of coming down all at once. Then call us at 520-753-1758. Don't climb up on a wet roof to look — that's how people get hurt, and it's our job anyway." },
+      { q: "There's water coming through my ceiling right now. What do I do?", a: "Move whatever's under it and get a bucket down. If the ceiling is bulging with trapped water and you can reach it safely from a step ladder, a small hole in the middle lets it drain in one spot instead of coming down all at once. Then call us. Don't climb up on a wet roof to look — that's how people get hurt, and it's our job anyway." },
       { q: "Do you tarp the same day?", a: "If the roof is actively leaking, that's the plan. Call early in the day if you can. During a bad monsoon week we're stacked up, but live water inside somebody's house jumps ahead of everything else on the schedule." },
       { q: "How do I get insurance to pay for roof replacement after a storm?", a: "I honestly can't tell you. That's your carrier's call and it comes down to your policy, your deductible and what the adjuster finds. Anybody who tells you over the phone that you're getting a new roof out of it is guessing. What I do is document the damage properly and work with your adjuster — the decision is theirs, not mine." },
       { q: "What's in the documentation you give my adjuster?", a: "Dated photos: wide shots of the whole roof, close-ups of every damaged area, and interior shots of the ceiling or wall damage. Then a written scope of what's wrong and an itemized estimate to repair it. If your adjuster wants to walk the roof with me, I'll be there." },

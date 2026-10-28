@@ -37,7 +37,7 @@ out += "\nEXISTING PROFILES (link these as 'social' / 'other' wherever a field e
 for (const [k, v] of Object.entries(n.profiles)) out += "  " + k.padEnd(10) + " " + v + "\n";
 out += "\nRULES\n";
 out += "  - Paste the address EXACTLY as above. No comma before 'Ste'.\n";
-out += "  - Never use 520-783-3976 (GBP-bound) or 520-210-5284 (ads-only) in a citation.\n";
+out += "  - Never use " + n.phone.swapTarget + " (Eddie's direct line - CallRail can't track it) or 520-210-5284 (ads-only) in a citation.\n";
 out += "  - If a directory forces a different format, record it in seo/citations.md.\n";
 
 if (process.argv.includes("--write")) {

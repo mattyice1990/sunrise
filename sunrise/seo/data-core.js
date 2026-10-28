@@ -167,7 +167,7 @@ Object.assign(window.SEO, {
   "contact": {
     slug: "contact", cat: "core", crumb: "Company",
     title: "Contact Sunrise Roofers — Free Tucson Estimate",
-    desc: "Contact Sunrise Roofers LLC for a free roof estimate in Tucson. Call or text 520-753-1758, or request your free inspection online.",
+    desc: "Contact Sunrise Roofers LLC for a free roof estimate in Tucson. Call, text or request your free inspection online.",
     kw: { primary: "roofing contractors tucson", vol: 150, kd: 37, cpc: 1.1 },
     secondary: ["roofers tucson", "tucson roofing company", "free roof inspection"],
     hero: {

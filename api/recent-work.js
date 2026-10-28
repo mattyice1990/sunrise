@@ -54,7 +54,9 @@ function renderHtml(items) {
 <body><section class="lpe"><h2>${esc(GBP.recentWork.heading)}</h2>
 <div class="lpe-grid">
 ${cards || '<p class="lpe-empty">Recent projects coming soon.</p>'}
-</div></section></body></html>`;
+</div></section>
+<script type="text/javascript" src="//cdn.callrail.com/companies/581513526/ca0b5897d5451d9450b8/12/swap.js" async></script>
+</body></html>`;
 }
 
 export default async function handler(req, res) {

@@ -12,7 +12,8 @@ const OPENS = new Set(HOURS.map((h) => h.split("-")[0]));
 const WEEKDAY_OPEN_H = Number(HOURS[0].split(":")[0]);
 
 const SCAN_EXT = new Set([".html", ".js", ".jsx", ".json", ".txt", ".md"]);
-const SKIP_DIR = new Set(["node_modules", ".git", "backups", ".vercel", "dist"]);
+// roofing-services/ is the pre-2025 URL scheme: every page 301s (vercel.json), never served.
+const SKIP_DIR = new Set(["node_modules", ".git", "backups", ".vercel", "dist", "roofing-services"]);
 
 // Legitimate exceptions: file substring -> variant it may contain.
 const ALLOW = [
@@ -75,6 +76,32 @@ for (const file of walk(".")) {
     if (Number(m[1]) !== WEEKDAY_OPEN_H) {
       const line = txt.slice(0, m.index).split("\n").length;
       problems.push(`${file}:${line}  weekday hours "${m[0].trim()}" opens at ${m[1]} — nap.json says ${WEEKDAY_OPEN_H}`);
+    }
+  }
+
+  // Eddie's direct line is allowed only where swap.js replaces it: visible
+  // text and tel: links on pages that load the snippet. Anywhere a crawler, a
+  // share card, a directory or an AI reads it raw, a call to it is invisible
+  // to CallRail, so it must be the listing number (nap.phone) instead.
+  if (!allowed(file, nap.phone.swapTarget)) {
+    const [, a3, b3, c4] = nap.phone.swapTarget.match(/(\d{3})\D*(\d{3})\D*(\d{4})/);
+    const directRe = new RegExp(`\\(?${a3}\\)?[ .-]?${b3}[ .-]?${c4}`);
+    const rawZones = [
+      ...txt.matchAll(/<meta\b[^>]*>/g),
+      ...txt.matchAll(/<title>[\s\S]*?<\/title>/g),
+      ...txt.matchAll(/<script[^>]*application\/ld\+json[^>]*>[\s\S]*?<\/script>/g),
+    ];
+    for (const z of rawZones) {
+      if (directRe.test(z[0])) {
+        const line = txt.slice(0, z.index).split("\n").length;
+        problems.push(`${file}:${line}  direct line in a meta/title/JSON-LD block — swap.js can't reach it; use ${nap.phone.dashed}`);
+      }
+    }
+    if (/(llms|citation-paste)\.txt$/.test(file) && directRe.test(txt)) {
+      problems.push(`${file}  direct line in a file read raw by AIs / directories; use ${nap.phone.dashed}`);
+    }
+    if (/\.html$/.test(file) && directRe.test(txt) && !/cdn\.callrail\.com\/companies\//.test(txt)) {
+      problems.push(`${file}  shows the direct line but has no CallRail swap.js`);
     }
   }
 

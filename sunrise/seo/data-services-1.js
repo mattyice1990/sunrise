@@ -338,7 +338,7 @@ Object.assign(window.SEO, {
   "emergency-roof-repair": {
     slug: "emergency-roof-repair", cat: "service", crumb: "Services",
     title: "Emergency Roof Repair in Tucson — Sunrise Roofers",
-    desc: "24/7 emergency roof repair in Tucson. Fast response, emergency tarping and leak control to stop the water tonight. Call now: 520-753-1758.",
+    desc: "24/7 emergency roof repair in Tucson. Fast response, emergency tarping and leak control to stop the water tonight. Call now, day or night.",
     kw: { primary: "emergency roof repair tucson", vol: 80, kd: null, cpc: null },
     secondary: ["roof leak repair tucson", "24 hour roof repair tucson", "same day roof repair tucson", "roof leaking right now tucson"],
     hero: {
@@ -389,7 +389,7 @@ Object.assign(window.SEO, {
       { t: "Permanent Repair", d: "Once stabilized, we schedule and complete the lasting repair." },
     ],
     faqs: [
-      { q: "Do you really offer 24/7 emergency roof repair?", a: "Yep. Somebody's on the emergency line at 520-753-1758 around the clock, monsoon season and the rest of the year. Live leaks and storm damage jump to the front of the line." },
+      { q: "Do you really offer 24/7 emergency roof repair?", a: "Yep. Somebody's on the emergency line around the clock, monsoon season and the rest of the year. Live leaks and storm damage jump to the front of the line." },
       { q: "What should I do while I wait for you to arrive?", a: "Move anything you care about out from under the leak, get a bucket under it, and if you can do it safely, snap some photos inside and out. Do not get up on a wet or busted roof, though, leave that part to us." },
       { q: "Will insurance cover storm or monsoon roof damage?", a: "Sudden storm, wind, hail and monsoon damage usually is. We document the whole thing and we'll work with your adjuster to back up the claim." },
       { q: "Can you do a temporary fix until a full repair?", a: "Yep. The tarp and leak control hold things steady right away, then we schedule the permanent repair or replacement once the storm's passed." },
@@ -511,7 +511,7 @@ Object.assign(window.SEO, {
       duration: "PT3M22S",
     }, cat: "service", crumb: "Services",
     title: "Flat Roofing in Tucson, AZ — Sunrise Roofers",
-    desc: "Flat roof repair and installation in Tucson — TPO, modified bitumen, built-up and coatings. Stop ponding and leaks for good. Free estimate: 520-753-1758.",
+    desc: "Flat roof repair and installation in Tucson — TPO, modified bitumen, built-up and coatings. Stop ponding and leaks for good. Free estimates.",
     kw: { primary: "flat roof repair tucson", vol: 150, kd: 38, cpc: 11 },
     secondary: ["flat roof repair", "commercial flat roof", "tpo roofing", "roof coating cost"],
     hero: {

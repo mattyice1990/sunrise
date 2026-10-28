@@ -105,7 +105,7 @@ Object.assign(window.SEO, {
       { q: "What areas of Tucson do you serve?", a: "All of it. Midtown, the Foothills, east and west Tucson, downtown, Rita Ranch and everything around them, plus the rest of Pima County, Oro Valley, Marana, Vail, Sahuarita." },
       { q: "What roofing services do you offer in Tucson?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, gutters, skylights, commercial roofing, and 24/7 emergency storm response." },
       { q: "My Tucson tile roof looks fine but leaks — why?", a: "The tile can go 50-plus years, but the waterproof underlayment under it usually gives out around 20 to 25. That's almost always why a good-looking tile roof leaks. We pull your tile, lay new underlayment, and set the same tile back down, way cheaper than a whole new roof." },
-      { q: "How fast can you respond to a roof leak in Tucson?", a: "Live leaks jump the line, same-week appointments and 24/7 tarping through monsoon season. Call 520-753-1758 and we'll give you a real window." },
+      { q: "How fast can you respond to a roof leak in Tucson?", a: "Live leaks jump the line, same-week appointments and 24/7 tarping through monsoon season. Call us and we'll give you a real window." },
       { q: "Are you a licensed Tucson roofing contractor?", a: "Yep. Sunrise Roofers LLC is licensed, bonded and insured under ROC #358079, and we're based right here in Tucson." },
     ],
   }),
@@ -113,7 +113,7 @@ Object.assign(window.SEO, {
   "roofing-oro-valley": areaPage({
     slug: "roofing-oro-valley", city: "Oro Valley",
     h1: "Roofing in Oro Valley, AZ",
-    desc: "Trusted roofing contractor in Oro Valley, AZ. Roof repair, replacement, tile, metal and flat roofs for homes and businesses. Free estimate: 520-753-1758.",
+    desc: "Trusted roofing contractor in Oro Valley, AZ. Roof repair, replacement, tile, metal and flat roofs for homes and businesses. Free estimates.",
     kw: { primary: "roof repair oro valley", vol: 60, kd: 0, cpc: 12 },
     secondary: ["roofing oro valley", "roofing companies oro valley", "roofers oro valley", "oro valley roofing contractors"],
     sub: "From Rancho Vistoso to the foothills homes, Oro Valley roofs take a beating from the sun and the monsoons. We keep them watertight with repairs, replacements and inspections.",
@@ -134,7 +134,7 @@ Object.assign(window.SEO, {
   "roofing-marana": areaPage({
     slug: "roofing-marana", city: "Marana",
     h1: "Roofing in Marana, AZ",
-    desc: "Reliable roofing contractor in Marana, AZ. Roof repair, replacement, tile, shingle and metal roofs for homes and businesses. Free estimate: 520-753-1758.",
+    desc: "Reliable roofing contractor in Marana, AZ. Roof repair, replacement, tile, shingle and metal roofs for homes and businesses. Free estimates.",
     kw: { primary: "roofing marana", vol: null, kd: null, cpc: null },
     secondary: ["roof repair marana", "roofing companies marana", "roofers marana az", "marana roofing contractors"],
     sub: "Marana's growing fast and a lot of it's newer builds, but it still deals with the same desert realities, UV, heat and monsoon storms. We keep Marana roofs protected with honest repairs, replacements and inspections.",
@@ -176,7 +176,7 @@ Object.assign(window.SEO, {
   "roofing-vail-az": areaPage({
     slug: "roofing-vail-az", city: "Vail",
     h1: "Roofing in Vail & Corona de Tucson, AZ",
-    desc: "Roofing contractor in Vail and Corona de Tucson, AZ. Roof repair, replacement, tile and metal roofs for homes and businesses. Free estimate: 520-753-1758.",
+    desc: "Roofing contractor in Vail and Corona de Tucson, AZ. Roof repair, replacement, tile and metal roofs for homes and businesses. Free estimates.",
     kw: { primary: "roofing vail az", vol: null, kd: null, cpc: null },
     secondary: ["roof repair vail az", "roofers vail az", "roofing corona de tucson", "vail az roofing contractors"],
     sub: "We cover Vail and Corona de Tucson east of the city, the newer master-planned neighborhoods and the rural desert homes both. We keep your roof protected from sun, wind and monsoon storms.",

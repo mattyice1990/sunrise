@@ -3,3 +3,8 @@
 # (and previously, false award/BBB-rating claims). Keeping them in git is
 # fine for history, but they must not be served or indexed.
 backups/
+
+# Pipeline state (WhatsApp sender numbers, review queue). The code reads it
+# through the GitHub API (lib/gbp/store.js), never from the deployment, so it
+# must not be served at roofwithsunrise.com/data/gbp/posts.json.
+data/gbp/

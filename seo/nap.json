@@ -11,10 +11,12 @@
     "oneLine": "7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741"
   },
   "phone": {
-    "display": "(520) 753-1758",
-    "e164": "+15207531758",
-    "dashed": "520-753-1758",
-    "_note": "Destination line. CallRail swaps this dynamically on the site. NEVER use 520-783-3976 (GBP-bound) in paid ads; the ads call asset is 520-210-5284."
+    "display": "(520) 783-3976",
+    "e164": "+15207833976",
+    "dashed": "520-783-3976",
+    "_note": "The public listing number: the CallRail number on Google Business Profile, so a call from a directory, schema rich result or AI answer is tracked and still rings Eddie. Use it in every citation, schema telephone and llms.txt. NEVER in paid ads - the ads call asset is 520-210-5284. (Changed 2026-10-28 from 520-753-1758, Eddie's direct line, which CallRail cannot see.)",
+    "swapTarget": "520-753-1758",
+    "_swapTargetNote": "Eddie's direct line. It stays as the VISIBLE number in page text and tel: links only because it is CallRail's swap target - swap.js replaces it with a tracking number for every visitor. check-nap.mjs fails if it appears anywhere swap.js cannot reach (meta tags, JSON-LD, llms.txt, citations)."
   },
   "email": "eddie@roofwithsunrise.com",
   "website": "https://roofwithsunrise.com",
@@ -43,7 +45,6 @@
     "_comment": "Strings that must never reappear. check-nap.mjs fails the build if it finds them.",
     "sunriseroofer@outlook.com": "old public email - Web3Forms delivery inbox only, never displayed",
     "Sunrise Roofing": "wrong business name - the entity is Sunrise Roofers LLC",
-    "520-783-3976": "CallRail number bound to GBP; misattributes paid calls if used in ads",
     "(520) 555-0123": "placeholder - only valid as a form input placeholder attribute"
   }
 }

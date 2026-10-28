@@ -8,8 +8,8 @@ City             : Tucson
 State            : AZ
 ZIP              : 85741
 Full address     : 7320 N La Cholla Blvd Ste 154-276, Tucson, AZ 85741
-Phone            : (520) 753-1758
-Phone (digits)   : 520-753-1758
+Phone            : (520) 783-3976
+Phone (digits)   : 520-783-3976
 Email            : eddie@roofwithsunrise.com
 Website          : https://roofwithsunrise.com
 License          : ROC #358079
@@ -36,5 +36,5 @@ EXISTING PROFILES (link these as 'social' / 'other' wherever a field exists)
 
 RULES
   - Paste the address EXACTLY as above. No comma before 'Ste'.
-  - Never use 520-783-3976 (GBP-bound) or 520-210-5284 (ads-only) in a citation.
+  - Never use 520-753-1758 (Eddie's direct line - CallRail can't track it) or 520-210-5284 (ads-only) in a citation.
   - If a directory forces a different format, record it in seo/citations.md.
