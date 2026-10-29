@@ -6,10 +6,10 @@ Object.assign(window.SEO, {
 
   "roof-repair": {
     slug: "roof-repair", cat: "service", crumb: "Services",
-    title: "Roof Repair in Tucson, AZ — Sunrise Roofers",
-    desc: "Trusted roof repair in Tucson for leaks, storm damage, cracked tile and worn flashing. Free inspections, honest assessments and lasting fixes.",
+    title: "Roof Repair Tucson, AZ | Sunrise Roofers",
+    desc: "Roof repair in Tucson for leaks, monsoon damage, cracked tile and worn flashing. Free inspection, photos of the problem and a written price with no pressure.",
     kw: { primary: "roof repair tucson", vol: 300, kd: 40, cpc: 11 },
-    secondary: ["roof repair near me", "roof leak repair tucson", "flat roof repair", "roof repair cost"],
+    secondary: ["roof repair near me", "roof leak repair tucson", "tile roof repair tucson", "flat roof repair", "roof repair cost"],
     hero: {
       eyebrow: "Roof Repair · Tucson, AZ",
       h1: "Roof Repair in Tucson Done Right the First Time",
@@ -42,12 +42,66 @@ Object.assign(window.SEO, {
         ],
       },
       {
+        kicker: "By Roof Type", h: "Roof repair for every roof type in Tucson",
+        p: [
+          "Tucson has a bit of everything on its rooftops. Concrete and clay tile across the Foothills and the HOA neighborhoods, shingle on a lot of the older central and east side homes and on manufactured homes, flat and low-slope on the territorial and Santa Fe style houses, and more metal every year. Each one fails its own way and gets fixed its own way, and we work on all four.",
+          "Whatever's up there, the job starts the same. We find where the water is actually getting in, which is usually not where the stain showed up, and we fix that spot so it stays fixed.",
+        ],
+        cards: [
+          { ic: "layers", t: "Tile roof repair", d: "Cracked, slipped and broken tile swapped out, loose tile re-set, and worn underlayment replaced in the bad area while we save your original tile." },
+          { ic: "home", t: "Shingle roof repair", d: "Wind-lifted and missing shingles, exposed nails, cracked pipe boots and worn ridge caps replaced with matched shingle and fresh sealant." },
+          { ic: "ruler", t: "Flat roof repair", d: "Ponding spots, split seams, blisters and failed coating on flat and low-slope sections, plus the scupper and drain problems that cause them." },
+          { ic: "shield", t: "Metal roof repair", d: "Backed-out fasteners, loose panels, rust spots and failed sealant at seams, ridges and pipe penetrations." },
+        ],
+        links: [
+          { url: "/tile-roofing", label: "Tile roof repair and underlayment replacement in Tucson" },
+          { url: "/flat-roofing", label: "Flat roof repair in Tucson" },
+          { url: "/metal-roofing", label: "Metal roofing in Tucson" },
+        ],
+      },
+      {
+        kicker: "Tucson Roofs", h: "Why Tucson roofs leak: monsoon, heat and sun",
+        p: [
+          "Most of the repair calls we get are the climate's fault. Monsoon season runs roughly late June through September, and it's not just the rain that gets roofs. It's the wind out ahead of the storm lifting tile and shingle, the dust that packs into valleys and scuppers, and then an inch of rain landing all at once on a roof that's been baked dry for nine months.",
+          "The rest of the year is the slow damage. A roof surface here can run well over 140 degrees on a summer afternoon and then drop 50 degrees or more overnight, day after day. That constant expansion and contraction cracks sealant, dries out pipe boots, opens up flashing at walls and chimneys, and turns old underlayment brittle. By the time a stain shows on the ceiling, the underlayment has usually been letting water through for a while.",
+          "If a storm did the damage, we photograph everything before we touch it and put together the documentation your insurance adjuster will ask for. We can't promise what a claim will pay, but we make sure the paperwork tells the whole story.",
+        ],
+        bullets: ["Wind-lifted tile and shingle after monsoon storms", "Debris-packed valleys and scuppers that back water up", "Heat-cracked sealant, pipe boots and flashing", "Underlayment gone brittle from years of UV", "Hail hits on tile, shingle and skylights", "Photo documentation for storm and insurance claims"],
+        links: [
+          { url: "/storm-damage-roof-repair-tucson", label: "Storm damage roof repair in Tucson" },
+          { url: "/emergency-roof-repair", label: "Emergency roof repair and tarping" },
+        ],
+      },
+      {
         kicker: "Honest Pricing", h: "What roof repair costs in Tucson", alt: true,
         p: [
           "Most folks just want a straight answer on what a repair's going to run before anybody climbs a ladder. A few cracked tiles or a small flashing reseal is usually a couple hundred bucks. Once water's gotten in and underlayment has to come out, it goes up from there.",
           "After we look it over you get an itemized price in writing so you can decide with everything in front of you. And if a repair isn't really going to fix the problem, we'll just tell you and walk you through replacement instead.",
         ],
         bullets: ["Free, no-obligation inspection", "Itemized written estimates", "Financing available on larger work", "We'll tell you if repair isn't worth it"],
+      },
+      {
+        kicker: "Where We Work", h: "Roof repair across Tucson and the surrounding towns",
+        p: [
+          "We're a Tucson company and we run repair calls all over the metro: central Tucson and the older neighborhoods around midtown and the university, the Catalina Foothills and the big tile HOA communities on the north side, and the newer subdivisions out in Oro Valley, Marana, Sahuarita, Green Valley and Vail. Each area has its own mix of roof types and its own quirks, and we've written up what we see in each one.",
+        ],
+        links: [
+          { url: "/roofing-tucson", label: "Roofing in Tucson" },
+          { url: "/roofing-oro-valley", label: "Roofing in Oro Valley" },
+          { url: "/roofing-marana", label: "Roofing in Marana" },
+          { url: "/roofing-sahuarita-green-valley", label: "Roofing in Sahuarita and Green Valley" },
+          { url: "/roofing-vail-az", label: "Roofing in Vail" },
+        ],
+      },
+      {
+        kicker: "See Our Work", h: "Real Tucson roofs, not stock photos",
+        p: [
+          "We post photos from our jobs as they happen, so you can see what a repair actually looks like on a roof like yours. You get those photos yourself too: every day we're on your roof, you get an update with pictures of what we found and what we did. Our customers rate us 5.0 on Google across 55 reviews. Read them, look at the work, and then decide if you want us up on your roof.",
+        ],
+        links: [
+          { url: "/recent-work", label: "Recent roofing jobs around Tucson" },
+          { url: "/reviews", label: "Read our Google reviews" },
+        ],
       },
       {
         kicker: "Related Guides", h: "Roof repair guides from our blog",
@@ -72,6 +126,10 @@ Object.assign(window.SEO, {
       { q: "Do you repair flat roofs?", a: "For sure. Flat, tile, metal, shingle, we work on all of it. Ponding, blisters, split seams, cracked tile, coatings that have given out, that's everyday stuff for us." },
       { q: "Does homeowners insurance cover roof leaks?", a: "If a storm or hail did it, a lot of the time it is. We photograph and document everything while we're up there so you've got what you need to back up the claim." },
       { q: "Should I repair or replace my roof?", a: "Comes down to how old the roof is and how much of it's going. We'll get up there, take a look, and give it to you straight. If a repair's the smart move, that's what we'll quote you, not a whole new roof you don't need yet." },
+      { q: "How do I know if the stain on my ceiling is a roof leak?", a: "Not every ceiling stain is the roof. In Tucson a lot of them turn out to be an AC condensate line in the attic, a swamp cooler line, or a plumbing vent. Part of our free inspection is ruling those out, so you don't pay for a roof repair you didn't need." },
+      { q: "Can you repair a tile roof without replacing the whole thing?", a: "Most of the time, yes. We swap the broken or slipped tile, replace the underlayment in that spot, and set the tile back. If the underlayment is shot across the whole roof, a spot repair just moves the leak, and we'll tell you that instead of selling you a fix that won't hold." },
+      { q: "What should I do while I wait for a roof repair?", a: "Move anything that can get wet, put a bucket under the drip, and if the ceiling is bulging with water, poke a small hole at the low point so it drains instead of bringing the drywall down all at once. Stay off the roof, especially wet tile. If water's coming in right now, call us and we'll get a tarp on it." },
+      { q: "Do you offer a warranty on roof repairs?", a: "Yes. Every repair we do comes with a workmanship warranty, and we go over exactly what it covers before we start, in writing." },
     ],
     related: ["emergency-roof-repair", "storm-damage-roof-repair-tucson", "roof-inspection", "roof-replacement", "flat-roofing"],
     ctaH: "Got a leak? Let's stop it.",
@@ -80,8 +138,8 @@ Object.assign(window.SEO, {
 
   "roof-replacement": {
     slug: "roof-replacement", cat: "service", crumb: "Services",
-    title: "Roof Replacement Tucson, AZ — Tile, Shingle & Metal | Sunrise Roofers",
-    desc: "Roof replacement in Tucson from a family-owned, licensed contractor. Full tear-off and a new tile, shingle or metal roof built for desert heat. Free estimate.",
+    title: "Roof Replacement Tucson, AZ | Sunrise Roofers",
+    desc: "Roof replacement in Tucson, AZ: full tear-off and a new tile, shingle or metal roof from a family-owned, licensed contractor. Free, itemized estimate.",
     kw: { primary: "roof replacement tucson", vol: 100, kd: 40, cpc: 2.5 },
     secondary: ["tucson roof replacement", "roof replacement cost tucson", "signs you need a new roof", "when to replace tile roof"],
     hero: {
@@ -129,6 +187,21 @@ Object.assign(window.SEO, {
         ],
       },
       {
+        kicker: "By Roof Type", h: "What replacing each kind of roof involves",
+        p: [
+          "A roof replacement isn't one job, it's four different ones depending on what's up there now and what's wrong with it. Here's what each one looks like on a Tucson house, so you know what you're being quoted.",
+        ],
+        cards: [
+          { ic: "layers", t: "Tile roof replacement", d: "Often the tile is fine and only the underlayment is done. We lift and re-stack your tile over new high-temp underlayment, or replace tile, underlayment and flashing together when the tile is brittle or can't be matched." },
+          { ic: "home", t: "Shingle roof replacement", d: "Tear-off to the deck, decking repairs where it's soft, high-temp underlayment, new flashing and architectural shingles, with the attic ventilation sorted so the new roof doesn't bake out early." },
+          { ic: "ruler", t: "Flat roof replacement", d: "Old membrane or built-up roof stripped, decking and slope checked, drains and scuppers corrected, then a new membrane system that actually sheds water instead of holding it." },
+          { ic: "shield", t: "Metal roof replacement", d: "Standing-seam or exposed-fastener panels over a solid deck and high-temp underlayment, with trim and flashing detailed to stand up to monsoon wind." },
+        ],
+        links: [
+          { url: "/flat-roofing", label: "Flat roof replacement in Tucson" },
+        ],
+      },
+      {
         kicker: "Cost", h: "What roof replacement costs in Tucson",
         p: [
           "Three things set the price of a Tucson roof replacement: the size and pitch of the roof, the material you pick, and what we find when the old roof comes off. Shingle is the easiest on the wallet, tile and metal cost more up front and last far longer. Tear-off, disposal, new underlayment, flashing and the final cleanup are all part of our number, so the quote you get is the quote you pay.",
@@ -141,6 +214,15 @@ Object.assign(window.SEO, {
         ],
       },
       {
+        kicker: "Tucson Specifics", h: "Replacing a roof in Tucson: heat, monsoon and HOA rules",
+        p: [
+          "A roof replacement here is a different job than one back east. The underlayment does more of the work because the sun cooks everything above it, so we use high-temp underlayment made for the roof and attic temperatures we actually see. The flashing has to be tight against monsoon rain that comes in sideways and finds any lap that was run the wrong way. And the schedule has to respect the weather: in July and August we tear off only what we can dry in that same day, so your house never sits open overnight.",
+          "The neighborhood matters too. Up in the Catalina Foothills, Oro Valley and most of the newer HOA communities, tile is the norm and the HOA usually has a say in profile and color, so we get you the product specs and samples the submittal asks for before anything is ordered. In central Tucson, midtown and the east side you see a lot more shingle and flat roofs on older homes, where the decking and attic ventilation often need attention once the old roof comes off.",
+          "If a storm pushed you into replacing, we document the damage before tear-off and give you the photos and a detailed written scope your insurance company will ask for. We work alongside your adjuster, and we won't promise what the policy will pay.",
+        ],
+        bullets: ["High-temp underlayment under every system", "Flashing detailed for wind-driven rain", "Same-day dry-in during monsoon season", "Specs and samples for HOA submittals", "Decking and ventilation checked on older homes", "Insurance documentation when a storm is the cause"],
+      },
+      {
         kicker: "Related Guides", h: "More reading before you replace",
         p: ["Still deciding whether it's time? These guides cover the warning signs, how long each roof type really lasts out here, and when to schedule the work."],
         links: [
@@ -148,6 +230,29 @@ Object.assign(window.SEO, {
           { url: "/blog/how-long-does-a-roof-last", label: "How long asphalt, tile and metal roofs really last" },
           { url: "/blog/best-time-of-year-for-roof-replacement", label: "The best time of year to replace a roof in Tucson" },
           { url: "/blog/new-roof", label: "Your guide to getting a new roof in Tucson" },
+        ],
+      },
+      {
+        kicker: "Where We Work", h: "Roof replacement across Tucson and Pima County",
+        p: [
+          "We replace roofs all over the Tucson metro, from central Tucson and the Foothills to Oro Valley, Marana, Sahuarita, Green Valley and Vail. The housing stock changes as you go: mid-century ranch homes with flat and shingle roofs in the center of town, tile HOA subdivisions from the 80s on across the north and northwest side, and newer builds out in Vail and Sahuarita. Each area page covers what we see on the roofs there.",
+        ],
+        links: [
+          { url: "/roofing-tucson", label: "Roofing in Tucson" },
+          { url: "/roofing-oro-valley", label: "Roofing in Oro Valley" },
+          { url: "/roofing-marana", label: "Roofing in Marana" },
+          { url: "/roofing-sahuarita-green-valley", label: "Roofing in Sahuarita and Green Valley" },
+          { url: "/roofing-vail-az", label: "Roofing in Vail" },
+        ],
+      },
+      {
+        kicker: "See Our Work", h: "See roofs we've replaced around Tucson",
+        p: [
+          "A new roof is a big check to write, so look at the work first. We post photos from our jobs as they happen, and while your roof is in progress you get the same thing: a daily update with photos so you can see the tear-off, the decking, the underlayment and the finished roof without climbing a ladder. Our customers rate us 5.0 on Google across 55 reviews.",
+        ],
+        links: [
+          { url: "/recent-work", label: "Recent roofing jobs around Tucson" },
+          { url: "/reviews", label: "Read our Google reviews" },
         ],
       },
     ],
@@ -165,6 +270,10 @@ Object.assign(window.SEO, {
       { q: "Do you replace just the tile underlayment?", a: "Yep, and a lot of the time that's all it needs. On plenty of tile roofs the tile's still fine and it's the underlayment that's shot. We pull the tile, lay down new underlayment, and stack the same tile back on. Way cheaper than buying all new tile." },
       { q: "Will you help with financing?", a: "We do. You can get the roof on now and pay it off over time." },
       { q: "Can you replace a roof during monsoon season in Tucson?", a: "We do it all summer. We watch the forecast, tear off only what we can dry in the same day, and keep tarps on the truck. If a storm's rolling in that afternoon, we hold off on opening up more roof. It's slower some weeks, but your house never sits open overnight." },
+      { q: "Will a new roof lower my cooling bills?", a: "It can help. Lighter colors, reflective shingles or coatings, and fixing the attic ventilation while the roof is open all cut down on the heat getting into the house. We won't put a dollar figure on it because every house is different, but we'll tell you which options make the biggest difference for yours." },
+      { q: "Do I need to be home during the roof replacement?", a: "No, and most people aren't. We send you photos and an update every day so you know exactly where the job stands, and we do a final walkthrough with you when it's finished." },
+      { q: "Can you put new shingles over the old ones?", a: "We don't. We tear off to the deck every time. A second layer hides soft decking and bad flashing, traps heat against the new shingles in a climate that already cooks them, and can void the manufacturer's warranty. It's cheaper on day one and more expensive every year after." },
+      { q: "What happens if you find rotten decking?", a: "We replace it. Soft or rotted decking usually shows up around old leaks, skylights and valleys, and nobody can see it until the roof is off. We photograph it, show you, and tell you the cost before we keep going, so nothing lands on the bill as a surprise." },
     ],
     related: ["shingle-roofing", "tile-roofing", "metal-roofing", "roof-inspection"],
     ctaH: "Ready for a roof that lasts?",
@@ -412,10 +521,10 @@ Object.assign(window.SEO, {
       uploadDate: "2026-08-12T03:29:33-07:00",
       duration: "PT3M40S",
     }, cat: "service", crumb: "Services",
-    title: "Tile Roof Repair & Replacement in Tucson, AZ — Sunrise Roofers",
-    desc: "Tile roof repair, underlayment replacement and full tile roof replacement in Tucson. Concrete and clay tile from a licensed local contractor. Free estimate.",
+    title: "Tile Roof Repair & Replacement Tucson | Sunrise Roofers",
+    desc: "Tile roof repair in Tucson, AZ plus underlayment replacement and full concrete or clay tile roof replacement. Licensed, family-owned, free estimate.",
     kw: { primary: "tile roof repair tucson", vol: 150, kd: 0, cpc: 10 },
-    secondary: ["tile roof replacement tucson", "tile roofing tucson", "tile roof underlayment replacement", "concrete tile roof repair"],
+    secondary: ["tile roof repair tucson", "tile roof replacement tucson", "tile roofing tucson", "tile roof underlayment replacement tucson", "concrete tile roof repair"],
     hero: {
       eyebrow: "Tile Roofing · Tucson, AZ",
       h1: "Tile Roof Repair, Underlayment & Replacement in Tucson",
@@ -437,6 +546,18 @@ Object.assign(window.SEO, {
       { ic: "home", t: "New Tile Install", d: "Full concrete or clay tile systems for new builds and replacements." },
     ],
     sections: [
+      {
+        kicker: "Common Problems", h: "Tile roof problems we fix most in Tucson",
+        p: [
+          "Tile hides its problems well. The roof can look perfect from the street while water is already getting into the house. These are the four things we find most often on Tucson tile roofs, and what we do about each one.",
+        ],
+        cards: [
+          { ic: "alert", t: "Cracked and broken tile", d: "Usually foot traffic from an AC tech or satellite installer, sometimes hail. We swap in matched tile and check the underlayment underneath before we close it up." },
+          { ic: "layers", t: "Slipped tile", d: "Tile that's slid out of place because a fastener, batten or the underlayment under it let go. We re-set it and fix whatever let it move." },
+          { ic: "split", t: "Leaking valleys, hips and flashing", d: "Debris-packed valleys, rusted-through valley metal, and cracked mortar at hips and ridges. We clear, re-flash and re-seal so water goes where it's supposed to." },
+          { ic: "droplet", t: "Failed underlayment", d: "Leaks with no broken tile in sight. That's brittle felt letting water through, and the fix is new underlayment in that area or across the whole roof." },
+        ],
+      },
       {
         kicker: "Save the Tile", h: "Underlayment replacement: the smart middle path",
         p: [
@@ -469,6 +590,15 @@ Object.assign(window.SEO, {
         ],
       },
       {
+        kicker: "Tucson Tile", h: "Tile roofs in Tucson: HOA norms, heat and monsoon wind",
+        p: [
+          "Tile is the default roof in most of the Catalina Foothills, Oro Valley, Dove Mountain and the HOA neighborhoods built from the 1980s on, and the HOA usually cares about matching profile and color. That's why we save and reuse your original tile on an underlayment job, and why we hunt down close matches when a few need replacing. On a full replacement we'll get you the samples and specs the HOA submittal asks for.",
+          "The desert is what wears out the layer underneath. The space under the tile runs far hotter than the outside air, and 20-plus years of that cooks ordinary felt until it cracks when you touch it. Then the first good monsoon storm drives rain under the tile and straight through. The wind matters too. Gusts out ahead of a storm lift tile at ridges, hips and rakes, and a lifted tile is a leak waiting for the next storm. Hail is less common here, but when it comes through it cracks concrete tile in a pattern you can spot from the ground.",
+          "If a storm took out tile, we photograph the roof before anything gets moved, note the hail strikes and wind-lifted areas, and give you a written scope you can hand to your insurance adjuster. The video on this page is from one of those inspections.",
+        ],
+        bullets: ["Original tile saved and reused on underlayment jobs", "Close-match sourcing for discontinued profiles", "High-temp underlayment made for under-tile heat", "Ridge, hip and rake tile secured against monsoon wind", "Valleys cleared and rusted metal replaced", "Storm photos and a written scope for insurance claims"],
+      },
+      {
         kicker: "Related Guides", h: "More tile roof guides",
         p: ["Tile is most of what we do. These go deeper on how long concrete tile lasts and the repairs we run into most around Tucson, Marana and Vail."],
         links: [
@@ -476,6 +606,29 @@ Object.assign(window.SEO, {
           { url: "/blog/tile-roof-repair", label: "A homeowner's guide to tile roof repair" },
           { url: "/blog/tile-roof-repair-in-marana-what-homeowners-should-know", label: "Tile roof repair in Marana: what homeowners should know" },
           { url: "/blog/tile-roof-valley-repair-in-vail-az-common-issues-solutions", label: "Tile roof valley repair in Vail: common issues and fixes" },
+        ],
+      },
+      {
+        kicker: "Where We Work", h: "Tile roof repair across Tucson, the Foothills and the northwest side",
+        p: [
+          "Most of our tile work is in the places tile is thickest: the Catalina Foothills and north side of Tucson, Oro Valley, Marana and Dove Mountain, and the newer tile subdivisions out in Sahuarita, Green Valley and Vail. We cover all of central Tucson too. Each area page goes into the roofs we see there and the problems that come with them.",
+        ],
+        links: [
+          { url: "/roofing-tucson", label: "Roofing in Tucson" },
+          { url: "/roofing-oro-valley", label: "Roofing in Oro Valley" },
+          { url: "/roofing-marana", label: "Roofing in Marana" },
+          { url: "/roofing-sahuarita-green-valley", label: "Roofing in Sahuarita and Green Valley" },
+          { url: "/roofing-vail-az", label: "Roofing in Vail" },
+        ],
+      },
+      {
+        kicker: "See Our Work", h: "See our tile work before you call",
+        p: [
+          "Tile is most of what we do, and we post photos from our jobs as they happen, so you can see real Tucson tile roofs before, during and after the work. During your job you get the same photos in a daily update. Our customers rate us 5.0 on Google across 55 reviews, and you're welcome to read every one.",
+        ],
+        links: [
+          { url: "/recent-work", label: "Recent roofing jobs around Tucson" },
+          { url: "/reviews", label: "Read our Google reviews" },
         ],
       },
     ],
@@ -492,6 +645,10 @@ Object.assign(window.SEO, {
       { q: "Can you match my existing tile?", a: "Usually, yeah. We track down replacement tile that matches your profile and color as close as we can, and when we redo underlayment we save and reuse your original tile." },
       { q: "Do you install new tile roofs?", a: "Yep. New concrete and clay tile roofs for new builds and full replacements, done with the right underlayment and flashing for this climate." },
       { q: "How much does tile roof replacement cost in Tucson?", a: "A full tile replacement is the most expensive version of tile work because it's new tile, new underlayment and new flashing, not just the layer underneath. Size, pitch, and concrete versus clay are what move the number. Before you go there, let us check whether an underlayment replacement would do it, because most of the time it does and it costs a lot less. The estimate's free either way." },
+      { q: "Why is my tile roof leaking when none of the tiles are broken?", a: "Because the tile was never the waterproof layer. Tile sheds most of the water, and the underlayment under it handles the rest. When that felt gets brittle, water that gets under the tile in a monsoon storm goes right through, and from the ground the roof looks fine. The fix is new underlayment, not new tile." },
+      { q: "Can I walk on my tile roof?", a: "We'd rather you didn't. Concrete tile cracks under a foot in the wrong spot, and old clay breaks even easier. A lot of the broken tile we replace was stepped on by someone servicing an AC unit or a satellite dish. If something needs checking, call us. The inspection is free." },
+      { q: "Is concrete or clay tile better for Tucson?", a: "Both do fine in the heat. Concrete costs less, comes in more profiles and is what most Tucson subdivisions use. Clay costs more up front, holds its color better and tends to outlast concrete, but it's more brittle to walk on. Either way, the underlayment under it is what decides whether the roof leaks." },
+      { q: "Does insurance cover tile roof damage from a monsoon storm?", a: "If wind or hail did it, often yes, but that's between you and your policy. What we do is document it properly: photos before anything is moved, the hail strikes and lifted tile marked, and a written scope your adjuster can work from. We don't inflate it and we don't promise what the claim will pay." },
     ],
     related: ["roof-repair", "roof-replacement", "roof-inspection", "flat-roofing"],
     ctaH: "Tile roof leaking or aging?",

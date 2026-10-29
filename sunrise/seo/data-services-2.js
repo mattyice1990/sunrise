@@ -176,10 +176,10 @@ Object.assign(window.SEO, {
       uploadDate: "2026-04-15T23:29:42-07:00",
       duration: "PT7M43S",
     }, cat: "service", crumb: "Services",
-    title: "Shingle Roof Replacement & Installation in Tucson — Sunrise Roofers",
-    desc: "Shingle roof replacement and installation in Tucson, AZ. Heat-rated architectural shingles, full tear-offs and new installs built for the desert. Free estimate.",
+    title: "Shingle Roof Replacement Tucson | Sunrise Roofers",
+    desc: "Shingle roof replacement in Tucson, AZ with heat-rated architectural shingles, full tear-off and attic ventilation done right. Family-owned, free estimate.",
     kw: { primary: "shingle roof replacement tucson", vol: 50, kd: null, cpc: null },
-    secondary: ["shingle roof tucson", "shingle roof installation tucson", "asphalt shingle roof", "best roofing material for arizona"],
+    secondary: ["shingle roof replacement tucson", "shingle roof tucson", "shingle roof installation tucson", "asphalt shingle roof", "best roofing material for arizona"],
     hero: {
       eyebrow: "Shingle Roofing · Tucson, AZ",
       h1: "Shingle Roof Replacement & Installation in Tucson",
@@ -210,6 +210,18 @@ Object.assign(window.SEO, {
         bullets: ["Balanced attic ventilation", "High-temp underlayment", "Correct nailing & sealing", "Quality, heat-tolerant shingles"],
       },
       {
+        kicker: "Common Problems", h: "Shingle problems we see on Tucson roofs",
+        p: [
+          "Shingles tell you when they're done, if you know what to look for. Here's what we see most often on Tucson shingle roofs and what each one usually means. The first two point to a roof near the end of its life. The last two can often be repaired if the rest of the roof is still sound.",
+        ],
+        cards: [
+          { ic: "sun", t: "Granule loss and bald spots", d: "Grit in the gutters and shiny black patches on the roof. The UV has worn through the protective layer and the asphalt underneath is breaking down." },
+          { ic: "alert", t: "Curling, cupping and cracking", d: "Edges lifting or the whole shingle going brittle. Usually a hot attic with poor ventilation cooking the shingles from underneath." },
+          { ic: "layers", t: "Wind-lifted and missing shingles", d: "Monsoon gusts get under shingles whose seal strips never bonded or dried out. A few lifted tabs become a bare patch by the next storm." },
+          { ic: "search", t: "Hail bruising", d: "Soft dark spots where hail knocked the granules loose. Hard to see from the ground, obvious up close, and the video on this page shows exactly what it looks like." },
+        ],
+      },
+      {
         kicker: "Replacement", h: "Shingle roof replacement in Tucson, start to finish", alt: true,
         p: [
           "Most shingle work we do in Tucson is a full replacement: the old roof comes off, we check the decking, lay high-temp underlayment and new flashing, then put down architectural shingles with the ventilation sorted so the next roof doesn't bake out early. Most houses are done in two to four days.",
@@ -223,6 +235,16 @@ Object.assign(window.SEO, {
         ],
       },
       {
+        kicker: "Tucson Specifics", h: "Shingle roofs in Tucson: heat, monsoon wind and where they make sense",
+        p: [
+          "Shingle gets a bad rap in Arizona, and most of that comes from roofs that were installed like this was a mild climate. A dark shingle over a sealed-up attic can run far hotter than the outside air, and that's what cooks the asphalt out early. Lighter colors, shingles rated for solar reflectance, ridge and intake vents that actually move air, and high-temp underlayment all add years to the roof.",
+          "Monsoon wind is the other test. Gusts out ahead of a storm get under shingles whose seal strips never bonded, and a few lifted tabs turn into a bare patch by the next storm. Proper nailing and sealed edges are what hold a shingle roof together in that wind, and they're the first things a rushed install skips.",
+          "Where you see shingle in Tucson: older central and east side neighborhoods, manufactured homes, steeper roofs out toward Vail, and plenty of homes in Marana and Sahuarita where the HOA allows it. In the Foothills and most tile HOA communities, tile is expected, and we'll tell you up front if shingle isn't going to get past your HOA so you don't spend time on an estimate for a roof you can't build.",
+          "After a hail or wind storm we document the roof with photos before anything is touched, so you have what you need for the insurance conversation. We can't promise what a claim will pay, but the paperwork will be right.",
+        ],
+        bullets: ["Lighter, reflective shingle colors", "Balanced ridge and intake ventilation", "High-temp underlayment under the shingles", "Nailing and sealing done for monsoon wind", "Straight answers on tile-only HOA neighborhoods", "Hail and wind documentation for insurance"],
+      },
+      {
         kicker: "Related Guides", h: "More shingle roof guides",
         p: ["Planning a shingle job? These cover what it costs, when shingles are worn out, and why attic ventilation matters so much in the Tucson heat."],
         links: [
@@ -230,6 +252,29 @@ Object.assign(window.SEO, {
           { url: "/blog/shingle-roof-replacement-in-tucson-your-questions-answered", label: "How long shingles last in Arizona heat, and other questions" },
           { url: "/blog/when-to-replace-roof-shingles", label: "When to replace roof shingles: the warning signs" },
           { url: "/blog/new-shingle-roof-solar-attic-vents-in-tucson", label: "A new shingle roof with solar attic vents in Tucson" },
+        ],
+      },
+      {
+        kicker: "Where We Work", h: "Shingle roof replacement across the Tucson area",
+        p: [
+          "We replace and install shingle roofs across the metro: central and east Tucson where shingle is common on older homes, Marana and Sahuarita where a lot of subdivisions allow it, the steeper roofs out in Vail, and Oro Valley and the Foothills where it's less common but we still get the call. Each area page covers the roofs we see there.",
+        ],
+        links: [
+          { url: "/roofing-tucson", label: "Roofing in Tucson" },
+          { url: "/roofing-oro-valley", label: "Roofing in Oro Valley" },
+          { url: "/roofing-marana", label: "Roofing in Marana" },
+          { url: "/roofing-sahuarita-green-valley", label: "Roofing in Sahuarita and Green Valley" },
+          { url: "/roofing-vail-az", label: "Roofing in Vail" },
+        ],
+      },
+      {
+        kicker: "See Our Work", h: "See shingle roofs we've put on around Tucson",
+        p: [
+          "We post photos from our jobs as they happen, so you can see real shingle roofs we've replaced on Tucson homes, not catalog pictures. While your roof is in progress you get a daily update with photos of the tear-off, the decking and the new roof going on. Our customers rate us 5.0 on Google across 55 reviews.",
+        ],
+        links: [
+          { url: "/recent-work", label: "Recent roofing jobs around Tucson" },
+          { url: "/reviews", label: "Read our Google reviews" },
         ],
       },
     ],
@@ -245,6 +290,10 @@ Object.assign(window.SEO, {
       { q: "Are shingles a good choice for Arizona?", a: "They can be, as long as they go on right with heat-rated products, good ventilation and quality underlayment. We'll help you weigh shingle against tile and metal for your particular house." },
       { q: "What are architectural shingles?", a: "Architectural, also called dimensional, shingles are thicker and layered, so they've got depth and shadow lines and a richer look. They're also a good bit tougher than the old flat 3-tab shingles." },
       { q: "Can you replace just part of my shingle roof?", a: "We can do a spot repair, sure, but on an older roof a full replacement usually gives you more for your money down the road. We'll give you an honest read after we look at it." },
+      { q: "Should I repair or replace a shingle roof with hail damage?", a: "Depends on how much of the roof got hit and how old it is. Hail bruises knock the granules loose, and the bare asphalt under them breaks down fast in our sun, so scattered hits across a roof that's already 15 years old usually point to replacement. A handful of hits on a newer roof can be repaired. We document it either way so you can make the call with your insurance company." },
+      { q: "What color shingle is best for Tucson heat?", a: "Lighter colors run cooler, plain and simple. If your HOA wants a darker roof, some manufacturers make reflective versions of their darker colors that give back part of that advantage. We'll walk you through the options and what each one means for your attic temperature." },
+      { q: "Do you install GAF shingles?", a: "Yes. We're a GAF-certified contractor, and we've also written up an honest comparison of GAF and Owens Corning so you can see how the two stack up before you pick." },
+      { q: "How long does a shingle roof replacement take in Tucson?", a: "Most houses are done in two to four days. During monsoon season we only open up what we can dry in the same day, so a stormy week can stretch that a bit, but your house never sits uncovered overnight." },
     ],
     related: ["roof-replacement", "roof-installation", "metal-roofing", "roof-repair"],
     ctaH: "Need a shingle roof or replacement?",
