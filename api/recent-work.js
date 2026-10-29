@@ -17,6 +17,11 @@ export const config = { maxDuration: 15 };
 const esc = (s) =>
   String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+// /recent-work is a public, crawlable page; until now it shipped no meta description.
+const RECENT_WORK_DESCRIPTION =
+  `Photos and notes from recent ${GBP.businessName} roofing jobs around Tucson, AZ: ` +
+  'roof repairs, replacements, tile, coatings and more, with links to the matching service and area pages.';
+
 function renderHtml(items) {
   const cards = items
     .map(
@@ -37,6 +42,7 @@ function renderHtml(items) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(GBP.recentWork.heading)} | ${esc(GBP.businessName)}</title>
+<meta name="description" content="${esc(RECENT_WORK_DESCRIPTION)}">
 <style>
   .lpe{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:1100px;margin:0 auto;padding:8px}
   .lpe h2{font-size:22px;margin:0 0 16px}

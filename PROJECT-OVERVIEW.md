@@ -17,9 +17,9 @@
 
 ### 2.1 Frontend — React SPA (not Next.js)
 - Client-rendered React. Source JSX lives in `sunrise/components/*.jsx` and `sunrise/seo/seo-page.jsx`.
-- **Precompiled** to plain JS by `scripts/build-jsx.mjs` (classic React runtime, each file IIFE-wrapped to avoid global collisions). **Workflow: edit `.jsx` → run `node scripts/build-jsx.mjs` → commit both `.jsx` and the generated `.js`.**
+- **Precompiled** to plain JS by `scripts/build-jsx.mjs` (classic React runtime, each file IIFE-wrapped to avoid global collisions). **Workflow: edit `.jsx` → run `node scripts/build-jsx.mjs` → run `npm run prerender` (regenerates the static copy inside every shell's `#root`) → commit the `.jsx`, the generated `.js` and the regenerated `*.html` shells.**
 - Components share state via `window` (`Object.assign(window, {...})`).
-- Each page is a thin HTML shell (`index.html`, `roof-repair.html`, …) with a **boot splash** (branded loader + screen-reader-only crawlable nav) and a `window.__page` key. React's `createRoot().render()` replaces the splash on mount.
+- Each page is a thin HTML shell (`index.html`, `roof-repair.html`, …) with a `window.__page` key. Inside `<div id="root">`, between `<!-- prerender:start -->` … `<!-- prerender:end -->`, `scripts/prerender.mjs` writes the page's real copy as plain semantic HTML (H1, sections, FAQ, internal links, footer, plus the crawlable `nav.boot__seo` link list) so non-rendering crawlers see full content. React's `createRoot().render()` replaces that subtree on mount. `npm run prerender:check` fails if any shell is stale.
 - Uses **production React 18.3.1** (CDN, SRI-pinned).
 
 ### 2.2 SEO page system
@@ -30,6 +30,7 @@
   - `data-core.js` — about, contact, reviews, resources, etc.
 - `seo-page.js` renders `window.SEO[window.__page]`. `<GoogleReviews/>` auto-renders on every SEO page.
 - `seo-links.js` centralizes internal URL building.
+- **After editing any `data-*.js` (or `seo-page.jsx`, or a homepage component) run `npm run prerender`** — it re-executes the compiled scripts headlessly and rewrites the static copy inside each shell's `#root`; otherwise the shells are stale and crawlers see old text.
 
 ### 2.3 Blog system
 - Posts are **static HTML** at `blog/<slug>/index.html` — a separate, older visual template (Bebas/Oswald, dark header) from the React site.
