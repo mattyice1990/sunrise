@@ -9,7 +9,8 @@
     "prerender:check": "node scripts/prerender.mjs --check",
     "check:nap": "node scripts/check-nap.mjs",
     "citations": "node scripts/citation-pack.mjs --write",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "faq:sync": "node scripts/sync-home-faq-ld.mjs"
   },
   "dependencies": {
     "sharp": "^0.33.4"
