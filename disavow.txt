@@ -1,15 +1,19 @@
 # Google Search Console disavow file for roofwithsunrise.com
-# Regenerated: 2026-08-18 from live Ahrefs referring-domain data.
-# The previous list (2026-06-10) was stale: an automated link-spam network has
-# kept adding roughly 3 domains PER DAY since, with new ones first seen the same
-# day this file was regenerated. Expect to refresh this periodically.
+# Regenerated: 2026-10-29 from DataForSEO (via OpenSEO) live referring domains + GSC Links report.
+# Previous upload: 2026-08-18 (208 domains). The automated link-spam network kept adding
+# ~3 domains/day; this adds every referring domain seen since with spam score >= 50,
+# plus the link-seller domains lpraudit.com, seosmalltool.com, indiabacklink.com, clifflisting.com.
 # Upload at: https://search.google.com/search-console/disavow-links
 # NOTE: uploading REPLACES any previous file - this is the complete list.
 #
-# Deliberately NOT disavowed (legitimate): bbb.org, gaf.com, gaf.ca,
-# dexknows.com, superpages.com, arizonaroofers.com, and real local links.
-# Needs a human eye before adding (roofing directories / unclear, left out):
-#   archive-hu.com, blogerreviewers.com, dupurgeniefr.com, fieseros.com, igolocal.app, portailorange.net, quotesblom.com, sahammurah.com, toplikevideo.com, united-local.com, wecelebrities.com
+# Deliberately NOT disavowed (legitimate or harmless directories): bbb.org, gaf.com, gaf.ca,
+# yellowpages.com, superpages.com, chamberofcommerce.com, mapquest.com, nextdoor.com, patch.com,
+# newsbreak.com, feedspot.com, arizonaroofers.com, rubberized.com, roofingcontractors.org,
+# therooferlist.com, findlocalexperts.com, findinglist.com, findtrustedroofers.com, whosmypro.com,
+# rooferwatch.com, myhomeservicedirectory.com, localnewsintucson.com, fieseros.com, dzo.now,
+# verybookedai.com, and the real editorial links (covenantairesolutions, rbahomeplans, iconsteelbuildings,
+# southmountainwindowcleaning, sparkletechwindowwashing, buildnp, forthepublicadjusters, vividskylights,
+# integrityroofinginc.ca).
 
 domain:123webshop.shop
 domain:advanced-saas-seo-directory-outrank-hq.store
@@ -19,6 +23,8 @@ domain:advanced-seo-firm-seoexpress.store
 domain:advanced-traffic-surge-and-keyword-rank-bureau.store
 domain:analyticshaven.top
 domain:anchor-text-and-index-rate-trusted-syndicate.store
+domain:anchorurl.cloud
+domain:archive-hu.com
 domain:atomizelink.icu
 domain:authentic-seoexpress-keyword-firm.store
 domain:authoritybacklinks.shop
@@ -28,17 +34,27 @@ domain:backlinkmasters.shop
 domain:backlinkpartners.shop
 domain:backlinkshop.site
 domain:best-keyword-seoexpress-portal.store
+domain:bestnz-poker-casinoslot.com
+domain:betulcrime.com
+domain:betwinnermirror.com
 domain:blogsphere.top
+domain:bureatag.com
 domain:buybacklinks.agency
+domain:bye.fyi
 domain:byteshort.xyz
 domain:certified-link-building-seoexpress.store
 domain:certified-seoexpress-organic-services.store
+domain:clifflisting.com
 domain:creativeposts.top
+domain:cvillico.com
 domain:dailymusings.top
+domain:dbike-us.com
 domain:digital-pr-and-domain-rating-premium-experts.store
 domain:domainrankexperts.shop
 domain:domainrankexpress.shop
 domain:domainrankpartners.shop
+domain:drjack.world
+domain:dupurgeniefr.com
 domain:ekenkoshop.shop
 domain:elite-authority-marketplace-seoexpress.store
 domain:elite-high-da-center-seoexpress.store
@@ -48,8 +64,10 @@ domain:exclusive-backlink-seoexpress-firm.store
 domain:expert-domain-seoexpress-specialists.store
 domain:expert-organic-seoexpress.store
 domain:expert-search-seoexpress-team.store
+domain:fashionclothingnews.com
 domain:fiverr-cost-effective-seo.site
 domain:flagship-niche-edit-and-link-building-services.store
+domain:ggmap.us.com
 domain:global-authority-seoexpress-group.store
 domain:googleseoauthority.shop
 domain:googleseocompany.shop
@@ -60,10 +78,13 @@ domain:guestpostlinks.shop
 domain:high-seoexpress-organic-team.store
 domain:highseo.shop
 domain:highseoranking.shop
+domain:homesforsaleoldgreenwichct.com
+domain:indiabacklink.com
 domain:instant-webpage-seoexpress-consultants.store
 domain:itxoft-professional-seo-services.site
 domain:jake.eu
 domain:kawaiishop.shop
+domain:kernelpanicpodcast.com
 domain:keyword-rank-backlink-pro-and-keyword-rank-depot.store
 domain:kmoshops.shop
 domain:leading-hub-for-page-rank-and-contextual-link.store
@@ -78,6 +99,7 @@ domain:linkseonetwork.shop
 domain:linkseopro.shop
 domain:linksjump.info
 domain:lixil-reformshop.shop
+domain:lpraudit.com
 domain:luxury-seoexpress-tier-1-house.store
 domain:master-seoexpress-content-consultants.store
 domain:master-seoexpress-search-agency.store
@@ -88,6 +110,7 @@ domain:newsblogsports.site
 domain:nexusnext.agency
 domain:official-domain-seoexpress.store
 domain:official-on-page-link-baron-division.store
+domain:onvaxs.com
 domain:optimize-instant.website
 domain:optimizeflow.top
 domain:organicrankexpress.shop
@@ -108,6 +131,8 @@ domain:prime-depot-for-digital-pr-and-ranking-signal.store
 domain:prime-high-da-seoexpress.store
 domain:professional-seoexpress-high-da-partners.store
 domain:quero.party
+domain:quotesblom.com
+domain:rank-seo-now.shop
 domain:rank-top.click
 domain:rank-your.website
 domain:rankbox.shop
@@ -132,7 +157,10 @@ domain:rankseoservice.shop
 domain:rankseotoolkit.shop
 domain:rankxlinks.shop
 domain:rankyour.website
+domain:ready.pro
 domain:rent-a-shop.shop
+domain:sahammurah.com
+domain:screenshots.wiki
 domain:searchrankcentral.shop
 domain:searchrankexperts.shop
 domain:searchrankinsights.shop
@@ -173,9 +201,11 @@ domain:seohighranking.shop
 domain:seolinkexpress.shop
 domain:seolinkpro.shop
 domain:seonexi.com
+domain:seonix.agency
 domain:seoprobox.click
 domain:seoprobox.xyz
 domain:seorankinghigh.shop
+domain:seosmalltool.com
 domain:seowarez.shop
 domain:seozino.com
 domain:seozora.com
@@ -189,8 +219,12 @@ domain:smart-indexer-seoexpress.store
 domain:smart-marketing-seoexpress.store
 domain:smart-seoexpress-webpage-experts.store
 domain:supreme-dofollow-seoexpress-hub.store
+domain:techbumppy.com
+domain:thcradar.com
 domain:thebacklink.shop
 domain:thebacklinks.shop
+domain:thedocmag.com
+domain:theforbestimes.com
 domain:theguestpost.shop
 domain:theguestposts.shop
 domain:thehighrankseo.shop
@@ -216,6 +250,8 @@ domain:trusted-off-page-pros-seoexpress.store
 domain:trusted-organic-traffic-and-link-building-central.store
 domain:trusted-seoexpress-backlink-experts.store
 domain:ultimate-depot-for-search-rank-and-content-marketing.store
+domain:uncledspizza.com
+domain:urls-shortener.eu
 domain:verified-seoexpress-search-directory.store
 domain:webrankresults.shop
 domain:webranksystems.shop
