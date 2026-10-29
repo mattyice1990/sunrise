@@ -51,6 +51,7 @@
     { "source": "/gallery", "destination": "/portfolio", "permanent": true },
     { "source": "/press", "destination": "/", "permanent": true },
     { "source": "/services", "destination": "/roofing-tucson", "permanent": true },
+    { "source": "/gutter-installation", "destination": "/", "permanent": true },
 
     { "source": "/roof-repair-tucson", "destination": "/roof-repair", "permanent": true },
     { "source": "/roof-replacement-tucson", "destination": "/roof-replacement", "permanent": true },

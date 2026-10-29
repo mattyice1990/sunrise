@@ -27,7 +27,6 @@
     { slug: "roof-coatings",        t: "Roof Coatings",          ic: "shield",   d: "Elastomeric & silicone reflective coatings",  grp: "Roof Types" },
     { slug: "metal-roofing",        t: "Metal Roofing",          ic: "factory",  d: "Standing seam, durable & energy-efficient",   grp: "Roof Types" },
     { slug: "shingle-roofing",      t: "Shingle Roofing",        ic: "home",     d: "Architectural asphalt shingle systems",       grp: "Roof Types" },
-    { slug: "gutter-installation",  t: "Gutter Installation",    ic: "droplet",  d: "Seamless gutters, guards & drainage",         grp: "Add-ons" },
     { slug: "skylight-installation",t: "Skylight Installation",  ic: "sun",      d: "Skylights, solar tubes & natural light",      grp: "Add-ons" },
   ];
 

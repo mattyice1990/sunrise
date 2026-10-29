@@ -103,7 +103,7 @@ Object.assign(window.SEO, {
     neigh: "the Catalina Foothills, Midtown, the east and west sides, Rita Ranch and downtown Tucson",
     faqs: [
       { q: "What areas of Tucson do you serve?", a: "All of it. Midtown, the Foothills, east and west Tucson, downtown, Rita Ranch and everything around them, plus the rest of Pima County, Oro Valley, Marana, Vail, Sahuarita." },
-      { q: "What roofing services do you offer in Tucson?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, gutters, skylights, commercial roofing, and 24/7 emergency storm response." },
+      { q: "What roofing services do you offer in Tucson?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, skylights, commercial roofing, and 24/7 emergency storm response." },
       { q: "My Tucson tile roof looks fine but leaks — why?", a: "The tile can go 50-plus years, but the waterproof underlayment under it usually gives out around 20 to 25. That's almost always why a good-looking tile roof leaks. We pull your tile, lay new underlayment, and set the same tile back down, way cheaper than a whole new roof." },
       { q: "How fast can you respond to a roof leak in Tucson?", a: "Live leaks jump the line, same-week appointments and 24/7 tarping through monsoon season. Call us and we'll give you a real window." },
       { q: "Are you a licensed Tucson roofing contractor?", a: "Yep. Sunrise Roofers LLC is licensed, bonded and insured under ROC #358079, and we're based right here in Tucson." },
@@ -146,7 +146,7 @@ Object.assign(window.SEO, {
     faqs: [
       { q: "Do you provide roofing in Marana?", a: "Yep, all of Marana, Dove Mountain, Gladden Farms, Continental Ranch and the areas around them, plus greater Tucson and Pima County." },
       { q: "My Marana home is newer — could it already need roof work?", a: "It can. The UV and monsoon storms are hard on even newer roofs, and builder-grade installs sometimes need the flashing or ventilation corrected. A free inspection tells you exactly where yours stands." },
-      { q: "What roofing services do you offer in Marana?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, gutters, skylights, and emergency storm-damage response." },
+      { q: "What roofing services do you offer in Marana?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, skylights, and emergency storm-damage response." },
       { q: "How fast can you respond to a roof leak in Marana?", a: "Live leaks jump the line, same-week appointments and 24/7 tarping through storm season." },
       { q: "Are you licensed and insured?", a: "Yep. Sunrise Roofers LLC is fully licensed, bonded and insured, ROC #358079." },
     ],
@@ -188,7 +188,7 @@ Object.assign(window.SEO, {
     faqs: [
       { q: "Do you provide roofing in Vail and Corona de Tucson?", a: "Yep, Vail, Corona de Tucson and the communities around them including Rancho del Lago and Del Webb, plus greater Tucson and Pima County." },
       { q: "My Vail home is in a newer community — what roof issues are common?", a: "Even newer roofs can pick up flashing, ventilation or storm-related issues in this climate. A free inspection catches anything that needs attention before it turns into a leak." },
-      { q: "What roofing services do you offer in Vail?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, gutters, skylights, and 24/7 emergency storm response." },
+      { q: "What roofing services do you offer in Vail?", a: "Roof repair, full replacements, tile underlayment, shingle and metal installs, flat-roof coatings, skylights, and 24/7 emergency storm response." },
       { q: "How quickly can you get to a leak in Vail?", a: "Live leaks jump the line, same-week appointments and 24/7 tarping through monsoon season." },
       { q: "Are you licensed and insured?", a: "Yep. Sunrise Roofers LLC is licensed, bonded and insured, ROC #358079." },
     ],

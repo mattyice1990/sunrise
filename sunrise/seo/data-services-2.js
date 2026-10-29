@@ -300,71 +300,6 @@ Object.assign(window.SEO, {
     ctaSub: "Affordable, fast, and built for the heat. Get your free written shingle roofing estimate.",
   },
 
-  "gutter-installation": {
-    slug: "gutter-installation", cat: "service", crumb: "Services",
-    title: "Gutter Installation in Tucson — Sunrise Roofers",
-    desc: "Seamless gutter installation in Tucson — rain gutters, gutter guards and repair that protect your roof, walls and foundation from monsoon runoff.",
-    kw: { primary: "gutter installation tucson", vol: 100, kd: 17, cpc: 5 },
-    secondary: ["rain gutters tucson", "seamless gutters", "gutter guards", "gutter repair tucson"],
-    hero: {
-      eyebrow: "Gutters · Tucson, AZ",
-      h1: "Seamless Gutter Installation in Tucson",
-      sub: "A monsoon dumps a crazy amount of water in a hurry. Seamless gutters sized and laid out right carry it away from your roof edge, your walls and your foundation, which protects the whole house.",
-      chips: ["Seamless rain gutters", "Gutter guards", "Repair & replacement", "Monsoon-ready drainage"],
-    },
-    intro: {
-      kicker: "Drainage Done Right",
-      h: "Get the water away from the house, fast",
-      lead: [
-        "We don't get much rain here, but when we do it comes down hard. With no gutters, all that monsoon runoff sheets right off the roof and pools up against your walls and foundation, and that's where you get erosion, staining and water working its way inside.",
-        "We run seamless gutters formed to fit your house, sized and pitched to handle a desert downpour, with downspouts that carry the water well clear of the foundation. Throw on gutter guards and they stay clear of debris and keep flowing.",
-      ],
-      bullets: ["Custom seamless gutters", "Correct sizing & slope for monsoons", "Downspouts routed away from foundation", "Optional gutter guards"],
-    },
-    highlights: [
-      { ic: "droplet", t: "Seamless Gutters", d: "Custom-formed on site for fewer leaks and a clean, continuous look." },
-      { ic: "shield", t: "Gutter Guards", d: "Keep leaves and debris out so water flows freely when it matters." },
-      { ic: "wrench", t: "Repair & Replace", d: "Fix sagging, leaking or undersized gutters before the next storm." },
-    ],
-    sections: [
-      {
-        kicker: "Why It Matters", h: "Gutters protect more than your roof",
-        p: [
-          "Good drainage is really foundation protection. Get the runoff carried away the right way and you steer clear of the soil washing out around the house, stains running down the walls, and moisture creeping into the structure.",
-          "We lay out the whole thing, gutter size, the slope, where the downspouts go and where they dump, so monsoon water ends up where it belongs, away from your house.",
-        ],
-        bullets: ["Protects foundation & landscaping", "Prevents wall staining & erosion", "Reduces roof-edge water damage", "Custom-fit to your roofline"],
-      },
-      {
-        kicker: "Related Guides", h: "Guides on gutters & drainage",
-        p: ["Gutters come up in a lot of what we write about roofs, because what ends up in them tells you plenty about the roof above. A few worth reading:"],
-        links: [
-          { url: "/blog/how-long-does-a-roof-last", label: "How clean gutters help a roof last longer" },
-          { url: "/blog/repairing-concrete-tile-roof", label: "Why clogged gutters cause leaks under concrete tile" },
-          { url: "/blog/signs-you-need-a-new-roof", label: "Granules in your gutters and other signs of a worn-out roof" },
-          { url: "/blog/flat-roof-water-pooling-scupper-issues-in-tucson-az", label: "Scuppers and drainage on Tucson flat roofs" },
-        ],
-      },
-    ],
-    process: [
-      { t: "Assessment", d: "We measure your roofline and plan gutter sizing, slope and downspout routing." },
-      { t: "Custom Forming", d: "Seamless gutters formed on site to fit your home exactly." },
-      { t: "Installation", d: "Securely hung with proper slope, sealed end caps and downspouts." },
-      { t: "Walkthrough", d: "We confirm flow and routing, and add guards if you've chosen them." },
-    ],
-    faqs: [
-      { q: "Why are gutters important in Tucson if it rarely rains?", a: "Because when it does rain here, it really comes down. A monsoon drops a ton of water fast, and with no gutters that runoff washes out your soil and pools against the foundation and walls. Gutters protect the whole house, not just the roof." },
-      { q: "What are seamless gutters, and are they worth it?", a: "Seamless gutters get formed right there on your driveway in one continuous piece per run, instead of snapped together from sections. Fewer seams means fewer spots to leak and a cleaner look." },
-      { q: "Do I need gutter guards?", a: "Guards keep leaves and junk out so the gutters keep flowing in a hard rain and you're not up there cleaning them all the time. Worth the add-on, especially if you've got trees over the house." },
-      { q: "How much do gutters cost in Tucson?", a: "It comes down to how many linear feet you need, the profile, and whether you add guards. We measure the run and quote it up front — the number we give you is the number you pay. If your existing gutters can just be repaired instead, we’ll tell you that too." },
-      { q: "Can you repair my existing gutters?", a: "Yep, we fix sagging, leaking, pulled-apart or too-small gutters, and we'll re-route downspouts that are dumping water somewhere they shouldn't." },
-      { q: "Do you install gutters when you replace a roof?", a: "We can line up the gutter work with a roof replacement so it all gets done together, clean and in one shot." },
-    ],
-    related: ["roof-replacement", "roof-repair", "skylight-installation", "residential-roofing"],
-    ctaH: "Ready for monsoon season?",
-    ctaSub: "Get seamless gutters sized for a desert downpour. Ask us for a free gutter installation estimate.",
-  },
-
   "skylight-installation": {
     slug: "skylight-installation", cat: "service", crumb: "Services",
     title: "Skylight Installation in Tucson — Sunrise Roofers",
@@ -423,7 +358,7 @@ Object.assign(window.SEO, {
       { q: "Are skylights energy-efficient in the desert?", a: "They can be. Newer skylights with low-E, UV-rated glass let the light in while holding the heat back. Pick the right unit and put it in the right spot and they stay efficient even in our sun." },
       { q: "Do you install skylights during a roof replacement?", a: "Yep, and honestly that's the best time to do it. The roof's already open, so we can tie the flashing in perfectly and it's less work overall." },
     ],
-    related: ["roof-replacement", "roof-installation", "gutter-installation", "roof-repair"],
+    related: ["roof-replacement", "roof-installation", "residential-roofing", "roof-repair"],
     ctaH: "Want more natural light?",
     ctaSub: "Leak-free skylights and solar tubes, put in by actual roofers. Ask us for a free skylight estimate.",
   },

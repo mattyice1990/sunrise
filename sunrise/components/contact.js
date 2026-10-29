@@ -377,9 +377,6 @@ function Footer() {
     t: "Storm Damage Repair",
     s: "storm-damage-roof-repair-tucson"
   }, {
-    t: "Gutter Installation",
-    s: "gutter-installation"
-  }, {
     t: "Skylight Installation",
     s: "skylight-installation"
   }]), col("Roof Types", [{
