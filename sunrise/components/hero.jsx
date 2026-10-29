@@ -26,8 +26,8 @@ const HERO_TRUST = [
 ];
 
 const HERO_SERVICES = [
-  "Roof Repair", "Roof Replacement", "Metal Roof Installation", "Tile Roofing",
-  "Flat Roof / Coatings", "Commercial Roofing", "Roof Inspection", "Storm / Monsoon Damage",
+  "Full Roof Replacement", "Tile Roof Re-Felt / Underlayment", "Shingle Roof Replacement", "Metal Roof Installation",
+  "Roof Repair", "Flat Roof / Coatings", "Commercial Roofing", "Roof Inspection", "Storm / Monsoon Damage",
 ];
 
 const CLIP_MIN = 4;   // seconds — minimum time on a clip (+1s after dropping the fire clip)
@@ -112,7 +112,7 @@ function HeroForm() {
       <div className="heroform__head">
         <p className="heroform__eyebrow">Free · No Pressure</p>
         <h3 className="heroform__title">Get Your Free Roof Estimate</h3>
-        <p className="heroform__sub">Most estimates come back within a day.</p>
+        <p className="heroform__sub">Itemized replacement quotes, financing available, usually back within a day.</p>
       </div>
 
       <label className="heroform__field">
@@ -337,17 +337,19 @@ function Hero() {
         <div className="hero__inner" ref={textRef} style={{ opacity: 0 }}>
           <div className="container">
             <p className="eyebrow hero__eyebrow">Family-Owned by Eddie &amp; Viky Guillen · ROC #358079</p>
-            <h1 className="h-display">Tucson Roofers for Roof Repair, Replacement &amp; <em>Metal Roof</em> Installation</h1>
+            <h1 className="h-display">Tucson Roofers for Full Roof Replacement &amp; <em>New Roofs</em></h1>
             <p className="hero__body">
               Sunrise is Eddie and Viky Guillen &mdash; a Tucson family business.
               Eddie's been on these roofs 20-plus years and runs every job
-              like his name's on it, because it is. Leak or full tear-off, you get a
-              straight answer, clean work, and a roof that finally quits leaking. No
+              like his name's on it, because it is. Our specialty is the whole job:
+              tear-off, new underlayment, and a tile, shingle or metal roof that
+              finally quits leaking, with an itemized price and financing if you want
+              it. We fix leaks too, when a repair is honestly what it needs. No
               pressure, no closers, no sign-today games.
             </p>
             <div className="hero__cta">
-              <a className="btn btn--primary" href="#contact">Get a Free Roof Estimate <Icon name="arrow" /></a>
-              <a className="btn btn--on-dark" href={(window.__projects || "Projects.html")}>View Roofing Projects</a>
+              <a className="btn btn--primary" href="#contact">Get a Free Roof Replacement Estimate <Icon name="arrow" /></a>
+              <a className="btn btn--on-dark" href={(window.__projects || "Projects.html")}>See Roofs We've Replaced</a>
             </div>
             <div className="hero__badges">
               {/* Three, not six. "Licensed & Insured" is already in the topbar
@@ -357,7 +359,7 @@ function Hero() {
                   Only these three say something the page does not already say —
                   and six rows overflowed the 100vh stage on phones, where
                   overflow:hidden clipped them. */}
-              {["Free Roof Inspections", "Financing Available", "Residential & Commercial"].map((b) => (
+              {["Free Replacement Estimates", "Financing Available", "Tile, Shingle & Metal"].map((b) => (
                 <span className="hero__badge" key={b}><Icon name="check-c" /> {b}</span>
               ))}
             </div>

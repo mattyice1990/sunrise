@@ -28,7 +28,7 @@ function TopbarTickerRun() {
     className: "ti topbar__emergency"
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), " 24/7 Emergency Roof Repair"), /*#__PURE__*/React.createElement("a", {
+  }), " Free Roof Replacement Estimates \xB7 Financing Available"), /*#__PURE__*/React.createElement("a", {
     className: "ti",
     href: "mailto:eddie@roofwithsunrise.com"
   }, /*#__PURE__*/React.createElement(Icon, {
@@ -37,7 +37,7 @@ function TopbarTickerRun() {
     className: "ti"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "badge"
-  }), " ROC #358079 · Licensed & Insured"), /*#__PURE__*/React.createElement("span", {
+  }), " ROC #358079 \xB7 Licensed & Insured"), /*#__PURE__*/React.createElement("span", {
     className: "topbar__socials"
   }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/",
@@ -60,7 +60,14 @@ function TopbarTickerRun() {
     "aria-label": "Google"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "google"
-  })), /*#__PURE__*/React.createElement("a", {href: "https://www.youtube.com/@Sunriseroofers520", target: "_blank", rel: "noopener", "aria-label": "YouTube"}, /*#__PURE__*/React.createElement(Icon, {name: "yt"}))));
+  })), /*#__PURE__*/React.createElement("a", {
+    href: "https://www.youtube.com/@Sunriseroofers520",
+    target: "_blank",
+    rel: "noopener",
+    "aria-label": "YouTube"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "yt"
+  }))));
 }
 function TopBar() {
   return /*#__PURE__*/React.createElement("div", {
@@ -83,13 +90,13 @@ function TopBar() {
     className: "ti topbar__emergency"
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), " 24/7 Emergency Roof Repair")), /*#__PURE__*/React.createElement("div", {
+  }), " Free Roof Replacement Estimates \xB7 Financing Available")), /*#__PURE__*/React.createElement("div", {
     className: "topbar__right"
   }, /*#__PURE__*/React.createElement("span", {
     className: "topbar__badge"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "badge"
-  }), " ROC #358079 · Licensed & Insured"), /*#__PURE__*/React.createElement("div", {
+  }), " ROC #358079 \xB7 Licensed & Insured"), /*#__PURE__*/React.createElement("div", {
     className: "topbar__socials"
   }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/",
@@ -112,7 +119,14 @@ function TopBar() {
     "aria-label": "Google"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "google"
-  })), /*#__PURE__*/React.createElement("a", {href: "https://www.youtube.com/@Sunriseroofers520", target: "_blank", rel: "noopener", "aria-label": "YouTube"}, /*#__PURE__*/React.createElement(Icon, {name: "yt"}))))), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("a", {
+    href: "https://www.youtube.com/@Sunriseroofers520",
+    target: "_blank",
+    rel: "noopener",
+    "aria-label": "YouTube"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "yt"
+  }))))), /*#__PURE__*/React.createElement("div", {
     className: "topbar__ticker"
   }, /*#__PURE__*/React.createElement("div", {
     className: "topbar__track"
@@ -157,7 +171,7 @@ function Logo() {
     className: "logo__name"
   }, "Sunrise Roofers"), /*#__PURE__*/React.createElement("span", {
     className: "logo__sub"
-  }, "Installations · Tucson AZ"))), /*#__PURE__*/React.createElement("span", {
+  }, "Installations \xB7 Tucson AZ"))), /*#__PURE__*/React.createElement("span", {
     className: "logo__photo"
   }, /*#__PURE__*/React.createElement("img", {
     className: "logo__pimg logo__pimg--color",
@@ -327,7 +341,7 @@ function MobileMenu({
     className: "mnav__emergency"
   }, /*#__PURE__*/React.createElement("span", {
     className: "dot"
-  }), " 24/7 Emergency Roof Repair")))), document.body);
+  }), " Free Roof Replacement Estimates \xB7 Financing Available")))), document.body);
 }
 function HeaderNav() {
   const [solid, setSolid] = useState(false);
@@ -387,10 +401,10 @@ function HeaderNav() {
     className: "mega__d"
   }, s.d)))), /*#__PURE__*/React.createElement("div", {
     className: "mega__foot"
-  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Not sure what you need?"), " Book a free, no-pressure roof inspection."), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Think it's time for a new roof?"), " Get a free, itemized replacement estimate with financing options."), /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary btn--sm",
-    href: U("contact")
-  }, "Free Inspection")))), /*#__PURE__*/React.createElement("div", {
+    href: U("roof-replacement")
+  }, "Roof Replacement")))), /*#__PURE__*/React.createElement("div", {
     className: "nav__item"
   }, /*#__PURE__*/React.createElement("a", {
     className: "nav__link",

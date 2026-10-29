@@ -3,7 +3,7 @@
 const PROP_DATA = [
   { ic: "home", t: "Homeowners", h: "Protect Your Home & Your Budget",
     p: "From a surprise leak to a roof that's just plain done, we give homeowners honest answers and clear options, never a sales pitch.",
-    b: ["Free, fully-documented roof inspections", "Repair-first guidance to avoid premature replacement", "Energy-efficient metal & tile upgrades for AZ heat", "Flexible financing on approved credit"], slot: "prop-home", src: "uploads/residential-roofing-tucson-aerial.jpg" },
+    b: ["Free, fully-documented roof inspections", "Straight repair-vs-replace advice, with photos", "Energy-efficient metal & tile upgrades for AZ heat", "Flexible financing on approved credit"], slot: "prop-home", src: "uploads/residential-roofing-tucson-aerial.jpg" },
   { ic: "users", t: "HOAs & Property Managers", h: "Roofing That Keeps Boards & Residents Happy",
     p: "We take the guesswork out of multi-unit roofing, clear scheduling, clean paperwork, and one person who's accountable across every building.",
     b: ["Phased scheduling across multiple units", "Detailed service logs & condition reports", "Budget planning & reserve-study support", "Proactive maintenance to extend roof life"], slot: "prop-hoa", src: "uploads/hoa-roofing-tucson.webp" },

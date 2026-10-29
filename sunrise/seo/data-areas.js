@@ -19,7 +19,7 @@ function areaPage(o) {
       kicker: `Serving ${o.city}`,
       h: `Your local roofer in ${o.city}`,
       lead: o.lead,
-      bullets: ["Repairs, replacements & new roofs", "Tile, shingle, metal & flat", "Storm & monsoon damage response", "Free, documented inspections"],
+      bullets: ["Full roof replacements & re-roofs", "Tile, shingle, metal & flat", "Repairs & monsoon damage response", "Free, itemized estimates & financing"],
     },
     highlights: [
       { ic: "pin", t: "We actually work here", d: `We're on ${o.city} roofs just about every week — we know the neighborhoods, the HOA rules, and the way our sun and monsoons wear a desert roof down.` },
@@ -30,14 +30,18 @@ function areaPage(o) {
       {
         kicker: "Full Service", h: `Everything ${o.city} roofs need`,
         p: [
-          `From the first little drip to a full tear-off, we handle whatever ${o.city} roofs throw at us — tile underlayment, shingle and metal installs, flat-roof coatings, emergency repairs. One local family, not a different sub crew every time.`,
+          `Most of what we do in ${o.city} is full roof replacement — tile re-felts and underlayment, shingle tear-offs, metal installs — and we handle the rest too: flat-roof coatings, leak repairs, storm damage. One local family, not a different sub crew every time.`,
           o.neigh ? `You'll spot our trucks around ${o.neigh} regularly, so we already know the HOA rules and the kind of homes ${o.city} is built from.` : "",
         ].filter(Boolean),
         cards: [
+          { ic: "hammer", t: "Roof Replacement", d: "Full tear-offs and new roofs in tile, shingle and metal, done by our own crew with an itemized price and financing." },
           { ic: "wrench", t: "Roof Repair", d: "Leaks, cracked tile, flashing and storm damage — fixed to actually last." },
-          { ic: "hammer", t: "Replacement", d: "Full re-roofs in tile, shingle and metal, done by our own crew." },
           { ic: "search", t: "Free Inspections", d: "We get up on the roof, take photos, and tell you straight — repair or replace." },
           { ic: "building", t: "Commercial", d: `Flat-roof systems and maintenance for ${o.city} businesses.` },
+        ],
+        links: [
+          { url: "/roof-replacement", label: `Roof replacement in ${o.city}: what it costs and how it goes` },
+          { url: "/tile-roofing", label: `Tile underlayment replacement in ${o.city}` },
         ],
       },
     ].concat(o.extraSections || []),
@@ -48,10 +52,10 @@ function areaPage(o) {
       { t: "We do it right", d: "Our own crew, a clean job site, and a warranty that means we come back if it ever needs us." },
     ],
     faqs: o.faqs,
-    related: o.related || ["roof-repair", "roof-replacement", "tile-roofing", "roof-inspection"],
+    related: o.related || ["roof-replacement", "tile-roofing", "roof-repair", "roof-inspection"],
     relatedH: o.relatedH,
     ctaH: `Need a roofer in ${o.city}?`,
-    ctaSub: `Free inspection and a straight estimate from a licensed Tucson family that actually works ${o.city} and the rest of Pima County. You call, you get Eddie.`,
+    ctaSub: `Free, itemized replacement estimate (or a straight repair price) from a licensed Tucson family that actually works ${o.city} and the rest of Pima County. You call, you get Eddie.`,
   };
 }
 

@@ -139,7 +139,7 @@ function ContactForm() {
     }
   }, "Let's Take a Look at Your Roof"), /*#__PURE__*/React.createElement("p", {
     className: "lead"
-  }, "Tell me what's going on up there \u2014 a leak, storm damage, an old roof that's seen better days, or a full replacement \u2014 and we'll get you on the books for a free inspection."), /*#__PURE__*/React.createElement("div", {
+  }, "Tell me what's going on up there \u2014 an old roof that's due for replacement, a leak, or storm damage \u2014 and we'll get you on the books for a free inspection."), /*#__PURE__*/React.createElement("div", {
     className: "contact__info"
   }, /*#__PURE__*/React.createElement("div", {
     className: "contact__row"
@@ -269,7 +269,7 @@ function ContactForm() {
     "aria-label": "Service Needed"
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Select a service\u2026"), /*#__PURE__*/React.createElement("option", null, "Roof Repair"), /*#__PURE__*/React.createElement("option", null, "Roof Replacement"), /*#__PURE__*/React.createElement("option", null, "Metal Roof Installation"), /*#__PURE__*/React.createElement("option", null, "Tile Roofing"), /*#__PURE__*/React.createElement("option", null, "Flat Roof / Coatings"), /*#__PURE__*/React.createElement("option", null, "Commercial Roofing"), /*#__PURE__*/React.createElement("option", null, "Roof Inspection"), /*#__PURE__*/React.createElement("option", null, "Storm / Monsoon Damage")), errs.service && /*#__PURE__*/React.createElement("span", {
+  }, "Select a service\u2026"), /*#__PURE__*/React.createElement("option", null, "Roof Replacement"), /*#__PURE__*/React.createElement("option", null, "Roof Repair"), /*#__PURE__*/React.createElement("option", null, "Metal Roof Installation"), /*#__PURE__*/React.createElement("option", null, "Tile Roofing"), /*#__PURE__*/React.createElement("option", null, "Flat Roof / Coatings"), /*#__PURE__*/React.createElement("option", null, "Commercial Roofing"), /*#__PURE__*/React.createElement("option", null, "Roof Inspection"), /*#__PURE__*/React.createElement("option", null, "Storm / Monsoon Damage")), errs.service && /*#__PURE__*/React.createElement("span", {
     className: "field__err"
   }, errs.service)), /*#__PURE__*/React.createElement("div", {
     className: "field"
@@ -328,7 +328,7 @@ function Footer() {
     className: "footer__brand"
   }, /*#__PURE__*/React.createElement(Logo, null), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("a", {
     href: "/"
-  }, "Tucson roofers"), ", family-owned. Repair, replacement, metal, tile, flat roofs and commercial systems \u2014 all built for the desert."), /*#__PURE__*/React.createElement("div", {
+  }, "Tucson roofers"), ", family-owned. Full roof replacement in tile, shingle and metal, plus repairs, coatings and commercial roofing \u2014 all built for the desert."), /*#__PURE__*/React.createElement("div", {
     className: "footer__socials"
   }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/",
@@ -359,14 +359,14 @@ function Footer() {
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "yt"
   })))), col("Roofing Services", [{
-    t: "Roof Repair",
-    s: "roof-repair"
-  }, {
     t: "Roof Replacement",
     s: "roof-replacement"
   }, {
-    t: "Roof Installation",
+    t: "New Roof Installation",
     s: "roof-installation"
+  }, {
+    t: "Roof Repair",
+    s: "roof-repair"
   }, {
     t: "Roof Inspection",
     s: "roof-inspection"

@@ -16,17 +16,17 @@
 
   // Service pages (13) — grouped into mega-menu columns.
   S.SERVICES = [
+    { slug: "roof-replacement",     t: "Roof Replacement",       ic: "hammer",   d: "Full tear-offs & new roofs — our specialty",  grp: "Replace & Install" },
+    { slug: "roof-installation",    t: "New Roof Installation",  ic: "home",     d: "New roofs on new homes, additions & shops",   grp: "Replace & Install" },
+    { slug: "tile-roofing",         t: "Tile Roofing",           ic: "layers",   d: "Re-felts, underlayment & full tile replacement", grp: "Roof Types" },
+    { slug: "shingle-roofing",      t: "Shingle Roofing",        ic: "home",     d: "Architectural shingle replacement",            grp: "Roof Types" },
+    { slug: "metal-roofing",        t: "Metal Roofing",          ic: "factory",  d: "Standing seam, durable & energy-efficient",   grp: "Roof Types" },
     { slug: "roof-repair",          t: "Roof Repair",            ic: "wrench",   d: "Leaks, flashing, storm & cracked-tile fixes", grp: "Repair & Restore" },
-    { slug: "roof-replacement",     t: "Roof Replacement",       ic: "hammer",   d: "Full tear-offs built for the long haul",      grp: "Replace & Install" },
-    { slug: "roof-installation",    t: "New Construction Roofing", ic: "home",   d: "First roofs on new homes, additions & shops", grp: "Replace & Install" },
     { slug: "roof-inspection",      t: "Roof Inspection",        ic: "search",   d: "Free, documented condition reports",          grp: "Repair & Restore" },
     { slug: "emergency-roof-repair",t: "Emergency & Storm Damage",ic: "alert",   d: "24/7 response, tarping & insurance support",  grp: "Repair & Restore" },
     { slug: "storm-damage-roof-repair-tucson", t: "Storm Damage Repair", ic: "alert", d: "Monsoon, wind & hail damage, documented", grp: "Repair & Restore" },
-    { slug: "tile-roofing",         t: "Tile Roofing",           ic: "layers",   d: "Repair, re-felt, underlayment & install",     grp: "Roof Types" },
     { slug: "flat-roofing",         t: "Flat Roofing",           ic: "ruler",    d: "TPO, modified bitumen & built-up systems",    grp: "Roof Types" },
     { slug: "roof-coatings",        t: "Roof Coatings",          ic: "shield",   d: "Elastomeric & silicone reflective coatings",  grp: "Roof Types" },
-    { slug: "metal-roofing",        t: "Metal Roofing",          ic: "factory",  d: "Standing seam, durable & energy-efficient",   grp: "Roof Types" },
-    { slug: "shingle-roofing",      t: "Shingle Roofing",        ic: "home",     d: "Architectural asphalt shingle systems",       grp: "Roof Types" },
     { slug: "skylight-installation",t: "Skylight Installation",  ic: "sun",      d: "Skylights, solar tubes & natural light",      grp: "Add-ons" },
   ];
 

@@ -52,7 +52,10 @@ function Testimonials() {
 }
 const FAQS = [{
   q: "How do I know if I need a roof repair or a full replacement?",
-  a: "Comes down to the roof's age, how bad the damage is, and the shape the underlayment's in. We look first, show you photos of what we find, and recommend the most cost-effective fix, which is often a repair or a coating, not a full replacement."
+  a: "Comes down to the roof's age, how bad the damage is, and the shape the underlayment's in. We look first and show you photos of what we find. If the underlayment is cooked or the damage is spread across the roof, that's a replacement and we'll show you why. If a repair will honestly hold, we'll tell you that too."
+}, {
+  q: "How much does a roof replacement cost in Tucson?",
+  a: "It comes down to the size and pitch of the roof, the material, and what we find once the old roof is off. Shingle is the easiest on the wallet; tile and metal cost more up front and last far longer. Every estimate is free and itemized, tear-off and cleanup included, and financing is available on approved credit."
 }, {
   q: "Do you offer free roof inspections?",
   a: "Yep. Every inspection's free and you get photos and a written summary, whether you hire us or not."

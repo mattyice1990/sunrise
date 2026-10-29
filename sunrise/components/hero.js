@@ -25,7 +25,7 @@ const HERO_TRUST = [{
   big: "1,000+",
   small: "Roofs in 20+ Years"
 }];
-const HERO_SERVICES = ["Roof Repair", "Roof Replacement", "Metal Roof Installation", "Tile Roofing", "Flat Roof / Coatings", "Commercial Roofing", "Roof Inspection", "Storm / Monsoon Damage"];
+const HERO_SERVICES = ["Full Roof Replacement", "Tile Roof Re-Felt / Underlayment", "Shingle Roof Replacement", "Metal Roof Installation", "Roof Repair", "Flat Roof / Coatings", "Commercial Roofing", "Roof Inspection", "Storm / Monsoon Damage"];
 const CLIP_MIN = 4; // seconds — minimum time on a clip (+1s after dropping the fire clip)
 const CLIP_MAX = 7; // seconds — maximum time on a clip (+1s after dropping the fire clip)
 
@@ -128,7 +128,7 @@ function HeroForm() {
     className: "heroform__title"
   }, "Get Your Free Roof Estimate"), /*#__PURE__*/React.createElement("p", {
     className: "heroform__sub"
-  }, "Most estimates come back within a day.")), /*#__PURE__*/React.createElement("label", {
+  }, "Itemized replacement quotes, financing available, usually back within a day.")), /*#__PURE__*/React.createElement("label", {
     className: "heroform__field"
   }, /*#__PURE__*/React.createElement("span", null, "Name"), /*#__PURE__*/React.createElement("input", {
     type: "text",
@@ -403,21 +403,21 @@ function Hero() {
     className: "eyebrow hero__eyebrow"
   }, "Family-Owned by Eddie & Viky Guillen \xB7 ROC #358079"), /*#__PURE__*/React.createElement("h1", {
     className: "h-display"
-  }, "Tucson Roofers for Roof Repair, Replacement & ", /*#__PURE__*/React.createElement("em", null, "Metal Roof"), " Installation"), /*#__PURE__*/React.createElement("p", {
+  }, "Tucson Roofers for Full Roof Replacement & ", /*#__PURE__*/React.createElement("em", null, "New Roofs")), /*#__PURE__*/React.createElement("p", {
     className: "hero__body"
-  }, "Sunrise is Eddie and Viky Guillen \u2014 a Tucson family business. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Leak or full tear-off, you get a straight answer, clean work, and a roof that finally quits leaking. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
+  }, "Sunrise is Eddie and Viky Guillen \u2014 a Tucson family business. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Our specialty is the whole job: tear-off, new underlayment, and a tile, shingle or metal roof that finally quits leaking, with an itemized price and financing if you want it. We fix leaks too, when a repair is honestly what it needs. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
     className: "hero__cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",
     href: "#contact"
-  }, "Get a Free Roof Estimate ", /*#__PURE__*/React.createElement(Icon, {
+  }, "Get a Free Roof Replacement Estimate ", /*#__PURE__*/React.createElement(Icon, {
     name: "arrow"
   })), /*#__PURE__*/React.createElement("a", {
     className: "btn btn--on-dark",
     href: window.__projects || "Projects.html"
-  }, "View Roofing Projects")), /*#__PURE__*/React.createElement("div", {
+  }, "See Roofs We've Replaced")), /*#__PURE__*/React.createElement("div", {
     className: "hero__badges"
-  }, ["Free Roof Inspections", "Financing Available", "Residential & Commercial"].map(b => /*#__PURE__*/React.createElement("span", {
+  }, ["Free Replacement Estimates", "Financing Available", "Tile, Shingle & Metal"].map(b => /*#__PURE__*/React.createElement("span", {
     className: "hero__badge",
     key: b
   }, /*#__PURE__*/React.createElement(Icon, {

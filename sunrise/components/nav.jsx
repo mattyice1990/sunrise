@@ -21,7 +21,7 @@ function TopbarTickerRun() {
   return (
     <React.Fragment>
       <a className="ti" href="tel:5207531758"><Icon name="phone" /> 520-753-1758</a>
-      <span className="ti topbar__emergency"><span className="dot"></span> 24/7 Emergency Roof Repair</span>
+      <span className="ti topbar__emergency"><span className="dot"></span> Free Roof Replacement Estimates · Financing Available</span>
       <a className="ti" href="mailto:eddie@roofwithsunrise.com"><Icon name="mail" /> eddie@roofwithsunrise.com</a>
       <span className="ti"><Icon name="badge" /> ROC #358079 · Licensed &amp; Insured</span>
       <span className="topbar__socials">
@@ -42,7 +42,7 @@ function TopBar() {
         <div className="topbar__left">
           <a className="ti" href="tel:5207531758"><Icon name="phone" /> 520-753-1758</a>
           <a className="ti ti--hide" href="mailto:eddie@roofwithsunrise.com"><Icon name="mail" /> eddie@roofwithsunrise.com</a>
-          <span className="ti topbar__emergency"><span className="dot"></span> 24/7 Emergency Roof Repair</span>
+          <span className="ti topbar__emergency"><span className="dot"></span> Free Roof Replacement Estimates · Financing Available</span>
         </div>
         <div className="topbar__right">
           <span className="topbar__badge"><Icon name="badge" /> ROC #358079 · Licensed &amp; Insured</span>
@@ -162,7 +162,7 @@ function MobileMenu({ open, onClose }) {
         <div className="mnav__foot">
           <a className="mnav__call" href="tel:5207531758"><Icon name="phone" /> 520-753-1758</a>
           <a className="btn btn--primary btn--block" href={sec("contact")} onClick={onClose}>Free Roof Estimate</a>
-          <span className="mnav__emergency"><span className="dot"></span> 24/7 Emergency Roof Repair</span>
+          <span className="mnav__emergency"><span className="dot"></span> Free Roof Replacement Estimates · Financing Available</span>
         </div>
       </aside>
     </div>,
@@ -207,8 +207,8 @@ function HeaderNav() {
                 </a>
               ))}
               <div className="mega__foot">
-                <p><strong>Not sure what you need?</strong> Book a free, no-pressure roof inspection.</p>
-                <a className="btn btn--primary btn--sm" href={U("contact")}>Free Inspection</a>
+                <p><strong>Think it's time for a new roof?</strong> Get a free, itemized replacement estimate with financing options.</p>
+                <a className="btn btn--primary btn--sm" href={U("roof-replacement")}>Roof Replacement</a>
               </div>
             </div>
           </div>

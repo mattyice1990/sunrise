@@ -87,7 +87,7 @@ function ContactForm() {
           <div className="contact__side">
             <p className="eyebrow">Let's Talk</p>
             <h2 className="h2" style={{ marginBottom: 16 }}>Let's Take a Look at Your Roof</h2>
-            <p className="lead">Tell me what's going on up there &mdash; a leak, storm damage, an old roof that's seen better days, or a full replacement &mdash; and we'll get you on the books for a free inspection.</p>
+            <p className="lead">Tell me what's going on up there &mdash; an old roof that's due for replacement, a leak, or storm damage &mdash; and we'll get you on the books for a free inspection.</p>
             <div className="contact__info">
               <div className="contact__row">
                 <span className="ic"><Icon name="phone" /></span>
@@ -131,8 +131,8 @@ function ContactForm() {
                   <label>Service Needed <span className="req">*</span></label>
                   <select value={vals.service} onChange={set("service")} aria-label="Service Needed">
                     <option value="">Select a service…</option>
-                    <option>Roof Repair</option>
                     <option>Roof Replacement</option>
+                    <option>Roof Repair</option>
                     <option>Metal Roof Installation</option>
                     <option>Tile Roofing</option>
                     <option>Flat Roof / Coatings</option>
@@ -188,7 +188,7 @@ function Footer() {
         <div className="footer__main">
           <div className="footer__brand">
             <Logo />
-            <p><a href="/">Tucson roofers</a>, family-owned. Repair, replacement, metal, tile, flat roofs and commercial systems &mdash; all built for the desert.</p>
+            <p><a href="/">Tucson roofers</a>, family-owned. Full roof replacement in tile, shingle and metal, plus repairs, coatings and commercial roofing &mdash; all built for the desert.</p>
             <div className="footer__socials">
               <a href="https://www.facebook.com/people/Sunrise-Roofers-LLC/61580211666613/" target="_blank" rel="noopener" aria-label="Facebook"><Icon name="fb" /></a>
               <a href="https://www.instagram.com/sunriseroofersllc/" target="_blank" rel="noopener" aria-label="Instagram"><Icon name="ig" /></a>
@@ -197,12 +197,13 @@ function Footer() {
             </div>
           </div>
           {col("Roofing Services", [
-            { t: "Roof Repair", s: "roof-repair" },
             { t: "Roof Replacement", s: "roof-replacement" },
-            { t: "Roof Installation", s: "roof-installation" },
+            { t: "New Roof Installation", s: "roof-installation" },
+            { t: "Roof Repair", s: "roof-repair" },
             { t: "Roof Inspection", s: "roof-inspection" },
             { t: "Emergency Repair", s: "emergency-roof-repair" },
-            { t: "Storm Damage Repair", s: "storm-damage-roof-repair-tucson" },
+            { t: "Storm Damage Repair", s: "storm-damage-roof-repair-tucson" },
+
             { t: "Skylight Installation", s: "skylight-installation" },
           ])}
           {col("Roof Types", [

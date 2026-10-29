@@ -1,22 +1,33 @@
 (function(){
 /* services.jsx — ServiceCardGrid + WhyChooseUs */
 
+/* Order matters: full roof replacement is the job Sunrise wants most, so it
+   leads, followed by the three systems a replacement is built in. Repair stays
+   on the page (it is the second-biggest lead source) but no longer leads. */
 const SVC_CARDS = [{
-  tag: "Repairs",
-  t: "Roof Repair",
-  slug: "roof-repair",
-  d: "Leaks, busted flashing, storm damage, cracked tile — we track down what's actually wrong and fix it fast.",
-  slot: "svc-repair",
-  ph: "Roof repair photo",
-  src: "uploads/roof-repair-service-tucson.webp"
-}, {
-  tag: "Replacement",
-  t: "Roof Replacement",
+  tag: "Our Specialty",
+  t: "Full Roof Replacement",
   slug: "roof-replacement",
-  d: "Full tear-offs and new roofs built to take Arizona's sun and last decades, not just a few seasons.",
+  d: "Complete tear-off, new high-temp underlayment and a tile, shingle or metal roof built to take Arizona's sun for decades. Itemized quote, financing available.",
   slot: "svc-replace",
   ph: "Replacement photo",
   src: "uploads/roof-replacement-service-tucson.webp"
+}, {
+  tag: "Tile",
+  t: "Tile Roof Replacement & Re-Felt",
+  slug: "tile-roofing",
+  d: "Tile looks fine but leaks? Usually the underlayment is done. We lift the tile, lay new underlayment and set it back, or replace the whole tile roof when it's time.",
+  slot: "svc-tile",
+  ph: "Tile roof photo",
+  src: "uploads/tile-roofing-service-tucson.webp"
+}, {
+  tag: "Shingle",
+  t: "Shingle Roof Replacement",
+  slug: "shingle-roofing",
+  d: "Tear-off to the deck, decking repairs, new underlayment and architectural shingles, with the attic ventilation sorted so the new roof lasts.",
+  slot: "svc-shingle",
+  ph: "Shingle roof photo",
+  src: "uploads/shingle-roof-installation-tucson.jpg"
 }, {
   tag: "Metal",
   t: "Metal Roof Installation",
@@ -26,29 +37,21 @@ const SVC_CARDS = [{
   ph: "Metal roof photo",
   src: "uploads/metal-roofing-service-tucson.webp"
 }, {
-  tag: "Tile",
-  t: "Tile Roofing",
-  slug: "tile-roofing",
-  d: "Concrete and clay tile — repairs, re-felts, new underlayment, and upkeep that keeps it watertight.",
-  slot: "svc-tile",
-  ph: "Tile roof photo",
-  src: "uploads/tile-roofing-service-tucson.webp"
+  tag: "Repairs",
+  t: "Roof Repair",
+  slug: "roof-repair",
+  d: "Leaks, busted flashing, storm damage, cracked tile — we track down what's actually wrong and fix it, and tell you honestly when a roof is past repairing.",
+  slot: "svc-repair",
+  ph: "Roof repair photo",
+  src: "uploads/roof-repair-service-tucson.webp"
 }, {
-  tag: "Flat / Coatings",
-  t: "Flat Roof & Coatings",
+  tag: "Flat / Commercial",
+  t: "Flat Roofs & Commercial",
   slug: "flat-roofing",
-  d: "Elastomeric coatings and fixing the spots where water pools before they turn into leaks.",
+  d: "Flat roof replacement, coatings and commercial systems for homes, HOAs, offices and warehouses, scheduled around your hours.",
   slot: "svc-flat",
   ph: "Flat roof / coating photo",
   src: "uploads/flat-roofing-service-tucson.webp"
-}, {
-  tag: "Commercial",
-  t: "Commercial Roofing",
-  slug: "commercial-roofing",
-  d: "Offices, retail, warehouses and multi-family — roofs we work around your hours, not the other way around.",
-  slot: "svc-comm",
-  ph: "Commercial roof photo",
-  src: "uploads/commercial-roofing-service-tucson.webp"
 }];
 const svcUrl = slug => window.SUNRISE ? window.SUNRISE.url(slug) : "/" + slug;
 function ServiceCardGrid() {
@@ -63,12 +66,12 @@ function ServiceCardGrid() {
     className: "eyebrow"
   }, "What We Do"), /*#__PURE__*/React.createElement("h2", {
     className: "h2"
-  }, "Complete Roofing Services,", /*#__PURE__*/React.createElement("br", null), "One Local Crew")), /*#__PURE__*/React.createElement("p", {
+  }, "Roof Replacement Specialists,", /*#__PURE__*/React.createElement("br", null), "One Local Crew")), /*#__PURE__*/React.createElement("p", {
     className: "lead",
     style: {
       maxWidth: 380
     }
-  }, "No two roofs are the same. We'll give it to you straight and point you to what yours actually needs — a repair, a coating, or a full replacement — not whatever rings up the biggest.")), /*#__PURE__*/React.createElement("div", {
+  }, "Most of our work is full tear-offs and new roofs in tile, shingle and metal. We'll still tell you straight if yours only needs a repair or a coating \u2014 but when it's time for a new roof, you want the crew that puts them on every week.")), /*#__PURE__*/React.createElement("div", {
     className: "svc-grid"
   }, SVC_CARDS.map(c => /*#__PURE__*/React.createElement("article", {
     className: "svc-card",
@@ -166,7 +169,7 @@ function WhyChooseUs() {
     }
   }, "The Local, Owner-Led Difference"), /*#__PURE__*/React.createElement("p", {
     className: "whyx__lead"
-  }, "A lot of roofing outfits in town are national chains chasing a sales number. We're not. We're a family-owned, owner-led Tucson crew — and whether it's a simple leak or a full replacement, you get a roofer who's done this a thousand times and cares about getting it right the first."), /*#__PURE__*/React.createElement("ul", {
+  }, "A lot of roofing outfits in town are national chains chasing a sales number. We're not. We're a family-owned, owner-led Tucson crew \u2014 and whether it's a full replacement or a stubborn leak, you get a roofer who's done this a thousand times and cares about getting it right the first."), /*#__PURE__*/React.createElement("ul", {
     className: "whyx__list"
   }, WHY.map(w => /*#__PURE__*/React.createElement("li", {
     className: "whyx__item",

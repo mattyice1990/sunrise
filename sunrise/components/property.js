@@ -6,7 +6,7 @@ const PROP_DATA = [{
   t: "Homeowners",
   h: "Protect Your Home & Your Budget",
   p: "From a surprise leak to a roof that's just plain done, we give homeowners honest answers and clear options, never a sales pitch.",
-  b: ["Free, fully-documented roof inspections", "Repair-first guidance to avoid premature replacement", "Energy-efficient metal & tile upgrades for AZ heat", "Flexible financing on approved credit"],
+  b: ["Free, fully-documented roof inspections", "Straight repair-vs-replace advice, with photos", "Energy-efficient metal & tile upgrades for AZ heat", "Flexible financing on approved credit"],
   slot: "prop-home",
   src: "uploads/residential-roofing-tucson-aerial.jpg"
 }, {
