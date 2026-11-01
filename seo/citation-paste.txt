@@ -18,13 +18,12 @@ Hours            : Mo-Fr 06:00-18:00, Sa 08:00-16:00
 Primary category : Roofing Contractor
 Other categories : Roof Repair Service, Commercial Roofing
 Service areas    : Tucson, Marana, Oro Valley, Sahuarita, Green Valley, Vail
-Owners           : Eddie Guillen & Viky Guillen
 
 SHORT DESCRIPTION (160 chars)
 Licensed Tucson roofing contractor (ROC #358079) specializing in full roof replacement in tile, shingle and metal, plus repairs and coatings across Pima County.
 
-LONG DESCRIPTION (400 chars)
-Sunrise Roofers LLC is a licensed and bonded roofing contractor serving Tucson, Marana, Oro Valley, Sahuarita, Green Valley and Vail. Owners Eddie and Viky Guillen specialize in full roof replacement: tile re-felts and underlayment, shingle tear-offs and metal roof installation, with free itemized estimates and financing. They also handle roof repair, flat roof coatings and skylights. ROC #358079.
+LONG DESCRIPTION (388 chars)
+Sunrise Roofers LLC is a licensed and bonded roofing contractor serving Tucson, Marana, Oro Valley, Sahuarita, Green Valley and Vail. The Sunrise crew specializes in full roof replacement: tile re-felts and underlayment, shingle tear-offs and metal roof installation, with free itemized estimates and financing. They also handle roof repair, flat roof coatings and skylights. ROC #358079.
 
 EXISTING PROFILES (link these as 'social' / 'other' wherever a field exists)
   google     https://www.google.com/maps?cid=2878962440155556072
@@ -36,5 +35,5 @@ EXISTING PROFILES (link these as 'social' / 'other' wherever a field exists)
 
 RULES
   - Paste the address EXACTLY as above. No comma before 'Ste'.
-  - Never use 520-753-1758 (Eddie's direct line - CallRail can't track it) or 520-210-5284 (ads-only) in a citation.
+  - Never use 520-753-1758 (the owner's direct line - CallRail can't track it) or 520-210-5284 (ads-only) in a citation.
   - If a directory forces a different format, record it in seo/citations.md.

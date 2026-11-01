@@ -1,5 +1,5 @@
 /**
- * Sunrise Roofers — GA4 event when a visitor clicks or copies Eddie's email.
+ * Sunrise Roofers — GA4 event when a visitor clicks or copies the company email.
  *
  * Sends `email_contact` with `method` = click | copy and `link_location` =
  * nav | footer | contact | body. GA4 attributes each event to the visit's own

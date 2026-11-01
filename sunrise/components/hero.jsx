@@ -17,7 +17,7 @@ const HERO_INSURANCE = { big: "$1M", small: "Liability Insured" };
    old Get-a-Free-Estimate / Call button pair: the estimate CTA now lives in the
    form to the right, and the phone stays as a text link underneath, because
    calls remain the dominant lead channel (16 of 17 last week came by phone).
-   "1,000+ Roofs in 20+ Years" is framed as Eddie's career, not the LLC's, so it
+   "1,000+ Roofs in 20+ Years" is framed as the crew's track record, not just the LLC's, so it
    does not contradict foundingDate 2025 in seo/nap.json. */
 const HERO_TRUST = [
   { big: "Lifetime", small: "Guarantee" },
@@ -102,7 +102,7 @@ function HeroForm() {
       <div className="heroform heroform--done" role="status">
         <Icon name="check-c" />
         <h3>Got it — thank you.</h3>
-        <p>Eddie will reach out shortly. Need us sooner? Call or text <a href="tel:5207531758">520-753-1758</a>.</p>
+        <p>Our team will reach out shortly. Need us sooner? Call or text <a href="tel:5207531758">520-753-1758</a>.</p>
       </div>
     );
   }
@@ -336,12 +336,12 @@ function Hero() {
         {/* Hero message — rises into view as the logo exits */}
         <div className="hero__inner" ref={textRef} style={{ opacity: 0 }}>
           <div className="container">
-            <p className="eyebrow hero__eyebrow">Family-Owned by Eddie &amp; Viky Guillen · ROC #358079</p>
+            <p className="eyebrow hero__eyebrow">Family-Owned Tucson Roofing Company · ROC #358079</p>
             <h1 className="h-display">Tucson Roofers for Full Roof Replacement &amp; <em>New Roofs</em></h1>
             <p className="hero__body">
-              Sunrise is Eddie and Viky Guillen &mdash; a Tucson family business.
-              Eddie's been on these roofs 20-plus years and runs every job
-              like his name's on it, because it is. Our specialty is the whole job:
+              Sunrise Roofers is a Tucson family business with a crew that's
+              been on these roofs 20-plus years and runs every job like our
+              name's on it, because it is. Our specialty is the whole job:
               tear-off, new underlayment, and a tile, shingle or metal roof that
               finally quits leaking, with an itemized price and financing if you want
               it. We fix leaks too, when a repair is honestly what it needs. No

@@ -49,7 +49,7 @@ function ServiceCardGrid() {
 }
 
 const WHY = [
-  { ic: "check-c", t: "No Hidden Fees", d: "The number I quote you is the number you pay — no surprises waiting at the end." },
+  { ic: "check-c", t: "No Hidden Fees", d: "The number we quote you is the number you pay — no surprises waiting at the end." },
   { ic: "search", t: "Free Roof Inspections & Estimates", d: "We don't charge you to climb up and take an honest look at your roof." },
   { ic: "badge", t: "Properly Licensed", d: "Arizona ROC #358079 — bonded, insured, and built to local code." },
   { ic: "shield", t: "GAF-Certified Systems", d: "GAF-certified work with a manufacturer warranty behind every roof we put on." },

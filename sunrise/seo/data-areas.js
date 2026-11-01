@@ -13,7 +13,7 @@ function areaPage(o) {
       eyebrow: o.eyebrow || `Roofing · ${o.city}, AZ`,
       h1: o.h1,
       sub: o.sub,
-      chips: ["Family-owned — the Guillens", "Free, no-pressure inspections", "Licensed & Insured · ROC #358079", "Tile, shingle, metal & flat"],
+      chips: ["Family-owned Tucson company", "Free, no-pressure inspections", "Licensed & Insured · ROC #358079", "Tile, shingle, metal & flat"],
     },
     intro: {
       kicker: `Serving ${o.city}`,
@@ -46,7 +46,7 @@ function areaPage(o) {
       },
     ].concat(o.extraSections || []),
     process: [
-      { t: "Call or text Eddie", d: `Get us at 520-753-1758 and we'll set up your free ${o.city} roof look — no obligation, no closer in a polo.` },
+      { t: "Call or text our team", d: `Get us at 520-753-1758 and we'll set up your free ${o.city} roof look — no obligation, no closer in a polo.` },
       { t: "We climb up and look", d: "We get on the roof, take photos, and tell you what's really going on — not whatever rings up the biggest." },
       { t: "Honest written estimate", d: "Itemized pricing, real repair-vs-replace advice, and financing if you want it. No scare tactics." },
       { t: "We do it right", d: "Our own crew, a clean job site, and a warranty that means we come back if it ever needs us." },
@@ -55,7 +55,7 @@ function areaPage(o) {
     related: o.related || ["roof-replacement", "tile-roofing", "roof-repair", "roof-inspection"],
     relatedH: o.relatedH,
     ctaH: `Need a roofer in ${o.city}?`,
-    ctaSub: `Free, itemized replacement estimate (or a straight repair price) from a licensed Tucson family that actually works ${o.city} and the rest of Pima County. You call, you get Eddie.`,
+    ctaSub: `Free, itemized replacement estimate (or a straight repair price) from a licensed local crew that actually works ${o.city} and the rest of Pima County. You call, you get a roofer, not a closer.`,
   };
 }
 

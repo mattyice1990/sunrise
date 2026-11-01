@@ -12,13 +12,13 @@ export const GBP = {
   businessType: 'Roofing contractor (residential + commercial), Tucson AZ',
   serviceArea: 'Tucson, Oro Valley, Marana, Catalina Foothills, Green Valley, Vail',
 
-  // Brand voice for the posts. Sunrise is Eddie & Viky Guillen, a Tucson family
+  // Brand voice for the posts. Sunrise is a family-owned Tucson roofing company (owners asked, Nov 2026, not to be named: write as the crew)
   // (ROC #358079, 20+ yrs, GAF-certified). First-person, plainspoken, confident,
   // a little personality; contractions; hard-varied sentence length (short punches
   // mixed with longer lines); concrete desert/monsoon detail. Never salesy, hypey,
-  // or generic-AI. Think "you call, you get Eddie" — a real roofer, not a brochure.
+  // or generic-AI. Think "you call, you get the crew that does the work" — real roofers, not a brochure.
   voiceTone:
-    "first-person family roofer (Eddie & Viky Guillen, Tucson); plainspoken, confident, a little personality; contractions, hard-varied sentence length, concrete desert detail; never salesy, hypey, or generic-AI",
+    "first-person plural Tucson roofing crew (\"we\" / \"our crew\"; never \"I\", never a named owner or employee); plainspoken, confident, a little personality; contractions, hard-varied sentence length, concrete desert detail; never salesy, hypey, or generic-AI",
   targetKeywords: [
     'roofing contractor Tucson',
     'roof repair Tucson',

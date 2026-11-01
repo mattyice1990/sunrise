@@ -87,7 +87,7 @@ function ContactForm() {
           <div className="contact__side">
             <p className="eyebrow">Let's Talk</p>
             <h2 className="h2" style={{ marginBottom: 16 }}>Let's Take a Look at Your Roof</h2>
-            <p className="lead">Tell me what's going on up there &mdash; an old roof that's due for replacement, a leak, or storm damage &mdash; and we'll get you on the books for a free inspection.</p>
+            <p className="lead">Tell us what's going on up there &mdash; an old roof that's due for replacement, a leak, or storm damage &mdash; and we'll get you on the books for a free inspection.</p>
             <div className="contact__info">
               <div className="contact__row">
                 <span className="ic"><Icon name="phone" /></span>
@@ -118,7 +118,7 @@ function ContactForm() {
               <div className="form-success">
                 <div className="ic"><Icon name="check-c" /></div>
                 <h3>Request Received</h3>
-                <p>Thanks, {vals.name.split(" ")[0] || "there"}! I'll get back to you within a business day to set up your free inspection. If it's leaking right now, don't wait on email &mdash; call or text 520-753-1758.</p>
+                <p>Thanks, {vals.name.split(" ")[0] || "there"}! We'll get back to you within a business day to set up your free inspection. If it's leaking right now, don't wait on email &mdash; call or text 520-753-1758.</p>
                 <button className="btn btn--ghost btn--sm" style={{ marginTop: 24 }} onClick={() => { setSent(false); setVals({ name: "", phone: "", email: "", address: "", service: "", message: "" }); }}>Submit Another Request</button>
               </div>
             ) : (

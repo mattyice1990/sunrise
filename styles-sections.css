@@ -301,7 +301,7 @@ body.brand-real .footer .logo__pimg--light { display: block; }
 /* ============ MEET THE OWNER ============ */
 .owner__grid { display: grid; grid-template-columns: 1fr 1.06fr; gap: clamp(44px, 6vw, 92px); align-items: center; }
 .owner__media { position: relative; }
-/* comic speech bubble — sits above the cutout, tail pointing down at Eddie */
+/* comic speech bubble — sits above the cutout, tail pointing down at the photo */
 .owner__bubble {
   position: relative; z-index: 3; background: #fff; border: 3px solid var(--ink);
   border-radius: 26px; padding: 20px 26px 22px; max-width: 380px; margin: 0 0 -4px 10px;
@@ -314,7 +314,7 @@ body.brand-real .footer .logo__pimg--light { display: block; }
 .owner__bubble::before { left: 50px; bottom: -26px; border: 16px solid transparent; border-top-color: var(--ink); border-bottom: 0; }
 .owner__bubble::after  { left: 54px; bottom: -18px; border: 12px solid transparent; border-top-color: #fff;       border-bottom: 0; }
 
-/* Eddie — clean rounded photo */
+/* Crew photo — clean rounded */
 .owner__photo { width: min(460px, 100%); margin: 0 auto; }
 .owner__photo image-slot {
   display: block; width: 100%; height: clamp(360px, 40vw, 500px);

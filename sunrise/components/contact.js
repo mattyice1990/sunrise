@@ -139,7 +139,7 @@ function ContactForm() {
     }
   }, "Let's Take a Look at Your Roof"), /*#__PURE__*/React.createElement("p", {
     className: "lead"
-  }, "Tell me what's going on up there \u2014 an old roof that's due for replacement, a leak, or storm damage \u2014 and we'll get you on the books for a free inspection."), /*#__PURE__*/React.createElement("div", {
+  }, "Tell us what's going on up there \u2014 an old roof that's due for replacement, a leak, or storm damage \u2014 and we'll get you on the books for a free inspection."), /*#__PURE__*/React.createElement("div", {
     className: "contact__info"
   }, /*#__PURE__*/React.createElement("div", {
     className: "contact__row"
@@ -216,7 +216,7 @@ function ContactForm() {
     className: "ic"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "check-c"
-  })), /*#__PURE__*/React.createElement("h3", null, "Request Received"), /*#__PURE__*/React.createElement("p", null, "Thanks, ", vals.name.split(" ")[0] || "there", "! I'll get back to you within a business day to set up your free inspection. If it's leaking right now, don't wait on email \u2014 call or text 520-753-1758."), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/React.createElement("h3", null, "Request Received"), /*#__PURE__*/React.createElement("p", null, "Thanks, ", vals.name.split(" ")[0] || "there", "! We'll get back to you within a business day to set up your free inspection. If it's leaking right now, don't wait on email \u2014 call or text 520-753-1758."), /*#__PURE__*/React.createElement("button", {
     className: "btn btn--ghost btn--sm",
     style: {
       marginTop: 24

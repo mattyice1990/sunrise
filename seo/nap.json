@@ -14,15 +14,15 @@
     "display": "(520) 783-3976",
     "e164": "+15207833976",
     "dashed": "520-783-3976",
-    "_note": "The public listing number: the CallRail number on Google Business Profile, so a call from a directory, schema rich result or AI answer is tracked and still rings Eddie. Use it in every citation, schema telephone and llms.txt. NEVER in paid ads - the ads call asset is 520-210-5284. (Changed 2026-10-28 from 520-753-1758, Eddie's direct line, which CallRail cannot see.)",
+    "_note": "The public listing number: the CallRail number on Google Business Profile, so a call from a directory, schema rich result or AI answer is tracked and still rings the owner's cell. Use it in every citation, schema telephone and llms.txt. NEVER in paid ads - the ads call asset is 520-210-5284. (Changed 2026-10-28 from 520-753-1758, the owner's direct line, which CallRail cannot see.)",
     "swapTarget": "520-753-1758",
-    "_swapTargetNote": "Eddie's direct line. It stays as the VISIBLE number in page text and tel: links only because it is CallRail's swap target - swap.js replaces it with a tracking number for every visitor. check-nap.mjs fails if it appears anywhere swap.js cannot reach (meta tags, JSON-LD, llms.txt, citations)."
+    "_swapTargetNote": "the owner's direct line. It stays as the VISIBLE number in page text and tel: links only because it is CallRail's swap target - swap.js replaces it with a tracking number for every visitor. check-nap.mjs fails if it appears anywhere swap.js cannot reach (meta tags, JSON-LD, llms.txt, citations)."
   },
   "email": "eddie@roofwithsunrise.com",
   "website": "https://roofwithsunrise.com",
   "license": "ROC #358079",
   "foundingDate": "2025",
-  "owners": ["Eddie Guillen", "Viky Guillen"],
+  "owners": [],
   "hours": "Mo-Fr 06:00-18:00, Sa 08:00-16:00",
   "categories": {
     "primary": "Roofing Contractor",
@@ -31,7 +31,7 @@
   "serviceAreas": ["Tucson", "Marana", "Oro Valley", "Sahuarita", "Green Valley", "Vail"],
   "descriptions": {
     "short": "Licensed Tucson roofing contractor (ROC #358079) specializing in full roof replacement in tile, shingle and metal, plus repairs and coatings across Pima County.",
-    "medium": "Sunrise Roofers LLC is a licensed and bonded roofing contractor serving Tucson, Marana, Oro Valley, Sahuarita, Green Valley and Vail. Owners Eddie and Viky Guillen specialize in full roof replacement: tile re-felts and underlayment, shingle tear-offs and metal roof installation, with free itemized estimates and financing. They also handle roof repair, flat roof coatings and skylights. ROC #358079."
+    "medium": "Sunrise Roofers LLC is a licensed and bonded roofing contractor serving Tucson, Marana, Oro Valley, Sahuarita, Green Valley and Vail. The Sunrise crew specializes in full roof replacement: tile re-felts and underlayment, shingle tear-offs and metal roof installation, with free itemized estimates and financing. They also handle roof repair, flat roof coatings and skylights. ROC #358079."
   },
   "profiles": {
     "google": "https://www.google.com/maps?cid=2878962440155556072",

@@ -109,9 +109,9 @@ function deAiFiller(html) {
   return out.replace(/  +/g, ' ').replace(/>\s+</g, '><');
 }
 
-const HUMANIZE_PROMPT = `You are editing one blog article for Sunrise Roofers, a family-owned Tucson roofing company (owners Eddie & Viky Guillen, ROC #358079). Rewrite the article body so it reads like a real Tucson roofer wrote it, not AI.
+const HUMANIZE_PROMPT = `You are editing one blog article for Sunrise Roofers, a family-owned Tucson roofing company (ROC #358079; the company speaks as a team — never name owners or staff). Rewrite the article body so it reads like a real Tucson roofer wrote it, not AI.
 
-VOICE: first-person where natural ("we", sometimes Eddie speaking), plain-spoken, confident, a little personality. Contractions. Vary sentence length hard — mix three-word sentences with longer ones. Concrete and specific over generic. No sales fluff, no hype.
+VOICE: first-person plural where natural ("we", "our crew"; never "I"), plain-spoken, confident, a little personality. Contractions. Vary sentence length hard — mix three-word sentences with longer ones. Concrete and specific over generic. No sales fluff, no hype.
 
 CUT every AI tell: "plays a crucial role", "peace of mind", "when it comes to", "rest assured", "in today's world", "the first step toward", "look no further", "moreover/furthermore", "not only X but also Y", tricolons, uniform paragraph lengths.
 

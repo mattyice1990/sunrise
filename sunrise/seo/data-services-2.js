@@ -389,7 +389,7 @@ Object.assign(window.SEO, {
       kicker: "Storm Response",
       h: "Leak after the storm? Let's get it stopped today.",
       lead: [
-        "A monsoon rolls through, the wind gets under a tile or peels back a piece of flashing, and by the time you notice it there's water coming through the ceiling. That's the call I get twenty times a season.",
+        "A monsoon rolls through, the wind gets under a tile or peels back a piece of flashing, and by the time you notice it there's water coming through the ceiling. That's the call we get twenty times a season.",
         "Tarp it, document it, fix it. In that order. The tarp protects your house right now, the photos protect you when you file, and the repair is what keeps you from doing this again next August.",
       ],
       bullets: ["Same-day emergency tarping", "Monsoon, wind & hail damage", "Dated photos for your claim", "Permanent repair, not just a patch"],
@@ -404,7 +404,7 @@ Object.assign(window.SEO, {
         kicker: "Know What You're Looking At", h: "What storm damage looks like on a Tucson roof",
         p: [
           "Most of it doesn't look like a hole. After a monsoon blows through, the damage is small and quiet — a tile that slid two inches, a flashing edge the wind got under, a coating that split at a seam. You won't see any of that from the driveway. You'll see it three weeks later as a brown ring spreading across the ceiling.",
-          "Here's what I'm up there checking for after a storm.",
+          "Here's what we're up there checking for after a storm.",
         ],
         cards: [
           { ic: "layers", t: "Cracked & Slipped Tile", d: "Wind lifts a tile and sets it back down crooked. The underlayment underneath takes the next rain straight on." },
@@ -424,18 +424,18 @@ Object.assign(window.SEO, {
       {
         kicker: "Insurance Claims", h: "We document it. Your carrier decides.",
         p: [
-          "Let me be straight with you, because the storm-chaser crews working your street this week won't be: I can't tell you whether your claim gets approved. I don't work for your insurance company, and neither does anybody knocking on your door promising you a brand new roof. What your policy covers is between you and your carrier.",
-          "What I can do is hand your adjuster a file that's hard to argue with. Dated photos, wide shots and close-ups, where the damage sits on the roof, what caused it, and what it takes to fix. If your adjuster wants to walk the roof, I'll meet them up there and we'll go over it together.",
+          "We'll be straight with you, because the storm-chaser crews working your street this week won't be: we can't tell you whether your claim gets approved. We don't work for your insurance company, and neither does anybody knocking on your door promising you a brand new roof. What your policy covers is between you and your carrier.",
+          "What we can do is hand your adjuster a file that's hard to argue with. Dated photos, wide shots and close-ups, where the damage sits on the roof, what caused it, and what it takes to fix. If your adjuster wants to walk the roof, we'll meet them up there and go over it together.",
         ],
         bullets: ["Dated photo documentation, inside and out", "Written scope of the damage", "We meet your adjuster on site", "Itemized repair estimate for the file"],
       },
       {
-        kicker: "Who Shows Up", h: "You call, you get Eddie",
+        kicker: "Who Shows Up", h: "You call, you get the crew that does the work",
         p: [
-          "This is a family business. My wife Viky and I run it, roofing is the trade our family works in, and I've been on Tucson roofs for more than 20 years. No commission reps, no closers. The guy who looks at your roof is the guy doing the work on it.",
-          "Licensed and insured, Arizona ROC #358079, GAF Certified+. After a big storm, half the trucks in town have a magnet sign and an out-of-state plate. We'll still be here next monsoon season, and the season after that. I won't put anything up there I wouldn't put on my own house.",
+          "This is a family business. Roofing is the trade our family works in, and our crew has been on Tucson roofs for more than 20 years. No commission reps, no closers. The roofer who looks at your roof is part of the crew that does the work on it.",
+          "Licensed and insured, Arizona ROC #358079, GAF Certified+. After a big storm, half the trucks in town have a magnet sign and an out-of-state plate. We'll still be here next monsoon season, and the season after that. We won't put anything up there we wouldn't put on our own houses.",
         ],
-        bullets: ["Family-owned — Eddie & Viky Guillen", "Arizona ROC #358079, licensed & insured", "GAF Certified+ contractor", "20+ years on Tucson roofs"],
+        bullets: ["Family-owned Tucson company", "Arizona ROC #358079, licensed & insured", "GAF Certified+ contractor", "20+ years on Tucson roofs"],
       },
       {
         kicker: "Related Guides", h: "Storm damage & insurance guides",
@@ -464,8 +464,8 @@ Object.assign(window.SEO, {
     },
     processH: "How Storm Response Works",
     process: [
-      { t: "Call or Text", d: "Reach us at 520-753-1758 and tell me what you're seeing. Water coming inside goes to the front of the line." },
-      { t: "We Get Out and Look", d: "Free storm-damage inspection. I go up on the roof, into the attic if I need to, and I show you the photos." },
+      { t: "Call or Text", d: "Reach us at 520-753-1758 and tell us what you're seeing. Water coming inside goes to the front of the line." },
+      { t: "We Get Out and Look", d: "Free storm-damage inspection. We go up on the roof, into the attic if we need to, and we show you the photos." },
       { t: "Stop the Water", d: "Emergency tarping and leak control, same visit when the roof is actively letting rain in." },
       { t: "Document the Damage", d: "Dated photos, a written scope and an itemized estimate you can hand straight to your adjuster." },
       { t: "Repair It for Real", d: "Tile reset, flashing rebuilt, underlayment replaced, coating patched — whatever the roof actually needs." },
@@ -474,10 +474,10 @@ Object.assign(window.SEO, {
     faqs: [
       { q: "There's water coming through my ceiling right now. What do I do?", a: "Move whatever's under it and get a bucket down. If the ceiling is bulging with trapped water and you can reach it safely from a step ladder, a small hole in the middle lets it drain in one spot instead of coming down all at once. Then call us. Don't climb up on a wet roof to look — that's how people get hurt, and it's our job anyway." },
       { q: "Do you tarp the same day?", a: "If the roof is actively leaking, that's the plan. Call early in the day if you can. During a bad monsoon week we're stacked up, but live water inside somebody's house jumps ahead of everything else on the schedule." },
-      { q: "How do I get insurance to pay for roof replacement after a storm?", a: "I honestly can't tell you. That's your carrier's call and it comes down to your policy, your deductible and what the adjuster finds. Anybody who tells you over the phone that you're getting a new roof out of it is guessing. What I do is document the damage properly and work with your adjuster — the decision is theirs, not mine." },
-      { q: "What's in the documentation you give my adjuster?", a: "Dated photos: wide shots of the whole roof, close-ups of every damaged area, and interior shots of the ceiling or wall damage. Then a written scope of what's wrong and an itemized estimate to repair it. If your adjuster wants to walk the roof with me, I'll be there." },
-      { q: "What does hail damage look like on a roof?", a: "You usually can't see it from the ground. Slipped tile, a lifted flashing edge, a split in a coating — they all look like nothing from the driveway and every one of them leaks. After a hard blow, have somebody get up there and look. It takes me under an hour." },
-      { q: "Do you charge for the storm damage inspection?", a: "No. Free inspection, you get the photos either way, and you get a straight answer. If your roof came through the storm fine, I'll tell you it came through fine. I'd rather you call me in five years when you actually need something." },
+      { q: "How do I get insurance to pay for roof replacement after a storm?", a: "We honestly can't tell you. That's your carrier's call and it comes down to your policy, your deductible and what the adjuster finds. Anybody who tells you over the phone that you're getting a new roof out of it is guessing. What we do is document the damage properly and work with your adjuster — the decision is theirs, not ours." },
+      { q: "What's in the documentation you give my adjuster?", a: "Dated photos: wide shots of the whole roof, close-ups of every damaged area, and interior shots of the ceiling or wall damage. Then a written scope of what's wrong and an itemized estimate to repair it. If your adjuster wants to walk the roof with us, we'll be there." },
+      { q: "What does hail damage look like on a roof?", a: "You usually can't see it from the ground. Slipped tile, a lifted flashing edge, a split in a coating — they all look like nothing from the driveway and every one of them leaks. After a hard blow, have somebody get up there and look. It takes us under an hour." },
+      { q: "Do you charge for the storm damage inspection?", a: "No. Free inspection, you get the photos either way, and you get a straight answer. If your roof came through the storm fine, we'll tell you it came through fine. We'd rather you call us in five years when you actually need something." },
       { q: "Is this a temporary fix or a real repair?", a: "Both, in that order. The tarp is temporary and it's there to protect the house. The repair is the real one — tile reset on new underlayment, flashing rebuilt, seams redone. We schedule it once the weather clears and the scope is settled." },
     ],
     related: ["roof-replacement", "emergency-roof-repair", "roof-repair", "roof-inspection"],

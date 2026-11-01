@@ -79,7 +79,7 @@ for (const file of walk(".")) {
     }
   }
 
-  // Eddie's direct line is allowed only where swap.js replaces it: visible
+  // The owner's direct line is allowed only where swap.js replaces it: visible
   // text and tel: links on pages that load the snippet. Anywhere a crawler, a
   // share card, a directory or an AI reads it raw, a call to it is invisible
   // to CallRail, so it must be the listing number (nap.phone) instead.

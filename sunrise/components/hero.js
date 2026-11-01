@@ -16,7 +16,7 @@ const HERO_INSURANCE = {
    old Get-a-Free-Estimate / Call button pair: the estimate CTA now lives in the
    form to the right, and the phone stays as a text link underneath, because
    calls remain the dominant lead channel (16 of 17 last week came by phone).
-   "1,000+ Roofs in 20+ Years" is framed as Eddie's career, not the LLC's, so it
+   "1,000+ Roofs in 20+ Years" is framed as the crew's track record, not just the LLC's, so it
    does not contradict foundingDate 2025 in seo/nap.json. */
 const HERO_TRUST = [{
   big: "Lifetime",
@@ -112,7 +112,7 @@ function HeroForm() {
       role: "status"
     }, /*#__PURE__*/React.createElement(Icon, {
       name: "check-c"
-    }), /*#__PURE__*/React.createElement("h3", null, "Got it \u2014 thank you."), /*#__PURE__*/React.createElement("p", null, "Eddie will reach out shortly. Need us sooner? Call or text ", /*#__PURE__*/React.createElement("a", {
+    }), /*#__PURE__*/React.createElement("h3", null, "Got it \u2014 thank you."), /*#__PURE__*/React.createElement("p", null, "Our team will reach out shortly. Need us sooner? Call or text ", /*#__PURE__*/React.createElement("a", {
       href: "tel:5207531758"
     }, "520-753-1758"), "."));
   }
@@ -401,11 +401,11 @@ function Hero() {
     className: "container"
   }, /*#__PURE__*/React.createElement("p", {
     className: "eyebrow hero__eyebrow"
-  }, "Family-Owned by Eddie & Viky Guillen \xB7 ROC #358079"), /*#__PURE__*/React.createElement("h1", {
+  }, "Family-Owned Tucson Roofing Company \xB7 ROC #358079"), /*#__PURE__*/React.createElement("h1", {
     className: "h-display"
   }, "Tucson Roofers for Full Roof Replacement & ", /*#__PURE__*/React.createElement("em", null, "New Roofs")), /*#__PURE__*/React.createElement("p", {
     className: "hero__body"
-  }, "Sunrise is Eddie and Viky Guillen \u2014 a Tucson family business. Eddie's been on these roofs 20-plus years and runs every job like his name's on it, because it is. Our specialty is the whole job: tear-off, new underlayment, and a tile, shingle or metal roof that finally quits leaking, with an itemized price and financing if you want it. We fix leaks too, when a repair is honestly what it needs. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
+  }, "Sunrise Roofers is a Tucson family business with a crew that's been on these roofs 20-plus years and runs every job like our name's on it, because it is. Our specialty is the whole job: tear-off, new underlayment, and a tile, shingle or metal roof that finally quits leaking, with an itemized price and financing if you want it. We fix leaks too, when a repair is honestly what it needs. No pressure, no closers, no sign-today games."), /*#__PURE__*/React.createElement("div", {
     className: "hero__cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn--primary",

@@ -7,7 +7,7 @@
 
 ## 1. What this is
 
-- **Business:** Sunrise Roofers LLC — family-owned roofing contractor in Tucson, AZ. Owners **Eddie & Viky Guillen**. License **ROC #358079**. GAF-certified. 20+ years on Arizona roofs.
+- **Business:** Sunrise Roofers LLC — family-owned roofing contractor in Tucson, AZ. Family-owned; **since Nov 2026 the site and all generated content speak as the team and name no individuals** (owner request). License **ROC #358079**. GAF-certified. 20+ years on Arizona roofs.
 - **Site:** https://roofwithsunrise.com — hosted on **Vercel**, repo **`mattyice1990/sunrise`** (branch `main`).
 - **What it really is under the hood:** a marketing website **plus** a small automated content-marketing engine (the "GBP app") that turns job photos into Google Business Profile posts and blog articles with almost no manual work.
 
@@ -86,12 +86,12 @@ api/gbp-admin (gbp-admin.html)  — web UI to review / edit / approve / schedule
 ## 3. Content / voice work (done June 2026)
 
 The blog was flagged "high AI content" because posts were machine-written. Fixed:
-- **All 44 blog posts** rewritten into the owner voice (Eddie & Viky, plainspoken, hard-varied sentence length, concrete desert detail) — verified to preserve every link/image/iframe/heading; AI-filler phrases 70 → 0.
+- **All 44 blog posts** rewritten into the owner voice (plainspoken, hard-varied sentence length, concrete desert detail) — verified to preserve every link/image/iframe/heading; AI-filler phrases 70 → 0.
 - **Hero + 6 service-area pages** rewritten in the same voice.
-- **Source fix:** `lib/gbp/blog.js` generation prompt now writes as Eddie with explicit human-writing rules + a banned-phrase list, so new posts come out human on the first draft. `api/blog-webhook.js`'s `humanizeArticleHtml()` is a **backstop** second pass (cheap Haiku model) that catches anything that slips through.
+- **Source fix:** `lib/gbp/blog.js` generation prompt now writes as the crew with explicit human-writing rules + a banned-phrase list, so new posts come out human on the first draft. `api/blog-webhook.js`'s `humanizeArticleHtml()` is a **backstop** second pass (cheap Haiku model) that catches anything that slips through.
 - **Model:** GBP generation defaults bumped to **Claude Sonnet 4.6** (overridable via `ANTHROPIC_MODEL`).
 
-**Owner voice reference:** first-person, family-owned, "you call, you get Eddie," "no commission reps, no closers," "I won't put anything up there I wouldn't put on my own house." Roofing is a **family trade** — NOT "learned from his dad."
+**Voice reference (team voice since Nov 2026):** first-person plural, family-owned, "you call, you get the crew that does the work," "no commission reps, no closers," "I won't put anything up there I wouldn't put on my own house." Roofing is a **family trade** — NOT "learned from his dad."
 
 ---
 

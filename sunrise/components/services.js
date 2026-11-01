@@ -103,7 +103,7 @@ function ServiceCardGrid() {
 const WHY = [{
   ic: "check-c",
   t: "No Hidden Fees",
-  d: "The number I quote you is the number you pay — no surprises waiting at the end."
+  d: "The number we quote you is the number you pay — no surprises waiting at the end."
 }, {
   ic: "search",
   t: "Free Roof Inspections & Estimates",
