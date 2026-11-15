@@ -45,7 +45,56 @@ const NAV_REQUIRED = [
 ];
 
 /* Components that are chrome, interactive, or live-data only — not content. */
-const SKIP_COMPONENTS = new Set(["TopBar", "HeaderNav", "MobileMenu", "HeroForm", "GoogleReviews", "Chat"]);
+const SKIP_COMPONENTS = new Set(["TopBar", "HeaderNav", "MobileMenu", "HeroForm", "Chat"]);
+
+/* ------------------------------------------------------------ Google reviews
+ * <GoogleReviews/> is a marquee fed by /api/gbp-reviews in the browser, so a
+ * crawler that does not run JavaScript saw no review text at all. Here it is
+ * replaced by real reviews as plain HTML, from the data/reviews.json snapshot
+ * (scripts/sync-reviews.mjs), full text and dated, so a build needs no network.
+ *
+ * How many: every review on /reviews, the newest eight on the homepage, and
+ * three on each other page, a different three per page so forty service pages
+ * do not all carry the same paragraph of text.
+ *
+ * Deliberately NOT marked up as schema.org Review: these are Google's reviews,
+ * and Google's structured-data rules do not allow marking up reviews collected
+ * from another site. They are here to be read, by people and by crawlers. */
+const REVIEWS_FILE = path.join(ROOT, "data", "reviews.json");
+const REVIEWS = existsSync(REVIEWS_FILE) ? JSON.parse(readFileSync(REVIEWS_FILE, "utf8")) : null;
+const REVIEWS_URL = "https://www.google.com/maps?cid=2878962440155556072";
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let currentShell = { file: "", page: "" }; // set by renderShell
+
+function reviewsFor(shell, all) {
+  if (shell.page === "reviews") return all;
+  if (shell.file === "index.html") return all.slice(0, 8);
+  // A stable offset from the file name: the same page always shows the same
+  // three, and a new review moves the window by one instead of reshuffling.
+  let h = 0;
+  for (const ch of shell.file) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const pool = all.slice(0, Math.min(all.length, 30));
+  return [0, 1, 2].map((i) => pool[(h + i * 7) % pool.length]).filter((r, i, a) => a.indexOf(r) === i);
+}
+
+function reviewsHtml(shell) {
+  if (!REVIEWS || !Array.isArray(REVIEWS.reviews) || !REVIEWS.reviews.length) return "";
+  const rating = Number(REVIEWS.rating).toFixed(1);
+  const items = reviewsFor(shell, REVIEWS.reviews).map((r) => {
+    const d = r.date ? new Date(r.date) : null;
+    const when = d && !isNaN(d) ? `, ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}` : "";
+    return `<article>\n<p>${esc(r.text)}</p>\n<p>${esc(r.name)}, ${r.rating}-star Google review${when}</p>\n</article>`;
+  });
+  const more = shell.page === "reviews" ? "" : ' <a href="/reviews">More Sunrise Roofers reviews</a>';
+  return [
+    "<section>",
+    "<h2>Reviewed &amp; Rated on Google</h2>",
+    `<p>Rated ${rating} across ${REVIEWS.total} Google reviews from Tucson homeowners &amp; property managers.</p>`,
+    ...items,
+    `<p><a href="${REVIEWS_URL}" rel="noopener" target="_blank">Read all reviews on Google</a>${more}</p>`,
+    "</section>",
+  ].join("\n") + "\n";
+}
 /* Elements dropped with their subtree. */
 const DROP_TAGS = new Set(["svg", "video", "iframe", "form", "input", "select", "textarea", "button", "label", "option",
   "script", "style", "template", "canvas", "noscript", "audio", "source", "picture"]);
@@ -149,6 +198,7 @@ function render(node) {
   if (type === Fragment) return renderChildren(props.children);
   if (typeof type === "function") {
     if (SKIP_COMPONENTS.has(type.name)) return "";
+    if (type.name === "GoogleReviews") return reviewsHtml(currentShell);
     return render(type(props));
   }
   if (typeof type !== "string") return "";
@@ -231,6 +281,7 @@ function renderShell(file, html) {
     vm.runInContext(code, sb, { filename: rel });
   }
   if (!sb.__rendered) throw new Error(`${file}: nothing rendered (no ReactDOM.createRoot().render() reached)`);
+  currentShell = { file, page: globals.__page || "" };
   let body = render(sb.__rendered).trim();
   const h1s = (body.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) throw new Error(`${file}: rendered ${h1s} <h1> elements, expected 1`);

@@ -7,6 +7,8 @@
     "build:jsx": "node scripts/build-jsx.mjs",
     "prerender": "node scripts/prerender.mjs",
     "prerender:check": "node scripts/prerender.mjs --check",
+    "reviews:sync": "node scripts/sync-reviews.mjs",
+    "reviews": "node scripts/sync-reviews.mjs && node scripts/prerender.mjs",
     "check:nap": "node scripts/check-nap.mjs",
     "citations": "node scripts/citation-pack.mjs --write",
     "indexnow": "node scripts/indexnow.mjs",
