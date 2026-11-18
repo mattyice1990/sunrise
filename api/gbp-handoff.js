@@ -38,6 +38,9 @@ export default async function handler(req, res) {
       refresh_token: process.env.GBP_OAUTH_REFRESH_TOKEN || null,
       account_id: process.env.GBP_ACCOUNT_ID || null,
       location_id: process.env.GBP_LOCATION_ID || null,
+      // A refresh token only works with the OAuth client that issued it.
+      client_id: process.env.GOOGLE_OAUTH_CLIENT_ID || null,
+      client_secret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || null,
     },
   });
 }
